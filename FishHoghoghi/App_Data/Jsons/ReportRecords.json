@@ -1,0 +1,200 @@
+﻿{
+
+  "Setting": {
+    "CompanyName": "موسسه محافظین تخت جمشید البرز",
+    "BodyContentFontSize": 9,
+    "BodyTitleFontSize": 9,
+    "FooterFontSize": 10,
+    "FooterTitleFontSize": 9,
+    "HeaderFontSize": 9,
+    "HeaderTitleFontSize": 9,
+    "FontFamily": "B Nazanin"
+  },
+
+  "Header": [ "مرکز هزینه", "نام و نام خانوادگی", "کد پرسنلی" ],
+
+  "SubHeader": [ "مانده مرخصی ", "میزان مرخصی در ماه" ],
+
+  "Footer": [
+    "جمع اقساط وام",
+    "جمع كسور",
+    "جمع مزایا"
+  ],
+
+  "SubFooter": [ "شماره حساب", "خالص پرداختی" ],
+
+  "Report": [
+    {
+      "Title": "عوامل کارکرد",
+      "Contents": [
+        {
+          "Name": "کارکرد موثر",
+          "Title": "کارکرد موثر",
+          "Postfix": " روز",
+          "IsDecimal": true,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "کارکرد اضافه کاری",
+          "Title": "کارکرد اضافه کاری",
+          "Format": null,
+          "IsRequire": false,
+          "IsString": true,
+          "Postfix": " ساعت",
+          "IsNumber": true
+        },
+        {
+          "Name": "کارکرد تعطیل کاری",
+          "Title": "کارکرد تعطیل کاری",
+          "IsRequire": false,
+          "Postfix": "",
+          "IsDecimal": false,
+          "IsHourNumber": false,
+          "IsString": true
+        },
+        {
+          "Name": "کارکرد شبکاری",
+          "Title": "کارکرد شبکاری",
+          "Format": null,
+          "IsRequire": false,
+          "Postfix": "",
+          "IsDecimal": false,
+          "IsHourNumber": false,
+          "IsString": true
+        }
+      ]
+    },
+    {
+      "Title": "مزایا",
+      "Contents": [
+        {
+          "Name": "حقوق پایه",
+          "Title": "حقوق پایه",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "پایه سنوات",
+          "Title": "پایه سنوات",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "اضافه کاری",
+          "Title": "اضافه کاری",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "حق اولاد",
+          "Title": "حق اولاد",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "حق مسکن",
+          "Title": "حق مسکن",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "حق بن",
+          "Title": "حق بن",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "شبکاری",
+          "Title": "شبکاری",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "تعطیل کاری",
+          "Title": "تعطیل کاری",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "حق ناهار",
+          "Title": "حق ناهار",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "حق شیر",
+          "Title": "حق شیر",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "حق خواربار",
+          "Title": "حق خواربار",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "رند حقوق",
+          "Title": "رند حقوق",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        }
+      ]
+    },
+    {
+      "Title": "کسورات",
+      "Contents": [
+        {
+          "Name": "بیمه تامین اجتماعی",
+          "Title": "بیمه تامین اجتماعی",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "ماليات",
+          "Title": "ماليات",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        }
+      ]
+    },
+    {
+      "Title": "وام",
+      "Contents": []
+    }
+  ],
+
+  "limitYear": "1357",
+
+  "limitMonth": "01"
+}
