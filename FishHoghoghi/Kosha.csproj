@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -260,6 +261,7 @@
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\PayRollController.cs" />
     <Compile Include="Attribute\NoCacheAttribute.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\Directory.cs" />
     <Compile Include="Models\LabelModel.cs" />
@@ -493,6 +495,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Views\Info\" />
   </ItemGroup>
   <ItemGroup>
@@ -528,6 +531,7 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="app.manifest" />
+    <Content Include="Content\Reports\InsuranceReportAll.mrt" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -558,6 +562,7 @@
     <None Include="Properties\PublishProfiles\Kosha.pubxml" />
     <Content Include="Resource\B-NAZANIN.TTF" />
     <Content Include="Resource\Vazir-Light-FD.ttf" />
+    <Content Include="Views\Report\InsuranceAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
