@@ -79,7 +79,12 @@ namespace FishHoghoghi.Controllers
                     myConn.Close();
                 }
             }
-            var response =  DBFCreator.DataSetIntoDBF( ds);
+            var response = DBFCreator.DataSetIntoDBF(ds);
+
+            //var response = Request.CreateResponse(HttpStatusCode.Moved);
+
+            //response.Headers.Location = new Uri("http://www.google.com");
+
             return response;
         }
 
