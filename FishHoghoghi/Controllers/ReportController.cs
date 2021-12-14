@@ -54,8 +54,6 @@ namespace FishHoghoghi.Controllers
             return response;
         }
 
-
-
         [HttpGet]
         [Route("Report/DBFAll/{year}/{month}")]
         public HttpResponseMessage DBFAll(int year, int month)
