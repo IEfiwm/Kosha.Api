@@ -1782,10 +1782,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/13/2021 8:16:12 PM</ReportChanged>
+  <ReportChanged>12/13/2021 10:05:54 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>D:\Projects\Kosha\Doc\Reports\InsuranceReportAll.mrt</ReportFile>
-  <ReportGuid>0d9176e6037c4a7bb4e740a9469c6ccd</ReportGuid>
+  <ReportFile>D:\Projects\Kosha\Project\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
+  <ReportGuid>4b4bb29476c043898becfbc12c9eecea</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
