@@ -160,23 +160,23 @@
     </Reference>
     <Reference Include="Stimulsoft.Base, Version=2021.3.6.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resource\Stimulsoft.Base.dll</HintPath>
+      <HintPath>bin\Sti\2019\Stimulsoft.Base.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report, Version=2021.3.6.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resource\Stimulsoft.Report.dll</HintPath>
+      <HintPath>bin\Sti\2019\Stimulsoft.Report.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report.Mvc, Version=2021.3.6.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resource\Stimulsoft.Report.Mvc.dll</HintPath>
+      <HintPath>bin\Sti\2019\Stimulsoft.Report.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report.Web, Version=2021.3.6.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resource\Stimulsoft.Report.Web.dll</HintPath>
+      <HintPath>bin\Sti\2019\Stimulsoft.Report.Web.dll</HintPath>
     </Reference>
     <Reference Include="Stimulsoft.Report.WebDesign, Version=2021.3.6.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Resource\Stimulsoft.Report.WebDesign.dll</HintPath>
+      <HintPath>bin\Sti\2019\Stimulsoft.Report.WebDesign.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -396,6 +396,16 @@
     <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\Sti\2019\Stimulsoft.Base.dll" />
+    <Content Include="bin\Sti\2019\Stimulsoft.Report.dll" />
+    <Content Include="bin\Sti\2019\Stimulsoft.Report.Mvc.dll" />
+    <Content Include="bin\Sti\2019\Stimulsoft.Report.Web.dll" />
+    <Content Include="bin\Sti\2019\Stimulsoft.Report.WebDesign.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Base.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.Mvc.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.Web.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.WebDesign.dll" />
     <Content Include="bin\System.Net.Http.dll" />
     <Content Include="bin\System.Net.Http.Extensions.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />

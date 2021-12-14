@@ -107,6 +107,9 @@ namespace FishHoghoghi.Business.Utilities
             }
             while (byteRead != 0);
 
+            fs.Close();
+            file.Close();
+            File.Delete(Path + fileName + ".dbf");
 
             HttpResponseMessage response = new HttpResponseMessage();
             response.StatusCode = HttpStatusCode.OK;
@@ -115,11 +118,8 @@ namespace FishHoghoghi.Business.Utilities
             {
                 FileName = "DBF_" + Guid.NewGuid().ToString("N").Remove(6) + ".dbf"
             };
-            fs.Close();
-            file.Close();
-            File.Delete(Path + fileName + ".dbf");
 
-            return response;
+           return response;
 
         }
 
