@@ -396,6 +396,11 @@
     <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\Sti\Stimulsoft.Base.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.Mvc.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.Web.dll" />
+    <Content Include="bin\Sti\Stimulsoft.Report.WebDesign.dll" />
     <Content Include="bin\System.Net.Http.dll" />
     <Content Include="bin\System.Net.Http.Extensions.dll" />
     <Content Include="bin\System.Net.Http.Formatting.dll" />
