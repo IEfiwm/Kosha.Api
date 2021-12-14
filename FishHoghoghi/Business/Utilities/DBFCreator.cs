@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FishHoghoghi.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace FishHoghoghi.Business.Utilities
 {
     public static class DBFCreator
     {
-        public static HttpResponseMessage DataSetIntoDBF( DataSet dataSet)
+        public static HttpResponseMessage DataSetIntoDBF(DataSet dataSet)
         {
             ArrayList list = new ArrayList();
             string fileName = "1";
@@ -109,18 +110,32 @@ namespace FishHoghoghi.Business.Utilities
 
             fs.Close();
             file.Close();
-            File.Delete(Path + fileName + ".dbf");
+            
 
             HttpResponseMessage response = new HttpResponseMessage();
-            response.StatusCode = HttpStatusCode.OK;
+
+            response.StatusCode = HttpStatusCode.Moved;
+
             response.Content = new StreamContent(file);
+
             response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
                 FileName = "DBF_" + Guid.NewGuid().ToString("N").Remove(6) + ".dbf"
             };
 
-           return response;
+            var res = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(Utility.StreamFile(Path + fileName + ".dbf"))
+            };
 
+            res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = Guid.NewGuid().ToString("N") + ".dbf"
+            };
+
+            File.Delete(Path + fileName + ".dbf");
+
+            return res;
         }
 
         private static string GetConnection(string path)
