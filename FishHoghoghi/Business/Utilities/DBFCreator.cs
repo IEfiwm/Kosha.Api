@@ -1,4 +1,5 @@
 ﻿using FishHoghoghi.Models;
+using FishHoghoghi.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace FishHoghoghi.Business.Utilities
 {
     public static class DBFCreator
     {
-        public static HttpResponseMessage DataSetIntoDBF(string fileName,  DataSet dataSet)
+        public static HttpResponseMessage DataSetIntoDBF(string fileName, DataSet dataSet)
         {
             ArrayList list = new ArrayList();
             var Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/DBF/");
@@ -32,7 +33,11 @@ namespace FishHoghoghi.Business.Utilities
                 string fieldName = dc.ColumnName;
 
                 string type = dc.DataType.ToString();
-
+                //if (type == "System.DateTime")
+                //{
+                //    var date = Convert.ToDateTime(fieldName);
+                //    fieldName = date.ToPersianDateTime().Year + "\\" + date.ToPersianDateTime().Month + "\\" + date.ToPersianDateTime().Day;
+                //}
                 switch (type)
                 {
                     case "System.String":
@@ -85,7 +90,23 @@ namespace FishHoghoghi.Business.Utilities
 
                 for (int i = 0; i < list.Count; i++)
                 {
-                    insertSql = insertSql + "'" + ReplaceEscape(row[list[i].ToString()].ToString()) + "',";
+                    var data = row[list[i].ToString()].ToString();
+                    if (i == 10 || i == 11 || i == 15 || i == 16)
+                    {
+                        if (!string.IsNullOrEmpty(data))
+                        {
+                            var date = Convert.ToDateTime(data);
+                            if (i == 15 || i == 16)
+                            {
+                                data = date.ToPersianDateTime().Year.ToString("D4") + date.ToPersianDateTime().Month.ToString("D2") + date.ToPersianDateTime().Day.ToString("D2");
+                            }
+                            else
+                            {
+                                data = date.ToPersianDateTime().Year.ToString("D4") + "\\" + date.ToPersianDateTime().Month.ToString("D2") + "\\" + date.ToPersianDateTime().Day.ToString("D2");
+                            }
+                        }
+                    }
+                    insertSql = insertSql + "'" + ReplaceEscape(data) + "',";
                 }
 
                 insertSql = insertSql.Substring(0, insertSql.Length - 1) + ")";
@@ -113,7 +134,7 @@ namespace FishHoghoghi.Business.Utilities
 
             fs.Close();
             file.Close();
-            
+
 
             HttpResponseMessage response = new HttpResponseMessage();
 
@@ -128,7 +149,7 @@ namespace FishHoghoghi.Business.Utilities
 
             var res = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ByteArrayContent(Utility.StreamFile(Path + fileName + ".dbf"))
+                Content = new ByteArrayContent(FishHoghoghi.Models.Utility.StreamFile(Path + fileName + ".dbf"))
             };
 
             res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
