@@ -55,6 +55,31 @@ namespace FishHoghoghi.Controllers
         }
 
 
+        [HttpGet]
+        [Route("Report/InsuranceSummary/{year}/{month}")]
+        public HttpResponseMessage InsuranceSummary(int year, int month)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/InsuranceReportSummary.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
+
 
         [HttpGet]
         [Route("Report/DBFAll/{year}/{month}")]
