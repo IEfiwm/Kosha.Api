@@ -82,6 +82,38 @@ namespace FishHoghoghi.Controllers
 
 
         [HttpGet]
+        [Route("Report/DBFSummary/{year}/{month}")]
+        public HttpResponseMessage DBFSummary(int year, int month)
+        {
+            var ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+            string sCMD_All = "dbo.ProcKosha_DSK";
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+
+            using (SqlConnection myConn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand myCommand = new SqlCommand(sCMD_All, myConn))
+                {
+                    myConn.Open();
+                    myCommand.CommandType = CommandType.StoredProcedure;
+                    myCommand.Parameters.AddWithValue("@year", SqlDbType.NVarChar).Value = year.ToString();
+                    myCommand.Parameters.AddWithValue("@month", SqlDbType.NVarChar).Value = month.ToString();
+                    da = new SqlDataAdapter(sCMD_All, myConn);
+                    da.SelectCommand = myCommand;
+                    da.Fill(ds, "DBF");
+                    myConn.Close();
+                }
+            }
+            var response = DBFCreator.DataSetIntoDBF("DSKKAR00", ds);
+
+            //var response = Request.CreateResponse(HttpStatusCode.Moved);
+
+            //response.Headers.Location = new Uri("http://www.google.com");
+
+            return response;
+        }
+
+        [HttpGet]
         [Route("Report/DBFAll/{year}/{month}")]
         public HttpResponseMessage DBFAll(int year, int month)
         {
@@ -104,7 +136,7 @@ namespace FishHoghoghi.Controllers
                     myConn.Close();
                 }
             }
-            var response = DBFCreator.DataSetIntoDBF(ds);
+            var response = DBFCreator.DataSetIntoDBF("DSKWOR00", ds);
 
             //var response = Request.CreateResponse(HttpStatusCode.Moved);
 

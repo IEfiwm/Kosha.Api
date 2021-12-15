@@ -16,10 +16,9 @@ namespace FishHoghoghi.Business.Utilities
 {
     public static class DBFCreator
     {
-        public static HttpResponseMessage DataSetIntoDBF(DataSet dataSet)
+        public static HttpResponseMessage DataSetIntoDBF(string fileName,  DataSet dataSet)
         {
             ArrayList list = new ArrayList();
-            string fileName = "1";
             var Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/DBF/");
             if (File.Exists(Path + fileName + ".dbf"))
             {
@@ -54,6 +53,10 @@ namespace FishHoghoghi.Business.Utilities
 
                     case "System.DateTime":
                         type = "varchar(100)";
+                        break;
+
+                    case "System.Decimal":
+                        type = "decimal";
                         break;
                 }
 
@@ -130,7 +133,7 @@ namespace FishHoghoghi.Business.Utilities
 
             res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
-                FileName = Guid.NewGuid().ToString("N") + ".dbf"
+                FileName = fileName + ".dbf"
             };
 
             File.Delete(Path + fileName + ".dbf");

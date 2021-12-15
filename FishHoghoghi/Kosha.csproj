@@ -430,6 +430,7 @@
     <Content Include="Business\Database\Views\MKView_ContractHamkaran.sql" />
     <Content Include="Business\Database\Views\MkView_FishHamkaran.sql" />
     <Content Include="Content\Files\readme.txt" />
+    <Content Include="Content\Reports\tick.png" />
     <Content Include="favicon.ico" />
     <Content Include="GeneratedPdf\readme.txt" />
     <Content Include="Global.asax" />
