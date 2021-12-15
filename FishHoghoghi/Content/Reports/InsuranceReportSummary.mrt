@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="73">
+        <Columns isList="true" count="75">
           <value>تاریخ_x0020_تولد,System.String</value>
           <value>نام_x0020_پدر,System.String</value>
           <value>رند_x0020_حقوق,System.Int32</value>
@@ -86,6 +86,8 @@
           <value>حق_x0020_بیمه_x0020_بیکاری,System.Nullable`1[System.Decimal]</value>
           <value>مشمول_x0020_و_x0020_غیر_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
           <value>مزایای_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
+          <value>دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,System.Decimal</value>
+          <value>جمع_x0020_کل_x0020_حق_x0020_بیمه_x0020_اعم_x0020_از_x0020_حق_x0020_بیمه_x0020_و_x0020_بیمه_x0020_بیکاری,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -585,11 +587,7 @@
                   <Name>Text74</Name>
                   <Page isRef="4" />
                   <Parent isRef="9" />
-                  <Text>{
-(Sum(Kosha_Source01.بیمه_تامین_اجتماعی)*7/100)+
-(Sum(Kosha_Source01.حق_بیمه_سهم_کارفرما)*20/100)+
-(Sum(Kosha_Source01.حق_بیمه_بیکاری)*3/100)
-}</Text>
+                  <Text>{Sum(Kosha_Source01.جمع_کل_حق_بیمه_اعم_از_حق_بیمه_و_بیمه_بیکاری)}</Text>
                   <TextBrush>Black</TextBrush>
                   <TextFormat Ref="45" type="NumberFormat" isKey="true">
                     <DecimalDigits>0</DecimalDigits>
@@ -635,7 +633,7 @@
                   <Name>Text9</Name>
                   <Page isRef="4" />
                   <Parent isRef="9" />
-                  <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
+                  <Text>{Sum(Kosha_Source01.دستمزد_و_مزایای_مشمول_ماهانه)}</Text>
                   <TextBrush>Black</TextBrush>
                   <TextFormat Ref="49" type="NumberFormat" isKey="true">
                     <DecimalDigits>0</DecimalDigits>
@@ -1077,10 +1075,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/15/2021 5:44:11 PM</ReportChanged>
+  <ReportChanged>12/15/2021 9:28:36 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>91a85381bf4d4bcda5d7b4e31787c87d</ReportGuid>
+  <ReportGuid>d3aa9288ab634fb599ce5ebd5bc50452</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
