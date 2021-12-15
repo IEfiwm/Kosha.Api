@@ -91,11 +91,7 @@ namespace FishHoghoghi.Controllers
                     myConn.Close();
                 }
             }
-            var response = DBFCreator.DataSetIntoDBF("DSKKAR00", ds);
-
-            //var response = Request.CreateResponse(HttpStatusCode.Moved);
-
-            //response.Headers.Location = new Uri("http://www.google.com");
+            var response = DBFCreator.DataSetIntoDBF("DSKKAR00", ds, Models.TypeOfDBFFile.Summary);
 
             return response;
         }
@@ -131,6 +127,5 @@ namespace FishHoghoghi.Controllers
 
             return response;
         }
-
     }
 }

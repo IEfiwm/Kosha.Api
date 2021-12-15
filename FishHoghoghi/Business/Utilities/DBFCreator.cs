@@ -2,22 +2,18 @@
 using FishHoghoghi.Utilities;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FishHoghoghi.Business.Utilities
 {
     public static class DBFCreator
     {
-        public static HttpResponseMessage DataSetIntoDBF(string fileName, DataSet dataSet)
+        public static HttpResponseMessage DataSetIntoDBF(string fileName, DataSet dataSet, TypeOfDBFFile typeOfDBFFile = TypeOfDBFFile.All)
         {
             ArrayList list = new ArrayList();
             var Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/DBF/");
@@ -91,12 +87,14 @@ namespace FishHoghoghi.Business.Utilities
                 for (int i = 0; i < list.Count; i++)
                 {
                     var data = row[list[i].ToString()].ToString();
-                    if (i == 10 || i == 11 || i == 15 || i == 16)
+
+                    if (typeOfDBFFile == TypeOfDBFFile.All && (i == 10 || i == 11 || i == 15 || i == 16))
                     {
                         if (!string.IsNullOrEmpty(data))
                         {
                             var date = Convert.ToDateTime(data);
-                            if (i == 15 || i == 16)
+
+                            if (typeOfDBFFile == TypeOfDBFFile.All && (i == 15 || i == 16))
                             {
                                 data = date.ToPersianDateTime().Year.ToString("D4") + date.ToPersianDateTime().Month.ToString("D2") + date.ToPersianDateTime().Day.ToString("D2");
                             }
@@ -117,8 +115,11 @@ namespace FishHoghoghi.Business.Utilities
             }
 
             con.Close();
+
             Stream file = new MemoryStream();
+
             FileStream fs = System.IO.File.OpenRead(Path + fileName + ".dbf");
+
             byte[] buffer = new byte[1024];
 
             int byteRead = 0;
@@ -133,8 +134,8 @@ namespace FishHoghoghi.Business.Utilities
             while (byteRead != 0);
 
             fs.Close();
-            file.Close();
 
+            file.Close();
 
             HttpResponseMessage response = new HttpResponseMessage();
 
@@ -164,7 +165,9 @@ namespace FishHoghoghi.Business.Utilities
 
         private static string GetConnection(string path)
         {
-            return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
+            return "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
+
+            //return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
         }
 
         public static string ReplaceEscape(string str)
@@ -172,6 +175,5 @@ namespace FishHoghoghi.Business.Utilities
             str = str.Replace("'", "''");
             return str;
         }
-
     }
 }
