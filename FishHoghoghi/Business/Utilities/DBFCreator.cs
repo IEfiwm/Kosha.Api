@@ -158,6 +158,8 @@ namespace FishHoghoghi.Business.Utilities
                 FileName = fileName + ".dbf"
             };
 
+            res.Content.Headers.ContentType = new MediaTypeHeaderValue("application/dbase");
+
             File.Delete(Path + fileName + ".dbf");
 
             return res;

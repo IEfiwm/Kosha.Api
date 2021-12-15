@@ -121,10 +121,6 @@ namespace FishHoghoghi.Controllers
             }
             var response = DBFCreator.DataSetIntoDBF("DSKWOR00", ds);
 
-            //var response = Request.CreateResponse(HttpStatusCode.Moved);
-
-            //response.Headers.Location = new Uri("http://www.google.com");
-
             return response;
         }
     }
