@@ -8,6 +8,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 
 namespace FishHoghoghi.Business.Utilities
 {
@@ -115,20 +116,19 @@ namespace FishHoghoghi.Business.Utilities
             }
 
             con.Close();
-
-            Stream file = new MemoryStream();
+            Stream stream = new MemoryStream();
+            StreamWriter file = new StreamWriter(stream, new UTF8Encoding(false));
 
             FileStream fs = System.IO.File.OpenRead(Path + fileName + ".dbf");
 
             byte[] buffer = new byte[1024];
-
             int byteRead = 0;
 
             do
             {
                 byteRead = fs.Read(buffer, 0, 1024);
+                file.Write(buffer);
 
-                file.Write(buffer, 0, byteRead);
 
             }
             while (byteRead != 0);
@@ -141,7 +141,7 @@ namespace FishHoghoghi.Business.Utilities
 
             response.StatusCode = HttpStatusCode.Moved;
 
-            response.Content = new StreamContent(file);
+            response.Content = new StreamContent(stream);
 
             response.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
@@ -165,9 +165,9 @@ namespace FishHoghoghi.Business.Utilities
 
         private static string GetConnection(string path)
         {
-            return "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
+            //return "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
 
-            //return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
+            return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties=dBASE IV;";
         }
 
         public static string ReplaceEscape(string str)
