@@ -11,7 +11,7 @@ namespace FishHoghoghi.Business.Dal
             SELECT
                 *
             FROM
-                MKView_ContractHamkaran
+                [dbo].[Kosha_Contract]
             WHERE
                 [کد ملی] = N'{username}'");
 

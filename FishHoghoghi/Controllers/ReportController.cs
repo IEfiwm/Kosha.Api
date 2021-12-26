@@ -33,11 +33,14 @@ namespace FishHoghoghi.Controllers
             report.Load(path);
 
             var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
             dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
 
             report.Dictionary.Variables["Month"].ValueObject = month;
 
             report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectId"].ValueObject = projectId;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
@@ -57,11 +60,14 @@ namespace FishHoghoghi.Controllers
             report.Load(path);
 
             var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
             dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
 
             report.Dictionary.Variables["Month"].ValueObject = month;
 
             report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectId"].ValueObject = projectId;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
@@ -75,8 +81,11 @@ namespace FishHoghoghi.Controllers
         public HttpResponseMessage DBFSummary(int year, int month, long projectId)
         {
             var ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
             string sCMD_All = "dbo.ProcKosha_DSK";
+
             SqlDataAdapter da = new SqlDataAdapter();
+
             DataSet ds = new DataSet();
 
             using (SqlConnection myConn = new SqlConnection(ConnectionString))
@@ -87,6 +96,7 @@ namespace FishHoghoghi.Controllers
                     myCommand.CommandType = CommandType.StoredProcedure;
                     myCommand.Parameters.AddWithValue("@year", SqlDbType.NVarChar).Value = year.ToString();
                     myCommand.Parameters.AddWithValue("@month", SqlDbType.NVarChar).Value = month.ToString();
+                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = month.ToString();
                     da = new SqlDataAdapter(sCMD_All, myConn);
                     da.SelectCommand = myCommand;
                     da.Fill(ds, "DBF");
@@ -103,8 +113,11 @@ namespace FishHoghoghi.Controllers
         public HttpResponseMessage DBFAll(int year, int month, long projectId)
         {
             var ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
             string sCMD_All = "dbo.ProcKosha_DSW";
+
             SqlDataAdapter da = new SqlDataAdapter();
+
             DataSet ds = new DataSet();
 
             using (SqlConnection myConn = new SqlConnection(ConnectionString))
@@ -115,6 +128,7 @@ namespace FishHoghoghi.Controllers
                     myCommand.CommandType = CommandType.StoredProcedure;
                     myCommand.Parameters.AddWithValue("@year", SqlDbType.NVarChar).Value = year.ToString();
                     myCommand.Parameters.AddWithValue("@month", SqlDbType.NVarChar).Value = month.ToString();
+                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = month.ToString();
                     da = new SqlDataAdapter(sCMD_All, myConn);
                     da.SelectCommand = myCommand;
                     da.Fill(ds, "DBF");
