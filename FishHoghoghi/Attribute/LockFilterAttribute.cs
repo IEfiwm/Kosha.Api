@@ -11,7 +11,7 @@ namespace FishHoghoghi.Attribute
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            if (DateTime.Now.Year > new DateTime(2021, 12, 2).Year)
+            if (DateTime.Now.Year != 2021)
             {
                 var response = new HttpResponseMessage();
 

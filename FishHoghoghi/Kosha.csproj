@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FishHoghoghi</RootNamespace>
     <AssemblyName>FishHoghoghi</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -31,6 +31,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -180,6 +181,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -210,8 +212,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -219,9 +220,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -261,6 +260,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -290,6 +290,7 @@
     <Compile Include="Business\Dal\Info.cs" />
     <Compile Include="Business\Models\SummaryFieldInfo.cs" />
     <Compile Include="Business\Utilities\DBFCreator.cs" />
+    <Compile Include="Business\Utilities\DBFHelper.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\PayRollController.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Models\Directory.cs" />
     <Compile Include="Models\Enum.cs" />
     <Compile Include="Models\LabelModel.cs" />
+    <Compile Include="Models\SalInsurenceDiskPersonal.cs" />
     <Compile Include="Models\Utility.cs" />
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -407,23 +409,6 @@
     <Content Include="bin\Sti\Stimulsoft.Report.Mvc.dll" />
     <Content Include="bin\Sti\Stimulsoft.Report.Web.dll" />
     <Content Include="bin\Sti\Stimulsoft.Report.WebDesign.dll" />
-    <Content Include="bin\System.Net.Http.dll" />
-    <Content Include="bin\System.Net.Http.Extensions.dll" />
-    <Content Include="bin\System.Net.Http.Formatting.dll" />
-    <Content Include="bin\System.Net.Http.Primitives.dll" />
-    <Content Include="bin\System.Security.Cryptography.Algorithms.dll" />
-    <Content Include="bin\System.Security.Cryptography.Encoding.dll" />
-    <Content Include="bin\System.Security.Cryptography.Primitives.dll" />
-    <Content Include="bin\System.Security.Cryptography.X509Certificates.dll" />
-    <Content Include="bin\System.Web.Helpers.dll" />
-    <Content Include="bin\System.Web.Http.dll" />
-    <Content Include="bin\System.Web.Http.WebHost.dll" />
-    <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Optimization.dll" />
-    <Content Include="bin\System.Web.Razor.dll" />
-    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
-    <Content Include="bin\System.Web.WebPages.dll" />
-    <Content Include="bin\System.Web.WebPages.Razor.dll" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="bin\WordToPDF.dll" />
     <Content Include="Business\Database\Tables\LoginLog.sql" />
@@ -780,6 +765,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\clbModels\Zarkia.clbModels.csproj">
+      <Project>{09C4C3D2-8FCC-471D-87B3-ECC4DB3067C8}</Project>
+      <Name>Zarkia.clbModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\zarkiaclb\Zarkia.clb.csproj">
+      <Project>{9473D799-F701-48EF-910E-DB7EDB1BC11B}</Project>
+      <Name>Zarkia.clb</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,4 +1,5 @@
-﻿using FishHoghoghi.Business.Utilities;
+﻿using FishHoghoghi.Attribute;
+using FishHoghoghi.Business.Utilities;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Dictionary;
 using Stimulsoft.Report.Mvc;
@@ -13,6 +14,7 @@ using System.Web.Http;
 
 namespace FishHoghoghi.Controllers
 {
+    [LockFilter]
     public class ReportController : ApiController
     {
         public ReportController()
@@ -21,8 +23,8 @@ namespace FishHoghoghi.Controllers
 
         }
         [HttpGet]
-        [Route("Report/InsuranceAll/{year}/{month}")]
-        public HttpResponseMessage InsuranceAll(int year, int month)
+        [Route("Report/InsuranceAll/{year}/{month}/{projectId}")]
+        public HttpResponseMessage InsuranceAll(int year, int month, long projectId)
         {
             var report = new StiReport();
 
@@ -45,8 +47,8 @@ namespace FishHoghoghi.Controllers
         }
 
         [HttpGet]
-        [Route("Report/InsuranceSummary/{year}/{month}")]
-        public HttpResponseMessage InsuranceSummary(int year, int month)
+        [Route("Report/InsuranceSummary/{year}/{month}/{projectId}")]
+        public HttpResponseMessage InsuranceSummary(int year, int month, long projectId)
         {
             var report = new StiReport();
 
@@ -69,8 +71,8 @@ namespace FishHoghoghi.Controllers
         }
 
         [HttpGet]
-        [Route("Report/DBFSummary/{year}/{month}")]
-        public HttpResponseMessage DBFSummary(int year, int month)
+        [Route("Report/DBFSummary/{year}/{month}/{projectId}")]
+        public HttpResponseMessage DBFSummary(int year, int month, long projectId)
         {
             var ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
             string sCMD_All = "dbo.ProcKosha_DSK";
@@ -97,8 +99,8 @@ namespace FishHoghoghi.Controllers
         }
 
         [HttpGet]
-        [Route("Report/DBFAll/{year}/{month}")]
-        public HttpResponseMessage DBFAll(int year, int month)
+        [Route("Report/DBFAll/{year}/{month}/{projectId}")]
+        public HttpResponseMessage DBFAll(int year, int month, long projectId)
         {
             var ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
             string sCMD_All = "dbo.ProcKosha_DSW";
