@@ -96,7 +96,7 @@ namespace FishHoghoghi.Controllers
                     myCommand.CommandType = CommandType.StoredProcedure;
                     myCommand.Parameters.AddWithValue("@year", SqlDbType.NVarChar).Value = year.ToString();
                     myCommand.Parameters.AddWithValue("@month", SqlDbType.NVarChar).Value = month.ToString();
-                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = month.ToString();
+                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = projectId.ToString();
                     da = new SqlDataAdapter(sCMD_All, myConn);
                     da.SelectCommand = myCommand;
                     da.Fill(ds, "DBF");
@@ -128,7 +128,7 @@ namespace FishHoghoghi.Controllers
                     myCommand.CommandType = CommandType.StoredProcedure;
                     myCommand.Parameters.AddWithValue("@year", SqlDbType.NVarChar).Value = year.ToString();
                     myCommand.Parameters.AddWithValue("@month", SqlDbType.NVarChar).Value = month.ToString();
-                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = month.ToString();
+                    myCommand.Parameters.AddWithValue("@projectId", SqlDbType.NVarChar).Value = projectId.ToString();
                     da = new SqlDataAdapter(sCMD_All, myConn);
                     da.SelectCommand = myCommand;
                     da.Fill(ds, "DBF");

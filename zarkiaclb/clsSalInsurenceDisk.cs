@@ -276,6 +276,8 @@ namespace zarkiaclb
             //catch { ShowInternetAccess(); return false; }
             try
             {
+                //if (File.Exists(Path.Combine(DBFPath, DBFName)))
+                //    File.Delete(Path.Combine(DBFPath, DBFName));
                 //create a simple DBF file and output to args[0]
                 DbfFile odbf = new DbfFile(Encoding.GetEncoding(1256));
                 odbf.Open(Path.Combine(DBFPath, DBFName), FileMode.Create);
@@ -527,8 +529,6 @@ namespace zarkiaclb
                         IS_Result.Add(cur);                               //برگشت کد اسکی معادل
                         //IS_Result.Add(string.Format("{0:X}", cur));         //برگشت کد هگز معادل کد اسکی
                     }
-
-
                 }
                 pre = cur;
             }
