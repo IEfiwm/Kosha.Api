@@ -59,9 +59,9 @@ namespace zarkiaclb
         //}
         public string OpenDBF(string FilePath, string FileName)
         {
-            //connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
-            connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            //connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
             System.Data.OleDb.OleDbConnection oleDbConnction = new System.Data.OleDb.OleDbConnection(connectionString);
 
@@ -90,9 +90,9 @@ namespace zarkiaclb
 
         public DataTable DeleteDBF(string FilePath, string FileName)
         {
-            //connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
-            connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            //connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
             System.Data.OleDb.OleDbConnection oleDbConnction = new System.Data.OleDb.OleDbConnection(connectionString);
 
@@ -115,9 +115,9 @@ namespace zarkiaclb
 
         public DataTable InsertDBF(string FilePath, string FileName, string DSK_ID, string DSK_NAME, string DSK_FARM, string DSK_ADRS)
         {
-            //connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
-            connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
+            //connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + FilePath + " ;Extended Properties=dBase IV";
 
             System.Data.OleDb.OleDbConnection oleDbConnction = new System.Data.OleDb.OleDbConnection(connectionString);
 

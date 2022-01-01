@@ -72,7 +72,71 @@ namespace FishHoghoghi.Controllers
 
                 Common.Log("Document null => " + $@"Cache failed");
 
-                var user = Contract.GetUserContract(username, out System.Data.DataTable dataSource);
+                var user = Contract.GetUserContract(username, default(long), out System.Data.DataTable dataSource);
+
+                if (user == null)
+                {
+                    return Common.SetBadResponse();
+                }
+
+                File.Copy(_template, GetDocPath(_id.ToString()));
+
+                PreaperDocument(user, dataSource);
+
+                ConvertWordToPdf(GetDocPath(_id.ToString()), GetDocPath(username.ToString(), true, "pdf"));
+
+                var result = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf")))
+                };
+
+                result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                };
+
+                File.Delete(GetDocPath(_id.ToString()));
+
+                //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
+
+                return result;
+            }
+            catch (Exception exp)
+            {
+                Common.Log(exp);
+
+                return Common.SetIntervalErrorResponse();
+            }
+        }
+
+        [NoCache]
+        [Route("Contract/Get/{username}/{projectId}")]
+        public HttpResponseMessage Get(string username, long projectId)
+        {
+            try
+            {
+                if (File.Exists(GetDocPath(username.ToString(), true, "pdf")) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf")).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
+                {
+                    File.Delete(GetDocPath(username.ToString(), true, "pdf"));
+                }
+                else if (File.Exists(GetDocPath(username.ToString(), true, "pdf")) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
+                {
+                    var res = new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf")))
+                    };
+
+                    res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                    {
+                        FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                    };
+
+                    return res;
+                }
+
+                Common.Log("Document null => " + $@"Cache failed");
+
+                var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource);
 
                 if (user == null)
                 {
@@ -125,7 +189,7 @@ namespace FishHoghoghi.Controllers
                     return Common.Response(new { link = ConfigurationManager.AppSettings["HostName"].ToString() + "/Content/Files/" + username + ".pdf" });
                 }
 
-                var user = Contract.GetUserContract(username, out System.Data.DataTable dataSource);
+                var user = Contract.GetUserContract(username, default(long), out System.Data.DataTable dataSource);
 
                 if (user == null)
                 {
@@ -169,6 +233,8 @@ namespace FishHoghoghi.Controllers
             {
                 Common.Log(dataSource.Columns[i].ToString());
 
+                //var data = user.ItemArray[i].ToString().ToPersianNumber();
+
                 if (dataSource.Columns[i].ToString().Contains("تاریخ"))
                 {
                     PersianCalendar calendar = new PersianCalendar();
@@ -177,11 +243,21 @@ namespace FishHoghoghi.Controllers
 
                     Utility.ReplaceBookMarkText(doc, dataSource.Columns[i].ToString().Replace(' ', '_'), calendar.GetDayOfMonth(myTime).ToString() + "/" + calendar.GetMonth(myTime).ToString() + "/" + calendar.GetYear(myTime).ToString());
                 }
+                else if (dataSource.Columns[i].ToString().Contains("کد") || dataSource.Columns[i].ToString().Contains("شماره"))
+                {
+                    Utility.ReplaceBookMarkText(doc, dataSource.Columns[i].ToString().Replace(' ', '_'), user.ItemArray[i].ToString());
+                }
                 else
                 {
                     if (user.ItemArray[i].ToString().Contains(".") || user.ItemArray[i].ToString().Contains("/"))
                     {
                         Utility.ReplaceBookMarkText(doc, dataSource.Columns[i].ToString().Replace(' ', '_'), Utility.MoneyFormater(user.ItemArray[i].ToString()));
+                    }
+                    else if (user.ItemArray[i].ToString() != "0" && user.ItemArray[i].ToString() != "" && decimal.TryParse(user.ItemArray[i].ToString(), out var res))
+                    {
+                        var price = decimal.Parse(user.ItemArray[i].ToString(), System.Globalization.NumberStyles.Currency);
+
+                        Utility.ReplaceBookMarkText(doc, dataSource.Columns[i].ToString().Replace(' ', '_'), price.ToString("#,#"));
                     }
                     else
                     {

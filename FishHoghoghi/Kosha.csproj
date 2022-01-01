@@ -416,6 +416,7 @@
     <Content Include="Business\Database\Views\MKView_ContractHamkaran.sql" />
     <Content Include="Business\Database\Views\MkView_FishHamkaran.sql" />
     <Content Include="Content\Files\readme.txt" />
+    <Content Include="Content\Reports\DBF\README.txt" />
     <Content Include="Content\Reports\tick.png" />
     <Content Include="favicon.ico" />
     <Content Include="GeneratedPdf\readme.txt" />
@@ -573,7 +574,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Reports\DBF\" />
     <Folder Include="Data\" />
     <Folder Include="Views\Info\" />
   </ItemGroup>
@@ -762,6 +762,7 @@
     <Content Include="Resource\Fonts\B Ziba_p30download.com.ttf" />
     <Content Include="Resource\Fonts\B-NAZANIN.TTF" />
     <Content Include="Resource\Fonts\Vazir-Light-FD.ttf" />
+    <Content Include="Template\نمونه قرارداد بنیاد %281%29.docx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
