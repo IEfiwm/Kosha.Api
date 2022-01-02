@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
@@ -11,7 +9,7 @@ namespace FishHoghoghi.Attribute
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            if (DateTime.Now.Year != 2021)
+            if (DateTime.Now.Month != 1)
             {
                 var response = new HttpResponseMessage();
 

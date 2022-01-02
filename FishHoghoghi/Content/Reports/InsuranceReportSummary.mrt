@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="75">
+        <Columns isList="true" count="76">
           <value>تاریخ_x0020_تولد,System.String</value>
           <value>نام_x0020_پدر,System.String</value>
           <value>رند_x0020_حقوق,System.Int32</value>
@@ -88,25 +88,28 @@
           <value>مزایای_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
           <value>دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,System.Decimal</value>
           <value>جمع_x0020_کل_x0020_حق_x0020_بیمه_x0020_اعم_x0020_از_x0020_حق_x0020_بیمه_x0020_و_x0020_بیمه_x0020_بیکاری,System.String</value>
+          <value>ProjectRef,System.Int32</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Key>f70ded15ec0e42918a4939a839309323</Key>
         <Name>Kosha_Source01</Name>
         <NameInSource>MS SQL</NameInSource>
-        <Parameters isList="true" count="2">
+        <Parameters isList="true" count="3">
           <value>Month,Month,8,0</value>
           <value>Year,Year,8,0</value>
+          <value>ProjectId,ProjectId,8,0</value>
         </Parameters>
-        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year</SqlCommand>
+        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectId </SqlCommand>
       </Kosha_Source01>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
     <Resources isList="true" count="0" />
-    <Variables isList="true" count="2">
+    <Variables isList="true" count="3">
       <value>,Month,Month,,System.Int32,,False,False,True,False</value>
       <value>,Year,Year,,System.Int32,,False,False,True,False</value>
+      <value>,ProjectId,ProjectRef,,System.Int32,,False,False,True,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -1075,10 +1078,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/15/2021 9:28:36 PM</ReportChanged>
+  <ReportChanged>1/3/2022 12:35:52 AM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>D:\Projects\Kosha\Project\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>d3aa9288ab634fb599ce5ebd5bc50452</ReportGuid>
+  <ReportFile>F:\Fish\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
+  <ReportGuid>e1b1aadb61404ffc9017d11426c50327</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>

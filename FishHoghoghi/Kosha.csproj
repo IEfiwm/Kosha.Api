@@ -762,7 +762,6 @@
     <Content Include="Resource\Fonts\B Ziba_p30download.com.ttf" />
     <Content Include="Resource\Fonts\B-NAZANIN.TTF" />
     <Content Include="Resource\Fonts\Vazir-Light-FD.ttf" />
-    <Content Include="Template\نمونه قرارداد بنیاد %281%29.docx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
