@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="clbModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\clbModels\bin\Debug\clbModels.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -50,6 +54,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Zarkia.DBFCreater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FastDBF\FastDBF\bin\Debug\Zarkia.DBFCreater.dll</HintPath>
+    </Reference>
+    <Reference Include="zarkiaclb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\zarkiaclb.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsSalInsurenceDisk.cs" />
@@ -75,16 +87,6 @@
     <Compile Include="tblSalInsurenceDiskFactory.cs">
       <DependentUpon>mdlAuth.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\clbModels\Zarkia.clbModels.csproj">
-      <Project>{09c4c3d2-8fcc-471d-87b3-ecc4db3067c8}</Project>
-      <Name>Zarkia.clbModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FastDBF\FastDBF\Zarkia.DBFCreater.csproj">
-      <Project>{9cf5ed11-6d2b-4fef-8a0a-b2e12de59867}</Project>
-      <Name>Zarkia.DBFCreater</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="mdlAuth.edmx">
@@ -114,5 +116,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
