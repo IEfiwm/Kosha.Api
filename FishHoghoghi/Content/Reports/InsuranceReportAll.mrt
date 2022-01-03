@@ -9,7 +9,7 @@
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
-    <DataSources isList="true" count="1">
+    <DataSources isList="true" count="2">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
         <Columns isList="true" count="76">
@@ -98,10 +98,26 @@
         <Parameters isList="true" count="3">
           <value>Month,Month,8,0</value>
           <value>Year,Year,8,0</value>
-          <value>ProjectId,ProjectId,8,0</value>
+          <value>ProjectRef,ProjectRef,8,0</value>
         </Parameters>
-        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectId </SqlCommand>
+        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectRef </SqlCommand>
       </Kosha_Source01>
+      <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>WorkShop</Alias>
+        <Columns isList="true" count="2">
+          <value>WorkshopCode,System.String</value>
+          <value>WorkshopName,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>da25aa8025dd4a40a56263033bbd754a</Key>
+        <Name>WorkShop</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>ProjectRef,ProjectRef,0,0</value>
+        </Parameters>
+        <SqlCommand>SELECT[WorkshopCode],[WorkshopName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
+      </WorkShop>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
@@ -109,7 +125,7 @@
     <Variables isList="true" count="3">
       <value>,Month,ماه,,System.Int32,,False,False,True,False</value>
       <value>,Year,سال,,System.Int32,,False,False,True,False</value>
-      <value>,ProjectId,ProjectRef,,System.Int32,,False,False,True,False</value>
+      <value>,ProjectRef,پروژه,,System.Int64,,False,False,True,False</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -117,15 +133,15 @@
   <Key>d33105a2dd0b45309e17e70568ef2fec</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="4" type="Page" isKey="true">
+    <Page1 Ref="5" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="3">
-        <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
+        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.2,10.89,2.1</ClientRectangle>
           <Components isList="true" count="24">
-            <Text2 Ref="6" type="Text" isKey="true">
+            <Text2 Ref="7" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[0:89:89]</Brush>
               <ClientRectangle>0,0,10.9,1.3</ClientRectangle>
@@ -135,17 +151,17 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>موسسه محافظین تخت جمشید البرز
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{WorkShop.WorkshopName}
 لیست بیمه تامین اجتماعی {GetDate()}
 شعبه بیمه تامین اجتماعی شعبه 22 تهران
-کد کارگاه 0968490204</Text>
+کد کارگاه {WorkShop.WorkshopCode}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text1 Ref="7" type="Text" isKey="true">
+            <Text1 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>9.8,1.3,1.1,0.4</ClientRectangle>
@@ -154,14 +170,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>ردیف</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text3 Ref="8" type="Text" isKey="true">
+            <Text3 Ref="9" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>9,1.3,0.8,0.4</ClientRectangle>
@@ -171,14 +187,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>نام پدر</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
-            <Text4 Ref="9" type="Text" isKey="true">
+            <Text4 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>8.2,1.3,0.8,0.4</ClientRectangle>
@@ -188,14 +204,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>کد کارمند</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <Text5 Ref="10" type="Text" isKey="true">
+            <Text5 Ref="11" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>7.4,1.3,0.8,0.4</ClientRectangle>
@@ -205,14 +221,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>شغل</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text6 Ref="11" type="Text" isKey="true">
+            <Text6 Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.5,1.3,0.9,0.4</ClientRectangle>
@@ -222,14 +238,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>تاریخ شروع به کار</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text7 Ref="12" type="Text" isKey="true">
+            <Text7 Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.9,1.3,0.6,0.4</ClientRectangle>
@@ -239,14 +255,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>ملیت</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text8 Ref="13" type="Text" isKey="true">
+            <Text8 Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.3,0.9,0.4</ClientRectangle>
@@ -256,14 +272,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>کارکرد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
-            <Text9 Ref="14" type="Text" isKey="true">
+            <Text9 Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>4.1,1.3,0.9,0.4</ClientRectangle>
@@ -273,14 +289,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>مزد روزانه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <Text10 Ref="15" type="Text" isKey="true">
+            <Text10 Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,1.3,0.9,0.4</ClientRectangle>
@@ -290,14 +306,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>ماخذ بیمه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text11 Ref="16" type="Text" isKey="true">
+            <Text11 Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>2.2,1.3,1,0.4</ClientRectangle>
@@ -307,14 +323,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>کل حقوق و مزایا</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text12 Ref="17" type="Text" isKey="true">
+            <Text12 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.3,0.9,0.4</ClientRectangle>
@@ -324,14 +340,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>سایر کسور</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text13 Ref="18" type="Text" isKey="true">
+            <Text13 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>0,1.3,1.3,0.8</ClientRectangle>
@@ -341,15 +357,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>امضا
  شماره حساب</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text14 Ref="19" type="Text" isKey="true">
+            <Text14 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.7,0.9,0.4</ClientRectangle>
@@ -359,14 +375,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>خالص پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="20" type="Text" isKey="true">
+            <Text15 Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>9.8,1.7,1.1,0.4</ClientRectangle>
@@ -376,14 +392,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>نام و نام خانوادگی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text16 Ref="21" type="Text" isKey="true">
+            <Text16 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>9,1.7,0.8,0.4</ClientRectangle>
@@ -393,14 +409,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>شماره شناسنامه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text17 Ref="22" type="Text" isKey="true">
+            <Text17 Ref="23" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>8.2,1.7,0.8,0.4</ClientRectangle>
@@ -410,14 +426,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>کدملی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text18 Ref="23" type="Text" isKey="true">
+            <Text18 Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>7.4,1.7,0.8,0.4</ClientRectangle>
@@ -428,15 +444,15 @@
               <LineSpacing>0.82</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>کد شغل سخت 
 و زیان آور</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
             </Text18>
-            <Text19 Ref="24" type="Text" isKey="true">
+            <Text19 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.5,1.7,0.9,0.4</ClientRectangle>
@@ -446,14 +462,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>تاریخ ترک کار</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text20 Ref="25" type="Text" isKey="true">
+            <Text20 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.9,1.7,0.6,0.4</ClientRectangle>
@@ -463,14 +479,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>جنسیت</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text21 Ref="26" type="Text" isKey="true">
+            <Text21 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.7,0.9,0.4</ClientRectangle>
@@ -480,14 +496,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>شماره بیمه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text22 Ref="27" type="Text" isKey="true">
+            <Text22 Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>4.1,1.7,0.9,0.4</ClientRectangle>
@@ -497,14 +513,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>مزد ماهانه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text23 Ref="28" type="Text" isKey="true">
+            <Text23 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,1.7,0.9,0.4</ClientRectangle>
@@ -514,14 +530,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>بیمه سهم کارمند</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text24 Ref="29" type="Text" isKey="true">
+            <Text24 Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>2.2,1.7,1,0.4</ClientRectangle>
@@ -531,8 +547,8 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>مزایای مشمول</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -541,15 +557,15 @@
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="5" />
+          <Parent isRef="5" />
         </PageHeaderBand1>
-        <DataKosha_Source01 Ref="30" type="DataBand" isKey="true">
+        <DataKosha_Source01 Ref="31" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,2.7,10.89,0.8</ClientRectangle>
           <Components isList="true" count="23">
-            <Text27 Ref="31" type="Text" isKey="true">
+            <Text27 Ref="32" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -560,14 +576,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.شماره_شناسنامه}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text30 Ref="32" type="Text" isKey="true">
+            <Text30 Ref="33" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -578,11 +594,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.بیمه_تامین_اجتماعی}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="33" type="NumberFormat" isKey="true">
+              <TextFormat Ref="34" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -591,7 +607,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text29 Ref="34" type="Text" isKey="true">
+            <Text29 Ref="35" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -602,14 +618,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text29</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.کد_ملی_}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text29>
-            <Text31 Ref="35" type="Text" isKey="true">
+            <Text31 Ref="36" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -620,14 +636,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.شماره_حساب}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text33 Ref="36" type="Text" isKey="true">
+            <Text33 Ref="37" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -638,11 +654,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text33</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.خالص_پرداختی}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="37" type="NumberFormat" isKey="true">
+              <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -651,7 +667,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text33>
-            <Text36 Ref="38" type="Text" isKey="true">
+            <Text36 Ref="39" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -662,14 +678,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.شماره_بیمه}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
-            <Text41 Ref="39" type="Text" isKey="true">
+            <Text41 Ref="40" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -680,15 +696,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text41</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{(Kosha_Source01.جنسیت==1)?"مرد":"زن"}
 </Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text41>
-            <Text42 Ref="40" type="Text" isKey="true">
+            <Text42 Ref="41" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -699,14 +715,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text42</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.کدشغل}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text42>
-            <Text44 Ref="41" type="Text" isKey="true">
+            <Text44 Ref="42" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -717,11 +733,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text44</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.مزد_ماهانه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="42" type="NumberFormat" isKey="true">
+              <TextFormat Ref="43" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -730,7 +746,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text44>
-            <Text25 Ref="43" type="Text" isKey="true">
+            <Text25 Ref="44" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -741,14 +757,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Line}</Text>
               <TextBrush>Black</TextBrush>
               <Type>SystemVariables</Type>
               <VertAlignment>Center</VertAlignment>
             </Text25>
-            <Text26 Ref="44" type="Text" isKey="true">
+            <Text26 Ref="45" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -759,14 +775,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.نام_پدر}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text28 Ref="45" type="Text" isKey="true">
+            <Text28 Ref="46" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -777,14 +793,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.کد_پرسنلی}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <Text32 Ref="46" type="Text" isKey="true">
+            <Text32 Ref="47" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -795,11 +811,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.کارکرد_موثر}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="47" type="NumberFormat" isKey="true">
+              <TextFormat Ref="48" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -808,7 +824,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text34 Ref="48" type="Text" isKey="true">
+            <Text34 Ref="49" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -819,11 +835,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.سایر_کسور}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+              <TextFormat Ref="50" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -832,7 +848,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="50" type="Text" isKey="true">
+            <Text35 Ref="51" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -843,11 +859,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.كل_حقوق_و_مزايا}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+              <TextFormat Ref="52" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -856,7 +872,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text37 Ref="52" type="Text" isKey="true">
+            <Text37 Ref="53" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -867,14 +883,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text37</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.شغل}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text37>
-            <Text40 Ref="53" type="Text" isKey="true">
+            <Text40 Ref="54" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -885,14 +901,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text40</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.ملیت}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text40>
-            <Text43 Ref="54" type="Text" isKey="true">
+            <Text43 Ref="55" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -903,11 +919,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text43</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.مزد_روزانه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+              <TextFormat Ref="56" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -916,7 +932,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text43>
-            <Text45 Ref="56" type="Text" isKey="true">
+            <Text45 Ref="57" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -927,11 +943,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text45</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.ماخذ_بیمه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="57" type="NumberFormat" isKey="true">
+              <TextFormat Ref="58" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -940,7 +956,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text45>
-            <DataKosha_Source01_پایه_سنوات Ref="58" type="Text" isKey="true">
+            <DataKosha_Source01_پایه_سنوات Ref="59" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <ClientRectangle>9.8,0.4,1.1,0.4</ClientRectangle>
@@ -950,15 +966,15 @@
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_Source01_پایه_سنوات</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.نام} {Kosha_Source01.نام_خانوادگی}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_Source01_پایه_سنوات>
-            <Text75 Ref="59" type="Text" isKey="true">
+            <Text75 Ref="60" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -969,14 +985,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text75</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{DateToshamsi(Kosha_Source01.تاریخ_شروع_کار)}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text75>
-            <Text76 Ref="60" type="Text" isKey="true">
+            <Text76 Ref="61" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -987,14 +1003,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text76</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{DateToshamsi(Kosha_Source01.تاریخ_ترک_کار)}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text76>
-            <Text77 Ref="61" type="Text" isKey="true">
+            <Text77 Ref="62" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -1005,11 +1021,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text77</Name>
-              <Page isRef="4" />
-              <Parent isRef="30" />
+              <Page isRef="5" />
+              <Parent isRef="31" />
               <Text>{Kosha_Source01.مزایای_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="62" type="NumberFormat" isKey="true">
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1024,15 +1040,15 @@
           <DataSourceName>Kosha_Source01</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataKosha_Source01</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="5" />
+          <Parent isRef="5" />
           <Sort isList="true" count="0" />
         </DataKosha_Source01>
-        <FooterKosha_Source01 Ref="63" type="FooterBand" isKey="true">
+        <FooterKosha_Source01 Ref="64" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,3.9,10.89,3</ClientRectangle>
           <Components isList="true" count="32">
-            <Text38 Ref="64" type="Text" isKey="true">
+            <Text38 Ref="65" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,0,0.9,0.6</ClientRectangle>
@@ -1042,13 +1058,13 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text38</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text38>
-            <Text39 Ref="65" type="Text" isKey="true">
+            <Text39 Ref="66" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>4.1,0,0.9,0.3</ClientRectangle>
@@ -1058,11 +1074,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text39</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.مزد_روزانه)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="66" type="NumberFormat" isKey="true">
+              <TextFormat Ref="67" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1071,7 +1087,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text39>
-            <Text46 Ref="67" type="Text" isKey="true">
+            <Text46 Ref="68" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>4.1,0.3,0.9,0.3</ClientRectangle>
@@ -1081,11 +1097,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text46</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.مزد_ماهانه)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="68" type="NumberFormat" isKey="true">
+              <TextFormat Ref="69" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1094,7 +1110,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text46>
-            <Text47 Ref="69" type="Text" isKey="true">
+            <Text47 Ref="70" type="Text" isKey="true">
               <Border>All;Transparent;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>5.9,0,0.8,0.6</ClientRectangle>
@@ -1104,15 +1120,15 @@
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text47</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع: </Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text47>
-            <Text48 Ref="70" type="Text" isKey="true">
+            <Text48 Ref="71" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,0,0.9,0.3</ClientRectangle>
@@ -1122,11 +1138,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text48</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.ماخذ_بیمه)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="71" type="NumberFormat" isKey="true">
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1135,7 +1151,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text48>
-            <Text49 Ref="72" type="Text" isKey="true">
+            <Text49 Ref="73" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,0.3,0.9,0.3</ClientRectangle>
@@ -1145,11 +1161,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text49</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="73" type="NumberFormat" isKey="true">
+              <TextFormat Ref="74" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1158,7 +1174,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text49>
-            <Text50 Ref="74" type="Text" isKey="true">
+            <Text50 Ref="75" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>2.2,0,1,0.3</ClientRectangle>
@@ -1168,11 +1184,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text50</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.كل_حقوق_و_مزايا)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+              <TextFormat Ref="76" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1181,7 +1197,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text50>
-            <Text51 Ref="76" type="Text" isKey="true">
+            <Text51 Ref="77" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,0,0.9,0.3</ClientRectangle>
@@ -1191,11 +1207,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text51</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.سایر_کسور)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1204,7 +1220,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text51>
-            <Text52 Ref="78" type="Text" isKey="true">
+            <Text52 Ref="79" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,0.3,0.9,0.3</ClientRectangle>
@@ -1214,11 +1230,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text52</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.خالص_پرداختی)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="79" type="NumberFormat" isKey="true">
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1227,7 +1243,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text52>
-            <Text53 Ref="80" type="Text" isKey="true">
+            <Text53 Ref="81" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>7.5,1.1,3.4,1.8</ClientRectangle>
@@ -1237,13 +1253,13 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text53</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>محل مهر و امضاء کارفرما  </Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text53>
-            <Text54 Ref="81" type="Text" isKey="true">
+            <Text54 Ref="82" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,1.1,1.7,0.6</ClientRectangle>
@@ -1253,11 +1269,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text54</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>تعداد نفرات</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="82" type="NumberFormat" isKey="true">
+              <TextFormat Ref="83" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1266,7 +1282,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text54>
-            <Text55 Ref="83" type="Text" isKey="true">
+            <Text55 Ref="84" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,1.7,0.9,0.3</ClientRectangle>
@@ -1276,11 +1292,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text55</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>ایرانی</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="84" type="NumberFormat" isKey="true">
+              <TextFormat Ref="85" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1289,7 +1305,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text55>
-            <Text56 Ref="85" type="Text" isKey="true">
+            <Text56 Ref="86" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2,0.9,0.3</ClientRectangle>
@@ -1299,11 +1315,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text56</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>غیر ایرانی</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="86" type="NumberFormat" isKey="true">
+              <TextFormat Ref="87" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1312,7 +1328,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
-            <Text57 Ref="87" type="Text" isKey="true">
+            <Text57 Ref="88" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2.3,0.9,0.3</ClientRectangle>
@@ -1322,11 +1338,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text57</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>مرد</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="88" type="NumberFormat" isKey="true">
+              <TextFormat Ref="89" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1335,7 +1351,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text57>
-            <Text58 Ref="89" type="Text" isKey="true">
+            <Text58 Ref="90" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2.6,0.9,0.3</ClientRectangle>
@@ -1345,11 +1361,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text58</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>زن</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="90" type="NumberFormat" isKey="true">
+              <TextFormat Ref="91" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1358,7 +1374,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text58>
-            <Text59 Ref="91" type="Text" isKey="true">
+            <Text59 Ref="92" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,1.7,0.8,0.3</ClientRectangle>
@@ -1368,12 +1384,12 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text59</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{CountIf(DataKosha_Source01,Kosha_Source01.ملیت == "ايراني")}
 </Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="92" type="NumberFormat" isKey="true">
+              <TextFormat Ref="93" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1382,7 +1398,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text59>
-            <Text60 Ref="93" type="Text" isKey="true">
+            <Text60 Ref="94" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,2,0.8,0.3</ClientRectangle>
@@ -1392,12 +1408,12 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text60</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{CountIf(DataKosha_Source01,Kosha_Source01.ملیت != "ايراني")}
 </Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="94" type="NumberFormat" isKey="true">
+              <TextFormat Ref="95" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1406,7 +1422,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text60>
-            <Text61 Ref="95" type="Text" isKey="true">
+            <Text61 Ref="96" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,2.3,0.8,0.3</ClientRectangle>
@@ -1416,12 +1432,12 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text61</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 1)}
 </Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="96" type="NumberFormat" isKey="true">
+              <TextFormat Ref="97" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1430,7 +1446,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text61>
-            <Text62 Ref="97" type="Text" isKey="true">
+            <Text62 Ref="98" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,2.6,0.8,0.3</ClientRectangle>
@@ -1440,12 +1456,12 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text62</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 0)}
 </Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="98" type="NumberFormat" isKey="true">
+              <TextFormat Ref="99" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1454,7 +1470,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text62>
-            <Text63 Ref="99" type="Text" isKey="true">
+            <Text63 Ref="100" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.1,2.6,0.3</ClientRectangle>
@@ -1464,11 +1480,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text63</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع حق بیمه سهم کارمند</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="100" type="NumberFormat" isKey="true">
+              <TextFormat Ref="101" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1477,7 +1493,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text63>
-            <Text64 Ref="101" type="Text" isKey="true">
+            <Text64 Ref="102" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.4,2.6,0.3</ClientRectangle>
@@ -1487,11 +1503,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text64</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع حق بیمه سهم کارفرما</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="102" type="NumberFormat" isKey="true">
+              <TextFormat Ref="103" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1500,7 +1516,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text64>
-            <Text65 Ref="103" type="Text" isKey="true">
+            <Text65 Ref="104" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.7,2.6,0.3</ClientRectangle>
@@ -1510,11 +1526,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text65</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع حق بیمه بیکاری</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="104" type="NumberFormat" isKey="true">
+              <TextFormat Ref="105" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1523,7 +1539,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text65>
-            <Text66 Ref="105" type="Text" isKey="true">
+            <Text66 Ref="106" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2,2.6,0.3</ClientRectangle>
@@ -1533,11 +1549,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text66</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع حق بیمه مشاغل سخت و زیان آور</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="106" type="NumberFormat" isKey="true">
+              <TextFormat Ref="107" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1546,7 +1562,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text66>
-            <Text67 Ref="107" type="Text" isKey="true">
+            <Text67 Ref="108" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2.3,2.6,0.3</ClientRectangle>
@@ -1556,11 +1572,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text67</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>کسر میشود: معافیت حق بیمه کارفرما</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="108" type="NumberFormat" isKey="true">
+              <TextFormat Ref="109" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1569,7 +1585,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text67>
-            <Text68 Ref="109" type="Text" isKey="true">
+            <Text68 Ref="110" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2.6,2.6,0.3</ClientRectangle>
@@ -1579,11 +1595,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text68</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>جمع کل</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="110" type="NumberFormat" isKey="true">
+              <TextFormat Ref="111" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1592,7 +1608,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text68>
-            <Text69 Ref="111" type="Text" isKey="true">
+            <Text69 Ref="112" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.1,1.8,0.3</ClientRectangle>
@@ -1602,11 +1618,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text69</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="112" type="NumberFormat" isKey="true">
+              <TextFormat Ref="113" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1615,7 +1631,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text69>
-            <Text70 Ref="113" type="Text" isKey="true">
+            <Text70 Ref="114" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.4,1.8,0.3</ClientRectangle>
@@ -1625,11 +1641,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text70</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.حق_بیمه_سهم_کارفرما)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="114" type="NumberFormat" isKey="true">
+              <TextFormat Ref="115" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1638,7 +1654,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text70>
-            <Text71 Ref="115" type="Text" isKey="true">
+            <Text71 Ref="116" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.7,1.8,0.3</ClientRectangle>
@@ -1648,11 +1664,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text71</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="116" type="NumberFormat" isKey="true">
+              <TextFormat Ref="117" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1661,7 +1677,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text71>
-            <Text72 Ref="117" type="Text" isKey="true">
+            <Text72 Ref="118" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,2,1.8,0.3</ClientRectangle>
@@ -1671,11 +1687,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text72</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="118" type="NumberFormat" isKey="true">
+              <TextFormat Ref="119" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1684,7 +1700,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text72>
-            <Text73 Ref="119" type="Text" isKey="true">
+            <Text73 Ref="120" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,2.3,1.8,0.3</ClientRectangle>
@@ -1694,11 +1710,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text73</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="120" type="NumberFormat" isKey="true">
+              <TextFormat Ref="121" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1707,7 +1723,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text73>
-            <Text74 Ref="121" type="Text" isKey="true">
+            <Text74 Ref="122" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,2.6,1.8,0.3</ClientRectangle>
@@ -1717,13 +1733,13 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text74</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)+
 Sum(Kosha_Source01.حق_بیمه_سهم_کارفرما)+
 Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="122" type="NumberFormat" isKey="true">
+              <TextFormat Ref="123" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1732,7 +1748,7 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text74>
-            <Text78 Ref="123" type="Text" isKey="true">
+            <Text78 Ref="124" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>2.2,0.3,1,0.3</ClientRectangle>
@@ -1742,11 +1758,11 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text78</Name>
-              <Page isRef="4" />
-              <Parent isRef="63" />
+              <Page isRef="5" />
+              <Parent isRef="64" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="124" type="NumberFormat" isKey="true">
+              <TextFormat Ref="125" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1758,8 +1774,8 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>FooterKosha_Source01</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="5" />
+          <Parent isRef="5" />
         </FooterKosha_Source01>
       </Components>
       <Conditions isList="true" count="0" />
@@ -1785,10 +1801,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/27/2021 12:51:28 AM</ReportChanged>
+  <ReportChanged>1/3/2022 8:38:24 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>F:\Fish\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
-  <ReportGuid>3e4d903bdd0d4879a105c88f3a1494ef</ReportGuid>
+  <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
+  <ReportGuid>e70d5e8a7112496da6d8817e4d94a059</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>

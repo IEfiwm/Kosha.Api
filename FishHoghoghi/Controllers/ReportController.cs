@@ -40,7 +40,7 @@ namespace FishHoghoghi.Controllers
 
             report.Dictionary.Variables["Year"].ValueObject = year;
 
-            report.Dictionary.Variables["ProjectId"].ValueObject = projectId;
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
@@ -67,7 +67,7 @@ namespace FishHoghoghi.Controllers
 
             report.Dictionary.Variables["Year"].ValueObject = year;
 
-            report.Dictionary.Variables["ProjectId"].ValueObject = projectId;
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
