@@ -30,12 +30,6 @@ namespace Fish.Controllers
     {
         #region Initialization
 
-        private readonly FishDataSet _fishDataSet;
-
-        private readonly MKView_FishHamkaranTableAdapter _mKView_FishHamkaranTableAdapter;
-
-        private readonly MKView_ContractHamkaranTableAdapter _mKView_ContractHamkaranTableAdapter;
-
         private MemoryStream _memoryStream;
 
         private HttpResponseMessage _response;
@@ -59,20 +53,6 @@ namespace Fish.Controllers
 
         public PayRollController()
         {
-            _mKView_ContractHamkaranTableAdapter = new MKView_ContractHamkaranTableAdapter();
-
-            _mKView_FishHamkaranTableAdapter = new MKView_FishHamkaranTableAdapter
-            {
-                ClearBeforeFill = true
-            };
-
-            _fishDataSet = new FishDataSet
-            {
-                DataSetName = "FishDataSet",
-
-                SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
-            };
-
             _memoryStream = new MemoryStream();
 
             _response = new HttpResponseMessage();
