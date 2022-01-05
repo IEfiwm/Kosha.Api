@@ -1,5 +1,6 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Dal;
+using MD.PersianDateTime;
 using Microsoft.Office.Interop.Word;
 using System;
 using System.Configuration;
@@ -25,7 +26,9 @@ namespace FishHoghoghi.Controllers
 
         private Guid _id;
 
-        private string _template = $@"{AppDomain.CurrentDomain.BaseDirectory}Template\template.docx";
+        private string _contractTemplateName = "template-public.docx";
+
+        private string _template = $@"{AppDomain.CurrentDomain.BaseDirectory}Template\";
 
         private static string GetDocPath(string id, bool hostname = true, string extention = "docx")
         {
@@ -79,7 +82,7 @@ namespace FishHoghoghi.Controllers
                     return Common.SetBadResponse();
                 }
 
-                File.Copy(_template, GetDocPath(_id.ToString()));
+                File.Copy(_template + _contractTemplateName, GetDocPath(_id.ToString()));
 
                 PreaperDocument(user, dataSource);
 
@@ -110,8 +113,8 @@ namespace FishHoghoghi.Controllers
         }
 
         [NoCache]
-        [Route("Contract/Get/{username}/{projectId}")]
-        public HttpResponseMessage Get(string username, long projectId)
+        [Route("Contract/Get/{username}/{projectId}/{startdate}/{enddate}")]
+        public HttpResponseMessage Get(string username, long projectId, string startdate, string enddate)
         {
             try
             {
@@ -136,14 +139,16 @@ namespace FishHoghoghi.Controllers
 
                 Common.Log("Document null => " + $@"Cache failed");
 
-                var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource);
+                var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(enddate.Replace("-", "/")) - PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+
+                //var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString()), CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString()), Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
 
                 if (user == null)
                 {
                     return Common.SetBadResponse();
                 }
 
-                File.Copy(_template, GetDocPath(_id.ToString()));
+                File.Copy(_template + Common.GetContractTemplateName(projectId), GetDocPath(_id.ToString()));
 
                 PreaperDocument(user, dataSource);
 
@@ -196,7 +201,7 @@ namespace FishHoghoghi.Controllers
                     return Common.SetBadResponse();
                 }
 
-                File.Copy(_template, GetDocPath(_id.ToString()));
+                File.Copy(_template + _contractTemplateName, GetDocPath(_id.ToString()));
 
                 PreaperDocument(user, dataSource);
 
@@ -231,8 +236,6 @@ namespace FishHoghoghi.Controllers
 
             for (int i = 0; i < dataSource.Columns.Count; i++)
             {
-                Common.Log(dataSource.Columns[i].ToString());
-
                 //var data = user.ItemArray[i].ToString().ToPersianNumber();
 
                 if (dataSource.Columns[i].ToString().Contains("تاریخ"))

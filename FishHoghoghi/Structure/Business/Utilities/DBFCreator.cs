@@ -1,16 +1,17 @@
 ﻿using clbModels;
 using FishHoghoghi.Models;
+using FishHoghoghi.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using zarkiaclb;
+using PersianDateTime = MD.PersianDateTime.PersianDateTime;
 
 namespace FishHoghoghi.Business.Utilities
 {
@@ -73,6 +74,8 @@ namespace FishHoghoghi.Business.Utilities
                 // قرار دادن اطلاعات پرسنل در لیست مربوطه
                 foreach (DataRow row in dataSet.Tables[0].Rows)
                 {
+                    //var test = CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[15].ToString())).ToString());
+
                     SalInsurenceDiskPersonal sidp = new SalInsurenceDiskPersonal()
                     {
                         DSW_ID = row[0].ToString(),
@@ -85,13 +88,13 @@ namespace FishHoghoghi.Business.Utilities
                         DSW_DNAME = row[7].ToString(),
                         DSW_IDNO = row[8].ToString(),
                         DSW_IDPLC = row[9].ToString(),
-                        DSW_IDATE = row[10].ToString(),
-                        DSW_BDATE = row[11].ToString(),
+                        DSW_IDATE = row[10].ToString() == null || row[10].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[10].ToString())).ToString("yyyy/MM/dd")).Replace("/",""),
+                        DSW_BDATE = row[11].ToString() == null || row[11].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[11].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
                         DSW_SEX = row[12].ToString(),
                         DSW_NAT = row[13].ToString(),
                         DSW_OCP = row[14].ToString(),
-                        DSW_SDATE = row[15].ToString(),
-                        DSW_EDATE = row[16].ToString(),
+                        DSW_SDATE = row[15].ToString() == null || row[15].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[15].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
+                        DSW_EDATE = row[16].ToString() == null || row[16].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[16].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
                         DSW_DD = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[17].ToString()))),
                         DSW_ROOZ = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[18].ToString()))),
                         DSW_MAH = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[19].ToString()))),
@@ -129,7 +132,7 @@ namespace FishHoghoghi.Business.Utilities
                     DSK_NUM = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[9].ToString()))),
                     DSK_TDD = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[10].ToString()))),
                     DSK_TROOZ = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[11].ToString()))),
-                    DSK_TMAH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[12].ToString()))),////
+                    DSK_TMAH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[12].ToString()))),
                     DSK_TMAZ = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[13].ToString()))),
                     DSK_TMASH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[14].ToString()))),
                     DSK_TTOTL = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[15].ToString()))),

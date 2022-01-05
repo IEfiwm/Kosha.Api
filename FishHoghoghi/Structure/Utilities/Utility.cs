@@ -153,5 +153,17 @@ namespace FishHoghoghi.Utilities
 
             return true;
         }
+
+        public static string GetContractTemplateName(long projectId)
+        {
+            //var items = JsonConvert.DeserializeObject<object>(CommonHelper.ReadJson("Jsons", "ContractTemplate.json"));
+
+            if (projectId == 2118)
+            {
+                return "template-2118.docx";
+            }
+
+            return "template.docx";
+        }
     }
 }
