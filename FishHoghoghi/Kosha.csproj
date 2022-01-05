@@ -772,7 +772,7 @@
       <Name>Zarkia.clbModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\zarkiaclb\Zarkia.clb.csproj">
-      <Project>{9473D799-F701-48EF-910E-DB7EDB1BC11B}</Project>
+      <Project>{9473d799-f701-48ef-910e-db7edb1bc11b}</Project>
       <Name>Zarkia.clb</Name>
     </ProjectReference>
   </ItemGroup>
