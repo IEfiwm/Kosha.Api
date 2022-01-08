@@ -459,6 +459,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Template\template-other.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />

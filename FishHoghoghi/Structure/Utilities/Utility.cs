@@ -163,7 +163,7 @@ namespace FishHoghoghi.Utilities
                 return "template-2118.docx";
             }
 
-            return "template.docx";
+            return "template-other.docx";
         }
     }
 }
