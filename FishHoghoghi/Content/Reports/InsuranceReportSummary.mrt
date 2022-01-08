@@ -5,7 +5,7 @@
     <Databases isList="true" count="1">
       <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>MS SQL</Alias>
-        <ConnectionStringEncrypted>9MizC0tNe/FhTaXcywh3XtFWh4nGS+MZcnrobElxJTvTeM+IS0/zze1J2YTPdKQXxGB7L01Xspn7aYSAYxFlEoJadwzmWbtlwhnVmU4Z7HuJbtXCTFkxhOJE0GxqCfYvxfLZa2QD45nvTGW9YcyxetwM0YPGS0KE</ConnectionStringEncrypted>
+        <ConnectionStringEncrypted>9MjRC0tNw9lhTaUcywjgYtF8rYnGS4KZYnol8EkBZY/DxGkCS0sB1W9J2UxiAKQXiGp7KE1ZWc3hXLTcw/zqbtVaT0nmTfM1wRzVgclxJXvReP/CyRhL8eJcOZhOyPZG3DTD619Mo7xrG7Xxd0ygF5AU9QlmUYoZRxkp8Mg=</ConnectionStringEncrypted>
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
@@ -104,9 +104,10 @@
       </Kosha_Source01>
       <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>WorkShop</Alias>
-        <Columns isList="true" count="2">
+        <Columns isList="true" count="3">
           <value>WorkshopCode,System.String</value>
           <value>WorkshopName,System.String</value>
+          <value>BranchName,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -116,7 +117,7 @@
         <Parameters isList="true" count="1">
           <value>ProjectRef,ProjectRef,0,0</value>
         </Parameters>
-        <SqlCommand>SELECT[WorkshopCode],[WorkshopName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
+        <SqlCommand>SELECT[WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
       </WorkShop>
     </DataSources>
     <Relations isList="true" count="0" />
@@ -154,7 +155,7 @@
               <Page isRef="5" />
               <Parent isRef="6" />
               <Text>خلاصه صورت دستمزد / حقوق و مزایای کارکنان {WorkShop.WorkshopName}
-لیست بیمه تامین اجتماعی شعبه بیمه تامین اجتماعی شعبه 22 تهران
+لیست بیمه تامین اجتماعی {WorkShop.BranchName}
 کد کارگاه {WorkShop.WorkshopCode}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
@@ -1094,10 +1095,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2022 8:40:03 PM</ReportChanged>
+  <ReportChanged>1/8/2022 9:21:09 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>ca15566b84c94559aea0c436691dfda5</ReportGuid>
+  <ReportGuid>06ebdcdb50a949748b964c0ee5a55e55</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
