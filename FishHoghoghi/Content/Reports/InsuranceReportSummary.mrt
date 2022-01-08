@@ -5,7 +5,7 @@
     <Databases isList="true" count="1">
       <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>MS SQL</Alias>
-        <ConnectionStringEncrypted>9MjRC0tNw9lhTaUcywjgYtF8rYnGS4KZYnol8EkBZY/DxGkCS0sB1W9J2UxiAKQXiGp7KE1ZWc3hXLTcw/zqbtVaT0nmTfM1wRzVgclxJXvReP/CyRhL8eJcOZhOyPZG3DTD619Mo7xrG7Xxd0ygF5AU9QlmUYoZRxkp8Mg=</ConnectionStringEncrypted>
+        <ConnectionStringEncrypted>9MizC0tNe/FhTaXcywh3XtFWh4nGS+MZcnrobElxJTvTeM+IS0/zze1J2YTPdKQXxGB7L01Xspn7aYSAYxFlEoJadwzmWbtlwhnVmU4Z7HuJbtXCTFkxhOJE0GxqCfYvxfLZa2QD45nvTGW9YcyxetwM0YPGS0KE</ConnectionStringEncrypted>
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
@@ -1095,10 +1095,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2022 9:21:09 PM</ReportChanged>
+  <ReportChanged>1/8/2022 10:57:52 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>06ebdcdb50a949748b964c0ee5a55e55</ReportGuid>
+  <ReportGuid>852dd23877814e15af08fed9a796b8fe</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
