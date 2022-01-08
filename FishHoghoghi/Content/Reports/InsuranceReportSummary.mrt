@@ -155,7 +155,7 @@
               <Page isRef="5" />
               <Parent isRef="6" />
               <Text>خلاصه صورت دستمزد / حقوق و مزایای کارکنان {WorkShop.WorkshopName}
-لیست بیمه تامین اجتماعی شعبه {WorkShop.BranchName}
+لیست بیمه تامین اجتماعی {WorkShop.BranchName}
 کد کارگاه {WorkShop.WorkshopCode}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
@@ -1095,10 +1095,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2022 9:17:52 PM</ReportChanged>
+  <ReportChanged>1/8/2022 9:21:09 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>5a778d87d7b24723b79c8747c106189e</ReportGuid>
+  <ReportGuid>06ebdcdb50a949748b964c0ee5a55e55</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
