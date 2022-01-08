@@ -154,7 +154,7 @@
               <Page isRef="5" />
               <Parent isRef="6" />
               <Text>خلاصه صورت دستمزد / حقوق و مزایای کارکنان {WorkShop.WorkshopName}
-لیست بیمه تامین اجتماعی شعبه بیمه تامین اجتماعی شعبه 22 تهران
+لیست بیمه تامین اجتماعی شعبه بیمه تامین اجتماعی شعبه 9 تهران
 کد کارگاه {WorkShop.WorkshopCode}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
@@ -1094,10 +1094,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2022 8:40:03 PM</ReportChanged>
+  <ReportChanged>1/8/2022 8:57:00 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>ca15566b84c94559aea0c436691dfda5</ReportGuid>
+  <ReportGuid>ac698f3563034408861f4fe7f69e3abf</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>

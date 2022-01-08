@@ -155,7 +155,7 @@
               <Parent isRef="6" />
               <Text>{WorkShop.WorkshopName}
 لیست بیمه تامین اجتماعی {GetDate()}
-شعبه بیمه تامین اجتماعی شعبه 22 تهران
+شعبه بیمه تامین اجتماعی شعبه 9 تهران
 کد کارگاه {WorkShop.WorkshopCode}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
@@ -1801,10 +1801,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/3/2022 8:38:24 PM</ReportChanged>
+  <ReportChanged>1/8/2022 8:57:13 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
-  <ReportGuid>e70d5e8a7112496da6d8817e4d94a059</ReportGuid>
+  <ReportGuid>4adfba5f1a194bc3bae3a0d1700ec63e</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
