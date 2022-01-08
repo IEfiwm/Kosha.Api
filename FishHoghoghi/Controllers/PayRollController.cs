@@ -30,12 +30,6 @@ namespace Fish.Controllers
     {
         #region Initialization
 
-        private readonly FishDataSet _fishDataSet;
-
-        private readonly MKView_FishHamkaranTableAdapter _mKView_FishHamkaranTableAdapter;
-
-        private readonly MKView_ContractHamkaranTableAdapter _mKView_ContractHamkaranTableAdapter;
-
         private MemoryStream _memoryStream;
 
         private HttpResponseMessage _response;
@@ -59,20 +53,6 @@ namespace Fish.Controllers
 
         public PayRollController()
         {
-            _mKView_ContractHamkaranTableAdapter = new MKView_ContractHamkaranTableAdapter();
-
-            _mKView_FishHamkaranTableAdapter = new MKView_FishHamkaranTableAdapter
-            {
-                ClearBeforeFill = true
-            };
-
-            _fishDataSet = new FishDataSet
-            {
-                DataSetName = "FishDataSet",
-
-                SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
-            };
-
             _memoryStream = new MemoryStream();
 
             _response = new HttpResponseMessage();
@@ -305,7 +285,12 @@ namespace Fish.Controllers
 
             CreatePayRollBody(MaxColumnLength, ColumnHeaderRow, Columns, out XRTable child, reporModel.Setting.FontFamily, reporModel.Setting.BodyContentFontSize);
 
-            XRLabel Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 10, 300f), new SizeF(150f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+            XRLabel Companylabel = null;
+
+            if (userInfo != null && userInfo?.GetValueString("CompanyName") != "")
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 10, 300f), new SizeF(150f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+            else
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 10, 300f), new SizeF(150f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
 
             Companylabel.StylePriority.UseTextAlignment = true;
 

@@ -31,38 +31,100 @@
           "Name": "کارکرد موثر",
           "Title": "کارکرد موثر",
           "Postfix": " روز",
+          "IsDecimal": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsRequire": false
+        },
+        //{
+        //  "Name": "کارکرد اضافه کاری",
+        //  "Title": "کارکرد اضافه کاری",
+        //  "Format": null,
+        //  "IsRequire": false,
+        //  "IsString": false,
+        //  "Postfix": "",
+        //  "IsNumber": false,
+        //  "IsHourNumber": true
+        //},
+        {
+          "Name": "کارکرد اضافه کاری",
+          "Title": "کارکرد اضافه کاری",
+          "IsRequire": false,
+          "Postfix": " ساعت ",
+          "IsDecimal": true,
+          "IsHourNumber": true,
+          "IsString": false
+        },
+        {
+          "Name": "کارکرد تعطیل کاری",
+          "Title": "کارکرد تعطیل کاری",
+          "IsRequire": false,
+          "Postfix": " ساعت ",
+          "IsDecimal": true,
+          "IsHourNumber": true,
+          "IsString": false
+        },
+        {
+          "Name": "کارکرد شبکاری",
+          "Title": "کارکرد شبکاری",
+          "IsRequire": false,
+          "Postfix": " ساعت ",
+          "IsDecimal": true,
+          "IsHourNumber": true,
+          "IsString": false
+        },
+        {
+          "Name": "کارکرد نوبت کاری",
+          "Title": "کارکرد نوبت کاری",
+          "Postfix": " %",
           "IsDecimal": true,
           "IsHourNumber": false,
           "IsString": false,
           "IsRequire": false
         },
         {
-          "Name": "کارکرد اضافه کاری",
-          "Title": "کارکرد اضافه کاری",
-          "Format": null,
-          "IsRequire": false,
+          "Name": "کارکرد پاداش",
+          "Title": "کارکرد پاداش",
+          "Postfix": " ریال",
+          "IsDecimal": true,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "کارکرد معوقه",
+          "Title": "کارکرد معوقه",
+          "Postfix": " ریال",
+          "IsDecimal": true,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "کارکرد ماموریت",
+          "Title": "کارکرد ماموریت",
+          "Postfix": " روز",
+          "IsDecimal": true,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "كاركرد حق غذا",
+          "Title": "كاركرد حق غذا",
+          "Postfix": " روز",
+          "IsDecimal": true,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "تعداد اولاد",
+          "Title": "تعداد اولاد",
+          "Postfix": "",
+          "IsDecimal": false,
           "IsString": true,
-          "Postfix": " ساعت",
-          "IsNumber": true
-        },
-        {
-          "Name": "کارکرد تعطیل کاری",
-          "Title": "کارکرد تعطیل کاری",
-          "IsRequire": false,
-          "Postfix": "",
-          "IsDecimal": false,
-          "IsHourNumber": false,
-          "IsString": true
-        },
-        {
-          "Name": "کارکرد شبکاری",
-          "Title": "کارکرد شبکاری",
-          "Format": null,
-          "IsRequire": false,
-          "Postfix": "",
-          "IsDecimal": false,
-          "IsHourNumber": false,
-          "IsString": true
+          "IsRequire": false
         }
       ]
     },
@@ -86,12 +148,52 @@
           "IsString": false
         },
         {
+          "Name": "سنوات",
+          "Title": "سنوات",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "عیدی",
+          "Title": "عیدی",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "پاداش",
+          "Title": "پاداش",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "اضافه کاری ثابت",
+          "Title": "اضافه کاری ثابت",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
           "Name": "اضافه کاری",
           "Title": "اضافه کاری",
           "IsRequire": false,
           "Postfix": " ريال",
           "IsDecimal": true,
           "IsString": false
+        },
+        {
+          "Name": "ماموریت",
+          "Title": "ماموریت",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
         },
         {
           "Name": "حق اولاد",
@@ -158,6 +260,54 @@
           "IsRequire": false
         },
         {
+          "Name": "نوبت کاری",
+          "Title": "نوبت کاری",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "هزینه رفاهی",
+          "Title": "هزینه رفاهی",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "ایاب و ذهاب",
+          "Title": "ایاب و ذهاب",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "معوقه ایاب و ذهاب",
+          "Title": "معوقه ایاب و ذهاب",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "کمک هزینه رفاهی",
+          "Title": "کمک هزینه رفاهی",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
+          "Name": "کارایی",
+          "Title": "کارایی",
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false,
+          "IsRequire": false
+        },
+        {
           "Name": "رند حقوق",
           "Title": "رند حقوق",
           "Postfix": " ريال",
@@ -173,6 +323,62 @@
         {
           "Name": "بیمه تامین اجتماعی",
           "Title": "بیمه تامین اجتماعی",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "کسر بیمه تکمیلی",
+          "Title": "کسر بیمه تکمیلی",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "کسر بیمه تکمیلی سرپرست",
+          "Title": "کسر بیمه تکمیلی سرپرست",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "کسر بیمه تکمیلی افراد تحت تکلف",
+          "Title": "کسر بیمه تکمیلی افراد تحت تکلف",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "کسر بیمه تکمیلی افرادغیر تحت تکلف",
+          "Title": "کسر بیمه تکمیلی افراد غیر تحت تکلف",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "کسر بیمه تکمیلی ماه معوقه",
+          "Title": "کسر بیمه تکمیلی ماه معوقه",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "وام موسسه",
+          "Title": "وام موسسه",
+          "IsRequire": false,
+          "Postfix": " ريال",
+          "IsDecimal": true,
+          "IsString": false
+        },
+        {
+          "Name": "وام سامان",
+          "Title": "وام سامان",
           "IsRequire": false,
           "Postfix": " ريال",
           "IsDecimal": true,
