@@ -104,10 +104,11 @@
       </Kosha_Source01>
       <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>WorkShop</Alias>
-        <Columns isList="true" count="3">
+        <Columns isList="true" count="4">
           <value>WorkshopCode,System.String</value>
           <value>WorkshopName,System.String</value>
           <value>BranchName,System.String</value>
+          <value>RowOfCovenant,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -117,7 +118,10 @@
         <Parameters isList="true" count="1">
           <value>ProjectRef,ProjectRef,0,0</value>
         </Parameters>
-        <SqlCommand>SELECT[WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
+        <SqlCommand>SELECT SM.Basic.TbProject.WorkshopCode, SM.Basic.TbProject.WorkshopName,
+  SM.Basic.TbProject.BranchName, SM.Basic.TbProject.RowOfCovenant
+FROM SM.Basic.TbProject
+WHERE SM.Basic.TbProject.id = @ProjectRef</SqlCommand>
       </WorkShop>
     </DataSources>
     <Relations isList="true" count="0" />
@@ -714,7 +718,7 @@
                   <Name>Text12</Name>
                   <Page isRef="5" />
                   <Parent isRef="10" />
-                  <Text>گواهی میشود صورت دستمزد ماهانه جاری............. شامل {Count(DataKosha_Source01)} نفر بیمه شده در تاریخ                        از کارگاه به شماره {WorkShop.WorkshopCode} ردیف پیمان ......................... از طریق ....... عدد فلاپی دریافت شد.</Text>
+                  <Text>گواهی میشود صورت دستمزد ماهانه جاری............. شامل {Count(DataKosha_Source01)} نفر بیمه شده در تاریخ  {GetDate()} از کارگاه به شماره {WorkShop.WorkshopCode} ردیف پیمان {WorkShop.RowOfCovenant} از طریق ....... عدد فلاپی دریافت شد.</Text>
                   <TextBrush>Black</TextBrush>
                   <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
                   <Type>Expression</Type>
@@ -1095,10 +1099,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2022 10:57:52 PM</ReportChanged>
+  <ReportChanged>1/10/2022 12:03:54 AM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>852dd23877814e15af08fed9a796b8fe</ReportGuid>
+  <ReportFile>F:\Fish\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
+  <ReportGuid>9e18c96c1fac4c449a0b20a1e0a8295e</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
