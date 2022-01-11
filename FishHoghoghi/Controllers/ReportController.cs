@@ -79,8 +79,10 @@ namespace FishHoghoghi.Controllers
 
         [HttpGet]
         [Route("Report/TaxAll/{year}/{month}")]
-        public HttpResponseMessage TaxAll(int year, int month, [FromBody] List<long> projectId)
+        public HttpResponseMessage TaxAll(int year, int month, string projectIds)
         {
+            var projects = projectIds.Split(',');
+
             var report = new StiReport();
 
             var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxAll.mrt");
@@ -106,8 +108,10 @@ namespace FishHoghoghi.Controllers
 
         [HttpGet]
         [Route("Report/TaxSummary/{year}/{month}")]
-        public HttpResponseMessage TaxSummary(int year, int month, [FromBody] List<long> projectId)
+        public HttpResponseMessage TaxSummary(int year, int month, string projectIds)
         {
+            var projects = projectIds.Split(',');
+
             var report = new StiReport();
 
             var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxSummary.mrt");
