@@ -4,6 +4,7 @@ using Stimulsoft.Report;
 using Stimulsoft.Report.Dictionary;
 using Stimulsoft.Report.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -56,6 +57,114 @@ namespace FishHoghoghi.Controllers
             var report = new StiReport();
 
             var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/InsuranceReportSummary.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
+        [HttpGet]
+        [Route("Report/TaxAll/{year}/{month}")]
+        public HttpResponseMessage TaxAll(int year, int month, [FromBody] List<long> projectId)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxAll.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
+        [HttpGet]
+        [Route("Report/TaxSummary/{year}/{month}")]
+        public HttpResponseMessage TaxSummary(int year, int month, [FromBody] List<long> projectId)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxSummary.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
+        [HttpGet]
+        [Route("Report/TXTTaxAll/{year}/{month}")]
+        public HttpResponseMessage TXTTaxAll(int year, int month, [FromBody] List<long> projectId)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxAll.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
+        [HttpGet]
+        [Route("Report/TXTTaxSummary/{year}/{month}")]
+        public HttpResponseMessage TXTTaxSummary(int year, int month, [FromBody] List<long> projectId)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxSummary.mrt");
 
             report.Load(path);
 
