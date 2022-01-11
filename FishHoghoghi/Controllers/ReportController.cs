@@ -85,7 +85,7 @@ namespace FishHoghoghi.Controllers
 
             var report = new StiReport();
 
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxAll.mrt");
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxReportAll.mrt");
 
             report.Load(path);
 
@@ -97,7 +97,7 @@ namespace FishHoghoghi.Controllers
 
             report.Dictionary.Variables["Year"].ValueObject = year;
 
-            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectIds;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
@@ -114,7 +114,7 @@ namespace FishHoghoghi.Controllers
 
             var report = new StiReport();
 
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxSummary.mrt");
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxReportSummary.mrt");
 
             report.Load(path);
 
@@ -126,7 +126,7 @@ namespace FishHoghoghi.Controllers
 
             report.Dictionary.Variables["Year"].ValueObject = year;
 
-            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectIds;
 
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
