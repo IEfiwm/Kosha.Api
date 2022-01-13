@@ -15,6 +15,15 @@ namespace TaxLib
         {
             var response = new Message();
 
+            if (model is null)
+            {
+                response.Body = "اطلاعات ارسال شده خالی می باشد.";
+
+                response.Type = MessageType.Error;
+
+                return response;
+            }
+
             if (model.PaymentMethod == 0)
             {
                 response.Body = "نوع پرداخت مشخص نشده است.";
@@ -27,6 +36,8 @@ namespace TaxLib
             string wk = Utility.CreateWK(model);
 
             Utility.CreateTextFile(Path + "WK" + model.Year + model.Month + ".txt", wk);
+
+            response.FilePath = Path + "WK" + model.Year + model.Month + ".txt";
 
             response.Body = $@"فایل در مسیر {Path} ساخته شد.";
 
