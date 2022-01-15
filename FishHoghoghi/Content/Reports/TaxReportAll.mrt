@@ -9,57 +9,39 @@
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
-    <DataSources isList="true" count="2">
+    <DataSources isList="true" count="1">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="17">
-          <value>غیر_x0020_مستمر_x0020_-_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
+        <Columns isList="true" count="15">
           <value>نام,System.String</value>
           <value>نام_x0020_خانوادگی,System.String</value>
           <value>کد_x0020_پرسنلی,System.String</value>
-          <value>سال_x0020_,System.String</value>
-          <value>ProjectRef,System.Nullable`1[System.Int64]</value>
-          <value>مستمر_x0020_-_x0020_حقوق_x0020_پایه_x0020_و_x0020_پایه_x0020_سنوات,System.Nullable`1[System.Decimal]</value>
-          <value>مستمر_x0020_-_x0020_حقوق_x0020_پایه_x0020_بن_x0020_و_x0020_مسکن_x0020_و_x0020_حق_x0020_اولاد,System.Nullable`1[System.Decimal]</value>
-          <value>ماليات,System.Nullable`1[System.Decimal]</value>
-          <value>مزایای_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
-          <value>جمع_x0020_مزایا,System.Nullable`1[System.Decimal]</value>
-          <value>ملیت,System.String</value>
-          <value>کد_x0020_ملی,System.String</value>
-          <value>ماه,System.String</value>
           <value>کد_x0020_ملی_x0020_,System.String</value>
-          <value>غیر_x0020_مستمر_x0020_-_x0020_مشمول_x0020_و_x0020_غیر_x0020_مشمول,System.Nullable`1[System.Decimal]</value>
-          <value>سال,System.String</value>
+          <value>ملیت,System.String</value>
+          <value>جمع_x0020_مزایا,System.String</value>
+          <value>مزایای_x0020_مشمول,System.String</value>
+          <value>ماليات,System.String</value>
+          <value>مستمر_x0020_-_x0020_حقوق_x0020_پایه_x0020_بن_x0020_و_x0020_مسکن_x0020_و_x0020_حق_x0020_اولاد,System.String</value>
+          <value>مستمر_x0020_-_x0020_حقوق_x0020_پایه_x0020_و_x0020_پایه_x0020_سنوات,System.String</value>
+          <value>غیر_x0020_مستمر_x0020_-_x0020_مشمول_x0020_و_x0020_غیر_x0020_مشمول,System.String</value>
+          <value>غیر_x0020_مستمر_x0020_-_x0020_مشمول,System.String</value>
+          <value>ProjectRef,System.Int64</value>
+          <value>ماه,System.String</value>
+          <value>سال_x0020_,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
-        <Key>f70ded15ec0e42918a4939a839309323</Key>
+        <Key>5291609199904e6bb511afc7a124e074</Key>
         <Name>Kosha_Source01</Name>
         <NameInSource>MS SQL</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>SELECT *
-FROM Kosha_Tax
-WHERE Kosha_Tax.ماه = @Month AND Kosha_Tax.سال = @Year AND
-  Kosha_Tax.ProjectRef = @ProjectRef
-ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
-      </Kosha_Source01>
-      <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>WorkShop</Alias>
-        <Columns isList="true" count="3">
-          <value>WorkshopCode,System.String</value>
-          <value>WorkshopName,System.String</value>
-          <value>BranchName,System.String</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Key>da25aa8025dd4a40a56263033bbd754a</Key>
-        <Name>WorkShop</Name>
-        <NameInSource>MS SQL</NameInSource>
-        <Parameters isList="true" count="1">
-          <value>ProjectRef,ProjectRef,0,0</value>
+        <Parameters isList="true" count="3">
+          <value>_x0040_Month,Month,0,0</value>
+          <value>_x0040_Year,Year,0,0</value>
+          <value>_x0040_ProjectRef,ProjectRef,22,0</value>
         </Parameters>
-        <SqlCommand>SELECT[WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
-      </WorkShop>
+        <SqlCommand>GetTaxList</SqlCommand>
+        <Type>StoredProcedure</Type>
+      </Kosha_Source01>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
@@ -67,7 +49,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
     <Variables isList="true" count="3">
       <value>,Month,ماه,,System.Int32,,False,False,True,False,,,True</value>
       <value>,Year,سال,,System.Int32,,False,False,True,False,,,True</value>
-      <value>,ProjectRef,پروژه,,System.Int64,,False,False,True,False,,,True</value>
+      <value>,ProjectRef,پروژه,,System.String,,False,False,True,False,,,True</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -75,15 +57,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
   <Key>d33105a2dd0b45309e17e70568ef2fec</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="5" type="Page" isKey="true">
+    <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="3">
-        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
+        <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.2,10.89,2.1</ClientRectangle>
           <Components isList="true" count="15">
-            <Text2 Ref="7" type="Text" isKey="true">
+            <Text2 Ref="6" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[0:89:89]</Brush>
               <ClientRectangle>0,0,10.9,1.3</ClientRectangle>
@@ -93,17 +75,17 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
-              <Text>{WorkShop.WorkshopName}
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>
 لیست مالیات {GetDate()}
-{WorkShop.BranchName}
+
 </Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text1 Ref="8" type="Text" isKey="true">
+            <Text1 Ref="7" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>10.5,1.3,0.4,0.8</ClientRectangle>
@@ -112,14 +94,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>ردیف</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text4 Ref="9" type="Text" isKey="true">
+            <Text4 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>8.2,1.3,0.8,0.8</ClientRectangle>
@@ -129,14 +111,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>کد کارمند</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <Text5 Ref="10" type="Text" isKey="true">
+            <Text5 Ref="9" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,1.3,5,0.2</ClientRectangle>
@@ -146,14 +128,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مشمول مالیات + غیر مشمول مالیات</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text11 Ref="11" type="Text" isKey="true">
+            <Text11 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>0,1.3,3.2,0.4</ClientRectangle>
@@ -163,14 +145,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مالیات</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text14 Ref="12" type="Text" isKey="true">
+            <Text14 Ref="11" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>0,1.7,1.6,0.4</ClientRectangle>
@@ -180,14 +162,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مالیات ماه جاری</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="13" type="Text" isKey="true">
+            <Text15 Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>9,1.3,1.5,0.8</ClientRectangle>
@@ -197,14 +179,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>نام و نام خانوادگی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text20 Ref="14" type="Text" isKey="true">
+            <Text20 Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.9,1.7,0.7,0.4</ClientRectangle>
@@ -214,14 +196,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>عیدی مشمول</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text21 Ref="15" type="Text" isKey="true">
+            <Text21 Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.7,0.9,0.4</ClientRectangle>
@@ -231,14 +213,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>بازخرید مرخصی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text22 Ref="16" type="Text" isKey="true">
+            <Text22 Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>4.1,1.7,0.9,0.4</ClientRectangle>
@@ -248,14 +230,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>جمع ماه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text23 Ref="17" type="Text" isKey="true">
+            <Text23 Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,1.7,0.9,0.4</ClientRectangle>
@@ -265,14 +247,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>جمع سال</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text24 Ref="18" type="Text" isKey="true">
+            <Text24 Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.6,1.7,1.6,0.4</ClientRectangle>
@@ -282,14 +264,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مالیات سال تا بحال</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text24>
-            <Text3 Ref="19" type="Text" isKey="true">
+            <Text3 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>7.4,1.7,0.8,0.4</ClientRectangle>
@@ -299,14 +281,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مستمر</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
-            <Text16 Ref="20" type="Text" isKey="true">
+            <Text16 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,1.7,0.8,0.4</ClientRectangle>
@@ -316,14 +298,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>غیر مستمر</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text6 Ref="21" type="Text" isKey="true">
+            <Text6 Ref="20" type="Text" isKey="true">
               <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.2,1.5,5,0.2</ClientRectangle>
@@ -333,8 +315,8 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="5" />
-              <Parent isRef="6" />
+              <Page isRef="4" />
+              <Parent isRef="5" />
               <Text>مشمول مالیات</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -343,15 +325,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
-          <Page isRef="5" />
-          <Parent isRef="5" />
+          <Page isRef="4" />
+          <Parent isRef="4" />
         </PageHeaderBand1>
-        <DataKosha_Source01 Ref="22" type="DataBand" isKey="true">
+        <DataKosha_Source01 Ref="21" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,2.7,10.89,0.5</ClientRectangle>
           <Components isList="true" count="17">
-            <Text25 Ref="23" type="Text" isKey="true">
+            <Text25 Ref="22" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -362,14 +344,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Line}</Text>
               <TextBrush>Black</TextBrush>
               <Type>SystemVariables</Type>
               <VertAlignment>Center</VertAlignment>
             </Text25>
-            <Text28 Ref="24" type="Text" isKey="true">
+            <Text28 Ref="23" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -380,14 +362,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.کد_پرسنلی}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <DataKosha_Source01_پایه_سنوات Ref="25" type="Text" isKey="true">
+            <DataKosha_Source01_پایه_سنوات Ref="24" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -398,15 +380,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_Source01_پایه_سنوات</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.نام} {Kosha_Source01.نام_خانوادگی}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_Source01_پایه_سنوات>
-            <Text9 Ref="26" type="Text" isKey="true">
+            <Text9 Ref="25" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -417,14 +399,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <Text10 Ref="27" type="Text" isKey="true">
+            <Text10 Ref="26" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -435,14 +417,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text12 Ref="28" type="Text" isKey="true">
+            <Text12 Ref="27" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -453,11 +435,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.جمع_مزایا}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="29" type="NumberFormat" isKey="true">
+              <TextFormat Ref="28" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -466,7 +448,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text13 Ref="30" type="Text" isKey="true">
+            <Text13 Ref="29" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -477,11 +459,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.جمع_مزایا}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="31" type="NumberFormat" isKey="true">
+              <TextFormat Ref="30" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -490,7 +472,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text17 Ref="32" type="Text" isKey="true">
+            <Text17 Ref="31" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -501,11 +483,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.ماليات}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="33" type="NumberFormat" isKey="true">
+              <TextFormat Ref="32" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -514,7 +496,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text18 Ref="34" type="Text" isKey="true">
+            <Text18 Ref="33" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -525,11 +507,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.ماليات}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="35" type="NumberFormat" isKey="true">
+              <TextFormat Ref="34" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -538,7 +520,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text27 Ref="36" type="Text" isKey="true">
+            <Text27 Ref="35" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -549,14 +531,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text29 Ref="37" type="Text" isKey="true">
+            <Text29 Ref="36" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -567,14 +549,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text29</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text29>
-            <Text30 Ref="38" type="Text" isKey="true">
+            <Text30 Ref="37" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -585,11 +567,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.مزایای_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="39" type="NumberFormat" isKey="true">
+              <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -598,7 +580,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text31 Ref="40" type="Text" isKey="true">
+            <Text31 Ref="39" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -609,11 +591,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.مزایای_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+              <TextFormat Ref="40" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -622,7 +604,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text19 Ref="42" type="Text" isKey="true">
+            <Text19 Ref="41" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -633,11 +615,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.مستمر___حقوق_پایه_بن_و_مسکن_و_حق_اولاد}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="43" type="NumberFormat" isKey="true">
+              <TextFormat Ref="42" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -646,7 +628,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text7 Ref="44" type="Text" isKey="true">
+            <Text7 Ref="43" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -657,11 +639,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.مستمر___حقوق_پایه_و_پایه_سنوات}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+              <TextFormat Ref="44" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -670,7 +652,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text26 Ref="46" type="Text" isKey="true">
+            <Text26 Ref="45" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -681,11 +663,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول_و_غیر_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="47" type="NumberFormat" isKey="true">
+              <TextFormat Ref="46" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -694,7 +676,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text8 Ref="48" type="Text" isKey="true">
+            <Text8 Ref="47" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -705,11 +687,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
-              <Page isRef="5" />
-              <Parent isRef="22" />
+              <Page isRef="4" />
+              <Parent isRef="21" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+              <TextFormat Ref="48" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -724,15 +706,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
           <DataSourceName>Kosha_Source01</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataKosha_Source01</Name>
-          <Page isRef="5" />
-          <Parent isRef="5" />
+          <Page isRef="4" />
+          <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </DataKosha_Source01>
-        <FooterKosha_Source01 Ref="50" type="FooterBand" isKey="true">
+        <FooterKosha_Source01 Ref="49" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,3.6,10.89,3</ClientRectangle>
           <Components isList="true" count="45">
-            <Text32 Ref="51" type="Text" isKey="true">
+            <Text32 Ref="50" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -744,15 +726,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>جمع افراد شاغل</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text33 Ref="52" type="Text" isKey="true">
+            <Text33 Ref="51" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -764,15 +746,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text33</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>جمع افراد غیر شاغل</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text33>
-            <Text34 Ref="53" type="Text" isKey="true">
+            <Text34 Ref="52" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -784,15 +766,15 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>جمع کل</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="54" type="Text" isKey="true">
+            <Text35 Ref="53" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -803,11 +785,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مستمر___حقوق_پایه_و_پایه_سنوات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+              <TextFormat Ref="54" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -816,7 +798,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text40 Ref="56" type="Text" isKey="true">
+            <Text40 Ref="55" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -827,11 +809,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text40</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.ماليات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="57" type="NumberFormat" isKey="true">
+              <TextFormat Ref="56" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -840,7 +822,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text40>
-            <Text41 Ref="58" type="Text" isKey="true">
+            <Text41 Ref="57" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -851,11 +833,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text41</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.ماليات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="59" type="NumberFormat" isKey="true">
+              <TextFormat Ref="58" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -864,7 +846,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text41>
-            <Text54 Ref="60" type="Text" isKey="true">
+            <Text54 Ref="59" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -875,11 +857,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text54</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="61" type="NumberFormat" isKey="true">
+              <TextFormat Ref="60" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -888,7 +870,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text54>
-            <Text55 Ref="62" type="Text" isKey="true">
+            <Text55 Ref="61" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -899,11 +881,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text55</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+              <TextFormat Ref="62" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -912,7 +894,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text55>
-            <Text68 Ref="64" type="Text" isKey="true">
+            <Text68 Ref="63" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -923,11 +905,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text68</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.ماليات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="65" type="NumberFormat" isKey="true">
+              <TextFormat Ref="64" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -936,7 +918,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text68>
-            <Text69 Ref="66" type="Text" isKey="true">
+            <Text69 Ref="65" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -947,11 +929,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text69</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.ماليات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+              <TextFormat Ref="66" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -960,7 +942,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text69>
-            <Text70 Ref="68" type="Text" isKey="true">
+            <Text70 Ref="67" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -971,11 +953,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text70</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مستمر___حقوق_پایه_بن_و_مسکن_و_حق_اولاد)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="69" type="NumberFormat" isKey="true">
+              <TextFormat Ref="68" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -984,7 +966,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text70>
-            <Text36 Ref="70" type="Text" isKey="true">
+            <Text36 Ref="69" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -995,11 +977,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="71" type="NumberFormat" isKey="true">
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1008,7 +990,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
-            <Text37 Ref="72" type="Text" isKey="true">
+            <Text37 Ref="71" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1019,11 +1001,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text37</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="73" type="NumberFormat" isKey="true">
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1032,7 +1014,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text37>
-            <Text38 Ref="74" type="Text" isKey="true">
+            <Text38 Ref="73" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1043,11 +1025,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text38</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+              <TextFormat Ref="74" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1056,7 +1038,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text38>
-            <Text39 Ref="76" type="Text" isKey="true">
+            <Text39 Ref="75" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1067,11 +1049,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text39</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+              <TextFormat Ref="76" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1080,7 +1062,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text39>
-            <Text42 Ref="78" type="Text" isKey="true">
+            <Text42 Ref="77" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1091,11 +1073,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text42</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مستمر___حقوق_پایه_و_پایه_سنوات)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="79" type="NumberFormat" isKey="true">
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1104,7 +1086,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text42>
-            <Text43 Ref="80" type="Text" isKey="true">
+            <Text43 Ref="79" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1115,14 +1097,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text43</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text43>
-            <Text44 Ref="81" type="Text" isKey="true">
+            <Text44 Ref="80" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1133,14 +1115,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text44</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text44>
-            <Text45 Ref="82" type="Text" isKey="true">
+            <Text45 Ref="81" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1151,11 +1133,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text45</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.جمع_مزایا)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="83" type="NumberFormat" isKey="true">
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1164,7 +1146,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text45>
-            <Text46 Ref="84" type="Text" isKey="true">
+            <Text46 Ref="83" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1175,11 +1157,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text46</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.جمع_مزایا)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="85" type="NumberFormat" isKey="true">
+              <TextFormat Ref="84" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1188,7 +1170,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text46>
-            <Text47 Ref="86" type="Text" isKey="true">
+            <Text47 Ref="85" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1199,14 +1181,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text47</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text47>
-            <Text48 Ref="87" type="Text" isKey="true">
+            <Text48 Ref="86" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1217,14 +1199,14 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text48</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text48>
-            <Text63 Ref="88" type="Text" isKey="true">
+            <Text63 Ref="87" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1235,11 +1217,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text63</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="89" type="NumberFormat" isKey="true">
+              <TextFormat Ref="88" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1248,7 +1230,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text63>
-            <Text64 Ref="90" type="Text" isKey="true">
+            <Text64 Ref="89" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1259,11 +1241,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text64</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="91" type="NumberFormat" isKey="true">
+              <TextFormat Ref="90" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1272,7 +1254,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text64>
-            <Text65 Ref="92" type="Text" isKey="true">
+            <Text65 Ref="91" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1283,11 +1265,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text65</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول_و_غیر_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="93" type="NumberFormat" isKey="true">
+              <TextFormat Ref="92" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1296,7 +1278,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text65>
-            <Text66 Ref="94" type="Text" isKey="true">
+            <Text66 Ref="93" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1307,11 +1289,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text66</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="95" type="NumberFormat" isKey="true">
+              <TextFormat Ref="94" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1320,7 +1302,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text66>
-            <Text49 Ref="96" type="Text" isKey="true">
+            <Text49 Ref="95" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1331,11 +1313,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text49</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="97" type="NumberFormat" isKey="true">
+              <TextFormat Ref="96" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1344,7 +1326,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text49>
-            <Text50 Ref="98" type="Text" isKey="true">
+            <Text50 Ref="97" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1355,11 +1337,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text50</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="99" type="NumberFormat" isKey="true">
+              <TextFormat Ref="98" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1368,7 +1350,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text50>
-            <Text51 Ref="100" type="Text" isKey="true">
+            <Text51 Ref="99" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1379,11 +1361,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text51</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="101" type="NumberFormat" isKey="true">
+              <TextFormat Ref="100" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1392,7 +1374,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text51>
-            <Text52 Ref="102" type="Text" isKey="true">
+            <Text52 Ref="101" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1403,11 +1385,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text52</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="103" type="NumberFormat" isKey="true">
+              <TextFormat Ref="102" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1416,7 +1398,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text52>
-            <Text53 Ref="104" type="Text" isKey="true">
+            <Text53 Ref="103" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1427,11 +1409,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text53</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مستمر___حقوق_پایه_بن_و_مسکن_و_حق_اولاد)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="105" type="NumberFormat" isKey="true">
+              <TextFormat Ref="104" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1440,7 +1422,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text53>
-            <Text56 Ref="106" type="Text" isKey="true">
+            <Text56 Ref="105" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1451,11 +1433,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text56</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.جمع_مزایا)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="107" type="NumberFormat" isKey="true">
+              <TextFormat Ref="106" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1464,7 +1446,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
-            <Text57 Ref="108" type="Text" isKey="true">
+            <Text57 Ref="107" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1475,11 +1457,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text57</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.جمع_مزایا)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="109" type="NumberFormat" isKey="true">
+              <TextFormat Ref="108" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1488,7 +1470,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text57>
-            <Text58 Ref="110" type="Text" isKey="true">
+            <Text58 Ref="109" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1499,11 +1481,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text58</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="111" type="NumberFormat" isKey="true">
+              <TextFormat Ref="110" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1512,7 +1494,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text58>
-            <Text59 Ref="112" type="Text" isKey="true">
+            <Text59 Ref="111" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1523,11 +1505,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text59</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="113" type="NumberFormat" isKey="true">
+              <TextFormat Ref="112" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1536,7 +1518,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text59>
-            <Text60 Ref="114" type="Text" isKey="true">
+            <Text60 Ref="113" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1547,11 +1529,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text60</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول_و_غیر_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="115" type="NumberFormat" isKey="true">
+              <TextFormat Ref="114" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1560,7 +1542,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text60>
-            <Text61 Ref="116" type="Text" isKey="true">
+            <Text61 Ref="115" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dash;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1571,11 +1553,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text61</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>{Kosha_Source01.غیر_مستمر___مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="117" type="NumberFormat" isKey="true">
+              <TextFormat Ref="116" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1584,7 +1566,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text61>
-            <Text62 Ref="118" type="Text" isKey="true">
+            <Text62 Ref="117" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1595,11 +1577,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text62</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="119" type="NumberFormat" isKey="true">
+              <TextFormat Ref="118" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1608,7 +1590,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text62>
-            <Text67 Ref="120" type="Text" isKey="true">
+            <Text67 Ref="119" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1619,11 +1601,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text67</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="121" type="NumberFormat" isKey="true">
+              <TextFormat Ref="120" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1632,7 +1614,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text67>
-            <Text71 Ref="122" type="Text" isKey="true">
+            <Text71 Ref="121" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1643,11 +1625,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text71</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="123" type="NumberFormat" isKey="true">
+              <TextFormat Ref="122" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1656,7 +1638,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text71>
-            <Text72 Ref="124" type="Text" isKey="true">
+            <Text72 Ref="123" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1667,11 +1649,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text72</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="125" type="NumberFormat" isKey="true">
+              <TextFormat Ref="124" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1680,7 +1662,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text72>
-            <Text73 Ref="126" type="Text" isKey="true">
+            <Text73 Ref="125" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1691,11 +1673,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text73</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="127" type="NumberFormat" isKey="true">
+              <TextFormat Ref="126" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1704,7 +1686,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text73>
-            <Text74 Ref="128" type="Text" isKey="true">
+            <Text74 Ref="127" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1715,11 +1697,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text74</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="129" type="NumberFormat" isKey="true">
+              <TextFormat Ref="128" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1728,7 +1710,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text74>
-            <Text75 Ref="130" type="Text" isKey="true">
+            <Text75 Ref="129" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1739,11 +1721,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text75</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="131" type="NumberFormat" isKey="true">
+              <TextFormat Ref="130" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1752,7 +1734,7 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text75>
-            <Text76 Ref="132" type="Text" isKey="true">
+            <Text76 Ref="131" type="Text" isKey="true">
               <Border>AdvBlack;1;Dash;Black;1;Solid;Black;1;Solid;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1763,11 +1745,11 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text76</Name>
-              <Page isRef="5" />
-              <Parent isRef="50" />
+              <Page isRef="4" />
+              <Parent isRef="49" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="133" type="NumberFormat" isKey="true">
+              <TextFormat Ref="132" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1779,8 +1761,8 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>FooterKosha_Source01</Name>
-          <Page isRef="5" />
-          <Parent isRef="5" />
+          <Page isRef="4" />
+          <Parent isRef="4" />
         </FooterKosha_Source01>
       </Components>
       <Conditions isList="true" count="0" />
@@ -1806,10 +1788,10 @@ ORDER BY Kosha_Tax.[نام خانوادگی]</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/13/2022 11:54:52 PM</ReportChanged>
+  <ReportChanged>1/15/2022 7:54:06 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\TaxReportAll.mrt</ReportFile>
-  <ReportGuid>108ae50ce9bb48a5b28667495482cfc1</ReportGuid>
+  <ReportGuid>88d96a30f87a49a497d68619e720bcb0</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>

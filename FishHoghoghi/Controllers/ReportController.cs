@@ -190,6 +190,54 @@ namespace FishHoghoghi.Controllers
 
             dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
 
+            report.Dictionary.Variables["ProjectRef"].ValueObject = string.Join(",", model.projectList);
+
+            report.Dictionary.Variables["Month"].ValueObject = model.Month;
+
+            report.Dictionary.Variables["Year"].ValueObject = model.Year;
+
+            report.Dictionary.Variables["Day"].ValueObject = model.Day;
+
+            report.Dictionary.Variables["RegisteredYear"].ValueObject = model.RegisteredYear;
+
+            report.Dictionary.Variables["RegisteredMonth"].ValueObject = model.RegisteredMonth;
+
+            report.Dictionary.Variables["RegisteredDay"].ValueObject = model.RegisteredDay;
+
+            report.Dictionary.Variables["Debt"].ValueObject = model.Debt;
+
+            report.Dictionary.Variables["PreviousDebt"].ValueObject = model.PreviousDebt;
+
+            report.Dictionary.Variables["SerialCheck"].ValueObject = model.SerialCheck;
+
+            report.Dictionary.Variables["CheckYear"].ValueObject = model.CheckYear;
+
+            report.Dictionary.Variables["CheckMonth"].ValueObject = model.CheckMonth;
+
+            report.Dictionary.Variables["CheckDay"].ValueObject = model.CheckDay;
+
+            report.Dictionary.Variables["BranchName"].ValueObject = model.BranchName;
+
+            report.Dictionary.Variables["BankName"].ValueObject = model.BankName;
+
+            report.Dictionary.Variables["AccountNo"].ValueObject = model.AccountNo;
+
+            report.Dictionary.Variables["PaymentMethodStr"].ValueObject = model.PaymentMethodStr;
+
+            report.Dictionary.Variables["PaymentAmount"].ValueObject = model.PaymentAmount;
+
+            report.Dictionary.Variables["PaymentYear"].ValueObject = model.PaymentYear;
+
+            report.Dictionary.Variables["PaymentMonth"].ValueObject = model.PaymentMonth;
+
+            report.Dictionary.Variables["PaymentDay"].ValueObject = model.PaymentDay;
+
+            report.Dictionary.Variables["PaymentAmountOfTreasury"].ValueObject = model.PaymentAmountOfTreasury;
+
+            report.Dictionary.Variables["Non_surrender_penalty"].ValueObject = model.Non_surrender_penalty;
+
+            report.Dictionary.Variables["Failure_to_pay"].ValueObject = model.Failure_to_pay;
+
             report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
 
             var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
