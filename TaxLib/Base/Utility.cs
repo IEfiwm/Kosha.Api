@@ -67,6 +67,11 @@ namespace TaxLib.Base
             }
         }
 
+        //public static string IsFirstMonth(string startworking)
+        //{
+        //    var res = 
+        //}
+
         public static string CreateWK(MKModel model)
         {
             return model.Year + ","

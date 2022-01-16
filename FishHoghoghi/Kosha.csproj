@@ -288,6 +288,7 @@
     <Compile Include="Structure\Attribute\LockFilterAttribute.cs" />
     <Compile Include="Structure\Business\Dal\Contract.cs" />
     <Compile Include="Structure\Business\Dal\Info.cs" />
+    <Compile Include="Structure\Business\Dal\WP_WH.cs" />
     <Compile Include="Structure\Business\Models\SummaryFieldInfo.cs" />
     <Compile Include="Structure\Business\Utilities\DBFCreator.cs" />
     <Compile Include="Structure\Business\Utilities\DBFHelper.cs" />
