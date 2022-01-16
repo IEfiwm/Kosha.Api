@@ -1,8 +1,11 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Dal;
+using FishHoghoghi.Extentions;
+using FishHoghoghi.Models.Contract;
 using MD.PersianDateTime;
 using Microsoft.Office.Interop.Word;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Globalization;
@@ -30,9 +33,16 @@ namespace FishHoghoghi.Controllers
 
         private string _template = $@"{AppDomain.CurrentDomain.BaseDirectory}Template\";
 
-        private static string GetDocPath(string id, bool hostname = true, string extention = "docx")
+        private static string GetDocPath(string id, bool hostname = true, string extention = "docx", string defaultPath = "")
         {
+            if (defaultPath != "")
+                return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\{defaultPath}\template{id}.{extention}";
             return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\template{id}.{extention}";
+        }
+
+        private static string GetDocDirectoryPath(bool hostname = true)
+        {
+            return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf";
         }
 
         private static string GetPublicDirectory(string filename = "")
@@ -179,6 +189,102 @@ namespace FishHoghoghi.Controllers
         }
 
         [NoCache]
+        [HttpPost]
+        public HttpResponseMessage GetAll(ContractListParameters model)
+        {
+            try
+            {
+                var zipFileName = "AllContracts_" + DateTime.Now.ToString("yyyy-MM-dd hh-mm");
+                var zipFilePath = GetDocDirectoryPath(true) + "\\" + zipFileName;
+                if (Directory.Exists(zipFilePath))
+                {
+                    foreach (FileInfo file in new DirectoryInfo(zipFilePath).GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    Directory.Delete(zipFilePath);
+                }
+                Directory.CreateDirectory(zipFilePath);
+
+                foreach (var username in model.usernameList)
+                {
+                    _id = Guid.NewGuid();
+                    _wordApp = new Application();
+
+                    if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf", zipFileName)).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
+                    {
+                        File.Delete(GetDocPath(username.ToString(), true, "pdf", zipFileName));
+                    }
+                    else if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
+                    {
+                        var res = new HttpResponseMessage(HttpStatusCode.OK)
+                        {
+                            Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf", zipFileName)))
+                        };
+
+                        res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                        {
+                            FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                        };
+
+                        return res;
+                    }
+
+                    Common.Log("Document null => " + $@"Cache failed");
+
+                    var user = Contract.GetUserContract(username, model.projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(model.enddate.Replace("-", "/")) - PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
+
+                    //var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString()), CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString()), Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+
+                    if (user == null)
+                    {
+                        continue;
+                    }
+
+                    File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
+
+                    PreaperDocument(user, dataSource, zipFileName);
+
+                    ConvertWordToPdf(GetDocPath(_id.ToString(), true, "docx", zipFileName), GetDocPath(username.ToString(), true, "pdf", zipFileName));
+
+                    File.Delete(GetDocPath(_id.ToString(), true, "docx", zipFileName));
+
+                    //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
+                }
+                if (File.Exists(zipFilePath + ".zip"))
+                {
+                    File.Delete(zipFilePath + ".zip");
+                }
+                ZipHelper.CreateZipFile(zipFilePath, zipFilePath + ".zip");
+                var result = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(Utility.StreamFile(zipFilePath + ".zip"))
+                };
+
+                result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = zipFileName + ".zip"
+                };
+
+                foreach (FileInfo file in new DirectoryInfo(zipFilePath).GetFiles())
+                {
+                    file.Delete();
+                }
+                Directory.Delete(zipFilePath);
+
+                File.Delete(zipFilePath + ".zip");
+
+                return result;
+            }
+            catch (Exception exp)
+            {
+                Common.Log(exp);
+
+                return Common.SetIntervalErrorResponse();
+            }
+        }
+
+        [NoCache]
         [HttpGet]
         [Route("Contract/GetLink/{username}")]
         public HttpResponseMessage GetLink(string username)
@@ -223,13 +329,13 @@ namespace FishHoghoghi.Controllers
             }
         }
 
-        void PreaperDocument(DataRow user, System.Data.DataTable dataSource)
+        void PreaperDocument(DataRow user, System.Data.DataTable dataSource, string defaultPath = "")
         {
-            var doc = Utility.GetDocument(GetDocPath(_id.ToString()), _wordApp);
+            var doc = Utility.GetDocument(GetDocPath(_id.ToString(), true, "docx", defaultPath), _wordApp);
 
             if (doc == null)
             {
-                Common.Log("Document null => " + $@"{GetDocPath(_id.ToString())} ==> ACCESS DENIED !!!!!!!");
+                Common.Log("Document null => " + $@"{GetDocPath(_id.ToString(), true, "docx", defaultPath)} ==> ACCESS DENIED !!!!!!!");
 
                 throw new Exception();
             }
