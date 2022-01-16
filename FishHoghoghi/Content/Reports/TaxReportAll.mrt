@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="15">
+        <Columns isList="true" count="18">
           <value>نام,System.String</value>
           <value>نام_x0020_خانوادگی,System.String</value>
           <value>کد_x0020_پرسنلی,System.String</value>
@@ -28,6 +28,9 @@
           <value>ProjectRef,System.Int64</value>
           <value>ماه,System.String</value>
           <value>سال_x0020_,System.String</value>
+          <value>جمع_x0020_مزایا_x0020_سال_x0020_جاری,System.String</value>
+          <value>مالیات_x0020_سال_x0020_جاری,System.String</value>
+          <value>مزایای_x0020_مشمول_x0020_سال_x0020_جاری,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -461,7 +464,7 @@
               <Name>Text13</Name>
               <Page isRef="4" />
               <Parent isRef="21" />
-              <Text>{Kosha_Source01.جمع_مزایا}</Text>
+              <Text>{Kosha_Source01.جمع_مزایا_سال_جاری}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="30" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -485,7 +488,7 @@
               <Name>Text17</Name>
               <Page isRef="4" />
               <Parent isRef="21" />
-              <Text>{Kosha_Source01.ماليات}</Text>
+              <Text>{Kosha_Source01.مالیات_سال_جاری}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="32" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -593,7 +596,7 @@
               <Name>Text31</Name>
               <Page isRef="4" />
               <Parent isRef="21" />
-              <Text>{Kosha_Source01.مزایای_مشمول}</Text>
+              <Text>{Kosha_Source01.مزایای_مشمول_سال_جاری}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="40" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -811,7 +814,7 @@
               <Name>Text40</Name>
               <Page isRef="4" />
               <Parent isRef="49" />
-              <Text>{Sum(Kosha_Source01.ماليات)}</Text>
+              <Text>{Sum(Kosha_Source01.مالیات_سال_جاری)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="56" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1459,7 +1462,7 @@
               <Name>Text57</Name>
               <Page isRef="4" />
               <Parent isRef="49" />
-              <Text>{Sum(Kosha_Source01.جمع_مزایا)}</Text>
+              <Text>{Sum(Kosha_Source01.جمع_مزایا_سال_جاری)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="108" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1507,7 +1510,7 @@
               <Name>Text59</Name>
               <Page isRef="4" />
               <Parent isRef="49" />
-              <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
+              <Text>{Sum(Kosha_Source01.مزایای_مشمول_سال_جاری)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="112" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1788,10 +1791,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/15/2022 7:54:06 PM</ReportChanged>
+  <ReportChanged>1/16/2022 6:17:29 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\TaxReportAll.mrt</ReportFile>
-  <ReportGuid>88d96a30f87a49a497d68619e720bcb0</ReportGuid>
+  <ReportGuid>b647f4071205485bac698aabfefd12ce</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
