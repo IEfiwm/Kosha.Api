@@ -380,6 +380,14 @@ namespace FishHoghoghi.Controllers
         {
             var context = new TaxLib.Tax();
 
+            var thismonth = WK.GetThisMonthData(model.projectList.Select(x => Convert.ToInt64(x)).ToList(), model.Year, model.Month, out System.Data.DataTable dataSource01);
+
+            var allmonth = WK.GetAllMonthData(model.projectList.Select(x => Convert.ToInt64(x)).ToList(), model.Year, model.Month, out System.Data.DataTable dataSource02);
+
+            model.Debt = Convert.ToInt64(thismonth[0].ToString());
+
+            model.PreviousDebt = Convert.ToInt64(allmonth[0].ToString());
+
             context.Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TXT/");
 
             var resfile = context.GenerateWK(model);
