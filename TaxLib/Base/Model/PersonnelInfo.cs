@@ -4,7 +4,13 @@
     {
         public string StartWorkingDate { get; set; }// تاریخ شروع به کار
 
+        public int FirstMonthWork { get; set; } // اگر ماه اول است 1 در غیر این صورت 2
+
+        public int EndMonthWork { get; set; } // اگر ماه اخر است 1 در غیر این صورت 2
+
         public string EndWorkingDate { get; set; }// تاریخ ترک کار
+
+        public int EndWorkDate { get; set; }// تاریخ ترک کار
 
         public int IncludedBenefits { get; set; }// جمع دستمزد و مزایای ماهانه مشمول  ) ناخالص دریافتی)
 

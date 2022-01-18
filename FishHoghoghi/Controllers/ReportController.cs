@@ -1,6 +1,9 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Utilities;
 using FishHoghoghi.Models;
+using FishHoghoghi.Structure.Business.Dal;
+using FishHoghoghi.Utilities;
+using MD.PersianDateTime;
 using Newtonsoft.Json;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Dictionary;
@@ -10,6 +13,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -18,6 +22,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using TaxLib.Base.Model;
 using static Stimulsoft.Base.StiJsonReportObjectHelper;
+using PersianDateTime = MD.PersianDateTime.PersianDateTime;
 
 namespace FishHoghoghi.Controllers
 {
@@ -151,8 +156,6 @@ namespace FishHoghoghi.Controllers
         [Route("Report/TaxAll/{year}/{month}/{projectIds}")]
         public HttpResponseMessage TaxAll(int year, int month, string projectIds)
         {
-            var projects = projectIds.Split(',');
-
             var report = new StiReport();
 
             var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxReportAll.mrt");
@@ -245,34 +248,131 @@ namespace FishHoghoghi.Controllers
             return response;
         }
 
-        //[HttpGet]
-        //[Route("Report/TXTTaxAll/{year}/{month}")]
-        //public HttpResponseMessage TXTTaxAll(int year, int month, string projectIds)
-        //{
-        //    var projects = projectIds.Split(',');
+        [HttpGet]
+        [Route("Report/TXTTaxWPAll/{year}/{month}/{projectIds}")]
+        public HttpResponseMessage TXTTaxWPAll(int year, int month, string projectIds)
+        {
+            var projects = projectIds.Split(',').Select(x => Convert.ToInt64(x)).ToList();
 
-        //    var report = new StiReport();
+            var data = WP_WH.GetData(projects, year, month, out System.Data.DataTable dataSource);
 
-        //    var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TaxAll.mrt");
+            if (data == null)
+            {
+                return null;
+            }
 
-        //    report.Load(path);
+            var context = new TaxLib.Tax();
 
-        //    var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+            context.Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TXT/");
 
-        //    dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+            var list = new List<PersonnelInfo>();
 
-        //    report.Dictionary.Variables["Month"].ValueObject = month;
+            for (int i = 0; i < data.Count - 1; i++)
+            {
+                var item = data[i];
 
-        //    report.Dictionary.Variables["Year"].ValueObject = year;
+                PersianDateTime firstworkingdate = item[5].ToString() != null && item[5].ToString() != "" && item[5].ToString() != " " ? new PersianDateTime(DateTime.Parse(item[5].ToString())) : default(PersianDateTime);
 
-        //    report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+                PersianDateTime endworkingdate = item[6].ToString() != null && item[6].ToString() != "" && item[6].ToString() != " " ? new PersianDateTime(DateTime.Parse(item[6].ToString())) : default(PersianDateTime);
 
-        //    report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+                list.Add(new PersonnelInfo
+                {
+                    Name = item[0].ToString(),
+                    LastName = item[1].ToString(),
+                    NationalCode = item[2].ToString(),
+                    JobTitle = item[3].ToString(),
+                    ServiceLocation = item[4].ToString(),
+                    FirstMonthWork = firstworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
+                    StartWorkingDate = CommonHelper.ConvertToEnglishNumber(firstworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", "")),
+                    StartWorkDate = Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(firstworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
+                    EndWorkingDate = endworkingdate == default(PersianDateTime) ? "" : CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", "")),
+                    EndWorkDate = endworkingdate == default(PersianDateTime) ? 0 : Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
+                    EndMonthWork = endworkingdate == default(PersianDateTime) ? 2 : endworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
+                    InsurenceType = Convert.ToInt32(item[8].ToString()),
+                    IncludedBenefits = Convert.ToInt32(item[9].ToString()),
+                });
 
-        //    var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+            }
 
-        //    return response;
-        //}
+            var resfile = context.GenerateWP(year, month, list);
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(Models.Utility.StreamFile(resfile.FilePath))
+            };
+
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = resfile.FilePath.Split('\\').Last()
+            };
+
+            File.Delete(resfile.FilePath);
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("Report/TXTTaxWHAll/{year}/{month}/{paymentMethod}/{projectIds}")]
+        public HttpResponseMessage TXTTaxWHAll(int year, int month, int paymentMethod, string projectIds)
+        {
+            var projects = projectIds.Split(',').Select(x => Convert.ToInt64(x)).ToList();
+
+            var data = WP_WH.GetData(projects, year, month, out System.Data.DataTable dataSource);
+
+            if (data == null)
+            {
+                //return Common.SetBadResponse();
+            }
+
+            var context = new TaxLib.Tax();
+
+            context.Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TXT/");
+
+            var list = new List<PersonnelInfo>();
+
+            for (int i = 0; i < data.Count - 1; i++)
+            {
+                var item = data[i];
+
+                PersianDateTime firstworkingdate = item[5].ToString() != null && item[5].ToString() != "" && item[5].ToString() != " " ? new PersianDateTime(DateTime.Parse(item[5].ToString())) : default(PersianDateTime);
+
+                PersianDateTime endworkingdate = item[6].ToString() != null && item[6].ToString() != "" && item[6].ToString() != " " ? new PersianDateTime(DateTime.Parse(item[6].ToString())) : default(PersianDateTime);
+
+                list.Add(new PersonnelInfo
+                {
+                    Name = item[0].ToString(),
+                    LastName = item[1].ToString(),
+                    NationalCode = item[2].ToString(),
+                    JobTitle = item[3].ToString(),
+                    ServiceLocation = item[4].ToString(),
+                    FirstMonthWork = firstworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
+                    StartWorkingDate = CommonHelper.ConvertToEnglishNumber(firstworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", "")),
+                    StartWorkDate = Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(firstworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
+                    EndWorkingDate = endworkingdate == default(PersianDateTime) ? "" : CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", "")),
+                    EndWorkDate = endworkingdate == default(PersianDateTime) ? 0 : Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
+                    EndMonthWork = endworkingdate == default(PersianDateTime) ? 2 : endworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
+                    InsurenceType = Convert.ToInt32(item[8].ToString()),
+                    IncludedBenefits = Convert.ToInt32(item[9].ToString()),
+                });
+
+            }
+
+            var resfile = context.GenerateWH(year, month, paymentMethod, list);
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(Models.Utility.StreamFile(resfile.FilePath))
+            };
+
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = resfile.FilePath.Split('\\').Last()
+            };
+
+            File.Delete(resfile.FilePath);
+
+            return result;
+        }
 
         [HttpPost]
         [Route("Report/TXTTaxSummary")]
@@ -280,18 +380,26 @@ namespace FishHoghoghi.Controllers
         {
             var context = new TaxLib.Tax();
 
+            var thismonth = WK.GetThisMonthData(model.projectList.Select(x => Convert.ToInt64(x)).ToList(), model.Year, model.Month, out System.Data.DataTable dataSource01);
+
+            var allmonth = WK.GetAllMonthData(model.projectList.Select(x => Convert.ToInt64(x)).ToList(), model.Year, model.Month, out System.Data.DataTable dataSource02);
+
+            model.Debt = Convert.ToInt64(thismonth[0].ToString());
+
+            model.PreviousDebt = Convert.ToInt64(allmonth[0].ToString());
+
             context.Path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/TXT/");
 
             var resfile = context.GenerateWK(model);
 
             var result = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new ByteArrayContent(Utility.StreamFile(resfile.FilePath))
+                Content = new ByteArrayContent(Models.Utility.StreamFile(resfile.FilePath))
             };
 
             result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
-                FileName = resfile.FilePath.Split('/').Last()
+                FileName = resfile.FilePath.Split('\\').Last()
             };
 
             File.Delete(resfile.FilePath);

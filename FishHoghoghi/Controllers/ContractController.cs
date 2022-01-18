@@ -174,6 +174,10 @@ namespace FishHoghoghi.Controllers
                     FileName = Guid.NewGuid().ToString("N") + ".pdf"
                 };
 
+                _wordApp.Documents.Close();
+
+                _wordApp.Quit();
+
                 File.Delete(GetDocPath(_id.ToString()));
 
                 //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
@@ -314,6 +318,10 @@ namespace FishHoghoghi.Controllers
                 ConvertWordToPdf(GetDocPath(_id.ToString()), GetDocPath(_id.ToString(), true, "pdf"));
 
                 File.Copy(GetDocPath(_id.ToString(), true, "pdf"), GetPublicDirectory(username + ".pdf"));
+
+                _wordApp.Documents.Close();
+
+                _wordApp.Quit();
 
                 File.Delete(GetDocPath(_id.ToString()));
 
