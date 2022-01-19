@@ -181,11 +181,6 @@ namespace FishHoghoghi.Controllers
                     FileName = Guid.NewGuid().ToString("N") + ".pdf"
                 };
 
-                //_wordApp.Documents.Close();
-
-                //_wordApp = null;
-
-                //_wordApp.Quit();
 
                 File.Delete(GetDocPath(_id.ToString()));
 
@@ -203,7 +198,7 @@ namespace FishHoghoghi.Controllers
 
         [NoCache]
         [HttpPost]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> GetAllAsync(ContractListParameters model)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> GetAll(ContractListParameters model)
         {
             var tasks = new List<Task>();
 
@@ -249,7 +244,7 @@ namespace FishHoghoghi.Controllers
                             };
                         }
 
-                        //Common.Log("Document null => " + $@"Cache failed");
+                    //Common.Log("Document null => " + $@"Cache failed");
 
                         var user = Contract.GetUserContract(
                             username,
@@ -259,7 +254,12 @@ namespace FishHoghoghi.Controllers
                             CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
                             Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
 
-                        File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
+                    if (user == null)
+                    {
+                        continue;
+                    }
+
+                    File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
 
                         PreaperDocument(user, dataSource, zipFileName);
 
