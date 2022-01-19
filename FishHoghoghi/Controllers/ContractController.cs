@@ -174,9 +174,6 @@ namespace FishHoghoghi.Controllers
                     FileName = Guid.NewGuid().ToString("N") + ".pdf"
                 };
 
-                _wordApp.Documents.Close();
-
-                _wordApp.Quit();
 
                 File.Delete(GetDocPath(_id.ToString()));
 
@@ -234,6 +231,10 @@ namespace FishHoghoghi.Controllers
                         return res;
                     }
 
+                    //_wordApp.Documents.Close();
+
+                    //_wordApp.Quit();
+
                     //Common.Log("Document null => " + $@"Cache failed");
 
                     var user = Contract.GetUserContract(username, model.projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(model.enddate.Replace("-", "/")) - PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
@@ -242,6 +243,10 @@ namespace FishHoghoghi.Controllers
 
                     if (user == null)
                     {
+                        _wordApp.Documents.Close();
+
+                        _wordApp.Quit();
+
                         continue;
                     }
 
