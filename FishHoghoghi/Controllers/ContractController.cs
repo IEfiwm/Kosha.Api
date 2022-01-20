@@ -222,54 +222,53 @@ namespace FishHoghoghi.Controllers
                 foreach (var username in model.usernameList)
                 {
                     await System.Threading.Tasks.Task.Run(() =>
-                    {
-                        _id = Guid.NewGuid();
+                     {
+                         _id = Guid.NewGuid();
 
-                        _wordApp = new Application();
+                         _wordApp = new Application();
 
-                        if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf", zipFileName)).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
-                        {
-                            File.Delete(GetDocPath(username.ToString(), true, "pdf", zipFileName));
-                        }
-                        else if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
-                        {
-                            var res = new HttpResponseMessage(HttpStatusCode.OK)
-                            {
-                                Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf", zipFileName)))
-                            };
+                         if (username != null)
+                         {
+                             if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf", zipFileName)).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
+                             {
+                                 File.Delete(GetDocPath(username.ToString(), true, "pdf", zipFileName));
+                             }
+                             else if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
+                             {
+                                 var res = new HttpResponseMessage(HttpStatusCode.OK)
+                                 {
+                                     Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf", zipFileName)))
+                                 };
 
-                            res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                            {
-                                FileName = Guid.NewGuid().ToString("N") + ".pdf"
-                            };
-                        }
+                                 res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                                 {
+                                     FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                                 };
+                             }
 
-                    //Common.Log("Document null => " + $@"Cache failed");
+                             //Common.Log("Document null => " + $@"Cache failed");
 
-                        var user = Contract.GetUserContract(
-                            username,
-                            model.projectId,
-                            out System.Data.DataTable dataSource,
-                            CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd")),
-                            CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
-                            Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
+                             var user = Contract.GetUserContract(
+                                  username,
+                                  model.projectId,
+                                  out System.Data.DataTable dataSource,
+                                  CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                                  CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                                  Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
 
-                    if (user == null)
-                    {
-                        continue;
-                    }
+                             File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
 
-                    File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
+                             PreaperDocument(user, dataSource, zipFileName);
 
-                        PreaperDocument(user, dataSource, zipFileName);
+                             ConvertWordToPdf(GetDocPath(_id.ToString(), true, "docx", zipFileName), GetDocPath(username.ToString(), true, "pdf", zipFileName));
 
-                        ConvertWordToPdf(GetDocPath(_id.ToString(), true, "docx", zipFileName), GetDocPath(username.ToString(), true, "pdf", zipFileName));
+                             File.Delete(GetDocPath(_id.ToString(), true, "docx", zipFileName));
 
-                        File.Delete(GetDocPath(_id.ToString(), true, "docx", zipFileName));
-
-                        //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
-                    });
+                             //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
+                         }
+                     });
                 }
+
                 if (File.Exists(zipFilePath + ".zip"))
                 {
                     File.Delete(zipFilePath + ".zip");
