@@ -1,6 +1,9 @@
 ﻿using FishHoghoghi.App_Start;
 using FishHoghoghi.Models;
+using Kosha.Core;
+using Kosha.Core.Bussinus.Providers;
 using System;
+using System.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -23,6 +26,13 @@ namespace FishHoghoghi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Bootstrapper.Initialise();
+
+            SMSIRProvider.Initialization(ConfigurationManager.AppSettings["ApiKey"].ToString(),
+                ConfigurationManager.AppSettings["SecretKey"].ToString());
+
+            DependencyInjection.Initialise(ConfigurationManager.ConnectionStrings);
         }
     }
 }
