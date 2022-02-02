@@ -849,6 +849,11 @@ namespace FishHoghoghi.Utilities
             return Regex.IsMatch(text, RegularExpressionConstants.EnglishAlphabet);
         }
 
+        public static bool IsNumeric(string value)
+        {
+            return value.All(char.IsNumber);
+        }
+
         public static string GetPicPathBySize(string imageUrl, int width, int height)
         {
             if (string.IsNullOrEmpty(imageUrl))

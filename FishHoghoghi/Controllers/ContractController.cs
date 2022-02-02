@@ -2,6 +2,7 @@
 using FishHoghoghi.Business.Dal;
 using FishHoghoghi.Extentions;
 using FishHoghoghi.Models.Contract;
+using FishHoghoghi.Utilities;
 using MD.PersianDateTime;
 using Microsoft.Office.Interop.Word;
 using System;
@@ -149,9 +150,15 @@ namespace FishHoghoghi.Controllers
 
                 Common.Log("Document null => " + $@"Cache failed");
 
-                var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(enddate.Replace("-", "/")) - PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+                //var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(enddate.Replace("-", "/")) - PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
 
-                //var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString()), CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString()), Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+                var user = Contract.GetUserContract(
+                    username,
+                    projectId,
+                    out System.Data.DataTable dataSource,
+                    CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                    CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                    Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
 
                 if (user == null)
                 {
@@ -191,12 +198,16 @@ namespace FishHoghoghi.Controllers
 
         [NoCache]
         [HttpPost]
-        public HttpResponseMessage GetAll(ContractListParameters model)
+        public async System.Threading.Tasks.Task<HttpResponseMessage> GetAll(ContractListParameters model)
         {
+            var tasks = new List<Task>();
+
             try
             {
                 var zipFileName = "AllContracts_" + DateTime.Now.ToString("yyyy-MM-dd hh-mm");
+
                 var zipFilePath = GetDocDirectoryPath(true) + "\\" + zipFileName;
+
                 if (Directory.Exists(zipFilePath))
                 {
                     foreach (FileInfo file in new DirectoryInfo(zipFilePath).GetFiles())
@@ -205,61 +216,59 @@ namespace FishHoghoghi.Controllers
                     }
                     Directory.Delete(zipFilePath);
                 }
+
                 Directory.CreateDirectory(zipFilePath);
 
                 foreach (var username in model.usernameList)
                 {
-                    _id = Guid.NewGuid();
-                    _wordApp = new Application();
+                    await System.Threading.Tasks.Task.Run(() =>
+                     {
+                         _id = Guid.NewGuid();
 
-                    if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf", zipFileName)).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
-                    {
-                        File.Delete(GetDocPath(username.ToString(), true, "pdf", zipFileName));
-                    }
-                    else if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
-                    {
-                        var res = new HttpResponseMessage(HttpStatusCode.OK)
-                        {
-                            Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf", zipFileName)))
-                        };
+                         _wordApp = new Application();
 
-                        res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
-                        {
-                            FileName = Guid.NewGuid().ToString("N") + ".pdf"
-                        };
+                         if (username != null)
+                         {
+                             if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf", zipFileName)).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
+                             {
+                                 File.Delete(GetDocPath(username.ToString(), true, "pdf", zipFileName));
+                             }
+                             else if (File.Exists(GetDocPath(username.ToString(), true, "pdf", zipFileName)) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
+                             {
+                                 var res = new HttpResponseMessage(HttpStatusCode.OK)
+                                 {
+                                     Content = new ByteArrayContent(Utility.StreamFile(GetDocPath(username.ToString(), true, "pdf", zipFileName)))
+                                 };
 
-                        return res;
-                    }
+                                 res.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+                                 {
+                                     FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                                 };
+                             }
 
-                    //_wordApp.Documents.Close();
+                             //Common.Log("Document null => " + $@"Cache failed");
 
-                    //_wordApp.Quit();
+                             var user = Contract.GetUserContract(
+                                  username,
+                                  model.projectId,
+                                  out System.Data.DataTable dataSource,
+                                  CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                                  CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
+                                  Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(model.enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
 
-                    //Common.Log("Document null => " + $@"Cache failed");
+                             File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
 
-                    var user = Contract.GetUserContract(username, model.projectId, out System.Data.DataTable dataSource, PersianDateTime.Parse(model.startdate.Replace("-", "/")).ToString("yyyy/MM/dd"), PersianDateTime.Parse(model.enddate.Replace("-", "/")).ToString("yyyy/MM/dd"), Math.Round(((double)(PersianDateTime.Parse(model.enddate.Replace("-", "/")) - PersianDateTime.Parse(model.startdate.Replace("-", "/"))).Days / 30)).ToString());
+                             PreaperDocument(user, dataSource, zipFileName);
 
-                    //var user = Contract.GetUserContract(username, projectId, out System.Data.DataTable dataSource, CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString()), CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString()), Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+                             ConvertWordToPdf(GetDocPath(_id.ToString(), true, "docx", zipFileName), GetDocPath(username.ToString(), true, "pdf", zipFileName));
 
-                    if (user == null)
-                    {
-                        _wordApp.Documents.Close();
+                             File.Delete(GetDocPath(_id.ToString(), true, "docx", zipFileName));
 
-                        _wordApp.Quit();
-
-                        continue;
-                    }
-
-                    File.Copy(_template + Common.GetContractTemplateName(model.projectId), GetDocPath(_id.ToString(), true, "docx", zipFileName));
-
-                    PreaperDocument(user, dataSource, zipFileName);
-
-                    ConvertWordToPdf(GetDocPath(_id.ToString(), true, "docx", zipFileName), GetDocPath(username.ToString(), true, "pdf", zipFileName));
-
-                    File.Delete(GetDocPath(_id.ToString(), true, "docx", zipFileName));
-
-                    //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
+                             //File.Delete(GetDocPath(_id.ToString(), true, "pdf"));
+                         }
+                     });
                 }
+
                 if (File.Exists(zipFilePath + ".zip"))
                 {
                     File.Delete(zipFilePath + ".zip");
@@ -324,9 +333,9 @@ namespace FishHoghoghi.Controllers
 
                 File.Copy(GetDocPath(_id.ToString(), true, "pdf"), GetPublicDirectory(username + ".pdf"));
 
-                _wordApp.Documents.Close();
+                //_wordApp.Documents.Close();
 
-                _wordApp.Quit();
+                //_wordApp.Quit();
 
                 File.Delete(GetDocPath(_id.ToString()));
 
@@ -371,7 +380,7 @@ namespace FishHoghoghi.Controllers
                 }
                 else
                 {
-                    if (user.ItemArray[i].ToString().Contains(".") || user.ItemArray[i].ToString().Contains("/"))
+                    if (CommonHelper.IsNumeric(user.ItemArray[i].ToString()) && (user.ItemArray[i].ToString().Contains(".") || user.ItemArray[i].ToString().Contains("/")))
                     {
                         Utility.ReplaceBookMarkText(doc, dataSource.Columns[i].ToString().Replace(' ', '_'), Utility.MoneyFormater(user.ItemArray[i].ToString()));
                     }

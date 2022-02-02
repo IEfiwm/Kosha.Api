@@ -538,6 +538,8 @@
     <Content Include="app.manifest" />
     <Content Include="Content\Reports\InsuranceReportAll.mrt" />
     <Content Include="Content\Reports\InsuranceReportSummary.mrt" />
+    <Content Include="Content\Reports\TaxReportAll.mrt" />
+    <Content Include="Content\Reports\TaxReportSummary.mrt" />
     <None Include="packages.config" />
     <Content Include="App_Data\Jsons\ReportRecords.json" />
     <Content Include="Template\template-2118.docx" />
