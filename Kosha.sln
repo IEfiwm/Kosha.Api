@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosha", "FishHoghoghi\Kosha.csproj", "{0C611CEB-4CC4-4617-AD34-5175EE444B6B}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoshaTaxLib", "KoshaTaxLib\KoshaTaxLib.csproj", "{C36F6CD8-82F9-4282-8775-1647CAF5F2A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosha.TaxLib", "TaxLib\Kosha.TaxLib.csproj", "{5346123F-0B50-4FA5-9B6D-C348DBA17082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosha.DataLayer", "Kosha.DataLayer\Kosha.DataLayer.csproj", "{3DD0AC70-6607-4B8B-84FF-21773C2DF841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosha.Core", "Kosha.Core\Kosha.Core.csproj", "{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,11 +101,36 @@ Global
 		{5346123F-0B50-4FA5-9B6D-C348DBA17082}.Release|x64.Build.0 = Release|Any CPU
 		{5346123F-0B50-4FA5-9B6D-C348DBA17082}.Release|x86.ActiveCfg = Release|Any CPU
 		{5346123F-0B50-4FA5-9B6D-C348DBA17082}.Release|x86.Build.0 = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|x64.Build.0 = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Debug|x86.Build.0 = Debug|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|x64.ActiveCfg = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|x64.Build.0 = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|x86.ActiveCfg = Release|Any CPU
+		{3DD0AC70-6607-4B8B-84FF-21773C2DF841}.Release|x86.Build.0 = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|x64.Build.0 = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD25B2B6-97D0-4B88-A39A-1B48AEFE1A8C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {5CEBD256-AD4D-4A13-B8E9-8EB97FAF7095}
 	EndGlobalSection
 EndGlobal
