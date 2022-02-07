@@ -29,7 +29,8 @@ namespace FishHoghoghi
             container.RegisterType<IUserContract, UserContract>(new HierarchicalLifetimeManager());
 
             //GlobalConfiguration.Configuration.DependencyResolver = new UnityResolver(container);
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = new App_Start.UnityDependencyResolver(container);
+
         }
     }
 }

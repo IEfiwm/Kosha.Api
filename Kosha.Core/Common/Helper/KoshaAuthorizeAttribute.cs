@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Mvc;
+using Unity;
 
 namespace Kosha.Core.Common.Helper
 {
@@ -12,7 +13,8 @@ namespace Kosha.Core.Common.Helper
 
         public override void OnActionExecuting(HttpActionContext context)
         {
-            _userContract = DependencyResolver.Current.GetService<IUserContract>();
+            _userContract = (IUserContract)context.Request.GetDependencyScope().GetService(typeof(IUserContract));
+
             string token = context.Request.Headers.Authorization?.Parameter;
 
             if (string.IsNullOrEmpty(token))

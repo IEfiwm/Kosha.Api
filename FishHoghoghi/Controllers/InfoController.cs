@@ -17,12 +17,12 @@ namespace FishHoghoghi.Controllers
     public class InfoController :  ApiController
     {
         private readonly IUserContract _userContract;
+
         public InfoController(IUserContract userContract)
         {
             _userContract = userContract;
         }
 
-        
         [HttpGet]
         public HttpResponseMessage Get()
         {

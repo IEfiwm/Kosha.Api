@@ -1,58 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.Http.Dependencies;
 using Unity;
 
 namespace FishHoghoghi.App_Start
 {
-    public class UnityResolver : IDependencyResolver
+    public class UnityDependencyResolver : IDependencyResolver
     {
-        protected IUnityContainer container;
+        private readonly IUnityContainer _container;
 
-        public UnityResolver(IUnityContainer container)
+        public UnityDependencyResolver(IUnityContainer container)
         {
-            if (container == null)
-            {
-                throw new ArgumentNullException(nameof(container));
-            }
-            this.container = container;
-        }
-
-        public object GetService(Type serviceType)
-        {
-            try
-            {
-                return container.Resolve(serviceType);
-            }
-            catch (ResolutionFailedException exception)
-            {
-                throw new InvalidOperationException(
-                    $"Unable to resolve service for type {serviceType}.",
-                    exception);
-            }
-        }
-
-        public IEnumerable<object> GetServices(Type serviceType)
-        {
-            try
-            {
-                return container.ResolveAll(serviceType);
-            }
-            catch (ResolutionFailedException exception)
-            {
-                throw new InvalidOperationException(
-                    $"Unable to resolve service for type {serviceType}.",
-                    exception);
-            }
+            _container = container;
         }
 
         public IDependencyScope BeginScope()
         {
-            var child = container.CreateChildContainer();
-            return new UnityResolver(child);
+            var child = _container.CreateChildContainer();
+            return new UnityDependencyResolver(child);
         }
 
         public void Dispose()
@@ -62,7 +27,31 @@ namespace FishHoghoghi.App_Start
 
         protected virtual void Dispose(bool disposing)
         {
-            container.Dispose();
+            _container.Dispose();
+        }
+
+        public object GetService(Type serviceType)
+        {
+            try
+            {
+                return _container.Resolve(serviceType);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            try
+            {
+                return _container.ResolveAll(serviceType);
+            }
+            catch
+            {
+                return new List<object>();
+            }
         }
     }
 }
