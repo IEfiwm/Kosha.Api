@@ -44,7 +44,7 @@ namespace FishHoghoghi.Business.Utilities
                         type = "varchar(10)";
                         break;
 
-                    case "System.Int32":
+                    case "System.Int64":
                         type = "int";
                         break;
 
@@ -79,8 +79,8 @@ namespace FishHoghoghi.Business.Utilities
                     SalInsurenceDiskPersonal sidp = new SalInsurenceDiskPersonal()
                     {
                         DSW_ID = row[0].ToString(),
-                        DSW_YY = Convert.ToInt32(row[1].ToString()),
-                        DSW_MM = Convert.ToInt32(row[2].ToString()),
+                        DSW_YY = Convert.ToInt64(row[1].ToString()),
+                        DSW_MM = Convert.ToInt64(row[2].ToString()),
                         DSW_LISTNO = row[3].ToString(),
                         DSW_ID1 = row[4].ToString(),
                         DSW_FNAME = row[5].ToString(),
@@ -88,21 +88,21 @@ namespace FishHoghoghi.Business.Utilities
                         DSW_DNAME = row[7].ToString(),
                         DSW_IDNO = row[8].ToString(),
                         DSW_IDPLC = row[9].ToString(),
-                        DSW_IDATE = row[10].ToString() == null || row[10].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[10].ToString())).ToString("yyyy/MM/dd")).Replace("/",""),
+                        DSW_IDATE = row[10].ToString() == null || row[10].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[10].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
                         DSW_BDATE = row[11].ToString() == null || row[11].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[11].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
                         DSW_SEX = row[12].ToString(),
                         DSW_NAT = row[13].ToString(),
                         DSW_OCP = row[14].ToString(),
                         DSW_SDATE = row[15].ToString() == null || row[15].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[15].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
                         DSW_EDATE = row[16].ToString() == null || row[16].ToString() == "" ? null : CommonHelper.ConvertToEnglishNumber(new PersianDateTime(DateTime.Parse(row[16].ToString())).ToString("yyyy/MM/dd")).Replace("/", ""),
-                        DSW_DD = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[17].ToString()))),
-                        DSW_ROOZ = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[18].ToString()))),
-                        DSW_MAH = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[19].ToString()))),
-                        DSW_MAZ = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[20].ToString()))),
-                        DSW_MASH = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[21].ToString()))),
-                        DSW_TOTL = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[22].ToString()))),
-                        DSW_BIME = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[23].ToString()))),
-                        DSW_PRATE = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[24].ToString()))),
+                        DSW_DD = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[17].ToString()))),
+                        DSW_ROOZ = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[18].ToString()))),
+                        DSW_MAH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[19].ToString()))),
+                        DSW_MAZ = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[20].ToString()))),
+                        DSW_MASH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[21].ToString()))),
+                        DSW_TOTL = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[22].ToString()))),
+                        DSW_BIME = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[23].ToString()))),
+                        DSW_PRATE = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[24].ToString()))),
                         DSW_JOB = row[25].ToString(),
                         PER_NATCOD = row[26].ToString(),
 
@@ -124,14 +124,14 @@ namespace FishHoghoghi.Business.Utilities
                     DSK_NAME = row[1].ToString(),
                     DSK_FARM = row[2].ToString(),
                     DSK_ADRS = row[3].ToString(),
-                    DSK_KIND = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[4].ToString()))),
-                    DSK_YY = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[5].ToString()))),
-                    DSK_MM = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[6].ToString()))),
+                    DSK_KIND = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[4].ToString()))),
+                    DSK_YY = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[5].ToString()))),
+                    DSK_MM = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[6].ToString()))),
                     DSK_LISTNO = row[7].ToString(),
                     DSK_DISC = row[8].ToString(),
-                    DSK_NUM = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[9].ToString()))),
-                    DSK_TDD = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[10].ToString()))),
-                    DSK_TROOZ = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[11].ToString()))),
+                    DSK_NUM = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[9].ToString()))),
+                    DSK_TDD = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[10].ToString()))),
+                    DSK_TROOZ = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[11].ToString()))),
                     DSK_TMAH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[12].ToString()))),
                     DSK_TMAZ = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[13].ToString()))),
                     DSK_TMASH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[14].ToString()))),
@@ -139,8 +139,8 @@ namespace FishHoghoghi.Business.Utilities
                     DSK_TBIME = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[16].ToString()))),
                     DSK_TKOSO = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[17].ToString()))),
                     DSK_BIC = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[18].ToString()))),
-                    DSK_RATE = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[19].ToString()))),
-                    DSK_PRATE = Convert.ToInt32(Math.Round(Convert.ToDecimal(row[20].ToString()))),
+                    DSK_RATE = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[19].ToString()))),
+                    DSK_PRATE = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[20].ToString()))),
                     DSK_BIMH = Convert.ToInt64(Math.Round(Convert.ToDecimal(row[21].ToString()))),
                     MON_PYM = row[22].ToString()
                 }, path);

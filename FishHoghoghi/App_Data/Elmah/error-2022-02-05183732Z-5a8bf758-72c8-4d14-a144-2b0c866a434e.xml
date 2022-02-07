@@ -1,0 +1,198 @@
+﻿<error errorId="5a8bf758-72c8-4d14-a144-2b0c866a434e" application="/LM/W3SVC/2/ROOT" host="ERFAN" type="System.Web.HttpException" message="The controller for path '/' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/' was not found or does not implement IController.&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2022-02-05T18:37:32.7567380Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:close&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9&#xD;&#xA;HTTP_COOKIE:ai_user=fyp05|2022-02-03T14:40:36.190Z; .AspNetCore.Culture=c%3Dfa%7Cuic%3Dfa; .AspNetCore.Antiforgery.XP0Fqypsmw8=CfDJ8FLww_QzYW9DqXnnFfBM6j42vgXoQScXbLoVpb6CMFCilugAAW8atXbIULRZH_JRQWtEt9BpCs75oN1RY8AndtfJHgH-ltvodOmdBSPvClWx2l_jnwQ_YRwdxX1BdZOQQyd1xm_4PSFWSUG3-xiYTwg; .AspNetCore.Antiforgery.0knxKLtoFFc=CfDJ8FLww_QzYW9DqXnnFfBM6j5xJlhlDSqjY4ipJhyQGRIKNI6e2K41unz5GB_y4LXpZBl6lXOUyEeTvjmUcNOEGIbXzevSyIZKmWHuxVylGVVxiucYl9g0Occt5e6z_Zj0iI-9TSa3pJMqvZBplUyXvcA; .AspNetCore.Identity.Application=CfDJ8FLww_QzYW9DqXnnFfBM6j5BZKsSF2A-WHw9zdoZ5qS5OG92KjhGC5TXdq9jG-fTfoN0DcSLGp7o7GArRTpy40zPNCFAzRus7dKxUlH0GkYNl1EmjaWT0Eg9UozEWzKN8R3WCX6X_z1s32Y4ib2rxbx4imeLJO1kSP4AN58BB_utGyGb3FxNBP_QzCEAxI5ZjzEAh3z2bRmlnYaceuZ20jCnx-W7BTbT_HDTFdhWD7O43mVsW8OAW9kMEO_F0nlJ0DGtB3BOmGnAVU_FkxMR762yH2LfZBYPPgUbLRk1bHwOU-g8MrEK-568CRuvxPZPU9Bpo-nkiBxTB5x5YHJ-8vP1teiL4CjrbwdAMSpn4gHzF7ezO5Fr_-0ZlLoMwfLvgoSu_R94XeIczwNqs9pUE4H8VtSDXB2fqJgLEJf3rUxJP3N5HXt9pXEqwXOALO_PzYzpPtDS4Iqadli90DBa15ov08OTfA8Sh6tSNR6w6pK1zmruiRFCOrGaxVcNZK5lEL4ogiDhXka8xrlV-SEys9wTkYdM1vGyU8obdmSF0Vn39G1T132iheQ311F3EX7w7lfQgWJd_cLu_uj7w6UX99GsU0GN0zOy3LPA8ka1Iu1qnh5kx0_KRlJCfsx68JVkNv5KhEnr8kJ6zTcg9_tVgrZgMyemiZ3GQpCpfJ8W-ldqISjj7vi8dKkHOCjkUlA6kEU1oadFi96Ml0z-MeTIospmh1-XIjMX_7dq_Ly0py_T558-UnVUHhkY3NqBxMBSPfomUknunKSHQo882A2Mu0WcX2DOczOs7LI7hPhZMZjy9sGM2g2E_tgEAYvO378l1WnuH9RwlmU1ysZIOpnH72JKCDeBXQ_Y2g31a3cWLw7z0pFJqCuqnvBd9JJCIqYd-vhi2sAxjocVDZx4LRTEGz0FO2uQhzOYfUATZZLyqfti1qkdeFrGY40LDDZSVnZPkE4n858IESEFTp7AXvkC4_3BbqnWiLRGqUiZUphGduIqlVHJ1ZC39K8Hn4NM4B7wSX4hKYNmakEwnvGWTCF0z8x2Z6udiqUe-C1GNaxxmEOVdyuVBXgBZ2Sqv3EgcwmMZ3NTmkTjLXGtHJ2VLRSXApEUNCVcDcr7Fi1N74k_1kw3egD6ZnFoX9s7LOMXej_9OT7jlxpLyrcFAMJSHnWjemmU0mxDrc5I7w8WD4Z0-IdYjHhPkLgnVs31UteF89odEQC-aN53iA1Da4RWWTonaG_ZXi2SxezdsX_QoJAcgs8_ca4kU2eVByLIzaFGlQ3cGdlKCJ-aHSoIu58f8AmWjRQXvkNAKQnc6h9GnIsiiSKU_OYjd4Ioi_DtfXOaFic9d9FaqGMSelSQMnVoHM9uEmOmbhnwdFYmkN-4FNExOQdblktQyOlNNAraSqWm5VRyCyy5xyvKsEKQ4c4YxLAA-9DpMQSA2D-DGR6vlfpA57ybF2TR-jBtKii0IT7mlqlAHnvPVrZQl4amwaJQSyDVJ8NUVV3XXSxB4d64zfWeDr1PuCDT3fn6gaLcqceQaOEdtnqdRgol5ddZYZX0M0QRhrp-aw3WQUEICKrrF5VCfMfebp4wOfazsObR8nLVuQBE2w; ai_session=LkijD|1644086017965|1644086077394.7&#xD;&#xA;HTTP_HOST:localhost:44384&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#xD;&#xA;HTTP_SEC_CH_UA:&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;&#xD;&#xA;HTTP_SEC_CH_UA_MOBILE:?0&#xD;&#xA;HTTP_SEC_CH_UA_PLATFORM:&quot;Windows&quot;&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;HTTP_SEC_FETCH_SITE:none&#xD;&#xA;HTTP_SEC_FETCH_MODE:navigate&#xD;&#xA;HTTP_SEC_FETCH_USER:?1&#xD;&#xA;HTTP_SEC_FETCH_DEST:document&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: close&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9&#xD;&#xA;Cookie: ai_user=fyp05|2022-02-03T14:40:36.190Z; .AspNetCore.Culture=c%3Dfa%7Cuic%3Dfa; .AspNetCore.Antiforgery.XP0Fqypsmw8=CfDJ8FLww_QzYW9DqXnnFfBM6j42vgXoQScXbLoVpb6CMFCilugAAW8atXbIULRZH_JRQWtEt9BpCs75oN1RY8AndtfJHgH-ltvodOmdBSPvClWx2l_jnwQ_YRwdxX1BdZOQQyd1xm_4PSFWSUG3-xiYTwg; .AspNetCore.Antiforgery.0knxKLtoFFc=CfDJ8FLww_QzYW9DqXnnFfBM6j5xJlhlDSqjY4ipJhyQGRIKNI6e2K41unz5GB_y4LXpZBl6lXOUyEeTvjmUcNOEGIbXzevSyIZKmWHuxVylGVVxiucYl9g0Occt5e6z_Zj0iI-9TSa3pJMqvZBplUyXvcA; .AspNetCore.Identity.Application=CfDJ8FLww_QzYW9DqXnnFfBM6j5BZKsSF2A-WHw9zdoZ5qS5OG92KjhGC5TXdq9jG-fTfoN0DcSLGp7o7GArRTpy40zPNCFAzRus7dKxUlH0GkYNl1EmjaWT0Eg9UozEWzKN8R3WCX6X_z1s32Y4ib2rxbx4imeLJO1kSP4AN58BB_utGyGb3FxNBP_QzCEAxI5ZjzEAh3z2bRmlnYaceuZ20jCnx-W7BTbT_HDTFdhWD7O43mVsW8OAW9kMEO_F0nlJ0DGtB3BOmGnAVU_FkxMR762yH2LfZBYPPgUbLRk1bHwOU-g8MrEK-568CRuvxPZPU9Bpo-nkiBxTB5x5YHJ-8vP1teiL4CjrbwdAMSpn4gHzF7ezO5Fr_-0ZlLoMwfLvgoSu_R94XeIczwNqs9pUE4H8VtSDXB2fqJgLEJf3rUxJP3N5HXt9pXEqwXOALO_PzYzpPtDS4Iqadli90DBa15ov08OTfA8Sh6tSNR6w6pK1zmruiRFCOrGaxVcNZK5lEL4ogiDhXka8xrlV-SEys9wTkYdM1vGyU8obdmSF0Vn39G1T132iheQ311F3EX7w7lfQgWJd_cLu_uj7w6UX99GsU0GN0zOy3LPA8ka1Iu1qnh5kx0_KRlJCfsx68JVkNv5KhEnr8kJ6zTcg9_tVgrZgMyemiZ3GQpCpfJ8W-ldqISjj7vi8dKkHOCjkUlA6kEU1oadFi96Ml0z-MeTIospmh1-XIjMX_7dq_Ly0py_T558-UnVUHhkY3NqBxMBSPfomUknunKSHQo882A2Mu0WcX2DOczOs7LI7hPhZMZjy9sGM2g2E_tgEAYvO378l1WnuH9RwlmU1ysZIOpnH72JKCDeBXQ_Y2g31a3cWLw7z0pFJqCuqnvBd9JJCIqYd-vhi2sAxjocVDZx4LRTEGz0FO2uQhzOYfUATZZLyqfti1qkdeFrGY40LDDZSVnZPkE4n858IESEFTp7AXvkC4_3BbqnWiLRGqUiZUphGduIqlVHJ1ZC39K8Hn4NM4B7wSX4hKYNmakEwnvGWTCF0z8x2Z6udiqUe-C1GNaxxmEOVdyuVBXgBZ2Sqv3EgcwmMZ3NTmkTjLXGtHJ2VLRSXApEUNCVcDcr7Fi1N74k_1kw3egD6ZnFoX9s7LOMXej_9OT7jlxpLyrcFAMJSHnWjemmU0mxDrc5I7w8WD4Z0-IdYjHhPkLgnVs31UteF89odEQC-aN53iA1Da4RWWTonaG_ZXi2SxezdsX_QoJAcgs8_ca4kU2eVByLIzaFGlQ3cGdlKCJ-aHSoIu58f8AmWjRQXvkNAKQnc6h9GnIsiiSKU_OYjd4Ioi_DtfXOaFic9d9FaqGMSelSQMnVoHM9uEmOmbhnwdFYmkN-4FNExOQdblktQyOlNNAraSqWm5VRyCyy5xyvKsEKQ4c4YxLAA-9DpMQSA2D-DGR6vlfpA57ybF2TR-jBtKii0IT7mlqlAHnvPVrZQl4amwaJQSyDVJ8NUVV3XXSxB4d64zfWeDr1PuCDT3fn6gaLcqceQaOEdtnqdRgol5ddZYZX0M0QRhrp-aw3WQUEICKrrF5VCfMfebp4wOfazsObR8nLVuQBE2w; ai_session=LkijD|1644086017965|1644086077394.7&#xD;&#xA;Host: localhost:44384&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#xD;&#xA;sec-ch-ua: &quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;&#xD;&#xA;sec-ch-ua-mobile: ?0&#xD;&#xA;sec-ch-ua-platform: &quot;Windows&quot;&#xD;&#xA;upgrade-insecure-requests: 1&#xD;&#xA;sec-fetch-site: none&#xD;&#xA;sec-fetch-mode: navigate&#xD;&#xA;sec-fetch-user: ?1&#xD;&#xA;sec-fetch-dest: document&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="F:\Fish\Kosha.Api\FishHoghoghi\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="256" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="2048" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="CN=localhost" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="CN=localhost" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="on" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="256" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="2048" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="CN=localhost" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="CN=localhost" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="F:\Fish\Kosha.Api\FishHoghoghi" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="55713" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="44384" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="1" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="close" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ai_user=fyp05|2022-02-03T14:40:36.190Z; .AspNetCore.Culture=c%3Dfa%7Cuic%3Dfa; .AspNetCore.Antiforgery.XP0Fqypsmw8=CfDJ8FLww_QzYW9DqXnnFfBM6j42vgXoQScXbLoVpb6CMFCilugAAW8atXbIULRZH_JRQWtEt9BpCs75oN1RY8AndtfJHgH-ltvodOmdBSPvClWx2l_jnwQ_YRwdxX1BdZOQQyd1xm_4PSFWSUG3-xiYTwg; .AspNetCore.Antiforgery.0knxKLtoFFc=CfDJ8FLww_QzYW9DqXnnFfBM6j5xJlhlDSqjY4ipJhyQGRIKNI6e2K41unz5GB_y4LXpZBl6lXOUyEeTvjmUcNOEGIbXzevSyIZKmWHuxVylGVVxiucYl9g0Occt5e6z_Zj0iI-9TSa3pJMqvZBplUyXvcA; .AspNetCore.Identity.Application=CfDJ8FLww_QzYW9DqXnnFfBM6j5BZKsSF2A-WHw9zdoZ5qS5OG92KjhGC5TXdq9jG-fTfoN0DcSLGp7o7GArRTpy40zPNCFAzRus7dKxUlH0GkYNl1EmjaWT0Eg9UozEWzKN8R3WCX6X_z1s32Y4ib2rxbx4imeLJO1kSP4AN58BB_utGyGb3FxNBP_QzCEAxI5ZjzEAh3z2bRmlnYaceuZ20jCnx-W7BTbT_HDTFdhWD7O43mVsW8OAW9kMEO_F0nlJ0DGtB3BOmGnAVU_FkxMR762yH2LfZBYPPgUbLRk1bHwOU-g8MrEK-568CRuvxPZPU9Bpo-nkiBxTB5x5YHJ-8vP1teiL4CjrbwdAMSpn4gHzF7ezO5Fr_-0ZlLoMwfLvgoSu_R94XeIczwNqs9pUE4H8VtSDXB2fqJgLEJf3rUxJP3N5HXt9pXEqwXOALO_PzYzpPtDS4Iqadli90DBa15ov08OTfA8Sh6tSNR6w6pK1zmruiRFCOrGaxVcNZK5lEL4ogiDhXka8xrlV-SEys9wTkYdM1vGyU8obdmSF0Vn39G1T132iheQ311F3EX7w7lfQgWJd_cLu_uj7w6UX99GsU0GN0zOy3LPA8ka1Iu1qnh5kx0_KRlJCfsx68JVkNv5KhEnr8kJ6zTcg9_tVgrZgMyemiZ3GQpCpfJ8W-ldqISjj7vi8dKkHOCjkUlA6kEU1oadFi96Ml0z-MeTIospmh1-XIjMX_7dq_Ly0py_T558-UnVUHhkY3NqBxMBSPfomUknunKSHQo882A2Mu0WcX2DOczOs7LI7hPhZMZjy9sGM2g2E_tgEAYvO378l1WnuH9RwlmU1ysZIOpnH72JKCDeBXQ_Y2g31a3cWLw7z0pFJqCuqnvBd9JJCIqYd-vhi2sAxjocVDZx4LRTEGz0FO2uQhzOYfUATZZLyqfti1qkdeFrGY40LDDZSVnZPkE4n858IESEFTp7AXvkC4_3BbqnWiLRGqUiZUphGduIqlVHJ1ZC39K8Hn4NM4B7wSX4hKYNmakEwnvGWTCF0z8x2Z6udiqUe-C1GNaxxmEOVdyuVBXgBZ2Sqv3EgcwmMZ3NTmkTjLXGtHJ2VLRSXApEUNCVcDcr7Fi1N74k_1kw3egD6ZnFoX9s7LOMXej_9OT7jlxpLyrcFAMJSHnWjemmU0mxDrc5I7w8WD4Z0-IdYjHhPkLgnVs31UteF89odEQC-aN53iA1Da4RWWTonaG_ZXi2SxezdsX_QoJAcgs8_ca4kU2eVByLIzaFGlQ3cGdlKCJ-aHSoIu58f8AmWjRQXvkNAKQnc6h9GnIsiiSKU_OYjd4Ioi_DtfXOaFic9d9FaqGMSelSQMnVoHM9uEmOmbhnwdFYmkN-4FNExOQdblktQyOlNNAraSqWm5VRyCyy5xyvKsEKQ4c4YxLAA-9DpMQSA2D-DGR6vlfpA57ybF2TR-jBtKii0IT7mlqlAHnvPVrZQl4amwaJQSyDVJ8NUVV3XXSxB4d64zfWeDr1PuCDT3fn6gaLcqceQaOEdtnqdRgol5ddZYZX0M0QRhrp-aw3WQUEICKrrF5VCfMfebp4wOfazsObR8nLVuQBE2w; ai_session=LkijD|1644086017965|1644086077394.7" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:44384" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_SEC_CH_UA">
+      <value string="&quot; Not;A Brand&quot;;v=&quot;99&quot;, &quot;Google Chrome&quot;;v=&quot;97&quot;, &quot;Chromium&quot;;v=&quot;97&quot;" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_MOBILE">
+      <value string="?0" />
+    </item>
+    <item name="HTTP_SEC_CH_UA_PLATFORM">
+      <value string="&quot;Windows&quot;" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_SEC_FETCH_SITE">
+      <value string="none" />
+    </item>
+    <item name="HTTP_SEC_FETCH_MODE">
+      <value string="navigate" />
+    </item>
+    <item name="HTTP_SEC_FETCH_USER">
+      <value string="?1" />
+    </item>
+    <item name="HTTP_SEC_FETCH_DEST">
+      <value string="document" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="ai_user">
+      <value string="fyp05|2022-02-03T14:40:36.190Z" />
+    </item>
+    <item name=".AspNetCore.Culture">
+      <value string="c%3Dfa%7Cuic%3Dfa" />
+    </item>
+    <item name=".AspNetCore.Antiforgery.XP0Fqypsmw8">
+      <value string="CfDJ8FLww_QzYW9DqXnnFfBM6j42vgXoQScXbLoVpb6CMFCilugAAW8atXbIULRZH_JRQWtEt9BpCs75oN1RY8AndtfJHgH-ltvodOmdBSPvClWx2l_jnwQ_YRwdxX1BdZOQQyd1xm_4PSFWSUG3-xiYTwg" />
+    </item>
+    <item name=".AspNetCore.Antiforgery.0knxKLtoFFc">
+      <value string="CfDJ8FLww_QzYW9DqXnnFfBM6j5xJlhlDSqjY4ipJhyQGRIKNI6e2K41unz5GB_y4LXpZBl6lXOUyEeTvjmUcNOEGIbXzevSyIZKmWHuxVylGVVxiucYl9g0Occt5e6z_Zj0iI-9TSa3pJMqvZBplUyXvcA" />
+    </item>
+    <item name=".AspNetCore.Identity.Application">
+      <value string="CfDJ8FLww_QzYW9DqXnnFfBM6j5BZKsSF2A-WHw9zdoZ5qS5OG92KjhGC5TXdq9jG-fTfoN0DcSLGp7o7GArRTpy40zPNCFAzRus7dKxUlH0GkYNl1EmjaWT0Eg9UozEWzKN8R3WCX6X_z1s32Y4ib2rxbx4imeLJO1kSP4AN58BB_utGyGb3FxNBP_QzCEAxI5ZjzEAh3z2bRmlnYaceuZ20jCnx-W7BTbT_HDTFdhWD7O43mVsW8OAW9kMEO_F0nlJ0DGtB3BOmGnAVU_FkxMR762yH2LfZBYPPgUbLRk1bHwOU-g8MrEK-568CRuvxPZPU9Bpo-nkiBxTB5x5YHJ-8vP1teiL4CjrbwdAMSpn4gHzF7ezO5Fr_-0ZlLoMwfLvgoSu_R94XeIczwNqs9pUE4H8VtSDXB2fqJgLEJf3rUxJP3N5HXt9pXEqwXOALO_PzYzpPtDS4Iqadli90DBa15ov08OTfA8Sh6tSNR6w6pK1zmruiRFCOrGaxVcNZK5lEL4ogiDhXka8xrlV-SEys9wTkYdM1vGyU8obdmSF0Vn39G1T132iheQ311F3EX7w7lfQgWJd_cLu_uj7w6UX99GsU0GN0zOy3LPA8ka1Iu1qnh5kx0_KRlJCfsx68JVkNv5KhEnr8kJ6zTcg9_tVgrZgMyemiZ3GQpCpfJ8W-ldqISjj7vi8dKkHOCjkUlA6kEU1oadFi96Ml0z-MeTIospmh1-XIjMX_7dq_Ly0py_T558-UnVUHhkY3NqBxMBSPfomUknunKSHQo882A2Mu0WcX2DOczOs7LI7hPhZMZjy9sGM2g2E_tgEAYvO378l1WnuH9RwlmU1ysZIOpnH72JKCDeBXQ_Y2g31a3cWLw7z0pFJqCuqnvBd9JJCIqYd-vhi2sAxjocVDZx4LRTEGz0FO2uQhzOYfUATZZLyqfti1qkdeFrGY40LDDZSVnZPkE4n858IESEFTp7AXvkC4_3BbqnWiLRGqUiZUphGduIqlVHJ1ZC39K8Hn4NM4B7wSX4hKYNmakEwnvGWTCF0z8x2Z6udiqUe-C1GNaxxmEOVdyuVBXgBZ2Sqv3EgcwmMZ3NTmkTjLXGtHJ2VLRSXApEUNCVcDcr7Fi1N74k_1kw3egD6ZnFoX9s7LOMXej_9OT7jlxpLyrcFAMJSHnWjemmU0mxDrc5I7w8WD4Z0-IdYjHhPkLgnVs31UteF89odEQC-aN53iA1Da4RWWTonaG_ZXi2SxezdsX_QoJAcgs8_ca4kU2eVByLIzaFGlQ3cGdlKCJ-aHSoIu58f8AmWjRQXvkNAKQnc6h9GnIsiiSKU_OYjd4Ioi_DtfXOaFic9d9FaqGMSelSQMnVoHM9uEmOmbhnwdFYmkN-4FNExOQdblktQyOlNNAraSqWm5VRyCyy5xyvKsEKQ4c4YxLAA-9DpMQSA2D-DGR6vlfpA57ybF2TR-jBtKii0IT7mlqlAHnvPVrZQl4amwaJQSyDVJ8NUVV3XXSxB4d64zfWeDr1PuCDT3fn6gaLcqceQaOEdtnqdRgol5ddZYZX0M0QRhrp-aw3WQUEICKrrF5VCfMfebp4wOfazsObR8nLVuQBE2w" />
+    </item>
+    <item name="ai_session">
+      <value string="LkijD|1644086017965|1644086077394.7" />
+    </item>
+  </cookies>
+</error>
