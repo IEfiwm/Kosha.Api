@@ -10,5 +10,6 @@ namespace Kosha.Core.Bussinus.SMHelper
     public interface IUserHelper
     {
         DataRow GetUserByNumber(string number, out DataTable table);
+        DataRow GetUserById(string userId, out DataTable table);
     }
 }

@@ -17,7 +17,7 @@ namespace Kosha.DataLayer.Context
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 30;
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 300;
         }
 
         public virtual DbSet<UserToken> UserTokens { get; set; }

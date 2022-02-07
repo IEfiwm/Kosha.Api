@@ -1,37 +1,42 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Dal;
+using Kosha.Core.Common.Helper;
+using Kosha.Core.Contract.AuthenticationCode;
+using Microsoft.Net.Http.Headers;
 using System;
 using System.Data;
+using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using Common = FishHoghoghi.Utilities.Utility;
 
 namespace FishHoghoghi.Controllers
 {
-    [LockFilter]
-    public class InfoController : ApiController
+    //[LockFilter]
+    [KoshaAuthorize]
+    public class InfoController :  ApiController
     {
+        private readonly IUserContract _userContract;
+        public InfoController(IUserContract userContract)
+        {
+            _userContract = userContract;
+        }
+
+        
         [HttpGet]
-        public HttpResponseMessage Get(string username, string password)
+        public HttpResponseMessage Get()
         {
             try
             {
-                Info.GetUser(username, password, out DataTable user);
-
-                if ((user.Rows.Count == 0) || !CheckLock())
-                {
-                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
-                }
-
-                var result = new
-                {
-                    FirstName = user.Rows[0].ItemArray[0],
-                    LastNAme = user.Rows[0].ItemArray[1],
-                    Occupation = user.Rows[0].ItemArray[4],
-                    Status = true,
-                    PhoneNumber = Info.GetPhoneNumber()
-                };
-
+                string token = Request.Headers.Authorization?.Parameter;
+                
+                var result = _userContract.GetUserByToken(token);
+ 
+                if (result==null || !CheckLock())
+                     return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+ 
+                result.PhoneNumber = Info.GetPhoneNumber();
+ 
                 return Common.Response(result);
             }
             catch (Exception e)

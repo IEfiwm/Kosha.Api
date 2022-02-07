@@ -10,6 +10,7 @@ using Kosha.Core.Common.Const;
 using Kosha.Core.Common.Helper;
 using Kosha.Core.Bussinus.Extensions;
 using Kosha.Core.Services.UserToken;
+using Kosha.Core.Common.Model;
 
 namespace Kosha.Core.Contract.AuthenticationCode
 {
@@ -72,13 +73,13 @@ namespace Kosha.Core.Contract.AuthenticationCode
             try
             {
 
-            
-            var model = await _authenticationCodeService.GetByNumberAndCode(number, code);
 
-            if (model == null || (model!=null && model.IsActive && !model.IsUsed && model.ExpireDate <= DateTime.Now))
-                return false;
+                var model = await _authenticationCodeService.GetByNumberAndCode(number, code);
 
-            return true;
+                if (model == null || (model != null && model.IsActive && !model.IsUsed && model.ExpireDate <= DateTime.Now))
+                    return false;
+
+                return true;
             }
             catch (Exception x)
             {
@@ -100,6 +101,11 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 id = table.Rows[0].ItemArray[0].ToString(),
             };
 
+            var resExpire = await _userTokenService.ExpireTokensByUserId(user.id);
+         
+            if (!resExpire)
+                return null;
+
             var token = (Guid.NewGuid().ToString() + Guid.NewGuid()).Replace("-", "");
 
             var res = await _userTokenService.Create(new UserToken
@@ -114,8 +120,48 @@ namespace Kosha.Core.Contract.AuthenticationCode
 
             if (!res)
                 return null;
+
             return token;
         }
 
+        public bool AuthorizeUserByToken(string token)
+        {
+            var userToken = _userTokenService.Get(token);
+
+            if (userToken == null)
+                return false;
+
+            return userToken?.ExpireDate >= DateTime.Now && !userToken.IsUsed;
+        }
+
+        public UserViewModel GetUserByToken(string token)
+        {
+            var userToken = _userTokenService.Get(token);
+
+            if (userToken == null || userToken?.UserId == null)
+                return null;
+
+
+            _userHelper.GetUserById(userToken.UserId, out DataTable table);
+
+            if (table == null)
+                return null;
+            else if (table.Rows.Count > 1)
+                return null;
+
+            var user = new UserViewModel
+            {
+                Id = table.Rows[0]["Id"].ToString(),
+                UserName = table.Rows[0]["UserName"].ToString(),
+                AccountNumber = table.Rows[0]["AccountNumber"].ToString(),
+                FirstName = table.Rows[0]["FirstName"].ToString(),
+                LastName = table.Rows[0]["LastName"].ToString(),
+                NationalCode = table.Rows[0]["NationalCode"].ToString(),
+                JobTitle = table.Rows[0]["JobTitle"].ToString(),
+                
+             };
+
+            return user;
+        }
     }
 }
