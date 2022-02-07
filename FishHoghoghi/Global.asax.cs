@@ -19,6 +19,8 @@ namespace FishHoghoghi
 
             AreaRegistration.RegisterAllAreas();
 
+            UnityConfig.RegisterComponents();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -26,9 +28,7 @@ namespace FishHoghoghi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            Bootstrapper.Initialise();
-
+            
             SMSIRProvider.Initialization(ConfigurationManager.AppSettings["ApiKey"].ToString(),
                 ConfigurationManager.AppSettings["SecretKey"].ToString());
 

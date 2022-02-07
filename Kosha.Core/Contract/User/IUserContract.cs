@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kosha.Core.Common.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,9 @@ namespace Kosha.Core.Contract.AuthenticationCode
         Task<bool> VerifyByCode(string number, string code);
 
         Task<string> GenerateLoginTokenByNumber(string number);
+
+        bool AuthorizeUserByToken(string token);
+
+        UserViewModel GetUserByToken(string token);
     }
 }
