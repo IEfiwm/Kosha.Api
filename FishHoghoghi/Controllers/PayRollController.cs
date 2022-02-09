@@ -8,6 +8,8 @@ using FishHoghoghi.Extensions;
 using FishHoghoghi.FishDataSetTableAdapters;
 using FishHoghoghi.Models;
 using FishHoghoghi.Utilities;
+using Kosha.Core.Common.Helper;
+using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -26,6 +28,7 @@ using Common = FishHoghoghi.Utilities.Utility;
 namespace Fish.Controllers
 {
     [LockFilter]
+    [KoshaAuthorize]
     public class PayRollController : ApiController
     {
         #region Initialization
@@ -40,32 +43,36 @@ namespace Fish.Controllers
 
         private ReportViewModel _reportViewModel;
 
-        private static string GetPublicDirectory(string username, int year, int month)
-        {
-            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}");
+        private readonly IUserContract _userContract;
 
-            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}");
-
-            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}\{month}");
-
-            return $@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}\{month}\";
-        }
-
-        public PayRollController()
+        public PayRollController(IUserContract userContract)
         {
             _memoryStream = new MemoryStream();
 
             _response = new HttpResponseMessage();
+
+            _userContract = userContract;
+
         }
 
         #endregion
 
         [HttpGet]
         [NoCache]
-        public HttpResponseMessage Get(string username, string password, int year, int month)
+        public HttpResponseMessage Get(int year, int month)
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var user = _userContract.GetUserByToken(token);
+
+                if (user == null)
+                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+
+                string username = user.NationalCode;
+                string password = user.AccountNumber;
+
                 var directory = GetPublicDirectory(username, year, month);
 
                 var fileName = password + ".pdf";
@@ -148,11 +155,21 @@ namespace Fish.Controllers
 
         [HttpGet]
         [NoCache]
-        [Route("PayRoll/GetLink/{username}/{password}/{year}/{month}")]
-        public HttpResponseMessage GetLink(string username, string password, int year, int month)
+        [Route("PayRoll/GetLink/{year}/{month}")]
+        public HttpResponseMessage GetLink(int year, int month)
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var user = _userContract.GetUserByToken(token);
+
+                if (user == null)
+                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+
+                string username = user.NationalCode;
+                string password = user.AccountNumber;
+
                 var directory = GetPublicDirectory(username, year, month);
 
                 var fileName = password + ".pdf";
@@ -214,7 +231,18 @@ namespace Fish.Controllers
         {
             return true;
         }
+      
+        private static string GetPublicDirectory(string username, int year, int month)
+        {
+            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}");
 
+            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}");
+
+            Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}\{month}");
+
+            return $@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}\{month}\";
+        }
+        
         private Dictionary<string, string> GenerateColumn(DataRow row, NumberFormatInfo provider, List<SummaryFieldInfo> columnContent)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();

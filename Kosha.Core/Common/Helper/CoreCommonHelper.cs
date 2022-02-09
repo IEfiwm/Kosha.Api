@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kosha.Core.Common.Helper
 {
-    public static class CommonHelper
+    public static class CoreCommonHelper
     {
         private static string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 

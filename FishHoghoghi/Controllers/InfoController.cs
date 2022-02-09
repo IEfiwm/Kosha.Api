@@ -2,17 +2,14 @@
 using FishHoghoghi.Business.Dal;
 using Kosha.Core.Common.Helper;
 using Kosha.Core.Contract.AuthenticationCode;
-using Microsoft.Net.Http.Headers;
 using System;
-using System.Data;
-using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using Common = FishHoghoghi.Utilities.Utility;
 
 namespace FishHoghoghi.Controllers
 {
-    //[LockFilter]
+    [LockFilter]
     [KoshaAuthorize]
     public class InfoController :  ApiController
     {

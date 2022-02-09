@@ -43,7 +43,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 //create authentication code
                 var model = new Entity.AuthenticationCode()
                 {
-                    Code = CommonHelper.GenerateRandomOTP(PublicSettings.OTPCodeLenght),
+                    Code = CoreCommonHelper.GenerateRandomOTP(PublicSettings.OTPCodeLenght),
                     ExpireDate = DateTime.Now.AddMinutes(PublicSettings.OTPExpireDate),
                     CreateDate = DateTime.Now,
                     IsActive = true,

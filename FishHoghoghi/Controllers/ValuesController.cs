@@ -8,6 +8,8 @@ using FishHoghoghi.Extensions;
 using FishHoghoghi.FishDataSetTableAdapters;
 using FishHoghoghi.Models;
 using FishHoghoghi.Utilities;
+using Kosha.Core.Common.Helper;
+using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,6 +25,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using Common = FishHoghoghi.Utilities.Utility;
 
 namespace FishHoghoghi.Controllers
 {
@@ -32,8 +35,9 @@ namespace FishHoghoghi.Controllers
         private readonly FishDataSet _fishDataSet;
         private readonly MKView_FishHamkaranTableAdapter _mKView_FishHamkaranTableAdapter;
         private readonly MKView_ContractHamkaranTableAdapter _mKView_ContractHamkaranTableAdapter;
+        private readonly IUserContract _userContract;
 
-        public ValuesController()
+        public ValuesController(IUserContract userContract)
         {
             _mKView_ContractHamkaranTableAdapter = new MKView_ContractHamkaranTableAdapter();
 
@@ -48,12 +52,30 @@ namespace FishHoghoghi.Controllers
 
                 SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
             };
+            _userContract = userContract;
+
         }
 
-        public IHttpActionResult Get(string username, string password)
+        [KoshaAuthorize]
+        public IHttpActionResult Get()
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var user = _userContract.GetUserByToken(token);
+
+                if (user == null)
+                    return Json(new
+                    {
+                        Status = false,
+
+                        Message = "خطا در لاگین"
+                    });
+
+                string username = user.NationalCode;
+                string password = user.AccountNumber;
+
                 _mKView_FishHamkaranTableAdapter.FillByValidation(_fishDataSet.MKView_FishHamkaran, username, password);
 
                 if ((_fishDataSet.MKView_FishHamkaran.Count == 0) || !CheckLock())
@@ -110,10 +132,20 @@ namespace FishHoghoghi.Controllers
         }
 
         [NoCache]
-        public HttpResponseMessage Get(string username, string password, int year, int month)
+        [KoshaAuthorize]
+        public HttpResponseMessage Get(int year, int month)
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var userData = _userContract.GetUserByToken(token);
+
+                if (userData == null)
+                    return Common.SetErrorResponse(HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+
+                string username = userData.NationalCode;
+                string password = userData.AccountNumber;
 
                 string reportJson = CommonHelper.ReadJson("Jsons", "ReportRecords.json");
 

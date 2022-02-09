@@ -3,6 +3,8 @@ using FishHoghoghi.Business.Dal;
 using FishHoghoghi.Extentions;
 using FishHoghoghi.Models.Contract;
 using FishHoghoghi.Utilities;
+using Kosha.Core.Common.Helper;
+using Kosha.Core.Contract.AuthenticationCode;
 using MD.PersianDateTime;
 using Microsoft.Office.Interop.Word;
 using System;
@@ -25,6 +27,7 @@ namespace FishHoghoghi.Controllers
     public class ContractController : ApiController
     {
         #region Initialization
+        private readonly IUserContract _userContract;
 
         private Application _wordApp;
 
@@ -34,37 +37,36 @@ namespace FishHoghoghi.Controllers
 
         private string _template = $@"{AppDomain.CurrentDomain.BaseDirectory}Template\";
 
-        private static string GetDocPath(string id, bool hostname = true, string extention = "docx", string defaultPath = "")
-        {
-            if (defaultPath != "")
-                return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\{defaultPath}\template{id}.{extention}";
-            return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\template{id}.{extention}";
-        }
 
-        private static string GetDocDirectoryPath(bool hostname = true)
-        {
-            return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf";
-        }
 
-        private static string GetPublicDirectory(string filename = "")
-        {
-            return $@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{filename}";
-        }
-
-        public ContractController()
+        public ContractController(IUserContract userContract)
         {
             _id = Guid.NewGuid();
 
             _wordApp = new Application();
+
+            _userContract = userContract;
+
         }
 
         #endregion
 
+ 
         [NoCache]
-        public HttpResponseMessage Get(string username)
+        [KoshaAuthorize]
+        public HttpResponseMessage Get()
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var userData = _userContract.GetUserByToken(token);
+
+                if (userData == null)
+                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+               
+                string username = userData.NationalCode;
+
                 if (File.Exists(GetDocPath(username.ToString(), true, "pdf")) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf")).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
                 {
                     File.Delete(GetDocPath(username.ToString(), true, "pdf"));
@@ -304,11 +306,21 @@ namespace FishHoghoghi.Controllers
 
         [NoCache]
         [HttpGet]
-        [Route("Contract/GetLink/{username}")]
-        public HttpResponseMessage GetLink(string username)
+        [Route("Contract/GetLink")]
+        [KoshaAuthorize]
+        public HttpResponseMessage GetLink()
         {
             try
             {
+                string token = Request.Headers.Authorization?.Parameter;
+
+                var userData = _userContract.GetUserByToken(token);
+
+                if (userData == null)
+                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+
+                string username = userData.NationalCode;
+
                 if (File.Exists(GetPublicDirectory(username + ".pdf")) && File.GetLastWriteTime(GetPublicDirectory(username + ".pdf")).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
                 {
                     File.Delete(GetPublicDirectory(username + ".pdf"));
@@ -411,6 +423,23 @@ namespace FishHoghoghi.Controllers
             objWorPdf.OutputLocation = (object)destinationPath;
 
             objWorPdf.Word2PdfCOnversion();
+        }
+     
+        private static string GetDocPath(string id, bool hostname = true, string extention = "docx", string defaultPath = "")
+        {
+            if (defaultPath != "")
+                return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\{defaultPath}\template{id}.{extention}";
+            return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf\template{id}.{extention}";
+        }
+
+        private static string GetDocDirectoryPath(bool hostname = true)
+        {
+            return $@"{(hostname ? AppDomain.CurrentDomain.BaseDirectory : "")}GeneratedPdf";
+        }
+
+        private static string GetPublicDirectory(string filename = "")
+        {
+            return $@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{filename}";
         }
     }
 }
