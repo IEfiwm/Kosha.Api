@@ -18,17 +18,12 @@ namespace FishHoghoghi
         {
             var container = new UnityContainer();
 
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-
-            // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ApplicationDbContext>(new InjectionConstructor());
             container.RegisterType<IUserHelper, UserHelper>(new HierarchicalLifetimeManager());
             container.RegisterType<IAuthenticationCodeService, AuthenticationCodeService>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserTokenService, UserTokenService>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserContract, UserContract>(new HierarchicalLifetimeManager());
 
-            //GlobalConfiguration.Configuration.DependencyResolver = new UnityResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = new App_Start.UnityDependencyResolver(container);
 
         }

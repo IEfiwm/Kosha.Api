@@ -32,7 +32,8 @@ namespace FishHoghoghi
             SMSIRProvider.Initialization(ConfigurationManager.AppSettings["ApiKey"].ToString(),
                 ConfigurationManager.AppSettings["SecretKey"].ToString());
 
-            DependencyInjection.Initialise(ConfigurationManager.ConnectionStrings);
+            DependencyInjection.connectionStrings = ConfigurationManager.ConnectionStrings;
+            DependencyInjection.Initialise();
         }
     }
 }

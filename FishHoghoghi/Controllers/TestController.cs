@@ -14,10 +14,7 @@ namespace FishHoghoghi.Controllers
         {
             _userContract = userContract;
         }
-        public TestController()
-        {
-        }
-
+ 
         [KoshaAuthorize]
         public void Index()
         {

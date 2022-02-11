@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kosha.DataLayer.Helper;
+using Microsoft.EntityFrameworkCore;
 using System.Data.Entity.Infrastructure;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -9,7 +10,7 @@ namespace Kosha.DataLayer.Context
 {
     public partial class ApplicationDbContext : DbContext
     {
-        
+
         public ApplicationDbContext()
         {
         }
@@ -35,9 +36,7 @@ namespace Kosha.DataLayer.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=78.157.40.102,14333;Initial Catalog=Kosha_MTJA;User Id=ngra;Password=ngra@123456789;MultipleActiveResultSets=True;");
-            }
+                optionsBuilder.UseSqlServer(ContextManager.connectionStrings["Sg3ConnectionString"].ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

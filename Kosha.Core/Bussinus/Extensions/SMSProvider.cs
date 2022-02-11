@@ -18,7 +18,7 @@ namespace Kosha.Core.Bussinus.Extensions
                 ParameterValue = code
             });
 
-            SMSIRProvider.SendMessage(recipient, 61243, parameters);
+            result= SMSIRProvider.SendMessage(recipient, 61243, parameters);
 
             //var message = PublicSettings.OTPTemplate.Replace("#CODE#", code);
 
