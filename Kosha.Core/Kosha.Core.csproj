@@ -206,6 +206,7 @@
     <Compile Include="Common\Const\PublicSettings.cs" />
     <Compile Include="Common\Helper\KoshaAuthorizeAttribute.cs" />
     <Compile Include="Common\Helper\CoreCommonHelper.cs" />
+    <Compile Include="Common\Model\OrganizationViewModel.cs" />
     <Compile Include="Common\Model\UserViewModel.cs" />
     <Compile Include="Contract\User\IUserContract.cs" />
     <Compile Include="Contract\User\UserContract.cs" />

@@ -357,6 +357,8 @@
     <Compile Include="Extentions\ZipHelper.cs" />
     <Compile Include="Models\Contract\ContractListParameters.cs" />
     <Compile Include="Structure\Attribute\LockFilterAttribute.cs" />
+    <Compile Include="Structure\Attribute\ReactAttribute.cs" />
+    <Compile Include="Structure\BaseController.cs" />
     <Compile Include="Structure\Business\Dal\Contract.cs" />
     <Compile Include="Structure\Business\Dal\DataAccessObject.cs" />
     <Compile Include="Structure\Business\Dal\Info.cs" />
@@ -378,7 +380,6 @@
     <Compile Include="Structure\Models\SalInsurenceDiskPersonal.cs" />
     <Compile Include="Structure\Models\Utility.cs" />
     <Compile Include="Structure\Utilities\Utility.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Structure\Business\Dal\FishHamkaran.cs" />
     <Compile Include="Structure\Business\Dal\LoginLogDao.cs" />
     <Compile Include="Structure\Business\Utilities\DataRowExtension.cs" />

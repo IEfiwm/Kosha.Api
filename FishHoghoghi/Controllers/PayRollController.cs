@@ -7,6 +7,7 @@ using FishHoghoghi.Dal;
 using FishHoghoghi.Extensions;
 using FishHoghoghi.FishDataSetTableAdapters;
 using FishHoghoghi.Models;
+using FishHoghoghi.Structure;
 using FishHoghoghi.Utilities;
 using Kosha.Core.Common.Helper;
 using Kosha.Core.Contract.AuthenticationCode;
@@ -27,9 +28,8 @@ using Common = FishHoghoghi.Utilities.Utility;
 
 namespace Fish.Controllers
 {
-    [LockFilter]
     [KoshaAuthorize]
-    public class PayRollController : ApiController
+    public class PayRollController : BaseController
     {
         #region Initialization
 
@@ -59,11 +59,12 @@ namespace Fish.Controllers
 
         [HttpGet]
         [NoCache]
+        [Route("PayRoll/{year}/{month}")]
         public HttpResponseMessage Get(int year, int month)
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
+                string token = GetToken();
 
                 var user = _userContract.GetUserByToken(token);
 
@@ -160,7 +161,7 @@ namespace Fish.Controllers
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
+                string token = GetToken();
 
                 var user = _userContract.GetUserByToken(token);
 

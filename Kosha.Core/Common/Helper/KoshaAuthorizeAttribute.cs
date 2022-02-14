@@ -15,7 +15,7 @@ namespace Kosha.Core.Common.Helper
         {
             _userContract = (IUserContract)context.Request.GetDependencyScope().GetService(typeof(IUserContract));
 
-            string token = context.Request.Headers.Authorization?.Parameter;
+            string token = context.Request.Headers.Authorization?.Scheme;
 
             if (string.IsNullOrEmpty(token))
             {
@@ -35,7 +35,6 @@ namespace Kosha.Core.Common.Helper
             }
 
             base.OnActionExecuting(context);
-
         }
     }
 }

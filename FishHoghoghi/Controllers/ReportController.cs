@@ -1,6 +1,7 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Utilities;
 using FishHoghoghi.Models;
+using FishHoghoghi.Structure;
 using FishHoghoghi.Structure.Business.Dal;
 using FishHoghoghi.Utilities;
 using MD.PersianDateTime;
@@ -26,8 +27,7 @@ using PersianDateTime = MD.PersianDateTime.PersianDateTime;
 
 namespace FishHoghoghi.Controllers
 {
-    [LockFilter]
-    public class ReportController : ApiController
+    public class ReportController : BaseController
     {
         public ReportController()
         {

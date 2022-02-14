@@ -1,12 +1,12 @@
 ﻿using FishHoghoghi.Attribute;
+using FishHoghoghi.Structure;
 using Kosha.Core.Contract.AuthenticationCode;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace FishHoghoghi.Controllers
 {
-    [LockFilter]
-    public class AuthenticationController : ApiController
+    public class AuthenticationController : BaseController
     {
         private readonly IUserContract _userContract;
         public AuthenticationController(IUserContract userContract)
@@ -32,7 +32,5 @@ namespace FishHoghoghi.Controllers
             
             return null;
         }
-
-
     }
 }
