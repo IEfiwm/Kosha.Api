@@ -29,7 +29,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
             _userTokenService = userTokenService;
         }
 
-        public async Task<bool> SendVerificationCodeByNumber(string number)
+        public async Task<byte> SendVerificationCodeByNumber(string number)
         {
             try
             {
@@ -37,7 +37,17 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 _userHelper.GetUserByNumber(number, out DataTable table);
 
                 if (table == null)
-                    return false;
+                    return 0;
+
+                if (await _authenticationCodeService.IsValidForGetCode(number))
+                {
+                    return 1;
+                }
+
+                if (await _authenticationCodeService.HasActiveCode(number))
+                {
+                    return 2;
+                }
 
                 //create authentication code
                 var model = new Entity.AuthenticationCode()
@@ -54,14 +64,16 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 var res = await _authenticationCodeService.Create(model);
 
                 if (!res)
-                    return false;
+                    return 5;
 
                 //otp
-                return SMSProvider.SendOTPCode(model.Number, model.Code);
+                SMSProvider.SendOTPCode(model.Number, model.Code);
+
+                return 3;
             }
             catch (Exception x)
             {
-                throw;
+                return 5;
             }
         }
 

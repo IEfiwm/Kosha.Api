@@ -17,7 +17,7 @@
     <AssemblyName>FishHoghoghi</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44334</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -357,7 +357,6 @@
     <Compile Include="Extentions\ZipHelper.cs" />
     <Compile Include="Models\Contract\ContractListParameters.cs" />
     <Compile Include="Structure\Attribute\LockFilterAttribute.cs" />
-    <Compile Include="Structure\Attribute\ReactAttribute.cs" />
     <Compile Include="Structure\BaseController.cs" />
     <Compile Include="Structure\Business\Dal\Contract.cs" />
     <Compile Include="Structure\Business\Dal\DataAccessObject.cs" />
@@ -769,7 +768,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60119</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44384/</IISUrl>
+          <IISUrl>http://localhost/Kosha</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

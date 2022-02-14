@@ -1,4 +1,5 @@
 ﻿using Kosha.DataLayer.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,12 +25,12 @@ namespace Kosha.Core.Services.AuthenticationCode
 
         public async Task<bool> IsValid(string number, string code)
         {
-            var model = _dbContext.AuthenticationCode
-                .FirstOrDefault(x => x.Number == number &&
+            var model = await _dbContext.AuthenticationCode
+                .FirstOrDefaultAsync(x => x.Number == number &&
                 x.Code == code &&
                 x.IsActive &&
                 !x.IsUsed &&
-                x.ExpireDate <= DateTime.Now);
+                x.ExpireDate >= DateTime.Now);
 
             if (model is null)
                 return false;
@@ -39,6 +40,26 @@ namespace Kosha.Core.Services.AuthenticationCode
             await _dbContext.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<bool> HasActiveCode(string number)
+        {
+            var model = await _dbContext.AuthenticationCode
+                .AnyAsync(x => x.Number == number &&
+                 x.IsActive &&
+                 !x.IsUsed &&
+                 x.ExpireDate >= DateTime.Now);
+
+            return model;
+        }
+
+        public async Task<bool> IsValidForGetCode(string number)
+        {
+            var model = await _dbContext.AuthenticationCode
+                .Where(m => !m.IsUsed && m.IsActive && DateTime.Now.AddHours(-3) > m.CreateDate && m.CreateDate < DateTime.Now && m.Number == number)
+                .ToListAsync();
+
+            return model.Count > 3;
         }
     }
 }

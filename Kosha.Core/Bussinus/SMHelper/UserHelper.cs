@@ -14,8 +14,8 @@ namespace Kosha.Core.Bussinus.SMHelper
         {
             table = DataAccessObject.ExecuteCommand($@"SELECT  * FROM [identity].Users
                     INNER JOIN
-                    SM.Basic.TbBankAccount ON TbBankAccount.Id = SM.[Identity].Users.BankAccountRef
-                    where [identity].Users.Id =  N'{userId}' ");
+                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef
+                    WHERE [identity].Users.Id =  N'{userId}' AND [identity].[Users].[IsDeleted] =   0   AND [identity].[Users].[IsActive]  =   1");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -26,7 +26,7 @@ namespace Kosha.Core.Bussinus.SMHelper
         public DataRow GetUserByNumber(string number, out DataTable table)
         {
 
-            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [identity].Users where PhoneNumber = N'{number}' ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [SM].[identity].Users WHERE PhoneNumber = N'{number}'    AND [IsDeleted] =   0   AND [IsActive]  =   1 ");
 
             if (table.Rows.Count == 0)
                 return null;
