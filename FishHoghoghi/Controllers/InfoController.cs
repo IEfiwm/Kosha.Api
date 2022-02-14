@@ -1,6 +1,8 @@
 ﻿using FishHoghoghi.Attribute;
 using FishHoghoghi.Business.Dal;
+using FishHoghoghi.Structure;
 using Kosha.Core.Common.Helper;
+using Kosha.Core.Common.Model;
 using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Net.Http;
@@ -9,9 +11,8 @@ using Common = FishHoghoghi.Utilities.Utility;
 
 namespace FishHoghoghi.Controllers
 {
-    [LockFilter]
     [KoshaAuthorize]
-    public class InfoController :  ApiController
+    public class InfoController : BaseController
     {
         private readonly IUserContract _userContract;
 
@@ -20,20 +21,21 @@ namespace FishHoghoghi.Controllers
             _userContract = userContract;
         }
 
+        [Route("Info/Get")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
-                
+                string token = GetToken();
+
                 var result = _userContract.GetUserByToken(token);
- 
-                if (result==null || !CheckLock())
-                     return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
- 
-                result.PhoneNumber = Info.GetPhoneNumber();
- 
+
+                if (result == null || !CheckLock())
+                    return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
+
+                //result.PhoneNumber = Info.GetPhoneNumber();
+
                 return Common.Response(result);
             }
             catch (Exception e)
@@ -44,13 +46,31 @@ namespace FishHoghoghi.Controllers
             }
         }
 
-        #region Utility
+        [Route("Info/GetOrganization")]
+        [HttpGet]
+        public HttpResponseMessage GetOrganization()
+        {
+            try
+            {
+                string token = GetToken();
+
+                var result = new OrganizationViewModel();
+
+                result.Telephone = Info.GetPhoneNumber();
+
+                return Common.Response(result);
+            }
+            catch (Exception e)
+            {
+                Common.Log(e);
+
+                return Common.SetIntervalErrorResponse();
+            }
+        }
 
         private static bool CheckLock()
         {
             return true;
         }
-
-        #endregion
     }
 }

@@ -2,6 +2,7 @@
 using FishHoghoghi.Business.Dal;
 using FishHoghoghi.Extentions;
 using FishHoghoghi.Models.Contract;
+using FishHoghoghi.Structure;
 using FishHoghoghi.Utilities;
 using Kosha.Core.Common.Helper;
 using Kosha.Core.Contract.AuthenticationCode;
@@ -23,8 +24,7 @@ using Utility = FishHoghoghi.Models.Utility;
 
 namespace FishHoghoghi.Controllers
 {
-    [LockFilter]
-    public class ContractController : ApiController
+    public class ContractController : BaseController
     {
         #region Initialization
         private readonly IUserContract _userContract;
@@ -36,8 +36,6 @@ namespace FishHoghoghi.Controllers
         private string _contractTemplateName = "template-public.docx";
 
         private string _template = $@"{AppDomain.CurrentDomain.BaseDirectory}Template\";
-
-
 
         public ContractController(IUserContract userContract)
         {
@@ -51,14 +49,13 @@ namespace FishHoghoghi.Controllers
 
         #endregion
 
- 
         [NoCache]
         [KoshaAuthorize]
         public HttpResponseMessage Get()
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
+                string token = GetToken();
 
                 var userData = _userContract.GetUserByToken(token);
 
@@ -312,7 +309,7 @@ namespace FishHoghoghi.Controllers
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
+                string token = GetToken();
 
                 var userData = _userContract.GetUserByToken(token);
 

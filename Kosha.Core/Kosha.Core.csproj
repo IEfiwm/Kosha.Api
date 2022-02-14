@@ -243,6 +243,7 @@
     <Compile Include="Common\Const\PublicSettings.cs" />
     <Compile Include="Common\Helper\KoshaAuthorizeAttribute.cs" />
     <Compile Include="Common\Helper\CoreCommonHelper.cs" />
+    <Compile Include="Common\Model\OrganizationViewModel.cs" />
     <Compile Include="Common\Model\BankAccountViewModel.cs" />
     <Compile Include="Common\Model\ProjectViewModel.cs" />
     <Compile Include="Common\Model\UserViewModel.cs" />

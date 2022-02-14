@@ -33,10 +33,9 @@ namespace Kosha.Core.Contract.AuthenticationCode
         {
             try
             {
-
-
                 //get user existense
                 _userHelper.GetUserByNumber(number, out DataTable table);
+
                 if (table == null)
                     return false;
 
@@ -62,28 +61,20 @@ namespace Kosha.Core.Contract.AuthenticationCode
             }
             catch (Exception x)
             {
-
                 throw;
             }
-
         }
 
         public async Task<bool> VerifyByCode(string number, string code)
         {
             try
             {
+                var res = await _authenticationCodeService.IsValid(number, code);
 
-
-                var model = await _authenticationCodeService.GetByNumberAndCode(number, code);
-
-                if (model == null || (model != null && model.IsActive && !model.IsUsed && model.ExpireDate <= DateTime.Now))
-                    return false;
-
-                return true;
+                return res;
             }
             catch (Exception x)
             {
-
                 throw;
             }
         }
@@ -102,7 +93,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
             };
 
             var resExpire = await _userTokenService.ExpireTokensByUserId(user.id);
-         
+
             if (!resExpire)
                 return null;
 
@@ -141,7 +132,6 @@ namespace Kosha.Core.Contract.AuthenticationCode
             if (userToken == null || userToken?.UserId == null)
                 return null;
 
-
             _userHelper.GetUserById(userToken.UserId, out DataTable table);
 
             if (table == null)
@@ -158,6 +148,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 LastName = table.Rows[0]["LastName"].ToString(),
                 NationalCode = table.Rows[0]["NationalCode"].ToString(),
                 JobTitle = table.Rows[0]["JobTitle"].ToString(),
+                PhoneNumber = table.Rows[0]["PhoneNumber"].ToString(),
                 ProjectRef =Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
             };
 
