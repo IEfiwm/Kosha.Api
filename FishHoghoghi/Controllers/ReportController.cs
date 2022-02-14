@@ -1,11 +1,8 @@
-﻿using FishHoghoghi.Attribute;
-using FishHoghoghi.Business.Utilities;
-using FishHoghoghi.Models;
+﻿using FishHoghoghi.Business.Utilities;
 using FishHoghoghi.Structure;
 using FishHoghoghi.Structure.Business.Dal;
 using FishHoghoghi.Utilities;
-using MD.PersianDateTime;
-using Newtonsoft.Json;
+using Kosha.Core.Contract.Bank;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Dictionary;
 using Stimulsoft.Report.Mvc;
@@ -14,7 +11,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -22,17 +18,18 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using TaxLib.Base.Model;
-using static Stimulsoft.Base.StiJsonReportObjectHelper;
 using PersianDateTime = MD.PersianDateTime.PersianDateTime;
 
 namespace FishHoghoghi.Controllers
 {
     public class ReportController : BaseController
     {
-        public ReportController()
+        private readonly IBankContract _bankContract;
+
+        public ReportController(IBankContract bankContract)
         {
             Stimulsoft.Base.StiLicense.Key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHn0s4gy0Fr5YoUZ9V00Y0igCSFQzwEqYBh/N77k4f0fWXTHW5rqeBNLkaurJDenJ9o97TyqHs9HfvINK18Uwzsc/bG01Rq+x3H3Rf+g7AY92gvWmp7VA2Uxa30Q97f61siWz2dE5kdBVcCnSFzC6awE74JzDcJMj8OuxplqB1CYcpoPcOjKy1PiATlC3UsBaLEXsok1xxtRMQ283r282tkh8XQitsxtTczAJBxijuJNfziYhci2jResWXK51ygOOEbVAxmpflujkJ8oEVHkOA/CjX6bGx05pNZ6oSIu9H8deF94MyqIwcdeirCe60GbIQByQtLimfxbIZnO35X3fs/94av0ODfELqrQEpLrpU6FNeHttvlMc5UVrT4K+8lPbqR8Hq0PFWmFrbVIYSi7tAVFMMe2D1C59NWyLu3AkrD3No7YhLVh7LV0Tttr/8FrcZ8xirBPcMZCIGrRIesrHxOsZH2V8t/t0GXCnLLAWX+TNvdNXkB8cF2y9ZXf1enI064yE5dwMs2fQ0yOUG/xornE";
-
+            _bankContract = bankContract;
         }
         [HttpGet]
         [Route("Report/InsuranceAll/{year}/{month}/{projectId}")]
@@ -406,5 +403,14 @@ namespace FishHoghoghi.Controllers
 
             return result;
         }
+
+        [HttpGet]
+        [Route("Report/BankTXT/{year}/{month}/{projectId}")]
+        public HttpResponseMessage TXTBank(int year, int month, long projectId)
+        {
+             _bankContract.TXTBank(year,month,projectId);
+            return new HttpResponseMessage();
+        }
+
     }
 }

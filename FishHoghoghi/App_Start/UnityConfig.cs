@@ -1,6 +1,7 @@
 using FishHoghoghi.App_Start;
 using Kosha.Core.Bussinus.SMHelper;
 using Kosha.Core.Contract.AuthenticationCode;
+using Kosha.Core.Contract.Bank;
 using Kosha.Core.Services.AuthenticationCode;
 using Kosha.Core.Services.UserToken;
 using Kosha.DataLayer.Context;
@@ -20,9 +21,11 @@ namespace FishHoghoghi
 
             container.RegisterType<ApplicationDbContext>(new InjectionConstructor());
             container.RegisterType<IUserHelper, UserHelper>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProjectHelper, ProjectHelper>(new HierarchicalLifetimeManager());
             container.RegisterType<IAuthenticationCodeService, AuthenticationCodeService>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserTokenService, UserTokenService>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserContract, UserContract>(new HierarchicalLifetimeManager());
+            container.RegisterType<IBankContract, BankContract>(new HierarchicalLifetimeManager());
 
             GlobalConfiguration.Configuration.DependencyResolver = new App_Start.UnityDependencyResolver(container);
 
