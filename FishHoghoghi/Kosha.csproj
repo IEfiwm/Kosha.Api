@@ -358,7 +358,6 @@
     <Compile Include="Extentions\ZipHelper.cs" />
     <Compile Include="Models\Contract\ContractListParameters.cs" />
     <Compile Include="Structure\Attribute\LockFilterAttribute.cs" />
-    <Compile Include="Structure\Attribute\ReactAttribute.cs" />
     <Compile Include="Structure\BaseController.cs" />
     <Compile Include="Structure\Business\Dal\Contract.cs" />
     <Compile Include="Structure\Business\Dal\DataAccessObject.cs" />

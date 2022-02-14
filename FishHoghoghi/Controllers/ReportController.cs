@@ -1,14 +1,8 @@
-﻿using FishHoghoghi.Attribute;
-using FishHoghoghi.Business.Utilities;
-using FishHoghoghi.Models;
+﻿using FishHoghoghi.Business.Utilities;
 using FishHoghoghi.Structure;
 using FishHoghoghi.Structure.Business.Dal;
 using FishHoghoghi.Utilities;
-using Kosha.Core.Bussinus.SMHelper;
-using Kosha.Core.Common.Model;
 using Kosha.Core.Contract.Bank;
-using MD.PersianDateTime;
-using Newtonsoft.Json;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Dictionary;
 using Stimulsoft.Report.Mvc;
@@ -17,7 +11,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -25,7 +18,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using TaxLib.Base.Model;
-using static Stimulsoft.Base.StiJsonReportObjectHelper;
 using PersianDateTime = MD.PersianDateTime.PersianDateTime;
 
 namespace FishHoghoghi.Controllers
