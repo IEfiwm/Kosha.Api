@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Kosha.Core.Common.Model
 {
     public class UserViewModel
@@ -23,6 +18,10 @@ namespace Kosha.Core.Common.Model
         public string LastName { get; set; }
 
         public string JobTitle { get; set; }
+
+        public long ProjectRef { get; set; }
+
+        public long BankId { get; set; }
 
         public bool Status { get; set; }
     }

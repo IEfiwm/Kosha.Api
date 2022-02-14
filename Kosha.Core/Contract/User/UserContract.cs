@@ -158,8 +158,8 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 LastName = table.Rows[0]["LastName"].ToString(),
                 NationalCode = table.Rows[0]["NationalCode"].ToString(),
                 JobTitle = table.Rows[0]["JobTitle"].ToString(),
-                
-             };
+                ProjectRef =Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
+            };
 
             return user;
         }

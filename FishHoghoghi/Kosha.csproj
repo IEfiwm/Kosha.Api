@@ -353,6 +353,7 @@
     <Compile Include="App_Start\UnityResolver.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Extentions\ZipHelper.cs" />
     <Compile Include="Models\Contract\ContractListParameters.cs" />
@@ -540,6 +541,7 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Views\Authentication\" />
+    <Folder Include="Views\Project\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
