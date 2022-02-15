@@ -44,10 +44,12 @@ namespace Kosha.Core.Contract.AuthenticationCode
                     return 1;
                 }
 
-                if (await _authenticationCodeService.HasActiveCode(number))
-                {
-                    return 2;
-                }
+                //if (await _authenticationCodeService.HasActiveCode(number))
+                //{
+                //    return 2;
+                //}
+
+                await _authenticationCodeService.SetAllCodeExpire(number);
 
                 //create authentication code
                 var model = new Entity.AuthenticationCode()
@@ -161,7 +163,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 NationalCode = table.Rows[0]["NationalCode"].ToString(),
                 JobTitle = table.Rows[0]["JobTitle"].ToString(),
                 PhoneNumber = table.Rows[0]["PhoneNumber"].ToString(),
-                ProjectRef =Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
+                ProjectRef = Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
             };
 
             return user;

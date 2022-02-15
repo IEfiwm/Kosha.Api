@@ -1,10 +1,5 @@
 ﻿using Kosha.Core.Bussinus.SMHelper.Provider;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kosha.Core.Bussinus.SMHelper
 {
@@ -19,7 +14,5 @@ namespace Kosha.Core.Bussinus.SMHelper
 
             return table.Rows[0];
         }
-
- 
     }
 }

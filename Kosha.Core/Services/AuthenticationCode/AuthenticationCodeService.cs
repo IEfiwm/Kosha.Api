@@ -19,8 +19,24 @@ namespace Kosha.Core.Services.AuthenticationCode
         public async Task<bool> Create(Entity.AuthenticationCode authenticationCode)
         {
             await _dbContext.AuthenticationCode.AddAsync(authenticationCode);
+
             _dbContext.SaveChanges();
+
             return true;
+        }
+
+        public async Task SetAllCodeExpire(string number)
+        {
+            var model = await _dbContext.AuthenticationCode
+                .Where(m => m.Number == number)
+                .ToListAsync();
+
+            model.ForEach(m =>
+            {
+                m.IsActive = false;
+            });
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<bool> IsValid(string number, string code)
@@ -56,7 +72,8 @@ namespace Kosha.Core.Services.AuthenticationCode
         public async Task<bool> IsValidForGetCode(string number)
         {
             var model = await _dbContext.AuthenticationCode
-                .Where(m => !m.IsUsed && m.IsActive && DateTime.Now.AddHours(-3) > m.CreateDate && m.CreateDate < DateTime.Now && m.Number == number)
+                .AsNoTracking()
+                .Where(m => !m.IsUsed && DateTime.Now.AddHours(-3) < m.CreateDate && m.Number == number)
                 .ToListAsync();
 
             return model.Count > 3;

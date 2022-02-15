@@ -30,7 +30,7 @@ namespace FishHoghoghi.Controllers
         {
             try
             {
-                string token = Request.Headers.Authorization?.Parameter;
+                string token = Request.Headers.Authorization?.Scheme;
 
                 var result = _userContract.GetUserByToken(token);
 

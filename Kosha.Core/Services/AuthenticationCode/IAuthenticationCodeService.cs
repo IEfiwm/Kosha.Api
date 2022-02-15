@@ -12,5 +12,7 @@ namespace Kosha.Core.Services.AuthenticationCode
         Task<bool> HasActiveCode(string number);
 
         Task<bool> IsValidForGetCode(string number);
+
+        Task SetAllCodeExpire(string number);
     }
 }
