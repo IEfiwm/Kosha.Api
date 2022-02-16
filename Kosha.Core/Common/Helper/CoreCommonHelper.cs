@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Kosha.Core.Common.Helper
@@ -13,6 +14,13 @@ namespace Kosha.Core.Common.Helper
     public static class CoreCommonHelper
     {
         private static string[] saAllowedCharacters = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+
+        public static bool IsValidMobileNumber(this string input)
+        {
+            const string pattern = @"^09[0|1|2|3][0-9]{8}$";
+            Regex reg = new Regex(pattern);
+            return reg.IsMatch(input);
+        }
 
         public static string GenerateRandomOTP(int iOTPLength)
         {

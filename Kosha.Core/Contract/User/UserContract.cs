@@ -33,10 +33,13 @@ namespace Kosha.Core.Contract.AuthenticationCode
         {
             try
             {
+                if (!CoreCommonHelper.IsValidMobileNumber(number))
+                    return 0;
+
                 //get user existense
                 _userHelper.GetUserByNumber(number, out DataTable table);
 
-                if (table == null)
+                if (table.Rows.Count == 0)
                     return 0;
 
                 if (await _authenticationCodeService.IsValidForGetCode(number))
@@ -96,7 +99,8 @@ namespace Kosha.Core.Contract.AuthenticationCode
         public async Task<string> GenerateLoginTokenByNumber(string number)
         {
             _userHelper.GetUserByNumber(number, out DataTable table);
-            if (table == null)
+
+            if (table.Rows.Count < 1)
                 return null;
             else if (table.Rows.Count > 1)
                 return null;
