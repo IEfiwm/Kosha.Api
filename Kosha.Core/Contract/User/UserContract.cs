@@ -29,15 +29,30 @@ namespace Kosha.Core.Contract.AuthenticationCode
             _userTokenService = userTokenService;
         }
 
-        public async Task<bool> SendVerificationCodeByNumber(string number)
+        public async Task<byte> SendVerificationCodeByNumber(string number)
         {
             try
             {
+                if (!CoreCommonHelper.IsValidMobileNumber(number))
+                    return 0;
+
                 //get user existense
                 _userHelper.GetUserByNumber(number, out DataTable table);
 
-                if (table == null)
-                    return false;
+                if (table.Rows.Count == 0)
+                    return 0;
+
+                if (await _authenticationCodeService.IsValidForGetCode(number))
+                {
+                    return 1;
+                }
+
+                //if (await _authenticationCodeService.HasActiveCode(number))
+                //{
+                //    return 2;
+                //}
+
+                await _authenticationCodeService.SetAllCodeExpire(number);
 
                 //create authentication code
                 var model = new Entity.AuthenticationCode()
@@ -54,14 +69,16 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 var res = await _authenticationCodeService.Create(model);
 
                 if (!res)
-                    return false;
+                    return 5;
 
                 //otp
-                return SMSProvider.SendOTPCode(model.Number, model.Code);
+                SMSProvider.SendOTPCode(model.Number, model.Code);
+
+                return 3;
             }
             catch (Exception x)
             {
-                throw;
+                return 5;
             }
         }
 
@@ -82,7 +99,8 @@ namespace Kosha.Core.Contract.AuthenticationCode
         public async Task<string> GenerateLoginTokenByNumber(string number)
         {
             _userHelper.GetUserByNumber(number, out DataTable table);
-            if (table == null)
+
+            if (table.Rows.Count < 1)
                 return null;
             else if (table.Rows.Count > 1)
                 return null;
@@ -149,7 +167,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
                 NationalCode = table.Rows[0]["NationalCode"].ToString(),
                 JobTitle = table.Rows[0]["JobTitle"].ToString(),
                 PhoneNumber = table.Rows[0]["PhoneNumber"].ToString(),
-                ProjectRef =Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
+                ProjectRef = Convert.ToInt64(table.Rows[0]["ProjectRef"].ToString()),
             };
 
             return user;

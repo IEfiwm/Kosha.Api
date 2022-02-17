@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Entity = Kosha.DataLayer;
 
 namespace Kosha.Core.Services.AuthenticationCode
@@ -9,5 +8,11 @@ namespace Kosha.Core.Services.AuthenticationCode
         Task<bool> Create(Entity.AuthenticationCode authenticationCode);
 
         Task<bool> IsValid(string number, string code);
+
+        Task<bool> HasActiveCode(string number);
+
+        Task<bool> IsValidForGetCode(string number);
+
+        Task SetAllCodeExpire(string number);
     }
 }

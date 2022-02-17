@@ -46,28 +46,6 @@ namespace FishHoghoghi.Controllers
             }
         }
 
-        [Route("Info/GetOrganization")]
-        [HttpGet]
-        public HttpResponseMessage GetOrganization()
-        {
-            try
-            {
-                string token = GetToken();
-
-                var result = new OrganizationViewModel();
-
-                result.Telephone = Info.GetPhoneNumber();
-
-                return Common.Response(result);
-            }
-            catch (Exception e)
-            {
-                Common.Log(e);
-
-                return Common.SetIntervalErrorResponse();
-            }
-        }
-
         private static bool CheckLock()
         {
             return true;

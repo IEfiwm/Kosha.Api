@@ -16,7 +16,7 @@ namespace FishHoghoghi.Controllers
 
         [HttpGet]
         [Route("Authentication/Login/{number}")]
-        public async Task<bool> Login(string number)
+        public async Task<byte> Login(string number)
         {
             return await _userContract.SendVerificationCodeByNumber(number);
         }
