@@ -28,7 +28,6 @@ using Common = FishHoghoghi.Utilities.Utility;
 
 namespace Fish.Controllers
 {
-    [KoshaAuthorize]
     public class PayRollController : BaseController
     {
         #region Initialization
@@ -59,6 +58,7 @@ namespace Fish.Controllers
 
         [HttpGet]
         [NoCache]
+        [KoshaAuthorize]
         [Route("PayRoll/{year}/{month}")]
         public HttpResponseMessage Get(int year, int month)
         {
@@ -154,8 +154,97 @@ namespace Fish.Controllers
             }
         }
 
+
         [HttpGet]
         [NoCache]
+        [Route("PayRoll/GetPayRoll/{username}/{password}/{year}/{month}")]
+        public HttpResponseMessage GetPayRoll(string username, string password, int year, int month)
+        {
+            try
+            {
+                var directory = GetPublicDirectory(username, year, month);
+
+                var fileName = password + ".pdf";
+
+                var filePath = directory + fileName;
+
+                if (File.Exists(filePath) && File.GetLastWriteTime(filePath).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
+                {
+                    File.Delete(filePath);
+                }
+                else if (File.Exists(filePath) && ConfigurationManager.AppSettings["Cache"].ToString() == "true")
+                {
+                    using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                    {
+                        file.CopyTo(_memoryStream);
+
+                        file.Close();
+                    }
+
+                    _response = new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new ByteArrayContent(_memoryStream.ToArray())
+                    };
+
+                    _attachment = new ContentDispositionHeaderValue("attachment");
+
+                    _attachment.FileName = Guid.NewGuid().ToString("N").Remove(8) + ".pdf";
+
+                    _response.Content.Headers.ContentDisposition = _attachment;
+
+                    _response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+
+                }
+
+                _reportViewModel = CommonHelper.Deserialize<ReportViewModel>(CommonHelper.ReadJson("Jsons", "ReportRecords.json"));
+
+                if (!(CommonHelper.IsAfterDate(year, month, _reportViewModel.limitYear, _reportViewModel.limitMonth) && CommonHelper.IsBeforeCurrentDate(year, month)))
+                {
+                    return Common.SetBadResponse();
+                }
+
+                if (LoginLogDao.IsLoginLimited(username, out int totalRequest))
+                {
+                    return Common.SetErrorResponse(HttpStatusCode.InternalServerError, $"limited request is terminate. {totalRequest} requsted executed.");
+                }
+
+                _user = FishHamkaran.GetUserFishHoghoghi(username, password, year.ToString(), CommonHelper.SetMonthFormat(month), out DataTable dataSource);
+
+                if ((_user == null) || !CheckLock())
+                {
+                    return Common.SetErrorResponse(HttpStatusCode.NotFound, "در این تاریخ فیش حقوقی یافت نشد.");
+                }
+
+                GenerateFishReport(_user, dataSource, _reportViewModel).ExportToPdf(_memoryStream);
+
+                _response = new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new ByteArrayContent(_memoryStream.ToArray())
+                };
+
+                _attachment = new ContentDispositionHeaderValue("attachment");
+
+                _attachment.FileName = Guid.NewGuid().ToString("N").Remove(8) + ".pdf";
+
+                _response.Content.Headers.ContentDisposition = _attachment;
+
+                _response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+
+                LoginLogDao.AddLoginLog(username, Common.GetIPAddress());
+
+                return _response;
+            }
+            catch (Exception exp)
+            {
+                Common.Log(exp);
+
+                return Common.SetIntervalErrorResponse();
+            }
+        }
+
+        [HttpGet]
+        [NoCache]
+        [KoshaAuthorize]
         [Route("PayRoll/GetLink/{year}/{month}")]
         public HttpResponseMessage GetLink(int year, int month)
         {
