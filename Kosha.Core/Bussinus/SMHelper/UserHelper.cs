@@ -16,7 +16,7 @@ namespace Kosha.Core.Bussinus.SMHelper
             table = DataAccessObject.ExecuteCommand($@"SELECT  * FROM [identity].Users
                     INNER JOIN
                     Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef
-                    WHERE [identity].Users.Id =  N'{userId}' AND [identity].[Users].[IsDeleted] =   0   AND [identity].[Users].[IsActive]  =   1");
+                    WHERE [identity].Users.Id =  N'{userId}' AND [identity].[Users].[IsDeleted] =   0   AND [identity].[Users].[IsActive]  =   1 ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -39,7 +39,8 @@ namespace Kosha.Core.Bussinus.SMHelper
         {
 
             table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [identity].Users INNER JOIN
-                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef where projectRef = N'{projectId}' ");
+                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef where projectRef = N'{projectId}' 
+                    AND [identity].[Users].[IsDeleted] =  AND Basic.TbBankAccount.[IsDeleted] =   0 ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -52,7 +53,8 @@ namespace Kosha.Core.Bussinus.SMHelper
         {
             table = DataAccessObject.ExecuteCommand($@"SELECT * FROM Basic.TbProjectBankAccount 
                                                     JOIN Basic.TbBank_Account on Bank_AccountId=TbBank_Account.Id
-                                                    WHERE ProjectId = N'{projectId}' AND BankId = N'{bankId}' ");
+                                                    WHERE ProjectId = N'{projectId}' AND BankId = N'{bankId}' 
+                                                     AND Basic.TbBank_Account.[IsDeleted] =  AND Basic.TbProjectBankAccount.[IsDeleted] =   0 ");
 
             if (table.Rows.Count == 0)
                 return null;
