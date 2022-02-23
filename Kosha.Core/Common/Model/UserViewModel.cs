@@ -24,5 +24,7 @@ namespace Kosha.Core.Common.Model
         public long BankId { get; set; }
 
         public bool Status { get; set; }
+
+        public decimal Salary { get; internal set; }
     }
 }

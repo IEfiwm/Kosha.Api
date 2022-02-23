@@ -12,13 +12,16 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web.Http;
 using TaxLib.Base.Model;
 using PersianDateTime = MD.PersianDateTime.PersianDateTime;
+using Utility = FishHoghoghi.Models.Utility;
 
 namespace FishHoghoghi.Controllers
 {
@@ -406,10 +409,48 @@ namespace FishHoghoghi.Controllers
 
         [HttpGet]
         [Route("Report/BankTXT/{year}/{month}/{projectId}")]
-        public HttpResponseMessage TXTBank(int year, int month, long projectId)
+        public async Task<HttpResponseMessage> TXTBank(int year, int month, long projectId)
         {
-             _bankContract.TXTBank(year,month,projectId);
-            return new HttpResponseMessage();
+            var zipFilePath = await _bankContract.TXTBank(year, month, projectId);
+
+            var fileName = "Banks_" + DateTime.Now.ToString("yyyy-MM-dd hh-mm") + ".zip";
+
+            var zipFileName = zipFilePath + "_" + fileName + ".zip";
+
+            if (File.Exists(zipFileName))
+                File.Delete(zipFileName);
+
+            ZipFile.CreateFromDirectory(zipFilePath, zipFileName);
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(Utility.StreamFile(zipFileName))
+            };
+
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            {
+                FileName = fileName
+            };
+
+            foreach (FileInfo file in new DirectoryInfo(zipFilePath).GetFiles())
+            {
+                file.Delete();
+            }
+
+            foreach (var directory in new DirectoryInfo(zipFilePath).GetDirectories())
+            {
+                foreach (var file in directory.GetFiles())
+                {
+                    file.Delete();
+                }
+                directory.Delete();
+            }
+
+            Directory.Delete(zipFilePath);
+
+            File.Delete(zipFileName);
+
+            return result;
         }
 
     }

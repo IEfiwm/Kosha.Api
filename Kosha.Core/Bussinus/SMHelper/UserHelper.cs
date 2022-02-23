@@ -1,10 +1,5 @@
 ﻿using Kosha.Core.Bussinus.SMHelper.Provider;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kosha.Core.Bussinus.SMHelper
 {
@@ -35,12 +30,14 @@ namespace Kosha.Core.Bussinus.SMHelper
             return table.Rows[0];
         }
 
-        public DataRowCollection GetUsersByProjectId(long projectId, out DataTable table)
+        public DataRowCollection GetUsersByProjectId(long projectId,int year,long month, out DataTable table)
         {
 
-            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [identity].Users INNER JOIN
-                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef where projectRef = N'{projectId}' 
-                    AND [identity].[Users].[IsDeleted] =  AND Basic.TbBankAccount.[IsDeleted] =   0 ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT [identity].Users.*,bankId,Basic.TbBankAccount.AccountNumber,[كل حقوق و مزايا] as Salary FROM [identity].Users INNER JOIN
+                                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef
+                                    INNER JOIN Kosha_MTJA.dbo.Kosha_Source01 ON Kosha_MTJA.dbo.Kosha_Source01.[کد ملی ] = [Identity].Users.NationalCode
+                                    where [identity].Users.projectRef = N'{projectId}' AND ماه=N'{month}' AND [سال ]=N'{year}' AND
+                                     [identity].[Users].[IsDeleted] =0  AND Basic.TbBankAccount.[IsDeleted] =   0  AND BankId is not null ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -54,7 +51,7 @@ namespace Kosha.Core.Bussinus.SMHelper
             table = DataAccessObject.ExecuteCommand($@"SELECT * FROM Basic.TbProjectBankAccount 
                                                     JOIN Basic.TbBank_Account on Bank_AccountId=TbBank_Account.Id
                                                     WHERE ProjectId = N'{projectId}' AND BankId = N'{bankId}' 
-                                                     AND Basic.TbBank_Account.[IsDeleted] =  AND Basic.TbProjectBankAccount.[IsDeleted] =   0 ");
+                                                     AND Basic.TbBank_Account.[IsDeleted] =0  AND Basic.TbProjectBankAccount.[IsDeleted] =   0 ");
 
             if (table.Rows.Count == 0)
                 return null;

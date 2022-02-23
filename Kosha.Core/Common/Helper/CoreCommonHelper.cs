@@ -92,5 +92,10 @@ namespace Kosha.Core.Common.Helper
         {
             public string message { get; set; }
         }
+
+        public static string GetAccountFormat(this string bankAccountNumber)
+        {
+            return String.Format("{0}-{1}-{2}-{3}", bankAccountNumber.Substring(0, 3), bankAccountNumber.Substring(3, 3), bankAccountNumber.Substring(6, 7), bankAccountNumber.Substring(13, 1));
+        }
     }
 }
