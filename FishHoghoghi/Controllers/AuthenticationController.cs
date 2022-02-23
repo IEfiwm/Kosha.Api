@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace FishHoghoghi.Controllers
 {
+    [System.Web.Mvc.SessionState(System.Web.SessionState.SessionStateBehavior.Disabled)]
     public class AuthenticationController : BaseController
     {
         private readonly IUserContract _userContract;
