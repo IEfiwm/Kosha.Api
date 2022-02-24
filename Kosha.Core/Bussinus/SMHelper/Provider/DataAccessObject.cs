@@ -15,7 +15,7 @@ namespace Kosha.Core.Bussinus.SMHelper.Provider
 
         public static DataTable ExecuteCommand(string command)
         {
-            return ExecuteCommand(command, "SMConnectionString");
+            return ExecuteCommand(command, "Sg3ConnectionString");
         }
 
         public static DataTable ExecuteCommand(string command, string connectionName)

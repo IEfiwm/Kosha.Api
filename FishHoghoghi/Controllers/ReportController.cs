@@ -1,4 +1,5 @@
 ﻿using FishHoghoghi.Business.Utilities;
+using FishHoghoghi.Extentions;
 using FishHoghoghi.Structure;
 using FishHoghoghi.Structure.Business.Dal;
 using FishHoghoghi.Utilities;
@@ -12,7 +13,6 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -420,7 +420,7 @@ namespace FishHoghoghi.Controllers
             if (File.Exists(zipFileName))
                 File.Delete(zipFileName);
 
-            ZipFile.CreateFromDirectory(zipFilePath, zipFileName);
+            ZipHelper.CreateZipFile(zipFilePath, zipFileName);
 
             var result = new HttpResponseMessage(HttpStatusCode.OK)
             {

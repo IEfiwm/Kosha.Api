@@ -8,10 +8,8 @@ namespace Kosha.Core.Bussinus.SMHelper
 
         public DataRow GetUserById(string userId, out DataTable table)
         {
-            table = DataAccessObject.ExecuteCommand($@"SELECT  * FROM [identity].Users
-                    INNER JOIN
-                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef
-                    WHERE [identity].Users.Id =  N'{userId}' AND [identity].[Users].[IsDeleted] =   0   AND [identity].[Users].[IsActive]  =   1 ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT  * FROM Kosha_Users
+                    WHERE UserId =  N'{userId}' ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -22,7 +20,8 @@ namespace Kosha.Core.Bussinus.SMHelper
         public DataRow GetUserByNumber(string number, out DataTable table)
         {
 
-            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [SM].[identity].Users WHERE PhoneNumber = N'{number}'    AND [IsDeleted] =   0   AND [IsActive]  =   1 ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT  * FROM Kosha_Users
+                    WHERE PhoneNumber = N'{number}' ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -33,11 +32,8 @@ namespace Kosha.Core.Bussinus.SMHelper
         public DataRowCollection GetUsersByProjectId(long projectId,int year,long month, out DataTable table)
         {
 
-            table = DataAccessObject.ExecuteCommand($@"SELECT [identity].Users.*,bankId,Basic.TbBankAccount.AccountNumber,[كل حقوق و مزايا] as Salary FROM [identity].Users INNER JOIN
-                                    Basic.TbBankAccount ON TbBankAccount.Id = [Identity].Users.BankAccountRef
-                                    INNER JOIN Kosha_MTJA.dbo.Kosha_Source01 ON Kosha_MTJA.dbo.Kosha_Source01.[کد ملی ] = [Identity].Users.NationalCode
-                                    where [identity].Users.projectRef = N'{projectId}' AND ماه=N'{month}' AND [سال ]=N'{year}' AND
-                                     [identity].[Users].[IsDeleted] =0  AND Basic.TbBankAccount.[IsDeleted] =   0  AND BankId is not null ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT * From Kosha_UserProjects
+                                    WHERE projectRef = N'{projectId}' AND ماه=N'{month}' AND [سال ]=N'{year}'  ");
 
             if (table.Rows.Count == 0)
                 return null;
@@ -48,10 +44,8 @@ namespace Kosha.Core.Bussinus.SMHelper
 
         public DataRow GetAccountsByProjectIdAndBankId(long projectId, long bankId, out DataTable table)
         {
-            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM Basic.TbProjectBankAccount 
-                                                    JOIN Basic.TbBank_Account on Bank_AccountId=TbBank_Account.Id
-                                                    WHERE ProjectId = N'{projectId}' AND BankId = N'{bankId}' 
-                                                     AND Basic.TbBank_Account.[IsDeleted] =0  AND Basic.TbProjectBankAccount.[IsDeleted] =   0 ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM Kosha_ProjectBankAccount 
+                                                    WHERE ProjectId = N'{projectId}' AND BankId = N'{bankId}'");
 
             if (table.Rows.Count == 0)
                 return null;

@@ -6,7 +6,6 @@ using FishHoghoghi.Structure;
 using FishHoghoghi.Utilities;
 using Kosha.Core.Common.Helper;
 using Kosha.Core.Contract.AuthenticationCode;
-using MD.PersianDateTime;
 using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
