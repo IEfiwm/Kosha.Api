@@ -5,7 +5,7 @@
     <Databases isList="true" count="1">
       <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>MS SQL</Alias>
-        <ConnectionStringEncrypted>9MizC0tNe/FhTaXcywh3XtFWh4nGS+MZcnrobElxJTvTeM+IS0/zze1J2YTPdKQXxGB7L01Xspn7aYSAYxFlEoJadwzmWbtlwhnVmU4Z7HuJbtXCTFkxhOJE0GxqCfYvxfLZa2QD45nvTGW9YcyxetwM0YPGS0KE</ConnectionStringEncrypted>
+        <ConnectionStringEncrypted>9Mj3C8VNw9lheqWlxQjqdtFurSjGS3vd/nslmUkNZSrDxNsCZkvzRUJJPUxiAKQXiCBliE0FWYRCXKDcZxVrEoJaYyhhUdOswx3Z8UsVJXvEcPnCyRhLkeJ89Y1OXPYbkGzdy+VZo91rBtHcYw00etF8wQzLWdptbHy18HOI</ConnectionStringEncrypted>
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
@@ -141,14 +141,14 @@ ORDER BY [نام خانوادگی] </SqlCommand>
       <Components isList="true" count="3">
         <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.2,10.89,2.1</ClientRectangle>
-          <Components isList="true" count="24">
+          <ClientRectangle>0,0.2,11.29,1.1</ClientRectangle>
+          <Components isList="true" count="26">
             <Text2 Ref="7" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[0:89:89]</Brush>
-              <ClientRectangle>0,0,10.9,1.3</ClientRectangle>
+              <ClientRectangle>0,0,11.3,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,14</Font>
+              <Font>B Zar,10</Font>
               <Guid>7f20bfeeee3542b7bc71aa19c23a1bbb</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -156,19 +156,16 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Page isRef="5" />
               <Parent isRef="6" />
               <Text>{WorkShop.WorkshopName}
-لیست بیمه تامین اجتماعی {GetDate()}
-{WorkShop.BranchName}
-کد کارگاه {WorkShop.WorkshopCode}</Text>
+لیست بیمه تامین اجتماعی {GetDate()}</Text>
               <TextBrush>White</TextBrush>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
             </Text2>
             <Text1 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>9.8,1.3,1.1,0.4</ClientRectangle>
+              <ClientRectangle>9.8,0.5,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
@@ -182,9 +179,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text3 Ref="9" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>9,1.3,0.8,0.4</ClientRectangle>
+              <ClientRectangle>9,0.5,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>50eca5ae597c4be1b5522333c728c28c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -199,9 +196,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text4 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>8.2,1.3,0.8,0.4</ClientRectangle>
+              <ClientRectangle>8.2,0.5,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>131c77881f02424d8f10478213c52695</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -216,9 +213,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text5 Ref="11" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>7.4,1.3,0.8,0.4</ClientRectangle>
+              <ClientRectangle>7.6,0.5,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>53e4aa99d4aa42518df00529527f7fc3</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -233,9 +230,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text6 Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>6.5,1.3,0.9,0.4</ClientRectangle>
+              <ClientRectangle>6.7,0.5,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,11</Font>
+              <Font>B Zar,10</Font>
               <Guid>6259a3e43efc477d912f8c604703636e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -250,9 +247,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text7 Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5.9,1.3,0.6,0.4</ClientRectangle>
+              <ClientRectangle>6.1,0.5,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>a920de3d655b4bb0890b9efe0cce9756</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -267,9 +264,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text8 Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5,1.3,0.9,0.4</ClientRectangle>
+              <ClientRectangle>5.2,0.5,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>be398b7823454cd4853054fc748edbb8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -284,9 +281,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text9 Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>4.1,1.3,0.9,0.4</ClientRectangle>
+              <ClientRectangle>4.2,0.5,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>361dafcde53b4767b9b35c6c5a04392c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -301,9 +298,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text10 Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>3.2,1.3,0.9,0.4</ClientRectangle>
+              <ClientRectangle>3.3,0.5,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>94037cf3477d414f93a6fcff31df0fe9</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -318,9 +315,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text11 Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>2.2,1.3,1,0.4</ClientRectangle>
+              <ClientRectangle>2.3,0.5,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,11</Font>
+              <Font>B Zar,10</Font>
               <Guid>564b5526cd2b42cd943bc5b5e933c648</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -335,9 +332,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text12 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>1.3,1.3,0.9,0.4</ClientRectangle>
+              <ClientRectangle>1.3,0.5,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>cd2cdd241aac4d61947267c64e102514</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -352,9 +349,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text13 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>0,1.3,1.3,0.8</ClientRectangle>
+              <ClientRectangle>0,0.5,1.3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>fecb40a12c8b49968ea5896695cc2795</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -370,9 +367,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text14 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>1.3,1.7,0.9,0.4</ClientRectangle>
+              <ClientRectangle>1.3,0.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>5e817bf502974449b56f983158f62049</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -387,9 +384,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text15 Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>9.8,1.7,1.1,0.4</ClientRectangle>
+              <ClientRectangle>9.8,0.8,1.5,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>812f31af6af048cfac592912f4ae92bf</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -404,9 +401,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text16 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>9,1.7,0.8,0.4</ClientRectangle>
+              <ClientRectangle>9,0.8,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>7b9b60349f3f4ac6b1f2ceec0ef69db3</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -421,9 +418,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text17 Ref="23" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>8.2,1.7,0.8,0.4</ClientRectangle>
+              <ClientRectangle>8.2,0.8,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>d279103b490d4cc4bc3ed8b2e4ce2007</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -438,9 +435,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text18 Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>7.4,1.7,0.8,0.4</ClientRectangle>
+              <ClientRectangle>7.6,0.8,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,10</Font>
+              <Font>B Zar,8</Font>
               <Guid>f4302e378adc4295b66725acf7eb502b</Guid>
               <HorAlignment>Center</HorAlignment>
               <LineSpacing>0.82</LineSpacing>
@@ -457,9 +454,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text19 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>6.5,1.7,0.9,0.4</ClientRectangle>
+              <ClientRectangle>6.7,0.8,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,11</Font>
+              <Font>B Zar,10</Font>
               <Guid>567cdd82b8a547febc17db2b2c8e3782</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -474,9 +471,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text20 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5.9,1.7,0.6,0.4</ClientRectangle>
+              <ClientRectangle>6.1,0.8,0.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>d1bf8492150d4966b108b4915a4447dc</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -491,9 +488,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text21 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5,1.7,0.9,0.4</ClientRectangle>
+              <ClientRectangle>5.2,0.8,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>67cf1ac40cde45548c08e44865a83d4b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -508,9 +505,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text22 Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>4.1,1.7,0.9,0.4</ClientRectangle>
+              <ClientRectangle>4.2,0.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>f80ead9a3a1440fbb8a286b8094ed91a</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -525,9 +522,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text23 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>3.2,1.7,0.9,0.4</ClientRectangle>
+              <ClientRectangle>3.3,0.8,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,12</Font>
+              <Font>B Zar,10</Font>
               <Guid>fb5f1d35ec8b4ea1970e0cdb5f303ba9</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -542,9 +539,9 @@ ORDER BY [نام خانوادگی] </SqlCommand>
             <Text24 Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>2.2,1.7,1,0.4</ClientRectangle>
+              <ClientRectangle>2.3,0.8,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Zar,11</Font>
+              <Font>B Zar,10</Font>
               <Guid>88ff3a27dd17460e9b30d266bbf34eaa</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -556,109 +553,118 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text24>
+            <Text79 Ref="31" type="Text" isKey="true">
+              <Border>All;Transparent;1;Solid;False;4;Black</Border>
+              <Brush>[0:89:89]</Brush>
+              <ClientRectangle>9.2,0.1,2.1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text79</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{WorkShop.BranchName}</Text>
+              <TextBrush>White</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text79>
+            <Text80 Ref="32" type="Text" isKey="true">
+              <Border>All;Transparent;1;Solid;False;4;Black</Border>
+              <Brush>[0:89:89]</Brush>
+              <ClientRectangle>0,0.1,1.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,10</Font>
+              <Guid>efe4528798cd4eff989734ac73b4eafc</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text80</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>کد کارگاه {WorkShop.WorkshopCode}</Text>
+              <TextBrush>White</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text80>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
           <Page isRef="5" />
           <Parent isRef="5" />
         </PageHeaderBand1>
-        <DataKosha_Source01 Ref="31" type="DataBand" isKey="true">
+        <DataKosha_Source01 Ref="33" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,2.7,10.89,0.8</ClientRectangle>
+          <ClientRectangle>0,1.7,11.29,0.45</ClientRectangle>
           <Components isList="true" count="23">
-            <Text27 Ref="32" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>9,0.4,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>2066fcfa1d2641bca2f775cda69af468</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text27</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.شماره_شناسنامه}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text27>
-            <Text30 Ref="33" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0.4,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>53667282783d46669b9b2d865e370eaa</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text30</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.بیمه_تامین_اجتماعی}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="34" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text30>
-            <Text29 Ref="35" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>8.2,0.4,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>6a55f1c2a5294040933c06f92a905d07</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text29</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.کد_ملی_}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text29>
-            <Text31 Ref="36" type="Text" isKey="true">
+            <Text31 Ref="34" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Solid;Black;1;Solid;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,1.3,0.8</ClientRectangle>
+              <ClientRectangle>0,0,1.3,0.45</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
               <Guid>ee07d91c05ad452388325cc0ef2eb6b8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Kosha_Source01.شماره_حساب}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text33 Ref="37" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+            <Text26 Ref="35" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0.4,0.9,0.4</ClientRectangle>
+              <ClientRectangle>9,0,0.8,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>e371883abb4f4d25995d139462a7d016</Guid>
+              <Font>B Nazanin,10</Font>
+              <Guid>237bbf0da1d141738048f0520c1c60a9</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text33</Name>
+              <Name>Text26</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.خالص_پرداختی}</Text>
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.نام_پدر}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text28 Ref="36" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.2,0,0.8,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>02cbb2c22bdf46f59190e5bb9b0bb3c6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.کد_پرسنلی}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text32 Ref="37" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.2,0,0.9,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>c039586323d44344a510f06b732512ad</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.کارکرد_موثر}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -668,180 +674,23 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text33>
-            <Text36 Ref="39" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>5,0.4,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>966a490d3049467492559c8a08bc4045</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text36</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.شماره_بیمه}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text36>
-            <Text41 Ref="40" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>5.9,0.4,0.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>8986165eded74000adc2ab3b0d88e7d4</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text41</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{(Kosha_Source01.جنسیت==1)?"مرد":"زن"}
-</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text41>
-            <Text42 Ref="41" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>7.4,0.4,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>32150af7a76945718eb90f18797c6adc</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text42</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.کدشغل}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text42>
-            <Text44 Ref="42" type="Text" isKey="true">
-              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>4.1,0.4,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>ceb6339947e44a8a841ae3392b22a46d</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text44</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.مزد_ماهانه}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="43" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text44>
-            <Text25 Ref="44" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Solid;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>9.8,0,1.1,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>b4170e11372343ab9e7c9b0ea3843b01</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text25</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Line}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>SystemVariables</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text25>
-            <Text26 Ref="45" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>9,0,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>237bbf0da1d141738048f0520c1c60a9</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text26</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.نام_پدر}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text26>
-            <Text28 Ref="46" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>8.2,0,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>02cbb2c22bdf46f59190e5bb9b0bb3c6</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text28</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.کد_پرسنلی}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text28>
-            <Text32 Ref="47" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>5,0,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>c039586323d44344a510f06b732512ad</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text32</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.کارکرد_موثر}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="48" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text34 Ref="49" type="Text" isKey="true">
+            <Text34 Ref="39" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>1.3,0,0.9,0.4</ClientRectangle>
+              <ClientRectangle>1.3,0,1,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
               <Guid>79fe0ce6baa04550a5f8ed814e5c163d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Kosha_Source01.سایر_کسور}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="50" type="NumberFormat" isKey="true">
+              <TextFormat Ref="40" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -850,22 +699,124 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="51" type="Text" isKey="true">
+            <Text37 Ref="41" type="Text" isKey="true">
               <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.2,0,1,0.4</ClientRectangle>
+              <ClientRectangle>7.6,0,0.6,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
+              <Guid>9575a68b04be4a2791266c00d35fd6a1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.شغل}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text40 Ref="42" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.1,0,0.6,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>4671f513568a4c3f891dc380e508176a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.ملیت}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text40>
+            <Text43 Ref="43" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,0,1,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>ccc2e65103b24be0b6e280bcd6ceeec9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.مزد_روزانه}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="44" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text43>
+            <Text45 Ref="45" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.3,0,0.9,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>73073da0996d4e02bac950fea81003f0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.ماخذ_بیمه}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="46" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text45>
+            <Text75 Ref="47" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.7,0,0.9,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>4048bd15b955408fa749c4587c0d699f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text75</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{DateToshamsi(Kosha_Source01.تاریخ_شروع_کار)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text75>
+            <Text35 Ref="48" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.3,0,1,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
               <Guid>7da17d6637b04e2392bcb3bb9ecfb16e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Kosha_Source01.كل_حقوق_و_مزايا}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="52" type="NumberFormat" isKey="true">
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -874,56 +825,98 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text37 Ref="53" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+            <Text25 Ref="50" type="Text" isKey="true">
+              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>7.4,0,0.8,0.4</ClientRectangle>
+              <ClientRectangle>9.8,0,1.5,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>9575a68b04be4a2791266c00d35fd6a1</Guid>
+              <Font>B Nazanin,10</Font>
+              <Guid>b4170e11372343ab9e7c9b0ea3843b01</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text37</Name>
+              <Name>Text25</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.شغل}</Text>
+              <Parent isRef="33" />
+              <Text>{Line}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>SystemVariables</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text27 Ref="51" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,0.2,0.8,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>2066fcfa1d2641bca2f775cda69af468</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.شماره_شناسنامه}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text37>
-            <Text40 Ref="54" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+            </Text27>
+            <Text30 Ref="52" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.9,0,0.6,0.4</ClientRectangle>
+              <ClientRectangle>3.3,0.2,0.9,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>4671f513568a4c3f891dc380e508176a</Guid>
+              <Font>B Nazanin,10</Font>
+              <Guid>53667282783d46669b9b2d865e370eaa</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text40</Name>
+              <Name>Text30</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.ملیت}</Text>
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.بیمه_تامین_اجتماعی}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+            <Text29 Ref="54" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.2,0.2,0.8,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>6a55f1c2a5294040933c06f92a905d07</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.کد_ملی_}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text40>
-            <Text43 Ref="55" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+            </Text29>
+            <Text33 Ref="55" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.1,0,0.9,0.4</ClientRectangle>
+              <ClientRectangle>1.3,0.2,1,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>ccc2e65103b24be0b6e280bcd6ceeec9</Guid>
+              <Font>B Nazanin,10</Font>
+              <Guid>e371883abb4f4d25995d139462a7d016</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text43</Name>
+              <Name>Text33</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.مزد_روزانه}</Text>
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.خالص_پرداختی}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="56" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -933,101 +926,138 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text43>
-            <Text45 Ref="57" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+            </Text33>
+            <Text36 Ref="57" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>3.2,0,0.9,0.4</ClientRectangle>
+              <ClientRectangle>5.2,0.2,0.9,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>73073da0996d4e02bac950fea81003f0</Guid>
+              <Font>B Nazanin,10</Font>
+              <Guid>966a490d3049467492559c8a08bc4045</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text45</Name>
+              <Name>Text36</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{Kosha_Source01.ماخذ_بیمه}</Text>
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.شماره_بیمه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="58" type="NumberFormat" isKey="true">
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text36>
+            <Text41 Ref="58" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.1,0.2,0.6,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>8986165eded74000adc2ab3b0d88e7d4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{(Kosha_Source01.جنسیت==1)?"مرد":"زن"}
+</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text41>
+            <Text42 Ref="59" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.6,0.2,0.6,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>32150af7a76945718eb90f18797c6adc</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.کدشغل}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text42>
+            <Text44 Ref="60" type="Text" isKey="true">
+              <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,0.2,1,0.25</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>ceb6339947e44a8a841ae3392b22a46d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Kosha_Source01.مزد_ماهانه}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="61" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
-              <Type>Expression</Type>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text45>
-            <DataKosha_Source01_پایه_سنوات Ref="59" type="Text" isKey="true">
+            </Text44>
+            <DataKosha_Source01_پایه_سنوات Ref="62" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Solid;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
-              <ClientRectangle>9.8,0.4,1.1,0.4</ClientRectangle>
+              <ClientRectangle>9.8,0.2,1.5,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
               <HorAlignment>Center</HorAlignment>
               <LineSpacing>0.75</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_Source01_پایه_سنوات</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Kosha_Source01.نام} {Kosha_Source01.نام_خانوادگی}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_Source01_پایه_سنوات>
-            <Text75 Ref="60" type="Text" isKey="true">
-              <Border>AdvBlack;1;Solid;Black;1;Dot;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
-              <Brush>[235:243:243]</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>6.5,0,0.9,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
-              <Guid>4048bd15b955408fa749c4587c0d699f</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text75</Name>
-              <Page isRef="5" />
-              <Parent isRef="31" />
-              <Text>{DateToshamsi(Kosha_Source01.تاریخ_شروع_کار)}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text75>
-            <Text76 Ref="61" type="Text" isKey="true">
+            <Text76 Ref="63" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>6.5,0.4,0.9,0.4</ClientRectangle>
+              <ClientRectangle>6.7,0.2,0.9,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
               <Guid>358649d112384cf8b26df3bb503b1321</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text76</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{DateToshamsi(Kosha_Source01.تاریخ_ترک_کار)}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text76>
-            <Text77 Ref="62" type="Text" isKey="true">
+            <Text77 Ref="64" type="Text" isKey="true">
               <Border>AdvBlack;1;Dot;Black;1;Solid;Black;1;Dot;Black;1;Dot;False;4;Black</Border>
               <Brush>[235:243:243]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.2,0.4,1,0.4</ClientRectangle>
+              <ClientRectangle>2.3,0.2,1,0.25</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,11</Font>
+              <Font>B Nazanin,10</Font>
               <Guid>2de698cb71d343d09f4b7e90bfe9e584</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text77</Name>
               <Page isRef="5" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Kosha_Source01.مزایای_مشمول}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+              <TextFormat Ref="65" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1046,14 +1076,14 @@ ORDER BY [نام خانوادگی] </SqlCommand>
           <Parent isRef="5" />
           <Sort isList="true" count="0" />
         </DataKosha_Source01>
-        <FooterKosha_Source01 Ref="64" type="FooterBand" isKey="true">
+        <FooterKosha_Source01 Ref="66" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.9,10.89,3</ClientRectangle>
+          <ClientRectangle>0,2.55,11.29,3</ClientRectangle>
           <Components isList="true" count="32">
-            <Text38 Ref="65" type="Text" isKey="true">
+            <Text38 Ref="67" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5,0,0.9,0.6</ClientRectangle>
+              <ClientRectangle>5.2,0,0.9,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Zar,12</Font>
               <Guid>c9c02bad8e914fefaa929c7325ab9762</Guid>
@@ -1061,15 +1091,15 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text38</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text38>
-            <Text39 Ref="66" type="Text" isKey="true">
+            <Text39 Ref="68" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>4.1,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>4.2,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
               <Guid>23a7c46892c44078a372a6af54a77066</Guid>
@@ -1077,31 +1107,8 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text39</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.مزد_روزانه)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="67" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text39>
-            <Text46 Ref="68" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[192:220:219]</Brush>
-              <ClientRectangle>4.1,0.3,0.9,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,10</Font>
-              <Guid>140ba3b1e5ee4075b949f68c88505704</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text46</Name>
-              <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.مزد_ماهانه)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="69" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1111,40 +1118,22 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text46>
-            <Text47 Ref="70" type="Text" isKey="true">
-              <Border>All;Transparent;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.9,0,0.8,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Zar,14,Bold</Font>
-              <Guid>e4faa99e0c174e1fba14996a7328d741</Guid>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text47</Name>
-              <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>جمع: </Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text47>
-            <Text48 Ref="71" type="Text" isKey="true">
+            </Text39>
+            <Text46 Ref="70" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>3.2,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>4.2,0.3,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
-              <Guid>bcc2f07c0e4f43fea30dd15c7f480e86</Guid>
+              <Guid>140ba3b1e5ee4075b949f68c88505704</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text48</Name>
+              <Name>Text46</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.ماخذ_بیمه)}</Text>
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.مزد_ماهانه)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="72" type="NumberFormat" isKey="true">
+              <TextFormat Ref="71" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1152,20 +1141,38 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text48>
-            <Text49 Ref="73" type="Text" isKey="true">
+            </Text46>
+            <Text47 Ref="72" type="Text" isKey="true">
+              <Border>All;Transparent;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.1,0,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,14,Bold</Font>
+              <Guid>e4faa99e0c174e1fba14996a7328d741</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="5" />
+              <Parent isRef="66" />
+              <Text>جمع: </Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text47>
+            <Text48 Ref="73" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>3.2,0.3,0.9,0.3</ClientRectangle>
+              <ClientRectangle>3.3,0,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
-              <Guid>2352badd004949818a60bd6405ccece5</Guid>
+              <Guid>bcc2f07c0e4f43fea30dd15c7f480e86</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text49</Name>
+              <Name>Text48</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)}</Text>
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.ماخذ_بیمه)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="74" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1175,20 +1182,20 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text49>
-            <Text50 Ref="75" type="Text" isKey="true">
+            </Text48>
+            <Text49 Ref="75" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>2.2,0,1,0.3</ClientRectangle>
+              <ClientRectangle>3.3,0.3,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
-              <Guid>44623eee5b7c4cdeb4b0cd072d789c85</Guid>
+              <Guid>2352badd004949818a60bd6405ccece5</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text50</Name>
+              <Name>Text49</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.كل_حقوق_و_مزايا)}</Text>
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="76" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1198,20 +1205,20 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text50>
-            <Text51 Ref="77" type="Text" isKey="true">
+            </Text49>
+            <Text50 Ref="77" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>1.3,0,0.9,0.3</ClientRectangle>
+              <ClientRectangle>2.3,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
-              <Guid>4cd00b68cd7f48859fd6e800a5cce513</Guid>
+              <Guid>44623eee5b7c4cdeb4b0cd072d789c85</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text51</Name>
+              <Name>Text50</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.سایر_کسور)}</Text>
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.كل_حقوق_و_مزايا)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="78" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1221,20 +1228,20 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text51>
-            <Text52 Ref="79" type="Text" isKey="true">
+            </Text50>
+            <Text51 Ref="79" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>1.3,0.3,0.9,0.3</ClientRectangle>
+              <ClientRectangle>1.3,0,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
-              <Guid>61d664ead3224a10ae916a695e219384</Guid>
+              <Guid>4cd00b68cd7f48859fd6e800a5cce513</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text52</Name>
+              <Name>Text51</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{Sum(Kosha_Source01.خالص_پرداختی)}</Text>
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.سایر_کسور)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="80" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1244,8 +1251,31 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text51>
+            <Text52 Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>1.3,0.3,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10</Font>
+              <Guid>61d664ead3224a10ae916a695e219384</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="5" />
+              <Parent isRef="66" />
+              <Text>{Sum(Kosha_Source01.خالص_پرداختی)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text52>
-            <Text53 Ref="81" type="Text" isKey="true">
+            <Text53 Ref="83" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>7.5,1.1,3.4,1.8</ClientRectangle>
@@ -1256,12 +1286,12 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text53</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>محل مهر و امضاء کارفرما  </Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text53>
-            <Text54 Ref="82" type="Text" isKey="true">
+            <Text54 Ref="84" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,1.1,1.7,0.6</ClientRectangle>
@@ -1272,10 +1302,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text54</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>تعداد نفرات</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="83" type="NumberFormat" isKey="true">
+              <TextFormat Ref="85" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1284,7 +1314,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text54>
-            <Text55 Ref="84" type="Text" isKey="true">
+            <Text55 Ref="86" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,1.7,0.9,0.3</ClientRectangle>
@@ -1295,10 +1325,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text55</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>ایرانی</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="85" type="NumberFormat" isKey="true">
+              <TextFormat Ref="87" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1307,7 +1337,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text55>
-            <Text56 Ref="86" type="Text" isKey="true">
+            <Text56 Ref="88" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2,0.9,0.3</ClientRectangle>
@@ -1318,10 +1348,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text56</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>غیر ایرانی</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="87" type="NumberFormat" isKey="true">
+              <TextFormat Ref="89" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1330,7 +1360,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
-            <Text57 Ref="88" type="Text" isKey="true">
+            <Text57 Ref="90" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2.3,0.9,0.3</ClientRectangle>
@@ -1341,10 +1371,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text57</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>مرد</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="89" type="NumberFormat" isKey="true">
+              <TextFormat Ref="91" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1353,7 +1383,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text57>
-            <Text58 Ref="90" type="Text" isKey="true">
+            <Text58 Ref="92" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>6.6,2.6,0.9,0.3</ClientRectangle>
@@ -1364,10 +1394,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text58</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>زن</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="91" type="NumberFormat" isKey="true">
+              <TextFormat Ref="93" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1376,7 +1406,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text58>
-            <Text59 Ref="92" type="Text" isKey="true">
+            <Text59 Ref="94" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5.8,1.7,0.8,0.3</ClientRectangle>
@@ -1387,32 +1417,8 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text59</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{CountIf(DataKosha_Source01,Kosha_Source01.ملیت == "ايراني" || Kosha_Source01.ملیت == "ایرانی")}
-</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="93" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text59>
-            <Text60 Ref="94" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5.8,2,0.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
-              <Guid>41233b2c3ef643329081892a4e4d241c</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text60</Name>
-              <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.ملیت != "ايراني" &amp;&amp; Kosha_Source01.ملیت != "ایرانی")}
 </Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="95" type="NumberFormat" isKey="true">
@@ -1423,20 +1429,20 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text60>
-            <Text61 Ref="96" type="Text" isKey="true">
+            </Text59>
+            <Text60 Ref="96" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5.8,2.3,0.8,0.3</ClientRectangle>
+              <ClientRectangle>5.8,2,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
-              <Guid>2ef8784b88c241cfb4ecca3e7d47ecc8</Guid>
+              <Guid>41233b2c3ef643329081892a4e4d241c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text61</Name>
+              <Name>Text60</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 1)}
+              <Parent isRef="66" />
+              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.ملیت != "ايراني" &amp;&amp; Kosha_Source01.ملیت != "ایرانی")}
 </Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="97" type="NumberFormat" isKey="true">
@@ -1447,20 +1453,20 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text61>
-            <Text62 Ref="98" type="Text" isKey="true">
+            </Text60>
+            <Text61 Ref="98" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>5.8,2.6,0.8,0.3</ClientRectangle>
+              <ClientRectangle>5.8,2.3,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
-              <Guid>5d51dc31ecb24e4ea31155a797704c08</Guid>
+              <Guid>2ef8784b88c241cfb4ecca3e7d47ecc8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text62</Name>
+              <Name>Text61</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 0)}
+              <Parent isRef="66" />
+              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 1)}
 </Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="99" type="NumberFormat" isKey="true">
@@ -1471,8 +1477,32 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text61>
+            <Text62 Ref="100" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>5.8,2.6,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>5d51dc31ecb24e4ea31155a797704c08</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="5" />
+              <Parent isRef="66" />
+              <Text>{CountIf(DataKosha_Source01,Kosha_Source01.جنسیت == 0)}
+</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="101" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text62>
-            <Text63 Ref="100" type="Text" isKey="true">
+            <Text63 Ref="102" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.1,2.6,0.3</ClientRectangle>
@@ -1483,10 +1513,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text63</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>جمع حق بیمه سهم کارمند</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="101" type="NumberFormat" isKey="true">
+              <TextFormat Ref="103" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1495,7 +1525,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text63>
-            <Text64 Ref="102" type="Text" isKey="true">
+            <Text64 Ref="104" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.4,2.6,0.3</ClientRectangle>
@@ -1506,10 +1536,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text64</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>جمع حق بیمه سهم کارفرما</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="103" type="NumberFormat" isKey="true">
+              <TextFormat Ref="105" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1518,7 +1548,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text64>
-            <Text65 Ref="104" type="Text" isKey="true">
+            <Text65 Ref="106" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,1.7,2.6,0.3</ClientRectangle>
@@ -1529,10 +1559,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text65</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>جمع حق بیمه بیکاری</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="105" type="NumberFormat" isKey="true">
+              <TextFormat Ref="107" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1541,7 +1571,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text65>
-            <Text66 Ref="106" type="Text" isKey="true">
+            <Text66 Ref="108" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2,2.6,0.3</ClientRectangle>
@@ -1552,10 +1582,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text66</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>جمع حق بیمه مشاغل سخت و زیان آور</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="107" type="NumberFormat" isKey="true">
+              <TextFormat Ref="109" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1564,7 +1594,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text66>
-            <Text67 Ref="108" type="Text" isKey="true">
+            <Text67 Ref="110" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2.3,2.6,0.3</ClientRectangle>
@@ -1575,10 +1605,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text67</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>کسر میشود: معافیت حق بیمه کارفرما</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="109" type="NumberFormat" isKey="true">
+              <TextFormat Ref="111" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1587,7 +1617,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text67>
-            <Text68 Ref="110" type="Text" isKey="true">
+            <Text68 Ref="112" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>3.1,2.6,2.6,0.3</ClientRectangle>
@@ -1598,10 +1628,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text68</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>جمع کل</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="111" type="NumberFormat" isKey="true">
+              <TextFormat Ref="113" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1610,7 +1640,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text68>
-            <Text69 Ref="112" type="Text" isKey="true">
+            <Text69 Ref="114" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.1,1.8,0.3</ClientRectangle>
@@ -1621,10 +1651,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text69</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="113" type="NumberFormat" isKey="true">
+              <TextFormat Ref="115" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1633,7 +1663,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text69>
-            <Text70 Ref="114" type="Text" isKey="true">
+            <Text70 Ref="116" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.4,1.8,0.3</ClientRectangle>
@@ -1644,10 +1674,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text70</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.حق_بیمه_سهم_کارفرما)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="115" type="NumberFormat" isKey="true">
+              <TextFormat Ref="117" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1656,7 +1686,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text70>
-            <Text71 Ref="116" type="Text" isKey="true">
+            <Text71 Ref="118" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,1.7,1.8,0.3</ClientRectangle>
@@ -1667,10 +1697,10 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text71</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="117" type="NumberFormat" isKey="true">
+              <TextFormat Ref="119" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1679,7 +1709,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text71>
-            <Text72 Ref="118" type="Text" isKey="true">
+            <Text72 Ref="120" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,2,1.8,0.3</ClientRectangle>
@@ -1690,30 +1720,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text72</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
-              <Text>0</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="119" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text72>
-            <Text73 Ref="120" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[192:220:219]</Brush>
-              <ClientRectangle>1.3,2.3,1.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,12</Font>
-              <Guid>5a5c576ea60246adae6111b5e0f10d61</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text73</Name>
-              <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>0</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="121" type="NumberFormat" isKey="true">
@@ -1724,8 +1731,31 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text72>
+            <Text73 Ref="122" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>1.3,2.3,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12</Font>
+              <Guid>5a5c576ea60246adae6111b5e0f10d61</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text73</Name>
+              <Page isRef="5" />
+              <Parent isRef="66" />
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="123" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text73>
-            <Text74 Ref="122" type="Text" isKey="true">
+            <Text74 Ref="124" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>1.3,2.6,1.8,0.3</ClientRectangle>
@@ -1736,12 +1766,12 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text74</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.بیمه_تامین_اجتماعی)+
 Sum(Kosha_Source01.حق_بیمه_سهم_کارفرما)+
 Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="123" type="NumberFormat" isKey="true">
+              <TextFormat Ref="125" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1750,10 +1780,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text74>
-            <Text78 Ref="124" type="Text" isKey="true">
+            <Text78 Ref="126" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
-              <ClientRectangle>2.2,0.3,1,0.3</ClientRectangle>
+              <ClientRectangle>2.3,0.3,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,10</Font>
               <Guid>cf79c58aae744bd490f93fa79896336e</Guid>
@@ -1761,10 +1791,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
               <Margins>0,0,0,0</Margins>
               <Name>Text78</Name>
               <Page isRef="5" />
-              <Parent isRef="64" />
+              <Parent isRef="66" />
               <Text>{Sum(Kosha_Source01.مزایای_مشمول)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="125" type="NumberFormat" isKey="true">
+              <TextFormat Ref="127" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1782,7 +1812,7 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>23f2fc69e2d04506908339e15cee6c6e</Guid>
-      <Margins>0.4,0.4,0.4,0.4</Margins>
+      <Margins>0.2,0.2,0.2,0.2</Margins>
       <Name>Page1</Name>
       <Orientation>Landscape</Orientation>
       <PageHeight>8.27</PageHeight>
@@ -1803,10 +1833,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/9/2022 10:21:51 PM</ReportChanged>
+  <ReportChanged>2/24/2022 4:29:51 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
-  <ReportGuid>2cc7b0c550bf4f3fabf55eac90049508</ReportGuid>
+  <ReportGuid>fb608bb3d27a4c398359bb503dc73c81</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
