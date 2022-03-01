@@ -41,12 +41,11 @@ namespace Kosha.Core.Bussinus.Providers
                     ParameterArray = parameters.ToArray()
                 };
 
+            UltraFastSendRespone ultraFastSendRespone = new UltraFast().Send(token, ultraFastSend);
 
-            //UltraFastSendRespone ultraFastSendRespone = new UltraFast().Send(token, ultraFastSend);
+            return ultraFastSendRespone.IsSuccessful;
 
-            //   return ultraFastSendRespone.IsSuccessful;
-
-            return true;
+            //return true;
         }
     }
 }
