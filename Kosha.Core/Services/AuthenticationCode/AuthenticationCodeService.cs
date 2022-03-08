@@ -40,7 +40,7 @@ namespace Kosha.Core.Services.AuthenticationCode
         }
 
         public async Task<bool> IsValid(string number, string code)
-        {
+            {
             var model = await _dbContext.AuthenticationCode
                 .FirstOrDefaultAsync(x => x.Number == number &&
                 x.Code == code &&

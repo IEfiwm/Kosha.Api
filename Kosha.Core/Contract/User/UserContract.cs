@@ -159,7 +159,7 @@ namespace Kosha.Core.Contract.AuthenticationCode
 
             var user = new UserViewModel
             {
-                Id = table.Rows[0]["Id"].ToString(),
+                Id = table.Rows[0]["UserId"].ToString(),
                 UserName = table.Rows[0]["UserName"].ToString(),
                 AccountNumber = table.Rows[0]["AccountNumber"].ToString(),
                 FirstName = table.Rows[0]["FirstName"].ToString(),

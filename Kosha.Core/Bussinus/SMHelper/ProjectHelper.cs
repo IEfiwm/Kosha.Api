@@ -7,7 +7,7 @@ namespace Kosha.Core.Bussinus.SMHelper
     {
         public DataRow GetById(long projectId, out DataTable table)
         {
-            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM Basic.TbProject WHERE Id =  N'{projectId}' ");
+            table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [dbo].[Kosha_Project] WHERE Id =  N'{projectId}' ");
 
             if (table.Rows.Count == 0)
                 return null;
