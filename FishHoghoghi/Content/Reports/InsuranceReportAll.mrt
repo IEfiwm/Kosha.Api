@@ -12,7 +12,7 @@
     <DataSources isList="true" count="2">
       <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="76">
+        <Columns isList="true" count="77">
           <value>تاریخ_x0020_تولد,System.String</value>
           <value>نام_x0020_پدر,System.String</value>
           <value>رند_x0020_حقوق,System.Int32</value>
@@ -89,6 +89,7 @@
           <value>حق_x0020_بیمه_x0020_سهم_x0020_کارفرما,System.String</value>
           <value>حق_x0020_بیمه_x0020_بیکاری,System.String</value>
           <value>ProjectRef,System.Nullable`1[System.Int64]</value>
+          <value>EmployeeStatus,System.Int32</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -101,6 +102,7 @@
           <value>ProjectRef,ProjectRef,8,0</value>
         </Parameters>
         <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectRef
+and EmployeeStatus=0
 ORDER BY [نام خانوادگی] </SqlCommand>
       </Kosha_Source01>
       <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
@@ -1833,10 +1835,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/24/2022 4:29:51 PM</ReportChanged>
+  <ReportChanged>3/11/2022 12:44:21 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
-  <ReportGuid>fb608bb3d27a4c398359bb503dc73c81</ReportGuid>
+  <ReportGuid>b2c03951321145ac9d799c4830190d14</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
