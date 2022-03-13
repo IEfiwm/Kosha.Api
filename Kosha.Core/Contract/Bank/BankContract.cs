@@ -173,7 +173,6 @@ namespace Kosha.Core.Contract.Bank
                         fs.Write(author, 0, author.Length);
                     }
                 }
-
             }
             catch (Exception Ex)
             {

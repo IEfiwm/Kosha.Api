@@ -100,7 +100,8 @@
           <value>Year,Year,8,0</value>
           <value>ProjectRef,ProjectRef,8,0</value>
         </Parameters>
-        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef=@ProjectRef</SqlCommand>
+        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef=@ProjectRef
+and EmployeeStatus=0</SqlCommand>
       </Kosha_Source01>
       <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>WorkShop</Alias>
@@ -1099,10 +1100,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/10/2022 12:03:54 AM</ReportChanged>
+  <ReportChanged>3/11/2022 12:44:37 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>F:\Fish\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>9e18c96c1fac4c449a0b20a1e0a8295e</ReportGuid>
+  <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
+  <ReportGuid>c5257bc140dc49c4b1608d1912f3bd9a</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
