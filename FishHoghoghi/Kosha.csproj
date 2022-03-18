@@ -378,6 +378,7 @@
     <Compile Include="Structure\Models\BaseResponse.cs" />
     <Compile Include="Structure\Models\Directory.cs" />
     <Compile Include="Structure\Models\Enum.cs" />
+    <Compile Include="Structure\Models\FieldRuleModel.cs" />
     <Compile Include="Structure\Models\LabelModel.cs" />
     <Compile Include="Structure\Models\SalInsurenceDiskPersonal.cs" />
     <Compile Include="Structure\Models\Utility.cs" />
