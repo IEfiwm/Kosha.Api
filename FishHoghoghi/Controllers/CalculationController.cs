@@ -1,18 +1,12 @@
-﻿using FishHoghoghi.Attribute;
-using FishHoghoghi.Business.Dal;
+﻿using FishHoghoghi.Business.Dal;
 using FishHoghoghi.Structure;
+using FishHoghoghi.Structure.Business.Dal;
 using FishHoghoghi.Structure.Models;
-using Kosha.Core.Common.Helper;
-using Kosha.Core.Common.Model;
 using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Web.Http;
-using Common = FishHoghoghi.Utilities.Utility;
 
 namespace FishHoghoghi.Controllers
 {
@@ -33,7 +27,7 @@ namespace FishHoghoghi.Controllers
             var fieldFormules = Project.GetFieldRules(projectId);
             List<FieldRuleModel> model = new List<FieldRuleModel>();
             string command = "";
-            var insertQuery = " insert into Data.TbImported (year,month,";
+            var insertQuery = " insert into Data.TbImported (year,month,projectRef,IsDeleted,CreateDate,";
 
             for (int i = 0, count = fieldFormules.Rows.Count; i < count--; i++)
             {
@@ -48,7 +42,7 @@ namespace FishHoghoghi.Controllers
 
             foreach (var item in model)
             {
-                item.Formule = cal(item.Formule, model);
+                item.Formule = Attendance.getFormula(item.Formule, model);
             }
 
             foreach (var item in model)
@@ -63,39 +57,17 @@ namespace FishHoghoghi.Controllers
             insertQuery += ") ";
 
 
-            insertQuery += $@"SELECT	 {year},{month},{command} FROM	[dbo].[Kosha_Attendances] 
+            insertQuery += $@"SELECT	 {year} as year,{month} as month,{projectId} as projectRef,0,'{DateTime.Now}',{command} FROM	[Kosha_MTJA].[dbo].[Kosha_Attendances]  
                     WHERE   [ProjectId] =   {projectId}    AND [سال]   = '{year}'    AND [ماه] =   '{month}'";
 
 
-            //delete from imported
-            //insert 
+            Attendance.DeleteImported(projectId, year, month);
+
+            Attendance.InsertImported(insertQuery);
 
             return null;
         }
 
-        private string cal(string formule, List<FieldRuleModel> model)
-        {
-            Regex regex = new Regex(@"\[(?<Col>([^\[|\]]*))+\]$");
-            var groups = formule.Split('&'); /// [staticField] & * & [dynamicField]
-            if (groups.Length > 0)
-            {
-                foreach (var word in groups)
-                {
-                    if (word.Contains("["))// [dynamicField] 
-                    {
-                        Match getCol = regex.Match(word.Trim());
-                        string col = getCol.Value?.Replace("[", "").Replace("]", "").Trim();//dynamicField
 
-                        if (model.Any(x => x.Alias == col))
-                        {
-                            var childModel = model.FirstOrDefault(x => x.Alias == col);
-                            formule = formule.Replace("[" + col + "]", "(" + childModel.Formule + ")");
-                            formule = cal(formule, model);
-                        }
-                    }
-                }
-            }
-            return formule;
-        }
     }
 }

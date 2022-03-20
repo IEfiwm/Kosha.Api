@@ -6,12 +6,8 @@ namespace FishHoghoghi.Dal
 {
     public static class DataAccessObject
     {
-        public static DataTable ExecuteCommand(string command)
-        {
-            return ExecuteCommand(command, "Sg3ConnectionString");
-        }
 
-        public static DataTable ExecuteCommand(string command, string connectionName)
+        public static DataTable ExecuteCommand(string command, string connectionName = "Sg3ConnectionString")
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[connectionName].ToString()))
             {
