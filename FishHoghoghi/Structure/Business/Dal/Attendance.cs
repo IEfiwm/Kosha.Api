@@ -24,27 +24,37 @@ namespace FishHoghoghi.Structure.Business.Dal
 
         public static string getFormula(string formule, List<FieldRuleModel> model)
         {
-            Regex regex = new Regex(@"\[(?<Col>([^\[|\]]*))+\]$");
-            var groups = formule.Split('&'); /// [staticField] & * & [dynamicField]
-            if (groups.Length > 0)
+            try
             {
-                foreach (var word in groups)
+                Regex regex = new Regex(@"\[(?<Col>([^\[|\]]*))+\]$");
+                var groups = formule.Split('&'); /// [staticField] & * & [dynamicField]
+                if (groups.Length > 0)
                 {
-                    if (word.Contains("["))// [dynamicField] 
+                    foreach (var word in groups)
                     {
-                        Match getCol = regex.Match(word.Trim());
-                        string col = getCol.Value?.Replace("[", "").Replace("]", "").Trim();//dynamicField
-
-                        if (model.Any(x => x.Alias == col))
+                        if (word.Contains("["))// [dynamicField] 
                         {
-                            var childModel = model.FirstOrDefault(x => x.Alias == col);
-                            formule = formule.Replace("[" + col + "]", "(" + childModel.Formule + ")");
-                            formule = getFormula(formule, model);
+                            Match getCol = regex.Match(word.Trim());
+                            string col = getCol.Value?.Replace("[", "").Replace("]", "").Trim();//dynamicField
+
+                            if (model.Any(x => x.Alias == col && x.Formule?.Replace("[", "").Replace("]", "").Trim() != col))
+                            {
+                                var childModel = model.FirstOrDefault(x => x.Alias == col &&
+                                x.Formule?.Replace("[", "").Replace("]", "").Trim() != col);
+                             
+                                formule = formule.Replace("[" + col + "]", "(" + childModel.Formule + ")");
+                                formule = getFormula(formule, model);
+                            }
                         }
                     }
                 }
+                return formule;
             }
-            return formule;
+            catch (System.Exception e)
+            {
+
+                throw;
+            }
         }
     }
 }

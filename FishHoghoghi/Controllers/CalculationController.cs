@@ -6,6 +6,7 @@ using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace FishHoghoghi.Controllers
@@ -29,7 +30,16 @@ namespace FishHoghoghi.Controllers
             string command = "";
             var insertQuery = " insert into Data.TbImported (year,month,projectRef,IsDeleted,CreateDate,";
 
-            for (int i = 0, count = fieldFormules.Rows.Count; i < count--; i++)
+            //for (int i = 0, count = fieldFormules.Rows.Count; i < count--; i++)
+            //{
+            //    model.Add(new FieldRuleModel
+            //    {
+            //        Name = fieldFormules.Rows[i]["Name"]?.ToString(),
+            //        Alias = fieldFormules.Rows[i]["Alias"]?.ToString(),
+            //        Formule = fieldFormules.Rows[i]["Formule"]?.ToString()
+            //    });
+            //}
+            for (int i = 0; i < fieldFormules.Rows.Count; i++)
             {
                 model.Add(new FieldRuleModel
                 {
@@ -42,7 +52,16 @@ namespace FishHoghoghi.Controllers
 
             foreach (var item in model)
             {
-                item.Formule = Attendance.getFormula(item.Formule, model);
+                var myTask = Task.Run(() => Attendance.getFormula(item.Formule, model));
+
+                if (myTask.Wait(TimeSpan.FromSeconds(30)))
+                {
+                    item.Formule = myTask.Result;
+                }
+                else
+                {
+                    throw new Exception("");
+                }
             }
 
             foreach (var item in model)
