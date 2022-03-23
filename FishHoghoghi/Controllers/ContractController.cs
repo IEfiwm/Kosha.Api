@@ -176,7 +176,8 @@ namespace FishHoghoghi.Controllers
 
                 result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
                 {
-                    FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                    //FileName = Guid.NewGuid().ToString("N") + ".pdf"
+                    FileName = username + ".pdf"
                 };
 
 

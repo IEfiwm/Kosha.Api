@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Word;
+﻿using FishHoghoghi.Utilities;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Globalization;
 using System.IO;
@@ -20,7 +21,13 @@ namespace FishHoghoghi.Models
 
                 range.Text = text;
 
-                range.Font.Name = "Vazir Light FD";
+                range.Bold = 0;
+
+                range.Font.Bold = 0;
+
+                //range.Font.Name = "Vazir Light FD";
+
+                range.Font.Name = CommonHelper.GetConfigurationSetting("Font");
 
                 object newRange = range;
 
