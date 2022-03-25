@@ -5,6 +5,7 @@ using FishHoghoghi.Structure.Models;
 using Kosha.Core.Contract.AuthenticationCode;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -84,7 +85,8 @@ namespace FishHoghoghi.Controllers
 
             Attendance.InsertImported(insertQuery);
 
-            return null;
+            return new HttpResponseMessage(HttpStatusCode.OK); ;
+
         }
     }
 }

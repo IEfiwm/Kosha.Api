@@ -1485,8 +1485,7 @@ namespace FishHoghoghi.Utilities
             //{
             //    return true;
             //}
-
-            if (year <= date.Year && month <= date.Month)
+            if ((year < date.Year) || (year == date.Year && month <= date.Month))
             {
                 return true;
             }
