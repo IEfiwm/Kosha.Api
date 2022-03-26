@@ -156,7 +156,7 @@ namespace FishHoghoghi.Controllers
                     out System.Data.DataTable dataSource,
                     CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/")).ToString("yyyy/MM/dd")),
                     CommonHelper.ConvertToEnglishNumber(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")).ToString("yyyy/MM/dd")),
-                    Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days / 30)).ToString());
+                    Math.Round(((double)(MD.PersianDateTime.PersianDateTime.Parse(enddate.Replace("-", "/")) - MD.PersianDateTime.PersianDateTime.Parse(startdate.Replace("-", "/"))).Days + 1)).ToString());
 
                 if (user == null)
                 {
@@ -179,7 +179,6 @@ namespace FishHoghoghi.Controllers
                     //FileName = Guid.NewGuid().ToString("N") + ".pdf"
                     FileName = username + ".pdf"
                 };
-
 
                 File.Delete(GetDocPath(_id.ToString()));
 

@@ -15,7 +15,7 @@ namespace FishHoghoghi.Business.Dal
                         *,
                     N'{startdate.Replace("/", "-")}'  AS  [شروع قرارداد],
                     N'{enddate.Replace("/", "-")}'    AS  [پایان قرارداد],
-                    N'{duration} ماه'   AS  [مدت]
+                    N'{duration} روز'   AS  [مدت]
                     FROM
                         [dbo].[Kosha_Contract]
                     WHERE";
