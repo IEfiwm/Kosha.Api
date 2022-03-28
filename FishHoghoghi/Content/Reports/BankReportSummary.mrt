@@ -45,7 +45,7 @@
 FROM Kosha_UserProjects INNER JOIN
   Kosha_ProjectBankAccount ON Kosha_UserProjects.BankId =
     Kosha_ProjectBankAccount.BankId
-WHERE projectRef =@projectRef AND [ماه]=@Month AND [سال ]=@Year</SqlCommand>
+WHERE projectRef =@projectRef AND projectId =@projectRef AND [ماه]=@Month AND [سال ]=@Year</SqlCommand>
       </DataSource>
       <Kosha_Project Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_Project</Alias>
@@ -106,7 +106,7 @@ WHERE projectRef =@projectRef AND [ماه]=@Month AND [سال ]=@Year</SqlComman
 	FROM Kosha_UserProjects INNER JOIN
 	Kosha_ProjectBankAccount ON Kosha_UserProjects.BankId =
     Kosha_ProjectBankAccount.BankId
-WHERE projectRef =@projectRef AND [ماه]=@Month AND [سال ]=@Year
+WHERE projectRef =@projectRef AND projectId =@projectRef  AND [ماه]=@Month AND [سال ]=@Year
 Group by Kosha_ProjectBankAccount.BankId,Title, Kosha_ProjectBankAccount.AccountNumber</SqlCommand>
       </DataSourceGrouped>
     </DataSources>
@@ -692,10 +692,10 @@ Group by Kosha_ProjectBankAccount.BankId,Title, Kosha_ProjectBankAccount.Account
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/28/2022 5:41:05 PM</ReportChanged>
+  <ReportChanged>3/28/2022 5:54:05 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\BankReportSummary.mrt</ReportFile>
-  <ReportGuid>273203d840974e149c0191f8833cb790</ReportGuid>
+  <ReportGuid>ac3a5d6aa99543a3b1802982490e1416</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
