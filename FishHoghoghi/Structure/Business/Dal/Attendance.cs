@@ -1,6 +1,8 @@
 ﻿using FishHoghoghi.Dal;
 using FishHoghoghi.Structure.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -16,6 +18,7 @@ namespace FishHoghoghi.Structure.Business.Dal
                 , "SMConnectionString");
 
         }
+
         public static void InsertImported(string command)
         {
             var res = DataAccessObject.ExecuteCommand(command, "SMConnectionString");
@@ -41,7 +44,7 @@ namespace FishHoghoghi.Structure.Business.Dal
                             {
                                 var childModel = model.FirstOrDefault(x => x.Alias == col &&
                                 x.Formule?.Replace("[", "").Replace("]", "").Trim() != col);
-                             
+
                                 formule = formule.Replace("[" + col + "]", "(" + childModel.Formule + ")");
                                 formule = getFormula(formule, model);
                             }
@@ -56,5 +59,21 @@ namespace FishHoghoghi.Structure.Business.Dal
                 throw;
             }
         }
+
+        public static bool CheckExistsRequests(long projectId, string year, string month)
+        {
+            var table = DataAccessObject.ExecuteCommand($@"SELECT *  FROM [dbo].[PayRollRequests] where Month={month} and Year={year} 
+                and ProjectId={projectId} and  RequestDateTime > DATEADD(minute, -3,  GetDate()) ");
+
+            return table.Rows.Count > 0;
+        }
+        public static void InsertRequest(long projectId, string year, string month)
+        {
+            var res = DataAccessObject.ExecuteCommand($@"insert into [dbo].[PayRollRequests] (ProjectId,Year,Month,RequestDateTime)
+                                                    values ({projectId},{year},{month},'{DateTime.Now}')");
+
+        }
+
+
     }
 }

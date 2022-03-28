@@ -25,21 +25,16 @@ namespace FishHoghoghi.Controllers
         [HttpGet]
         public HttpResponseMessage GenerateSalary(long projectId, string year, string month)
         {
+            if (Attendance.CheckExistsRequests(projectId, year, month))
+                return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
+            
+            Attendance.InsertRequest(projectId, year, month);
 
             var fieldFormules = Project.GetFieldRules(projectId);
             List<FieldRuleModel> model = new List<FieldRuleModel>();
             string command = "";
             var insertQuery = " insert into Data.TbImported (year,month,projectRef,IsDeleted,CreateDate,";
 
-            //for (int i = 0, count = fieldFormules.Rows.Count; i < count--; i++)
-            //{
-            //    model.Add(new FieldRuleModel
-            //    {
-            //        Name = fieldFormules.Rows[i]["Name"]?.ToString(),
-            //        Alias = fieldFormules.Rows[i]["Alias"]?.ToString(),
-            //        Formule = fieldFormules.Rows[i]["Formule"]?.ToString()
-            //    });
-            //}
             for (int i = 0; i < fieldFormules.Rows.Count; i++)
             {
                 model.Add(new FieldRuleModel

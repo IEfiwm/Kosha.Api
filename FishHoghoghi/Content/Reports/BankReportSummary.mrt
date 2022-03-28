@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>MS SQL</Alias>
+        <ConnectionStringEncrypted>9MizC0tNe/FhTaXcywh3XtFWh4nGS+MZcnrobElxJTvTeM+IS0/zze1J2YTPdKQXxGB7L01Xspn7aYSAYxFlEoJadwzmWbtlwhnVmU4Z7HuJbtXCTFkxhOJE0GxqCfYvxfLZa2QD45nvTGW9YcyxetwM0YPGS0KE</ConnectionStringEncrypted>
+        <Name>MS SQL</Name>
+      </MS_x0020_SQL>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <DataSource Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>DataSource</Alias>
+        <Columns isList="true" count="12">
+          <value>PersonnelCode,System.String</value>
+          <value>FirstName,System.String</value>
+          <value>LastName,System.String</value>
+          <value>BranchName,System.String</value>
+          <value>Title,System.String</value>
+          <value>BranchCode,System.String</value>
+          <value>NationalCode,System.String</value>
+          <value>Salary,System.String</value>
+          <value>ماه,System.String</value>
+          <value>سال_x0020_,System.String</value>
+          <value>UserAccountNumber,System.String</value>
+          <value>AccountNumber,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>1e56f495b3164ce8892a0b94e1e65893</Key>
+        <Name>DataSource</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="3">
+          <value>_x0040_Year,Year,22,4</value>
+          <value>_x0040_Month,Month,22,2</value>
+          <value>_x0040_projectRef,ProjectRef,0,10</value>
+        </Parameters>
+        <SqlCommand>SELECT Kosha_UserProjects.PersonnelCode, Kosha_UserProjects.FirstName,
+  Kosha_UserProjects.LastName, Kosha_ProjectBankAccount.BranchName,
+  Kosha_ProjectBankAccount.Title, Kosha_ProjectBankAccount.BranchCode,
+  Kosha_ProjectBankAccount.AccountNumber, Kosha_UserProjects.NationalCode,
+  Kosha_UserProjects.AccountNumber as UserAccountNumber, Kosha_UserProjects.Salary,
+  Kosha_UserProjects.ماه, Kosha_UserProjects.[سال ]
+FROM Kosha_UserProjects INNER JOIN
+  Kosha_ProjectBankAccount ON Kosha_UserProjects.BankId =
+    Kosha_ProjectBankAccount.BankId
+WHERE projectRef =@projectRef AND [ماه]=@Month AND [سال ]=@Year</SqlCommand>
+      </DataSource>
+      <Kosha_Project Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Kosha_Project</Alias>
+        <Columns isList="true" count="21">
+          <value>Id,System.Int64</value>
+          <value>StartDate,System.DateTime</value>
+          <value>ProjectStatus,System.Byte</value>
+          <value>IsDeleted,System.Boolean</value>
+          <value>RowOfCovenant,System.String</value>
+          <value>TaxAuthorityCode,System.String</value>
+          <value>TaxAuthorityName,System.String</value>
+          <value>WorkshopCode,System.String</value>
+          <value>WorkshopName,System.String</value>
+          <value>BranchName,System.String</value>
+          <value>Address,System.String</value>
+          <value>InsurancesName,System.String</value>
+          <value>OwnerName,System.String</value>
+          <value>DisplayAddress,System.String</value>
+          <value>DisplayEmail,System.String</value>
+          <value>DisplayName,System.String</value>
+          <value>DisplayPhoneNumber,System.String</value>
+          <value>DisplayPostalCode,System.String</value>
+          <value>EndDate,System.DateTime</value>
+          <value>Title,System.String</value>
+          <value>Code,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>e3f2fab1b73b4763bd978573d7706805</Key>
+        <Name>Kosha_Project</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>_x0040_id,ProjectRef,0,0</value>
+        </Parameters>
+        <SqlCommand>select * from Kosha_Project where id=@id</SqlCommand>
+      </Kosha_Project>
+      <DataSourceGrouped Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>DataSourceGrouped</Alias>
+        <Columns isList="true" count="5">
+          <value>Title,System.String</value>
+          <value>Salary,System.String</value>
+          <value>AccountNumber,System.String</value>
+          <value>BankId,System.Int64</value>
+          <value>count,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>97c0ffd3fb9a4b94961272ef73ec80ab</Key>
+        <Name>DataSourceGrouped</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="3">
+          <value>_x0040_Year,Year,22,4</value>
+          <value>_x0040_Month,Month,22,2</value>
+          <value>_x0040_projectRef,ProjectRef,0,10</value>
+        </Parameters>
+        <SqlCommand>SELECT Kosha_ProjectBankAccount.BankId,Sum(Convert(decimal,Salary)) as Salary,
+	Title, Kosha_ProjectBankAccount.AccountNumber,Count(*) as count
+	FROM Kosha_UserProjects INNER JOIN
+	Kosha_ProjectBankAccount ON Kosha_UserProjects.BankId =
+    Kosha_ProjectBankAccount.BankId
+WHERE projectRef =@projectRef AND [ماه]=@Month AND [سال ]=@Year
+Group by Kosha_ProjectBankAccount.BankId,Title, Kosha_ProjectBankAccount.AccountNumber</SqlCommand>
+      </DataSourceGrouped>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="3">
+      <value>,Month,Month,,System.Int32,,False,False,True,False</value>
+      <value>,Year,Year,,System.Int32,,False,False,True,False</value>
+      <value>,ProjectRef,ProjectRef,,System.Int64,,False,False,True,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>d33105a2dd0b45309e17e70568ef2fec</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <PageHeaderBand1 Ref="7" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,7.47,1.3</ClientRectangle>
+          <Components isList="true" count="8">
+            <Text2 Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[0:89:89]</Brush>
+              <ClientRectangle>0,0,7.46,0.7</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,14</Font>
+              <Guid>7f20bfeeee3542b7bc71aa19c23a1bbb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Kosha_Project.WorkshopName}
+{GetDate()}</Text>
+              <TextBrush>White</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text14 Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>7.1,0.8,0.36,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>3ee05927ac85462888151ac3745269af</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>ردیف</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>3.3,0.8,1.3,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>198a0928f18341baa38c86d7b8615fe7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>شماره حساب مقصد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text35 Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>5.8,0.8,1.3,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>909bc94a88cb4f8fb3a487a796579c7e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>نام و نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text16 Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>2.4,0.8,0.9,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>9acc8a6830494ca4918ca8a7e5747aa8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>بانک</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>4.6,0.8,1.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>e2557c7e4df24e13999307095066f06e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>کدملی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text18 Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>1.3,0.8,1.1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>5778ac01941049e18bf92cd6c38d5e63</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <ClientRectangle>0,0.8,1.3,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>90e1a9c2b2e94d91bb25a328f5d4b698</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>شماره حساب مبدا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </PageHeaderBand1>
+        <DataDataSource Ref="16" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,1.9,7.47,0.4</ClientRectangle>
+          <Components isList="true" count="7">
+            <DataDataSource_FirstName Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.8,0,1.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource_FirstName</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.FirstName} {DataSource.LastName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource_FirstName>
+            <DataDataSource_Title Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,0,0.9,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource_Title</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.Title}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource_Title>
+            <DataDataSource_AccountNumber Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.3,0,1.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource_AccountNumber</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.UserAccountNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource_AccountNumber>
+            <DataDataSource_NationalCode Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.6,0,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource_NationalCode</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.NationalCode}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource_NationalCode>
+            <DataDataSource_Salary Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.3,0,1.1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSource_Salary</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.Salary}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="22" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSource_Salary>
+            <Text25 Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.1,0,0.36,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>7be4a72f62a34a95a53fcba54b0e7a31</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{Line}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>SystemVariables</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text20 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[235:243:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>0fe57177570b4404bf9d549d5e5c6bb4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="16" />
+              <Text>{DataSource.AccountNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>DataSource</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataDataSource</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataDataSource>
+        <FooterDataSource Ref="25" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.7,7.47,1.2</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text1 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.3,0,1.1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>f290b991c31a46c1a6972496e05a491d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>{Sum(DataSource.Salary)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="27" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,0,0.9,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>b4c83c3ce450405f83f3ef049b98fa00</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>: مجموع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="29" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5,0.8,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>fe7fe434c5ef4d82aa630ba293e40da5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>بانک</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="31" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.4,0.8,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>03dcbc27de09450b8c1201263588a0bf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="33" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.9,0.8,1.5,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>a47305b246524846b3026e2d010f67a6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>شماره حساب مبدا</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[192:220:219]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.3,0.8,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Zar,12</Font>
+              <Guid>7c8fe059fb894c2d964a12419bcb59d0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="6" />
+              <Parent isRef="25" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="37" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterDataSource</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </FooterDataSource>
+        <DataDataSourceGrouped Ref="38" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.3,7.47,0.3</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataDataSourceGrouped_Title Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5,0,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSourceGrouped_Title</Name>
+              <Page isRef="6" />
+              <Parent isRef="38" />
+              <Text>{DataSourceGrouped.Title}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSourceGrouped_Title>
+            <DataDataSourceGrouped_Salary Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.4,0,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSourceGrouped_Salary</Name>
+              <Page isRef="6" />
+              <Parent isRef="38" />
+              <Text>{DataSourceGrouped.Salary}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSourceGrouped_Salary>
+            <DataDataSourceGrouped_AccountNumber Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.9,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataDataSourceGrouped_AccountNumber</Name>
+              <Page isRef="6" />
+              <Parent isRef="38" />
+              <Text>{DataSourceGrouped.AccountNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataDataSourceGrouped_AccountNumber>
+            <Text8 Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[183:221:232]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.3,0,0.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>b26c93e43f0f411780517ecb642047a7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="6" />
+              <Parent isRef="38" />
+              <Text>{DataSourceGrouped.count}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>DataSourceGrouped</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataDataSourceGrouped</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataDataSourceGrouped>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>23f2fc69e2d04506908339e15cee6c6e</Guid>
+      <Margins>0.4,0.4,0.4,0.4</Margins>
+      <Name>Page1</Name>
+      <PageHeight>11.69</PageHeight>
+      <PageWidth>8.27</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <RightToLeft>True</RightToLeft>
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>3/28/2022 5:41:05 PM</ReportChanged>
+  <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
+  <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\BankReportSummary.mrt</ReportFile>
+  <ReportGuid>273203d840974e149c0191f8833cb790</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2019.3.4.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+	public class Report : Stimulsoft.Report.StiReport
+	{
+		public Report()        {
+			this.InitializeComponent();
+		}
+
+		#region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+		
+		public string GetDate()
+		{
+		string date="";
+		switch (Month)
+		{
+		case 1:
+		{
+		date = "فروردین";
+		break;	
+		}
+		case 2:
+		{
+		date = "اردیبهشت";
+		break;	
+		}
+		case 3:
+		{
+		date = "خرداد";
+		break;	
+		}
+		case 4:
+		{
+		date = "تیر";
+		break;	
+		}
+		case 5:
+		{
+		date = "مرداد";
+		break;	
+		}
+		case 6:
+		{
+		date = "شهریور";
+		break;	
+		}
+		case 7:
+		{
+		date = "مهر";
+		break;	
+		}
+		case 8:
+		{
+		date = "آبان";
+		break;	
+		}
+		case 9:
+		{
+		date = "آذر";
+		break;	
+		}
+		case 10:
+		{
+		date = "دی";
+		break;	
+		}
+		case 11:
+		{
+		date = "بهمن";
+		break;	
+		}
+		case 12:
+		{
+		date = "اسفند";
+		break;	
+		}
+		}
+			
+		date +=" ماه "+Year;
+		return date;
+			
+		}
+		public string DateToshamsi(object date)
+		{
+			System.Globalization.PersianCalendar shamsi = new System.Globalization.PersianCalendar();
+
+			DateTime da = (DateTime)date;
+			int year = shamsi.GetYear(da);
+			int month = shamsi.GetMonth(da);
+			int day = shamsi.GetDayOfMonth(da);
+			return year.ToString()+ "/"+ month.ToString() + "/"+day.ToString();
+		}
+		}
+		}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>
