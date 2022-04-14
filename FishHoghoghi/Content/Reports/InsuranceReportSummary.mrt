@@ -1100,10 +1100,10 @@ C3WWAAAAAElFTkSuQmCC</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/11/2022 12:44:37 PM</ReportChanged>
+  <ReportChanged>4/13/2022 11:19:50 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\InsuranceReportSummary.mrt</ReportFile>
-  <ReportGuid>c5257bc140dc49c4b1608d1912f3bd9a</ReportGuid>
+  <ReportGuid>d1c626941e9a495f8bc3bf019baba209</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
