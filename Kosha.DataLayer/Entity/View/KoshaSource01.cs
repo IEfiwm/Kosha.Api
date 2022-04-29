@@ -95,5 +95,27 @@ namespace Kosha.DataLayer
         public string مستمرحقوقپایهوپایهسنوات { get; set; }
         public string غیرمستمرمشمولوغیرمشمول { get; set; }
         public string غیرمستمرمشمول { get; set; }
+        public bool Tt { get; set; }
+        public int EmployeeStatus { get; set; }
+        public string عیدیوپاداش { get; set; }
+        public string مرخصی { get; set; }
+        public string سنواتصورتحساب { get; set; }
+        public string بالاسری { get; set; }
+        public string عمروحوادث { get; set; }
+        public string جمع { get; set; }
+        public string مشمولبیمه { get; set; }
+        public string بیمه23 { get; set; }
+        public string جمعبابیمه { get; set; }
+        public string مالیاتبرارزشافزوده { get; set; }
+        public string جمعباارزشافزوده { get; set; }
+        public string بیمهتکمیلی { get; set; }
+        public string ارزشافزودهبیمهتکمیلی { get; set; }
+        public string جمعکل { get; set; }
+        public string توضیحات { get; set; }
+        public string حسنانجام10 { get; set; }
+        public string سپرده5 { get; set; }
+        public string خالص { get; set; }
+        public string مجموععیدیوسنواتومرخصی { get; set; }
+        public string خالصپرداختیبدونعیدیوسنواتومرخصی { get; set; }
     }
 }

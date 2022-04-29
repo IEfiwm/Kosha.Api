@@ -279,12 +279,16 @@
     <Compile Include="Common\Model\UserViewModel.cs" />
     <Compile Include="Contract\Bank\BankContract.cs" />
     <Compile Include="Contract\Bank\IBankContract.cs" />
+    <Compile Include="Contract\Imported\ImportedContract.cs" />
+    <Compile Include="Contract\Imported\IImportedContract.cs" />
     <Compile Include="Contract\User\IUserContract.cs" />
     <Compile Include="Contract\User\UserContract.cs" />
     <Compile Include="DependencyInjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationCode\AuthenticationCodeService.cs" />
     <Compile Include="Services\AuthenticationCode\IAuthenticationCodeService.cs" />
+    <Compile Include="Services\Imported\IImportedService.cs" />
+    <Compile Include="Services\Imported\ImportedService.cs" />
     <Compile Include="Services\UserToken\IUserTokenService.cs" />
     <Compile Include="Services\UserToken\UserTokenService.cs" />
   </ItemGroup>

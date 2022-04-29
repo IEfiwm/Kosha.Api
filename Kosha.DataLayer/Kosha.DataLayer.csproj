@@ -192,6 +192,7 @@
     <Compile Include="Entity\View\KoshaSource01.cs" />
     <Compile Include="Entity\View\KoshaSource02.cs" />
     <Compile Include="Entity\View\KoshaTax.cs" />
+    <Compile Include="Entity\View\Kosha_Summary.cs" />
     <Compile Include="Entity\LoginLog.cs" />
     <Compile Include="Entity\PortalSetting.cs" />
     <Compile Include="Helper\ContextManager.cs" />

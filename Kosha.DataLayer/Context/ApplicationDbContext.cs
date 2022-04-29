@@ -33,6 +33,8 @@ namespace Kosha.DataLayer.Context
         public virtual DbSet<LoginLog> LoginLog { get; set; }
         public virtual DbSet<PortalSetting> PortalSetting { get; set; }
 
+        public virtual DbSet<Kosha_Summary> KoshaSummary { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -334,11 +336,15 @@ namespace Kosha.DataLayer.Context
 
                 entity.ToView("Kosha_Source01");
 
+                entity.Property(e => e.Tt).HasColumnName("TT");
+
                 entity.Property(e => e.UserId)
                     .IsRequired()
                     .HasMaxLength(450);
 
                 entity.Property(e => e._1حقناهار).HasColumnName("1حق ناهار");
+
+                entity.Property(e => e.ارزشافزودهبیمهتکمیلی).HasColumnName("ارزش افزوده بیمه تکمیلی");
 
                 entity.Property(e => e.اضافهکاری).HasColumnName("اضافه کاری");
 
@@ -348,7 +354,11 @@ namespace Kosha.DataLayer.Context
 
                 entity.Property(e => e.بنکارگری).HasColumnName("بن کارگری");
 
+                entity.Property(e => e.بیمه23).HasColumnName("بیمه 23%");
+
                 entity.Property(e => e.بیمهتامیناجتماعی).HasColumnName("بیمه تامین اجتماعی");
+
+                entity.Property(e => e.بیمهتکمیلی).HasColumnName("بیمه تکمیلی");
 
                 entity.Property(e => e.تاریخترککار).HasColumnName("تاریخ ترک کار");
 
@@ -362,11 +372,19 @@ namespace Kosha.DataLayer.Context
 
                 entity.Property(e => e.جمعاقساطوام).HasColumnName("جمع اقساط وام");
 
+                entity.Property(e => e.جمعباارزشافزوده).HasColumnName("جمع با ارزش افزوده");
+
+                entity.Property(e => e.جمعبابیمه).HasColumnName("جمع با بیمه");
+
                 entity.Property(e => e.جمعكسور).HasColumnName("جمع كسور");
 
                 entity.Property(e => e.جمعمزایا).HasColumnName("جمع مزایا");
 
+                entity.Property(e => e.جمعکل).HasColumnName("جمع کل");
+
                 entity.Property(e => e.جمعکلحقبیمهاعمازحقبیمهوبیمهبیکاری).HasColumnName("جمع کل حق بیمه اعم از حق بیمه و بیمه بیکاری");
+
+                entity.Property(e => e.حسنانجام10).HasColumnName("حسن انجام 10%");
 
                 entity.Property(e => e.حقاولاد).HasColumnName("حق اولاد");
 
@@ -386,6 +404,8 @@ namespace Kosha.DataLayer.Context
 
                 entity.Property(e => e.خالصپرداختی).HasColumnName("خالص پرداختی");
 
+                entity.Property(e => e.خالصپرداختیبدونعیدیوسنواتومرخصی).HasColumnName("خالص پرداختی بدون عیدی و سنوات و مرخصی");
+
                 entity.Property(e => e.دستمزدومزایایمشمولماهانه).HasColumnName("دستمزد و مزایای مشمول ماهانه");
 
                 entity.Property(e => e.رندحقوق).HasColumnName("رند حقوق");
@@ -394,11 +414,19 @@ namespace Kosha.DataLayer.Context
 
                 entity.Property(e => e.سایرکسور).HasColumnName("سایر کسور");
 
+                entity.Property(e => e.سنواتصورتحساب).HasColumnName("سنوات صورتحساب");
+
+                entity.Property(e => e.سپرده5).HasColumnName("سپرده 5%");
+
                 entity.Property(e => e.شمارهبیمه).HasColumnName("شماره بیمه");
 
                 entity.Property(e => e.شمارهحساب).HasColumnName("شماره حساب");
 
                 entity.Property(e => e.شمارهشناسنامه).HasColumnName("شماره شناسنامه");
+
+                entity.Property(e => e.عمروحوادث).HasColumnName("عمر و حوادث");
+
+                entity.Property(e => e.عیدیوپاداش).HasColumnName("عیدی و پاداش");
 
                 entity.Property(e => e.غیرمستمرمشمول).HasColumnName("غیر مستمر - مشمول");
 
@@ -410,7 +438,11 @@ namespace Kosha.DataLayer.Context
 
                 entity.Property(e => e.ماخذبیمه).HasColumnName("ماخذ بیمه");
 
+                entity.Property(e => e.مالیاتبرارزشافزوده).HasColumnName("مالیات بر ارزش افزوده");
+
                 entity.Property(e => e.ماندهمرخصی).HasColumnName("مانده مرخصی");
+
+                entity.Property(e => e.مجموععیدیوسنواتومرخصی).HasColumnName("مجموع عیدی و سنوات و مرخصی");
 
                 entity.Property(e => e.محلتولد).HasColumnName("محل تولد");
 
@@ -423,6 +455,8 @@ namespace Kosha.DataLayer.Context
                 entity.Property(e => e.مستمرحقوقپایهبنومسکنوحقاولاد).HasColumnName("مستمر - حقوق پایه بن و مسکن و حق اولاد");
 
                 entity.Property(e => e.مستمرحقوقپایهوپایهسنوات).HasColumnName("مستمر - حقوق پایه و پایه سنوات");
+
+                entity.Property(e => e.مشمولبیمه).HasColumnName("مشمول بیمه");
 
                 entity.Property(e => e.مشمولوغیرمشمول).HasColumnName("مشمول و غیر مشمول");
 
@@ -477,6 +511,23 @@ namespace Kosha.DataLayer.Context
                 entity.Property(e => e.کسربیمهتکمیلیماهمعوقه).HasColumnName("کسر بیمه تکمیلی ماه معوقه");
 
                 entity.Property(e => e.کمکهزینهرفاهی).HasColumnName("کمک هزینه رفاهی");
+            });
+
+            modelBuilder.Entity<Kosha_Summary>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("Kosha_Summary");
+
+                entity.Property(e => e._1حق_ناهار).HasColumnName("1حق_ناهار");
+
+                entity.Property(e => e.بیمه_23_).HasColumnName("بیمه_23%");
+
+                entity.Property(e => e.حسن_انجام_10_).HasColumnName("حسن_انجام_10%");
+
+                entity.Property(e => e.حق_بن).HasColumnName("حق بن");
+
+                entity.Property(e => e.سپرده_5_).HasColumnName("سپرده_5%");
             });
 
             modelBuilder.Entity<KoshaSource02>(entity =>
