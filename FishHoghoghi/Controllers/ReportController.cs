@@ -452,6 +452,7 @@ namespace FishHoghoghi.Controllers
 
             return result;
         }
+       
         [HttpGet]
         [Route("Report/BankPDF/{year}/{month}/{projectId}")]
         public HttpResponseMessage PDFBank(int year, int month, long projectId)
@@ -478,5 +479,34 @@ namespace FishHoghoghi.Controllers
 
             return response;
         }
+
+
+        [HttpGet]
+        [Route("Report/MySummary/{year}/{month}/{projectId}")]
+        public HttpResponseMessage MySummary(int year, int month, long projectId)
+        {
+            var report = new StiReport();
+
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Content/Reports/MySummary.mrt");
+
+            report.Load(path);
+
+            var dbMS_SQL = (StiSqlDatabase)report.Dictionary.Databases["MS SQL"];
+
+            dbMS_SQL.ConnectionString = ConfigurationManager.ConnectionStrings["Sg3ConnectionString"].ConnectionString;
+
+            report.Dictionary.Variables["Month"].ValueObject = month;
+
+            report.Dictionary.Variables["Year"].ValueObject = year;
+
+            report.Dictionary.Variables["ProjectRef"].ValueObject = projectId;
+
+            report.ReportName = Guid.NewGuid().ToString("N").Remove(8);
+
+            var response = StiMvcReportResponse.ResponseAsPdf(report).ToHttpResponseMessage();
+
+            return response;
+        }
+
     }
 }
