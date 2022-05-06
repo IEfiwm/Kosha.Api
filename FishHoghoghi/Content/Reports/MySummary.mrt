@@ -1251,10 +1251,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>5/6/2022 4:11:22 PM</ReportChanged>
+  <ReportChanged>5/6/2022 4:49:33 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\MySummary.mrt</ReportFile>
-  <ReportGuid>85247b9aabb944f6add648fdcc1bf820</ReportGuid>
+  <ReportGuid>cb9740b84b394afab0a98008798edbe7</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
