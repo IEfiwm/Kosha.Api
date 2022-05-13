@@ -75,7 +75,7 @@ namespace FishHoghoghi.Controllers
             insertQuery += $@"SELECT	 {year} as year,{month} as month,{projectId} as projectRef,0,'{DateTime.Now}',{command} FROM	[Kosha_MTJA].[dbo].[Kosha_Attendances]  
                     WHERE   [ProjectId] =   {projectId}    AND [سال]   = '{year}'    AND [ماه] =   '{month}'";
 
-
+            insertQuery = insertQuery.Replace("%", "/ 100");
             Attendance.DeleteImported(projectId, year, month);
 
             Attendance.InsertImported(insertQuery);

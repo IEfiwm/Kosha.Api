@@ -28,7 +28,8 @@ namespace FishHoghoghi.Business.Dal
          
         public static DataTable GetFieldRules(long projectId)
         {
-            var table = DataAccessObject.ExecuteCommand($@"SELECT	* FROM	[dbo].[Kosha_FieldRules] WHERE   [ProjectId] =   {projectId} or [ProjectId] = 0 ");
+           // var table = DataAccessObject.ExecuteCommand($@"SELECT	* FROM	[dbo].[Kosha_FieldRules] WHERE   [ProjectId] =   {projectId} or [ProjectId] = 0 ");
+            var table = DataAccessObject.ExecuteCommand($@"SELECT	* FROM	Kosha_F_FieldRules({projectId})");
 
             if (table.Rows.Count == 0)
                 return null;
