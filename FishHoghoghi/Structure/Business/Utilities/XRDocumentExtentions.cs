@@ -1,5 +1,7 @@
-﻿using DevExpress.Utils;
+﻿using DevExpress.Pdf;
+using DevExpress.Utils;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraPrinting.Export.Pdf;
 using DevExpress.XtraReports.UI;
 using FishHoghoghi.Extensions;
 using FishHoghoghi.Models;
@@ -130,7 +132,7 @@ namespace FishHoghoghi.Utilities
             cell.Borders = borders;
         }
 
-        public static void SetStyleTable(this XRTable table,SizeF size, TextAlignment textAlignment, Color? backColor)
+        public static void SetStyleTable(this XRTable table, SizeF size, TextAlignment textAlignment, Color? backColor)
         {
             table.BackColor = backColor == null ? Color.White : (Color)backColor;
 
@@ -142,7 +144,7 @@ namespace FishHoghoghi.Utilities
 
         }
 
-        public static void SetLocation(this XRTable table,PointFloat location)
+        public static void SetLocation(this XRTable table, PointFloat location)
         {
             table.LocationF = location;
         }
@@ -163,6 +165,32 @@ namespace FishHoghoghi.Utilities
         public static void SetPadding(this XRTableRow Row, PaddingInfo padding)
         {
             Row.Padding = padding;
+        }
+
+        internal static XRPictureBox AddImage(string imagePath, PointFloat pointFloat)
+        {
+            Image newImage = Image.FromFile(imagePath);
+            return new XRPictureBox
+            {
+                Image = newImage,
+                Borders = BorderSide.None,
+                LocationFloat = pointFloat,
+                Name = "Logo",
+                NullValueText = "Logo",
+                Padding = new PaddingInfo(0, 2, 0, 0),
+                RightToLeft = RightToLeft.Yes,
+                SizeF = new SizeF(50f, 50f),
+                StylePriority = {
+                    UseBorders = false,
+                    UseFont = false,
+                    UseTextAlignment = false
+                },
+                ImageAlignment = ImageAlignment.TopLeft,
+                Sizing=ImageSizeMode.StretchImage
+
+
+            };
+
         }
 
     }

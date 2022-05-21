@@ -321,7 +321,7 @@ namespace Fish.Controllers
         {
             return true;
         }
-      
+
         private static string GetPublicDirectory(string username, int year, int month)
         {
             Common.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}");
@@ -332,7 +332,7 @@ namespace Fish.Controllers
 
             return $@"{AppDomain.CurrentDomain.BaseDirectory}Content\Files\{username}\{year}\{month}\";
         }
-        
+
         private Dictionary<string, string> GenerateColumn(DataRow row, NumberFormatInfo provider, List<SummaryFieldInfo> columnContent)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -388,7 +388,7 @@ namespace Fish.Controllers
 
             XtraReport report = new XtraReport();
 
-            report.SetStyle(true, false, new Font(reporModel.Setting.FontFamily, 8f), new Margins(0x10, 0x1a, 100, 100));
+            report.SetStyle(true, false, new Font(reporModel.Setting.FontFamily, 8f), new Margins(0x10, 0x1a, 50, 100));
 
             report.SetDataSource(dataSource);
 
@@ -404,11 +404,17 @@ namespace Fish.Controllers
             CreatePayRollBody(MaxColumnLength, ColumnHeaderRow, Columns, out XRTable child, reporModel.Setting.FontFamily, reporModel.Setting.BodyContentFontSize);
 
             XRLabel Companylabel = null;
+            XRPictureBox logo = null;
 
             if (userInfo != null && userInfo?.GetValueString("CompanyName") != "")
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 10, 300f), new SizeF(150f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 10, 300f), new SizeF(150f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
             else
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 10, 300f), new SizeF(150f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 10, 300f), new SizeF(150f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+
+            if (userInfo != null && !string.IsNullOrEmpty(userInfo?.GetValueString("LogoPath")))
+            {
+                logo = XRDocumentExtentions.AddImage(Path.Combine(ConfigurationManager.AppSettings["FilePath"].ToString()+"Image",userInfo.GetValueString("LogoPath")), new PointFloat(370f, 0));
+            }
 
             Companylabel.StylePriority.UseTextAlignment = true;
 
@@ -457,7 +463,7 @@ namespace Fish.Controllers
 
             CreateTable(userInfo, provider, new PointFloat(0f, 15f * (MaxColumnLength + 1f) + 130f), new SizeF(803f, 15f), reporModel.SubFooter, reporModel.Setting.FontFamily, reporModel.Setting.FooterTitleFontSize, reporModel.Setting.FooterFontSize, null, out subFooterTable);
 
-            report.SetBands(new XRControl[] { Companylabel, label4, label5, label2, label3, subHeaderTable, child, HeaderTable, FooterTable, subFooterTable });
+            report.SetBands(new XRControl[] { logo, Companylabel, label4, label5, label2, label3, subHeaderTable, child, HeaderTable, FooterTable, subFooterTable });
 
             return report;
         }
