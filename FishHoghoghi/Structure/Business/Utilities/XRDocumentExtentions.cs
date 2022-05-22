@@ -38,7 +38,7 @@ namespace FishHoghoghi.Utilities
         {
             ReportHeaderBand band = new ReportHeaderBand();
 
-            band.Controls.AddRange(controls);
+            band.Controls.AddRange(controls.Where(x => x != null).ToArray());
 
             report.Bands.Add(band);
         }
@@ -186,7 +186,7 @@ namespace FishHoghoghi.Utilities
                     UseTextAlignment = false
                 },
                 ImageAlignment = ImageAlignment.TopLeft,
-                Sizing=ImageSizeMode.StretchImage
+                Sizing = ImageSizeMode.StretchImage
 
 
             };

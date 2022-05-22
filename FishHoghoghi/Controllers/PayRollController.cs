@@ -407,13 +407,13 @@ namespace Fish.Controllers
             XRPictureBox logo = null;
 
             if (userInfo != null && userInfo?.GetValueString("CompanyName") != "")
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 10, 300f), new SizeF(150f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 50, 300f), new SizeF(300f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
             else
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(320.5416f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 10, 300f), new SizeF(150f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 50, 300f), new SizeF(300f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
 
             if (userInfo != null && !string.IsNullOrEmpty(userInfo?.GetValueString("LogoPath")))
             {
-                logo = XRDocumentExtentions.AddImage(Path.Combine(ConfigurationManager.AppSettings["FilePath"].ToString()+"Image",userInfo.GetValueString("LogoPath")), new PointFloat(370f, 0));
+                logo = XRDocumentExtentions.AddImage(Path.Combine(ConfigurationManager.AppSettings["FilePath"].ToString()+"Image",userInfo.GetValueString("LogoPath")), new PointFloat(0, 0));
             }
 
             Companylabel.StylePriority.UseTextAlignment = true;
