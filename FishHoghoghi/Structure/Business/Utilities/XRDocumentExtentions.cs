@@ -177,9 +177,9 @@ namespace FishHoghoghi.Utilities
                 LocationFloat = pointFloat,
                 Name = "Logo",
                 NullValueText = "Logo",
-                Padding = new PaddingInfo(0, 2, 0, 0),
+                Padding = new PaddingInfo(120, 2, 0, 0, 300f),
                 RightToLeft = RightToLeft.Yes,
-                SizeF = new SizeF(50f, 50f),
+                SizeF = new SizeF(150f, 110f),
                 StylePriority = {
                     UseBorders = false,
                     UseFont = false,

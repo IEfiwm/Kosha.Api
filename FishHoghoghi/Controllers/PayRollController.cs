@@ -407,14 +407,15 @@ namespace Fish.Controllers
             XRPictureBox logo = null;
 
             if (userInfo != null && userInfo?.GetValueString("CompanyName") != "")
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 50, 300f), new SizeF(300f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 50, 300f), new SizeF(300f, 0f), userInfo?.GetValueString("CompanyName"), false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
             else
-                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 0, 50, 300f), new SizeF(300f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
+                Companylabel = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(535f, 0f), "xrLabelCompany", new PaddingInfo(2, 2, 150, 50, 300f), new SizeF(300f, 0f), reporModel.Setting.CompanyName, false, 13f, FontStyle.Bold, reporModel.Setting.FontFamily));
 
             if (userInfo != null && !string.IsNullOrEmpty(userInfo?.GetValueString("LogoPath")))
             {
                 logo = XRDocumentExtentions.AddImage(Path.Combine(ConfigurationManager.AppSettings["FilePath"].ToString()+"Image",userInfo.GetValueString("LogoPath")), new PointFloat(0, 0));
             }
+            XRLabel label02 = XRDocumentExtentions.CreateLablel(new LabelModel(new PointFloat(340f, 0f), "xrLabel0", new PaddingInfo(2, 2, 0, 0, 100f), new SizeF(120f, 0f), "فیش حقوق",false,13f, FontStyle.Bold, reporModel.Setting.FontFamily));
 
             Companylabel.StylePriority.UseTextAlignment = true;
 
@@ -463,7 +464,7 @@ namespace Fish.Controllers
 
             CreateTable(userInfo, provider, new PointFloat(0f, 15f * (MaxColumnLength + 1f) + 130f), new SizeF(803f, 15f), reporModel.SubFooter, reporModel.Setting.FontFamily, reporModel.Setting.FooterTitleFontSize, reporModel.Setting.FooterFontSize, null, out subFooterTable);
 
-            report.SetBands(new XRControl[] { logo, Companylabel, label4, label5, label2, label3, subHeaderTable, child, HeaderTable, FooterTable, subFooterTable });
+            report.SetBands(new XRControl[] { label02, logo, Companylabel, label4, label5, label2, label3, subHeaderTable, child, HeaderTable, FooterTable, subFooterTable });
 
             return report;
         }
