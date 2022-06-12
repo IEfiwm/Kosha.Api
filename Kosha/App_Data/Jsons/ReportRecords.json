@@ -1,0 +1,717 @@
+﻿{
+  "Setting": {
+    "CompanyName": "شرکت سبززیور",
+    "BodyContentFontSize": 9,
+    "BodyTitleFontSize": 9,
+    "FooterFontSize": 10,
+    "FooterTitleFontSize": 9,
+    "HeaderFontSize": 9,
+    "HeaderTitleFontSize": 9,
+    "FontFamily": "B Nazanin"
+  },
+
+  "Header": [ "مرکز هزینه", "نام و نام خانوادگی", "کد پرسنلی" ],
+
+  "SubHeader": [ "مانده مرخصی :", "میزان مرخصی در ماه" ],
+
+  "Footer": [ "جمع اقساط وام", "جمع کسور", "جمع مزایا" ],
+
+  "SubFooter": [ "شماره حساب", "خالص پرداختی" ],
+
+  "Report": [
+
+    {
+      "Title": "عوامل کارکرد",
+      "Contents": [
+        {
+          "Name": "کارکرد عادی",
+          "Title": "کارکرد عادی",
+          "Postfix": " روز",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد اضافه کاری",
+          "Title": "کارکرد اضافه کاری",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": true,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارکرد تعطیل کاری",
+          "Title": "کارکرد تعطیل کاری",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد جمعه کاری",
+          "Title": "کارکرد جمعه کاری",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد شبکاری",
+          "Title": "کارکرد شبکاری",
+          "Postfix": " روز ",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد شب کاری 1",
+          "Title": "کارکرد شب کاری 1",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": true,
+          "IsString": false,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد مرخصی استحقاقی",
+          "Title": "کارکرد مرخصی استحقاقی",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد کارانه",
+          "Title": "کارکرد کارانه",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": true,
+          "IsString": false,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد ساعتی",
+          "Title": "کارکرد ساعتی",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": true,
+          "IsString": false,
+          "IsDecimal": false
+        },
+        {
+          "Name": "غیبت ماهانه",
+          "Title": "غیبت ماهانه",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "کارکرد موثر",
+          "Title": "کارکرد موثر",
+          "Postfix": " روز ",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "تعداد اولاد",
+          "Title": "تعداد اولاد",
+          "Postfix": "",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        },
+        {
+          "Name": "جمع کارکرد سال",
+          "Title": "جمع کارکرد سال",
+          "Postfix": " روز ",
+          "IsRequire": true,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": true,
+          "IsDecimal": false
+        }
+      ]
+    },
+    {
+      "Title": "مزایا",
+      "Contents": [
+        {
+          "Name": "مزایای-عیدی",
+          "Title": "مزایای-عیدی",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "نتیجه-سنوات",
+          "Title": "نتیجه-سنوات",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "پایه سنوات",
+          "Title": "پایه سنوات",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حقوق پایه",
+          "Title": "حقوق پایه",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "دستمزد روزانه",
+          "Title": "دستمزد روزانه",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق اولاد",
+          "Title": "حق اولاد",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق اولاد معوق",
+          "Title": "حق اولاد معوق",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق مسکن",
+          "Title": "حق مسکن",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "بن کارگری",
+          "Title": "بن کارگری",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق خواربار",
+          "Title": "حق خواربار",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق شیر",
+          "Title": "حق شیر",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارانه ثابت2",
+          "Title": "کارانه ثابت2",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "اضافه کاری",
+          "Title": "اضافه کاری",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "تعطیل کاری",
+          "Title": "تعطیل کاری",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "شبکاری",
+          "Title": "شبکاری",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "شیفت",
+          "Title": "شیفت",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "شیفت ساعتی",
+          "Title": "شیفت ساعتی",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "مبلغ تناژ",
+          "Title": "مبلغ تناژ",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "تنخواه",
+          "Title": "تنخواه",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق سوخت",
+          "Title": "حق سوخت",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "ماموریت",
+          "Title": "ماموریت",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "فوق العاده ماموریت",
+          "Title": "فوق العاده ماموریت",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "فوق العاده سرپرستی",
+          "Title": "فوق العاده سرپرستی",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارانه",
+          "Title": "کارانه",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارانه ثابت",
+          "Title": "کارانه ثابت",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارانه ثابت 2",
+          "Title": "کارانه ثابت 2",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "سایر مزایا",
+          "Title": "سایر مزایا",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "مزایای معوقه",
+          "Title": "مزایای معوقه",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارانه معوق",
+          "Title": "کارانه معوق",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "فوق العاده شغل",
+          "Title": "فوق العاده شغل",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "پاداش پرسنل",
+          "Title": "پاداش پرسنل",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "ایاب و ذهاب",
+          "Title": "ایاب و ذهاب",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "معوقه حقوق",
+          "Title": "معوقه حقوق",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "بن رمضان",
+          "Title": "بن رمضان",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "هزینه جارو",
+          "Title": "هزینه جارو",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "پایه سنوات معوق",
+          "Title": "پایه سنوات معوق",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "سایر مزایای استیجاری",
+          "Title": "سایر مزایای استیجاری",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "بدهکاران کارکنان",
+          "Title": "بدهکاران کارکنان",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "حق مسکن معوق",
+          "Title": "حق مسکن معوق",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "سایر مزایا2",
+          "Title": "سایر مزایا2",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        }
+      ]
+    },
+    {
+      "Title": "کسورات",
+      "Contents": [
+        {
+          "Name": "بیمه تامین اجتماعی سهم کارگر",
+          "Title": "بیمه تامین اجتماعی سهم کارگر",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "بیمه تکمیلی سهم کارمند",
+          "Title": "بیمه تکمیلی سهم کارمند",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "سایر کسور",
+          "Title": "سایر کسور",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "خسارت کارکنان",
+          "Title": "خسارت کارکنان",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "کارکنان بدهکار",
+          "Title": "کارکنان بدهکار",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "مساعده",
+          "Title": "مساعده",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "تعهدات دولتی کارمند",
+          "Title": "تعهدات دولتی کارمند",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "جمع اقساط وام",
+          "Title": "جمع اقساط وام",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "تعاونی مصرف کارکنان",
+          "Title": "تعاونی مصرف کارکنان",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "بیمه تکمیلی سازمانی کارمند",
+          "Title": "بیمه تکمیلی سازمانی کارمند",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        },
+        {
+          "Name": "مالیات",
+          "Title": "مالیات",
+          "Postfix": "",
+          "IsRequire": false,
+          "IsNumber": false,
+          "IsHourNumber": false,
+          "IsString": false,
+          "IsDecimal": true
+        }
+      ]
+    },
+    {
+      "Title": "وام",
+      "Contents": [
+
+      ]
+    }
+    //,
+    //{
+    //  "Title": "عوامل کارکرد تست",
+    //  "Contents": [
+    //    {
+    //      "Name": "کارکرد عادی",
+    //      "Title": "کارکرد عادی تست",
+
+    //      "IsRequire": true,
+    //      "Postfix": null
+    //    },
+    //    {
+    //      "Name": "کارکرد اضافه کاری",
+    //      "Title": "کارکرد اضافه کاری تست",
+    //      "Format": null,
+    //      "IsRequire": true,
+    //      "IsHourNumber": true,
+    //      "Postfix": null
+    //    },
+    //    {
+    //      "Name": "کارکرد تعطیل کاری",
+    //      "Title": "کارکرد تعطیل کاری تست",
+
+    //      "IsRequire": true,
+    //      "Postfix": null
+    //    }
+    //  ]
+    //}
+  ],
+
+  "limitYear": "1398",
+
+  "limitMonth": "02"
+}
