@@ -23,7 +23,7 @@ WHERE
 
         public static string GetPhoneNumber()
         {
-            var table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [dbo].[PortalSetting]");
+            var table = DataAccessObject.ExecuteCommand($@"SELECT * FROM [dbo].[PortalSetting]", "NgraConnectionString");
 
             if (table.Rows.Count == 0)
                 return null;

@@ -1,17 +1,4 @@
-﻿USE [Sabzzivar_sg3]
-GO
-
-/****** Object:  View [dbo].[MKView_FishHamkaran]    Script Date: 7/13/2020 4:34:20 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-
-
-
-ALTER VIEW [dbo].[MKView_FishHamkaran]
+﻿CREATE VIEW [dbo].[MKView_FishHamkaran]
  
 AS
  
@@ -77,7 +64,7 @@ ISNULL([21].value21, 0) AS [مساعده],
 ISNULL([65].value65, 0) AS [تعهدات دولتی کارمند],
 ISNULL([18].value18, 0) AS [جمع اقساط وام],
 ISNULL([67].value67, 0) AS [تعاونی مصرف کارکنان],
-ISNULL([70].value70, 0) AS [مالیات حقوق], 
+--ISNULL([70].value70, 0) AS [مالیات حقوق], 
 ISNULL([13].value13, 0) AS [جمع مزایا],
 ISNULL([23].value23, 0) AS [جمع کسور],
 ISNULL([24].value24, 0) AS [خالص پرداختی], 
@@ -88,12 +75,19 @@ ISNULL([121].value121,0) as  HolidayWorking, -- [کارکرد-تعطیل کار�
 ISNULL([122].value122,0) as [کارکرد_اضافه کاری],
 ISNULL([123].value123,0) as [بیمه تکمیلی],
 ISNULL([124].value124,0) as [قسط وام مسکن],
+ISNULL([136].value136,0) as [وام قرض الحسنه شهرداری],
 ISNULL([125].value125,0) as [مزد روزانه],
 ISNULL([126].value126,0) as [تعهدات دولتی],
 ISNULL([127].value127, 0) AS [دستمزد روزانه], 
 ISNULL([128].value128, 0) AS [دستمزد ماهانه], 
 ISNULL([129].value129, 0) AS [مالیات], 
 ISNULL([130].value130, 0) AS [قابل پرداخت], 
+--isnull([131].value131,0) as [پایه سنوات معوق],
+isnull([132].value132,0) as [حق مسکن معوق],
+isnull([133].value133,0) as [سایر مزایا 2],
+isnull([134].value134,0) as [مزایای-عیدی],
+isnull([135].value135,0) as [نتیجه-سنوات],
+
 
 EPL.AccountNumber AS [شماره حساب], 
 [30].FirstName AS [نام],
@@ -688,14 +682,16 @@ GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [28] ON [1].IssueYearMon
  
 HCM3.Employee AS EMP ON [1].EmployeeRef = EMP.EmployeeID LEFT OUTER JOIN
  
-GNR3.Party AS [30] ON EMP.PartyRef = [30].PartyID INNER JOIN
- 
-HCM3.EmployeeRelatedOrganization AS [31] ON EMP.EmployeeID = [31].EmployeeRef INNER JOIN
- 
-HCM3.OrganizationBranch AS [32] ON [31].OrganizationBranchRef = [32].OrganizationBranchID INNER JOIN
- 
-HCM3.Organization AS [33] ON [32].OrganizationRef = [33].OrganizationID LEFT OUTER JOIN
- 
+GNR3.Party AS [30] ON EMP.PartyRef = [30].PartyID 
+
+full JOIN HCM3.EmployeeRelatedOrganization AS [31] ON EMP.EmployeeID = [31].EmployeeRef 
+
+full JOIN HCM3.OrganizationBranch AS [32] ON [31].OrganizationBranchRef = [32].OrganizationBranchID 
+
+full JOIN HCM3.Organization AS [33] ON [32].OrganizationRef = [33].OrganizationID 
+
+LEFT OUTER JOIN 
+
 (SELECT     C.Title, SUM(PCI.Value) AS value34, PC.IssueYearMonth, PC.EmployeeRef
  
 FROM          HCM3.PayCalc AS PC INNER JOIN
@@ -1093,6 +1089,23 @@ HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactor
 AND C.Name = 'HouseLoan'
  
 GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [124] 
+ON [1].IssueYearMonth = [124].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [124].EmployeeRef 
+
+
+LEFT OUTER JOIN
+
+(SELECT C.Title, SUM(PCI.Value) AS value136, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+AND C.Name = 'VameGHarHasane'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [136] 
 ON [1].IssueYearMonth = [124].IssueYearMonth AND 
  
 [1].EmployeeRef = [124].EmployeeRef 
@@ -1911,7 +1924,102 @@ ON
 [1].IssueYearMonth = [113].IssueYearMonth 
 AND 
 [1].EmployeeRef = [113].EmployeeRef 
+
+LEFT OUTER JOIN
+
+(SELECT C.Title, SUM(PCI.Value) AS value131, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+
+AND C.Name = 'UF358'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [131] 
+
+ON [1].IssueYearMonth = [131].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [131].EmployeeRef 
+
 LEFT OUTER JOIN 
+
+
+(SELECT C.Title, SUM(PCI.Value) AS value132, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+
+AND C.Name = 'UF378'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [132] 
+
+ON [1].IssueYearMonth = [132].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [132].EmployeeRef 
+
+LEFT OUTER JOIN 
+
+(SELECT C.Title, SUM(PCI.Value) AS value133, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+
+AND C.Name = 'UF375'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [133] 
+
+ON [1].IssueYearMonth = [133].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [133].EmployeeRef 
+
+LEFT OUTER JOIN
+
+(SELECT C.Title, SUM(PCI.Value) AS value134, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+
+AND C.Name = 'UF387'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [134] 
+
+ON [1].IssueYearMonth = [134].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [134].EmployeeRef 
+
+LEFT OUTER JOIN
+
+(SELECT C.Title, SUM(PCI.Value) AS value135, PC.IssueYearMonth, PC.EmployeeRef
+ 
+FROM  HCM3.PayCalc AS PC INNER JOIN
+ 
+HCM3.PayCalcItem AS PCI ON PC.PayCalcID = PCI.PayCalcRef INNER JOIN
+ 
+HCM3.CompensationFactor AS C ON PCI.CompensationFactorRef = C.CompensationFactorID 
+
+AND C.Name = 'UF388'
+ 
+GROUP BY C.Title, PC.IssueYearMonth, PC.EmployeeRef) AS [135] 
+
+ON [1].IssueYearMonth = [135].IssueYearMonth AND 
+ 
+[1].EmployeeRef = [135].EmployeeRef 
+
+
+LEFT OUTER JOIN 
+
+
 
 (
 SELECT     
@@ -1965,31 +2073,30 @@ GNR3.Branch AS [38] ON [37].BranchRef = [38].BranchID LEFT OUTER JOIN
  
 HCM3.EmployeePaymentLocation AS EPL ON EMP.EmployeeID = EPL.EmployeeRef
  
-WHERE     ([33].TypeCode = 2) AND ([31].ExpiryYearMonth IS NULL) 
+WHERE     
+--([33].TypeCode in(null, 2)) AND --تامین احتماعی یا سازمان مالیات
+([31].ExpiryYearMonth IS NULL) 
 --and 
---EPL.AccountNumber ='700831962991' and [30].NationalID ='1050214706'
+--EPL.AccountNumber ='100845710713' and [30].NationalID ='0310223717'
 --and
 --	SUBSTRING(CAST([1].IssueYearMonth AS nvarchar), 1, 4)='1399' 
 --	and
 --SUBSTRING(CAST([1].IssueYearMonth AS nvarchar), 5, 2) ='02'
-GROUP BY EMP.Code, [30].FirstName, [30].LastName,[30].FatherName ,[30].NationalID , [30].IDNumber,[30].BirthDate, [38].Title,
-[1].IssueYearMonth, [31].Code, EPL.AccountNumber,[1].value1,  
-[54].value54,  [55].value55, [26].value26, [41].value41, [57].value57, [39].value39, 
-[50].value50, [12].value12, [25].value25, [73].value73, [2].value2, [6].value6, [19].value19,
-[4].value4, [8].value8, [5].value5,  [3].value3, [7].value7, [14].value14,[11].value11, 
-[9].value9, [15].value15, [45].value45,[42].value42, [62].value62,[35].value35, 
-[43].value43,[69].value69, [47].value47,[63].value63, [64].value64,[49].value49  ,
-[60].value60  ,[22].value22  ,[36].value36   ,[10].value10  ,[40].value40   ,[20].value20  ,
-[51].value51  ,[61].value61  ,[66].value66   ,[59].value59   ,[46].value46  , [16].value16     ,
-[17].value17    ,[68].value68  , [72].value72  ,[48].value48  ,[21].value21 ,[65].value65   ,
-[18].value18   ,[67].value67   ,[70].value70  , [13].value13  ,[23].value23  ,[24].value24  , 
-EPL.AccountNumber  , [30].FirstName ,[30].LastName  ,EMP.Code  ,[30].FatherName  ,
-[30].NationalID  , [30].IDNumber  ,[30].BirthDate  ,[38].Title  ,[1].IssueYearMonth , 
-[1].IssueYearMonth ,[77].value77,[1].value1, [12].value12,[111].value111,[78].value78,
-[112].value112,[114].value114,[115].value115,[113].value113,[116].value116,[117].value117,
-[118].value118,[119].value119,[120].value120,[121].value121,[122].value122,[123].value123,
-[124].value124,[125].value125,[126].value126,[127].value127,[128].value128,[129].value129,
-[130].value130,[53].value53
-GO
-
-
+--GROUP BY EMP.Code, [30].FirstName, [30].LastName,[30].FatherName ,[30].NationalID , [30].IDNumber,[30].BirthDate, [38].Title,
+--[1].IssueYearMonth, [31].Code, EPL.AccountNumber,[1].value1,  
+--[54].value54,  [55].value55, [26].value26, [41].value41, [57].value57, [39].value39, 
+--[50].value50, [12].value12, [25].value25, [73].value73, [2].value2, [6].value6, [19].value19,
+--[4].value4, [8].value8, [5].value5,  [3].value3, [7].value7, [14].value14,[11].value11, 
+--[9].value9, [15].value15, [45].value45,[42].value42, [62].value62,[35].value35, 
+--[43].value43,[69].value69, [47].value47,[63].value63, [64].value64,[49].value49  ,
+--[60].value60  ,[22].value22  ,[36].value36   ,[10].value10  ,[40].value40   ,[20].value20  ,
+--[51].value51  ,[61].value61  ,[66].value66   ,[59].value59   ,[46].value46  , [16].value16     ,
+--[17].value17    ,[68].value68  , [72].value72  ,[48].value48  ,[21].value21 ,[65].value65   ,
+--[18].value18   ,[67].value67   ,[70].value70  , [13].value13  ,[23].value23  ,[24].value24  , 
+--EPL.AccountNumber  , [30].FirstName ,[30].LastName  ,EMP.Code  ,[30].FatherName  ,
+--[30].NationalID  , [30].IDNumber  ,[30].BirthDate  ,[38].Title  ,[1].IssueYearMonth , 
+--[1].IssueYearMonth ,[77].value77,[1].value1, [12].value12,[111].value111,[78].value78,
+--[112].value112,[114].value114,[115].value115,[113].value113,[116].value116,[117].value117,
+--[118].value118,[119].value119,[120].value120,[121].value121,[122].value122,[123].value123,
+--[124].value124,[125].value125,[126].value126,[127].value127,[128].value128,[129].value129,
+--[130].value130,[53].value53

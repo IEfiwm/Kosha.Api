@@ -1,17 +1,23 @@
-﻿ALTER VIEW [dbo].[MKView_ContractHamkaran]
+﻿USE [Sabzzivar_sg3]
+GO
+
+CREATE VIEW [dbo].[MKView_ContractHamkaran]
  
 AS
 
 select  
 
           EMP.Code AS [کد پرسنلی], [30].FirstName AS نام, [30].LastName AS [نام خانوادگی],[30].FatherName AS [نام پدر]
-         ,[100].Title AS [پروژه],[100].EmploymentTypeID AS [کد پروژه],[101].Title AS [شغل],[30].NationalID AS [کد ملی]
+         ,[100].Title AS [پروژه],[100].EmploymentTypeID AS [کد پروژه]
+		 ,[101].Title AS [شغل]
+		 ,[30].NationalID AS [کد ملی]
 		 , [30].IDNumber AS [شماره شناسنامه],'' as [محل صدور],'' as [آخرین مدرک و رشته تحصیلی],N'انجام شده' as [وضعیت سربازی]
          ,[30].BirthDate AS [تاریخ تولد],CAST(getdate() AS date) as [تاریخ شروع قرارداد],CAST(getdate() AS date) as
-		 [تاریخ پایان قرارداد],'' as [مدت قرارداد],
-		 [99].EmployeeStatuteID
+		 [تاریخ پایان قرارداد]
+		 ,'' as [مدت قرارداد]
+		 ,[99].EmployeeStatuteID
 
-         ,value1 AS [حقوق پایه],value2 AS [حق مسکن],value3 AS [بن کارگری],value4 AS [حق اولاد],value5 AS [پایه سنوات]
+         ,value1 AS [حقوق پایه],value2 AS [حق مسکن],value3 AS [بن کارگری],value4 AS [حق اولاد],value5 AS [پایه ثنوات]
 
  
 
@@ -107,3 +113,5 @@ FROM                  (SELECT     ESF.Value AS value1 ,esf.EmployeeStatuteRef ,[
 
 
 GO
+
+

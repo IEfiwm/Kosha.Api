@@ -381,7 +381,9 @@
     <Content Include="bin\WordToPDF.dll" />
     <Content Include="Business\Database\Tables\LoginLog.sql" />
     <Content Include="Business\Database\Tables\PortalSetting.sql" />
+    <Content Include="Business\Database\Views\Kosha_LoginInfo.sql" />
     <Content Include="Business\Database\Views\MKView_ContractHamkaran.sql" />
+    <Content Include="Business\Database\Views\Kosha_Payroll.sql" />
     <Content Include="Business\Database\Views\MkView_FishHamkaran.sql" />
     <Content Include="Content\Files\readme.txt" />
     <Content Include="favicon.ico" />
