@@ -29,7 +29,7 @@ namespace FishHoghoghi.Structure.Business.Dal
         {
             try
             {
-                Regex regex = new Regex(@"\[(?<Col>([^\[|\]]*))+\]$");
+                Regex regex = new Regex(@".*\[(?<Col>([^\[|\]]*))+\].*$");
                 var groups = formule.Split('&'); /// [staticField] & * & [dynamicField]
                 if (groups.Length > 0)
                 {
@@ -39,13 +39,14 @@ namespace FishHoghoghi.Structure.Business.Dal
                         {
                             Match getCol = regex.Match(word.Trim());
                             string col = getCol.Value?.Replace("[", "").Replace("]", "").Trim();//dynamicField
-
+                            
                             if (model.Any(x => x.Alias == col && x.Formule?.Replace("[", "").Replace("]", "").Trim() != col))
                             {
                                 var childModel = model.FirstOrDefault(x => x.Alias == col &&
                                 x.Formule?.Replace("[", "").Replace("]", "").Trim() != col);
-
-                                formule = formule.Replace("[" + col + "]", "(" + childModel.Formule + ")");
+                                
+                                formule = formule.Replace("[" + col + "]", "(&" + childModel.Formule + "&)");
+                                
                                 formule = getFormula(formule, model);
                             }
                         }
