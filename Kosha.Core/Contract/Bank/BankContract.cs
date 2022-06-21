@@ -46,13 +46,13 @@ namespace Kosha.Core.Contract.Bank
                     {
                         users.Add(new UserViewModel
                         {
-                            Id = table.Rows[i]["Id"].ToString(),
-                            AccountNumber = table.Rows[i]["AccountNumber"].ToString(),
-                            FirstName = table.Rows[i]["FirstName"].ToString(),
-                            LastName = table.Rows[i]["LastName"].ToString(),
+                            Id = table.Rows[i]["Id"]?.ToString(),
+                            AccountNumber = table.Rows[i]["AccountNumber"]?.ToString(),
+                            FirstName = table.Rows[i]["FirstName"]?.ToString(),
+                            LastName = table.Rows[i]["LastName"]?.ToString(),
                             ProjectRef = projectId,
-                            BankId = Convert.ToInt64(table.Rows[i]["BankId"]?.ToString()),
-                            Salary = Convert.ToInt64(table.Rows[i]["Salary"]?.ToString()),
+                            BankId = Convert.ToInt64(Convert.ToDecimal(table.Rows[i]["BankId"]?.ToString())),
+                            Salary = Convert.ToInt64(Convert.ToDecimal(table.Rows[i]["Salary"]?.ToString())),
                         });
                     }
                     catch (Exception)
