@@ -40,10 +40,9 @@ namespace FishHoghoghi.Controllers
         {
             _id = Guid.NewGuid();
 
-            _wordApp = new Application();
+            // _wordApp = new Application();
 
             _userContract = userContract;
-
         }
 
         #endregion
@@ -60,7 +59,9 @@ namespace FishHoghoghi.Controllers
 
                 if (userData == null)
                     return Common.SetErrorResponse(System.Net.HttpStatusCode.Unauthorized, "اطلاعات لاگین اشتباه است.");
-               
+
+                _wordApp = new Application();
+
                 string username = userData.NationalCode;
 
                 if (File.Exists(GetDocPath(username.ToString(), true, "pdf")) && File.GetLastWriteTime(GetDocPath(username.ToString(), true, "pdf")).Date < DateTime.Now.Date || ConfigurationManager.AppSettings["Cache"].ToString() == "false")
@@ -162,6 +163,8 @@ namespace FishHoghoghi.Controllers
                 {
                     return Common.SetBadResponse();
                 }
+
+                _wordApp = new Application();
 
                 File.Copy(_template + Common.GetContractTemplateName(projectId), GetDocPath(_id.ToString()));
 
@@ -420,7 +423,7 @@ namespace FishHoghoghi.Controllers
 
             objWorPdf.Word2PdfCOnversion();
         }
-     
+
         private static string GetDocPath(string id, bool hostname = true, string extention = "docx", string defaultPath = "")
         {
             if (defaultPath != "")
