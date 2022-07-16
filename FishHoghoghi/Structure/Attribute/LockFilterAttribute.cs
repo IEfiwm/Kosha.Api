@@ -9,7 +9,7 @@ namespace FishHoghoghi.Attribute
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            if (!(DateTime.Now < new DateTime(2022, 7, 15)))
+            if (!(DateTime.Now < new DateTime(2023, 7, 15)))
             {
                 var response = new HttpResponseMessage();
 
