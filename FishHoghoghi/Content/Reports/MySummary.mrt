@@ -9,7 +9,7 @@
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
-    <DataSources isList="true" count="1">
+    <DataSources isList="true" count="2">
       <Kosha_MySummary Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Kosha_MySummary</Alias>
         <Columns isList="true" count="19">
@@ -45,6 +45,23 @@
         </Parameters>
         <SqlCommand>select * from Kosha_MySummary where ماه=@Month and سال=@Year and ProjectRef=@ProjectRef</SqlCommand>
       </Kosha_MySummary>
+      <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>WorkShop</Alias>
+        <Columns isList="true" count="3">
+          <value>WorkshopCode,System.String</value>
+          <value>WorkshopName,System.String</value>
+          <value>BranchName,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>5e8382b6a7214357a614bbea4a0f2134</Key>
+        <Name>WorkShop</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>ProjectRef,ProjectRef,0,10</value>
+        </Parameters>
+        <SqlCommand>SELECT [WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
+      </WorkShop>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
@@ -60,15 +77,15 @@
   <Key>d33105a2dd0b45309e17e70568ef2fec</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="4" type="Page" isKey="true">
+    <Page1 Ref="5" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="2">
-        <HeaderKosha_MySummary Ref="5" type="HeaderBand" isKey="true">
+        <HeaderKosha_MySummary Ref="6" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.2,7.47,2.3</ClientRectangle>
           <Components isList="true" count="2">
-            <Text1 Ref="6" type="Text" isKey="true">
+            <Text1 Ref="7" type="Text" isKey="true">
               <Border>All;Transparent;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0.1,0.9,7.3,1.4</ClientRectangle>
@@ -78,8 +95,8 @@
               <LineSpacing>1.5</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="5" />
+              <Parent isRef="6" />
               <Text>با سلام و احترام
   بدینوسیله صورت وضعیت شماره              موسسه محافظین تخت جمشید البرز قرارداد شماره                                           مورخ                                   ( بشرح ذیل ) جهت هر گونه اقدام مقتضي به حضورتان ارسال ميگردد . </Text>
               <TextBrush>Black</TextBrush>
@@ -87,9 +104,10 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text3 Ref="7" type="Text" isKey="true">
+            <Text3 Ref="8" type="Text" isKey="true">
               <Border>All;Transparent;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
               <ClientRectangle>0.1,0,7.3,0.9</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,16,Bold</Font>
@@ -97,9 +115,9 @@
               <LineSpacing>1.5</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>مدیرکل محترم امور مالی و خزانه اسناد سازمان اموال و املاک بنیاد مستضعفان انقلاب اسلامی
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>مدیرکل محترم امور مالی و خزانه اسناد {WorkShop.WorkshopName}
 موضوع: صورت وضعیت {GetDate()}
 </Text>
               <TextBrush>Black</TextBrush>
@@ -110,15 +128,15 @@
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderKosha_MySummary</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="5" />
+          <Parent isRef="5" />
         </HeaderKosha_MySummary>
-        <DataKosha_MySummary Ref="8" type="DataBand" isKey="true">
+        <DataKosha_MySummary Ref="9" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,2.9,7.47,6</ClientRectangle>
           <Components isList="true" count="52">
-            <DataKosha_MySummary_استرداد_حسن_انجام Ref="9" type="Text" isKey="true">
+            <DataKosha_MySummary_استرداد_حسن_انجام Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -128,10 +146,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_استرداد_حسن_انجام</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="10" type="NumberFormat" isKey="true">
+              <TextFormat Ref="11" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -141,7 +159,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_استرداد_حسن_انجام>
-            <DataKosha_MySummary_استرداد_بیمه Ref="11" type="Text" isKey="true">
+            <DataKosha_MySummary_استرداد_بیمه Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -151,10 +169,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_استرداد_بیمه</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="12" type="NumberFormat" isKey="true">
+              <TextFormat Ref="13" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -164,7 +182,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_استرداد_بیمه>
-            <DataKosha_MySummary_مانده_بیمه Ref="13" type="Text" isKey="true">
+            <DataKosha_MySummary_مانده_بیمه Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -174,10 +192,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_مانده_بیمه</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="14" type="NumberFormat" isKey="true">
+              <TextFormat Ref="15" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -187,7 +205,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_مانده_بیمه>
-            <DataKosha_MySummary_مانده_حسن_انجام Ref="15" type="Text" isKey="true">
+            <DataKosha_MySummary_مانده_حسن_انجام Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -197,10 +215,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_مانده_حسن_انجام</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="16" type="NumberFormat" isKey="true">
+              <TextFormat Ref="17" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -210,7 +228,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_مانده_حسن_انجام>
-            <DataKosha_MySummary_علي_الحساب_دریافتی Ref="17" type="Text" isKey="true">
+            <DataKosha_MySummary_علي_الحساب_دریافتی Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -220,10 +238,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_علي_الحساب_دریافتی</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="18" type="NumberFormat" isKey="true">
+              <TextFormat Ref="19" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -233,7 +251,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_علي_الحساب_دریافتی>
-            <DataKosha_MySummary_ناخالص_كاركرد Ref="19" type="Text" isKey="true">
+            <DataKosha_MySummary_ناخالص_كاركرد Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -243,11 +261,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_ناخالص_كاركرد</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.ناخالص_كاركرد}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="20" type="NumberFormat" isKey="true">
+              <TextFormat Ref="21" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -256,7 +274,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_ناخالص_كاركرد>
-            <DataKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری Ref="21" type="Text" isKey="true">
+            <DataKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -266,10 +284,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="22" type="NumberFormat" isKey="true">
+              <TextFormat Ref="23" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -279,7 +297,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری>
-            <DataKosha_MySummary_سپرده_5_ Ref="23" type="Text" isKey="true">
+            <DataKosha_MySummary_سپرده_5_ Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -289,10 +307,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_سپرده_5_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="24" type="NumberFormat" isKey="true">
+              <TextFormat Ref="25" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -302,7 +320,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_سپرده_5_>
-            <DataKosha_MySummary_حسن_انجام_10_ Ref="25" type="Text" isKey="true">
+            <DataKosha_MySummary_حسن_انجام_10_ Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -312,10 +330,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_حسن_انجام_10_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="26" type="NumberFormat" isKey="true">
+              <TextFormat Ref="27" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -325,7 +343,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_حسن_انجام_10_>
-            <DataKosha_MySummary_خالص Ref="27" type="Text" isKey="true">
+            <DataKosha_MySummary_خالص Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -335,11 +353,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_خالص</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.خالص}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="28" type="NumberFormat" isKey="true">
+              <TextFormat Ref="29" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -349,7 +367,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_خالص>
-            <DataKosha_MySummary_ارزش_افزوده Ref="29" type="Text" isKey="true">
+            <DataKosha_MySummary_ارزش_افزوده Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -359,11 +377,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_ارزش_افزوده</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.ارزش_افزوده}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="30" type="NumberFormat" isKey="true">
+              <TextFormat Ref="31" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -372,7 +390,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_ارزش_افزوده>
-            <DataKosha_MySummary_بیمه_23_ Ref="31" type="Text" isKey="true">
+            <DataKosha_MySummary_بیمه_23_ Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -382,11 +400,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_بیمه_23_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.بیمه_23_}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="32" type="NumberFormat" isKey="true">
+              <TextFormat Ref="33" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -395,7 +413,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_بیمه_23_>
-            <DataKosha_MySummary_جمع_كسور Ref="33" type="Text" isKey="true">
+            <DataKosha_MySummary_جمع_كسور Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -405,10 +423,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_جمع_كسور</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="34" type="NumberFormat" isKey="true">
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -418,7 +436,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_جمع_كسور>
-            <DataKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی Ref="35" type="Text" isKey="true">
+            <DataKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -428,10 +446,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="36" type="NumberFormat" isKey="true">
+              <TextFormat Ref="37" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -441,7 +459,7 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی>
-            <DataKosha_MySummary_کارکرد Ref="37" type="Text" isKey="true">
+            <DataKosha_MySummary_کارکرد Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -451,11 +469,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_کارکرد</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.کارکرد}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="38" type="NumberFormat" isKey="true">
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -464,7 +482,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_کارکرد>
-            <HeaderKosha_MySummary_کارکرد Ref="39" type="Text" isKey="true">
+            <HeaderKosha_MySummary_کارکرد Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,0.3,2.4,0.3</ClientRectangle>
@@ -473,15 +491,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_کارکرد</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>جمع کارکرد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_کارکرد>
-            <HeaderKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی Ref="40" type="Text" isKey="true">
+            <HeaderKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,4.2,2.4,0.3</ClientRectangle>
@@ -490,15 +508,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text> عیدی و سنوات و مرخصی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_مجموع_عیدی_و_سنوات_و_مرخصی>
-            <HeaderKosha_MySummary_جمع_كسور Ref="41" type="Text" isKey="true">
+            <HeaderKosha_MySummary_جمع_كسور Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,3.3,2.4,0.3</ClientRectangle>
@@ -507,15 +525,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_جمع_كسور</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>جمع كسورات</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_جمع_كسور>
-            <HeaderKosha_MySummary_بیمه_23_ Ref="42" type="Text" isKey="true">
+            <HeaderKosha_MySummary_بیمه_23_ Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,0.6,2.4,0.3</ClientRectangle>
@@ -524,14 +542,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_بیمه_23_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>بیمه 23%</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_بیمه_23_>
-            <HeaderKosha_MySummary_ارزش_افزوده Ref="43" type="Text" isKey="true">
+            <HeaderKosha_MySummary_ارزش_افزوده Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,0.9,2.4,0.3</ClientRectangle>
@@ -540,14 +558,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_ارزش_افزوده</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>ارزش افزوده</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_ارزش_افزوده>
-            <HeaderKosha_MySummary_خالص Ref="44" type="Text" isKey="true">
+            <HeaderKosha_MySummary_خالص Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,3.6,2.4,0.3</ClientRectangle>
@@ -556,14 +574,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_خالص</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>خالص</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_خالص>
-            <HeaderKosha_MySummary_حسن_انجام_10_ Ref="45" type="Text" isKey="true">
+            <HeaderKosha_MySummary_حسن_انجام_10_ Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.5,2.4,0.3</ClientRectangle>
@@ -572,14 +590,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_حسن_انجام_10_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>حسن انجام 10%</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_حسن_انجام_10_>
-            <HeaderKosha_MySummary_سپرده_5_ Ref="46" type="Text" isKey="true">
+            <HeaderKosha_MySummary_سپرده_5_ Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,2.4,2.4,0.3</ClientRectangle>
@@ -588,14 +606,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_سپرده_5_</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>سپرده 5%</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_سپرده_5_>
-            <HeaderKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری Ref="47" type="Text" isKey="true">
+            <HeaderKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,4.5,2.4,0.3</ClientRectangle>
@@ -604,14 +622,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>دریافتی مانده ماه قبل در ماه جاری</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_دریافتی_مانده_ماه_قبل_در_ماه_جاری>
-            <HeaderKosha_MySummary_ناخالص_كاركرد Ref="48" type="Text" isKey="true">
+            <HeaderKosha_MySummary_ناخالص_كاركرد Ref="49" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.2,2.4,0.3</ClientRectangle>
@@ -620,14 +638,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_ناخالص_كاركرد</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>ناخالص كاركرد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_ناخالص_كاركرد>
-            <HeaderKosha_MySummary_علي_الحساب_دریافتی Ref="49" type="Text" isKey="true">
+            <HeaderKosha_MySummary_علي_الحساب_دریافتی Ref="50" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,3.9,2.4,0.3</ClientRectangle>
@@ -636,14 +654,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_علي_الحساب_دریافتی</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>علي الحساب دریافتی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_علي_الحساب_دریافتی>
-            <HeaderKosha_MySummary_استرداد_حسن_انجام Ref="50" type="Text" isKey="true">
+            <HeaderKosha_MySummary_استرداد_حسن_انجام Ref="51" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,1.8,2.4,0.3</ClientRectangle>
@@ -652,14 +670,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_استرداد_حسن_انجام</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>استرداد حسن انجام</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_استرداد_حسن_انجام>
-            <HeaderKosha_MySummary_استرداد_بیمه Ref="51" type="Text" isKey="true">
+            <HeaderKosha_MySummary_استرداد_بیمه Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,2.7,2.4,0.3</ClientRectangle>
@@ -668,14 +686,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_استرداد_بیمه</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>استرداد بیمه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_استرداد_بیمه>
-            <HeaderKosha_MySummary_مانده_بیمه Ref="52" type="Text" isKey="true">
+            <HeaderKosha_MySummary_مانده_بیمه Ref="53" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,3,2.4,0.3</ClientRectangle>
@@ -684,14 +702,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_مانده_بیمه</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>مانده بیمه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_مانده_بیمه>
-            <HeaderKosha_MySummary_مانده_حسن_انجام Ref="53" type="Text" isKey="true">
+            <HeaderKosha_MySummary_مانده_حسن_انجام Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,2.1,2.4,0.3</ClientRectangle>
@@ -700,14 +718,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_مانده_حسن_انجام</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>مانده حسن انجام</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_مانده_حسن_انجام>
-            <Text6 Ref="54" type="Text" isKey="true">
+            <Text6 Ref="55" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -718,11 +736,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.استرداد_حسن_انجام}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+              <TextFormat Ref="56" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -731,7 +749,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text7 Ref="56" type="Text" isKey="true">
+            <Text7 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -742,11 +760,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.استرداد_بیمه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="57" type="NumberFormat" isKey="true">
+              <TextFormat Ref="58" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -755,7 +773,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text11 Ref="58" type="Text" isKey="true">
+            <Text11 Ref="59" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -766,11 +784,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.مانده_بیمه}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="59" type="NumberFormat" isKey="true">
+              <TextFormat Ref="60" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -779,7 +797,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text12 Ref="60" type="Text" isKey="true">
+            <Text12 Ref="61" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -790,11 +808,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.مانده_حسن_انجام}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="61" type="NumberFormat" isKey="true">
+              <TextFormat Ref="62" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -803,7 +821,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text13 Ref="62" type="Text" isKey="true">
+            <Text13 Ref="63" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -814,11 +832,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.علي_الحساب_دریافتی}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+              <TextFormat Ref="64" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -827,7 +845,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text21 Ref="64" type="Text" isKey="true">
+            <Text21 Ref="65" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -838,10 +856,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="65" type="NumberFormat" isKey="true">
+              <TextFormat Ref="66" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -851,7 +869,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text22 Ref="66" type="Text" isKey="true">
+            <Text22 Ref="67" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -862,11 +880,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.دریافتی_مانده_ماه_قبل_در_ماه_جاری}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+              <TextFormat Ref="68" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -875,7 +893,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text23 Ref="68" type="Text" isKey="true">
+            <Text23 Ref="69" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -886,11 +904,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.سپرده_5_}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="69" type="NumberFormat" isKey="true">
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -899,7 +917,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text24 Ref="70" type="Text" isKey="true">
+            <Text24 Ref="71" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -910,11 +928,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.حسن_انجام_10_}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="71" type="NumberFormat" isKey="true">
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -923,7 +941,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text24>
-            <Text25 Ref="72" type="Text" isKey="true">
+            <Text25 Ref="73" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -934,10 +952,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="73" type="NumberFormat" isKey="true">
+              <TextFormat Ref="74" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -947,7 +965,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text25>
-            <Text26 Ref="74" type="Text" isKey="true">
+            <Text26 Ref="75" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -958,10 +976,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+              <TextFormat Ref="76" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -971,7 +989,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text27 Ref="76" type="Text" isKey="true">
+            <Text27 Ref="77" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -982,10 +1000,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -995,7 +1013,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text28 Ref="78" type="Text" isKey="true">
+            <Text28 Ref="79" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1006,11 +1024,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.جمع_كسور}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="79" type="NumberFormat" isKey="true">
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1019,7 +1037,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <Text29 Ref="80" type="Text" isKey="true">
+            <Text29 Ref="81" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1030,11 +1048,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text29</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.مجموع_عیدی_و_سنوات_و_مرخصی}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="81" type="NumberFormat" isKey="true">
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1043,7 +1061,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text29>
-            <Text30 Ref="82" type="Text" isKey="true">
+            <Text30 Ref="83" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -1054,10 +1072,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="83" type="NumberFormat" isKey="true">
+              <TextFormat Ref="84" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1067,7 +1085,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text4 Ref="84" type="Text" isKey="true">
+            <Text4 Ref="85" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[146:205:220]</Brush>
               <CanGrow>True</CanGrow>
@@ -1078,11 +1096,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.خالص}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="85" type="NumberFormat" isKey="true">
+              <TextFormat Ref="86" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1092,7 +1110,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <Text8 Ref="86" type="Text" isKey="true">
+            <Text8 Ref="87" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,4.8,2.4,0.3</ClientRectangle>
@@ -1102,15 +1120,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>مانده</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
-            <Text9 Ref="87" type="Text" isKey="true">
+            <Text9 Ref="88" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[146:205:220]</Brush>
               <CanGrow>True</CanGrow>
@@ -1121,10 +1139,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="88" type="NumberFormat" isKey="true">
+              <TextFormat Ref="89" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1134,7 +1152,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <DataKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری Ref="89" type="Text" isKey="true">
+            <DataKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری Ref="90" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[183:221:232]</Brush>
               <CanGrow>True</CanGrow>
@@ -1145,11 +1163,11 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>{Kosha_MySummary.جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="90" type="NumberFormat" isKey="true">
+              <TextFormat Ref="91" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1158,7 +1176,7 @@
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری>
-            <HeaderKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری Ref="91" type="Text" isKey="true">
+            <HeaderKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری Ref="92" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[192:220:219]</Brush>
               <ClientRectangle>5,0,2.4,0.3</ClientRectangle>
@@ -1168,14 +1186,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>جمع حکم و عیدی و سنوات و مرخصی و بالاسری</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderKosha_MySummary_جمع_حکم_و_عیدی_و_سنوات_و_مرخصی_و_بالاسری>
-            <Text5 Ref="92" type="Text" isKey="true">
+            <Text5 Ref="93" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[219:238:243]</Brush>
               <CanGrow>True</CanGrow>
@@ -1186,10 +1204,10 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="93" type="NumberFormat" isKey="true">
+              <TextFormat Ref="94" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -1199,7 +1217,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text10 Ref="94" type="Text" isKey="true">
+            <Text10 Ref="95" type="Text" isKey="true">
               <Border>All;Transparent;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,5.3,7.3,0.7</ClientRectangle>
@@ -1210,8 +1228,8 @@
               <LineSpacing>1.5</LineSpacing>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="5" />
+              <Parent isRef="9" />
               <Text>با سپاس
 علی جبارزاده - مدیرعامل</Text>
               <TextBrush>Black</TextBrush>
@@ -1224,8 +1242,8 @@
           <DataSourceName>Kosha_MySummary</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataKosha_MySummary</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="5" />
+          <Parent isRef="5" />
           <Sort isList="true" count="0" />
         </DataKosha_MySummary>
       </Components>
@@ -1251,10 +1269,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>5/6/2022 4:49:33 PM</ReportChanged>
+  <ReportChanged>7/25/2022 1:44:36 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\MySummary.mrt</ReportFile>
-  <ReportGuid>cb9740b84b394afab0a98008798edbe7</ReportGuid>
+  <ReportGuid>e071416dd3a5499ca94bbafc4b8798c8</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
