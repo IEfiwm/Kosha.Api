@@ -47,10 +47,33 @@
       </Kosha_MySummary>
       <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>WorkShop</Alias>
-        <Columns isList="true" count="3">
+        <Columns isList="true" count="26">
           <value>WorkshopCode,System.String</value>
           <value>WorkshopName,System.String</value>
           <value>BranchName,System.String</value>
+          <value>Id,System.Int64</value>
+          <value>Title,System.String</value>
+          <value>Code,System.String</value>
+          <value>StartDate,System.DateTime</value>
+          <value>EndDate,System.DateTime</value>
+          <value>ProjectStatus,System.Byte</value>
+          <value>IsDeleted,System.Boolean</value>
+          <value>RowOfCovenant,System.String</value>
+          <value>TaxAuthorityCode,System.String</value>
+          <value>TaxAuthorityName,System.String</value>
+          <value>Address,System.String</value>
+          <value>InsurancesName,System.String</value>
+          <value>OwnerName,System.String</value>
+          <value>DisplayAddress,System.String</value>
+          <value>DisplayEmail,System.String</value>
+          <value>DisplayName,System.String</value>
+          <value>DisplayPhoneNumber,System.String</value>
+          <value>DisplayPostalCode,System.String</value>
+          <value>CompanyAddress,System.String</value>
+          <value>CompanyName,System.String</value>
+          <value>CompanyOwnerName,System.String</value>
+          <value>CompanyRegistrationCode,System.String</value>
+          <value>LogoPath,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -60,7 +83,7 @@
         <Parameters isList="true" count="1">
           <value>ProjectRef,ProjectRef,0,10</value>
         </Parameters>
-        <SqlCommand>SELECT [WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
+        <SqlCommand>SELECT *   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
       </WorkShop>
     </DataSources>
     <Relations isList="true" count="0" />
@@ -117,7 +140,7 @@
               <Name>Text3</Name>
               <Page isRef="5" />
               <Parent isRef="6" />
-              <Text>مدیرکل محترم امور مالی و خزانه اسناد {WorkShop.WorkshopName}
+              <Text>مدیرکل محترم امور مالی و خزانه اسناد {WorkShop.Title}
 موضوع: صورت وضعیت {GetDate()}
 </Text>
               <TextBrush>Black</TextBrush>
@@ -1269,10 +1292,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>7/25/2022 1:44:36 PM</ReportChanged>
+  <ReportChanged>7/31/2022 11:24:49 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\MySummary.mrt</ReportFile>
-  <ReportGuid>e071416dd3a5499ca94bbafc4b8798c8</ReportGuid>
+  <ReportGuid>df769b5d079144daa52bf0e8642dc606</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
