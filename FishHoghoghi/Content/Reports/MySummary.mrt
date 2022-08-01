@@ -1254,7 +1254,7 @@
               <Page isRef="5" />
               <Parent isRef="9" />
               <Text>با سپاس
-علی جبارزاده - مدیرعامل</Text>
+{WorkShop.CompanyOwnerName} - مدیرعامل</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,,A=0</TextOptions>
               <Type>Expression</Type>
@@ -1292,10 +1292,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>7/31/2022 11:24:49 PM</ReportChanged>
+  <ReportChanged>8/1/2022 10:51:21 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\MySummary.mrt</ReportFile>
-  <ReportGuid>df769b5d079144daa52bf0e8642dc606</ReportGuid>
+  <ReportGuid>4bb8a2ca26d740cbb302dcdd463d0acb</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
