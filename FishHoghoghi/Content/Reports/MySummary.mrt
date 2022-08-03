@@ -121,7 +121,7 @@
               <Page isRef="5" />
               <Parent isRef="6" />
               <Text>با سلام و احترام
-  بدینوسیله صورت وضعیت شماره              موسسه محافظین تخت جمشید البرز قرارداد شماره                                           مورخ                                   ( بشرح ذیل ) جهت هر گونه اقدام مقتضي به حضورتان ارسال ميگردد . </Text>
+  بدینوسیله صورت وضعیت شماره              {WorkShop.WorkshopName} قرارداد شماره                                           مورخ  {GetDate()}   ( بشرح ذیل ) جهت هر گونه اقدام مقتضي به حضورتان ارسال ميگردد . </Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,RightToLeft=True,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
@@ -1292,10 +1292,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/1/2022 10:51:21 PM</ReportChanged>
+  <ReportChanged>8/3/2022 11:39:41 AM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>D:\Projects\Kosha\Project\Kosha\FishHoghoghi\Content\Reports\MySummary.mrt</ReportFile>
-  <ReportGuid>4bb8a2ca26d740cbb302dcdd463d0acb</ReportGuid>
+  <ReportGuid>4143a1332da642dc8d488d44f887b196</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2019.3.4.0</ReportVersion>
