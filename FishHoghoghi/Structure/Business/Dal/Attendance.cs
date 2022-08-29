@@ -22,7 +22,6 @@ namespace FishHoghoghi.Structure.Business.Dal
         public static void InsertImported(string command)
         {
             var res = DataAccessObject.ExecuteCommand(command, "SMConnectionString");
-
         }
 
         public static string getFormula(string formule, List<FieldRuleModel> model)

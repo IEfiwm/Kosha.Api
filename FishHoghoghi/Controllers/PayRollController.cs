@@ -339,6 +339,7 @@ namespace Fish.Controllers
 
             columnContent.ForEach(field =>
             {
+
                 if (field.IsString)
                 {
                     string value = row.GetValueString(field.Name);

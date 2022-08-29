@@ -1924,7 +1924,7 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
   <ReportAlias>Report</ReportAlias>
   <ReportChanged>8/29/2022 10:44:28 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
-  <ReportFile>F:\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportAll.mrt</ReportFile>
+  <ReportFile>F:\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportAll-newversion.mrt</ReportFile>
   <ReportGuid>cdf142f4f4604ea7b67904ceea817f5c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
