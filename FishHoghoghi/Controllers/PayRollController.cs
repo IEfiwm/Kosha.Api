@@ -193,7 +193,6 @@ namespace Fish.Controllers
                     _response.Content.Headers.ContentDisposition = _attachment;
 
                     _response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
-
                 }
 
                 _reportViewModel = CommonHelper.Deserialize<ReportViewModel>(CommonHelper.ReadJson("Jsons", "ReportRecords.json"));

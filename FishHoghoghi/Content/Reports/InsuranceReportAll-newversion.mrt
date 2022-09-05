@@ -1165,7 +1165,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Name>Text39</Name>
               <Page isRef="5" />
               <Parent isRef="66" />
-              <Text>{Sum(Kosha_Source01.مزد_روزانه)}</Text>
+              <Text>{Sum(Kosha_Source01.مزد_روزانه_بیمه)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="69" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1922,10 +1922,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/29/2022 10:44:28 PM</ReportChanged>
+  <ReportChanged>9/5/2022 10:27:23 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>F:\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportAll-newversion.mrt</ReportFile>
-  <ReportGuid>cdf142f4f4604ea7b67904ceea817f5c</ReportGuid>
+  <ReportGuid>bcbf68b662f24b91b58e415830c846ed</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2021.3.2.0</ReportVersion>
