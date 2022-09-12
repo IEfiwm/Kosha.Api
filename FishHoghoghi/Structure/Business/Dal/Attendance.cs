@@ -10,7 +10,6 @@ namespace FishHoghoghi.Structure.Business.Dal
 {
     public static class Attendance
     {
-
         public static void DeleteImported(long projectId, string year, string month)
         {
             var res = DataAccessObject.ExecuteCommand($@"UPDATE DATA.TbImported SET IsDeleted=1 
@@ -67,13 +66,12 @@ namespace FishHoghoghi.Structure.Business.Dal
 
             return table.Rows.Count > 0;
         }
+
         public static void InsertRequest(long projectId, string year, string month)
         {
             var res = DataAccessObject.ExecuteCommand($@"insert into [dbo].[PayRollRequests] (ProjectId,Year,Month,RequestDateTime)
                                                     values ({projectId},{year},{month},'{DateTime.Now}')");
 
         }
-
-
     }
 }

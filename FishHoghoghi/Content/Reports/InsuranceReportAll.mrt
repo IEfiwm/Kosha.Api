@@ -6,106 +6,12 @@
       <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>MS SQL</Alias>
         <ConnectionStringEncrypted>9Mj3C8VNw9lheqWlxQjqdtFurSjGS3vd/nslmUkNZSrDxNsCZkvzRUJJPUxiAKQXiCBliE0FWYRCXKDcZxVrEoJaYyhhUdOswx3Z8UsVJXvEcPnCyRhLkeJ89Y1OXPYbkGzdy+VZo91rBtHcYw00etF8wQzLWdptbHy18HOI</ConnectionStringEncrypted>
+        <Key>7ae848b784c749f799280198f3cf5cdf</Key>
         <Name>MS SQL</Name>
       </MS_x0020_SQL>
     </Databases>
     <DataSources isList="true" count="2">
-      <Kosha_Source01 Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Kosha_Source01</Alias>
-        <Columns isList="true" count="77">
-          <value>تاریخ_x0020_تولد,System.String</value>
-          <value>نام_x0020_پدر,System.String</value>
-          <value>رند_x0020_حقوق,System.Int32</value>
-          <value>حق_x0020_شیر,System.Int32</value>
-          <value>حق_x0020_خواربار,System.Int32</value>
-          <value>مانده_x0020_مرخصی,System.Int32</value>
-          <value>جمع_x0020_اقساط_x0020_وام,System.Int32</value>
-          <value>جمع_x0020_مزایا,System.String</value>
-          <value>کد_x0020_ملی_x0020_,System.String</value>
-          <value>شماره_x0020_شناسنامه,System.String</value>
-          <value>نام,System.String</value>
-          <value>نام_x0020_خانوادگی,System.String</value>
-          <value>کد_x0020_پرسنلی,System.String</value>
-          <value>نام_x0020_شعبه,System.String</value>
-          <value>سال_x0020_,System.String</value>
-          <value>ماه,System.String</value>
-          <value>تعداد_x0020_اولاد,System.String</value>
-          <value>شماره_x0020_حساب,System.String</value>
-          <value>بیمه_x0020_تامین_x0020_اجتماعی,System.String</value>
-          <value>حق_x0020_بن,System.String</value>
-          <value>جمع_x0020_كسور,System.String</value>
-          <value>كل_x0020_حقوق_x0020_و_x0020_مزايا,System.String</value>
-          <value>اضافه_x0020_کاری,System.String</value>
-          <value>بن_x0020_کارگری,System.String</value>
-          <value>پایه_x0020_سنوات,System.String</value>
-          <value>تعطیل_x0020_کاری,System.String</value>
-          <value>حق_x0020_اولاد,System.String</value>
-          <value>_x0031_حق_x0020_ناهار,System.String</value>
-          <value>حق_x0020_مسکن,System.String</value>
-          <value>حقوق_x0020_پایه,System.String</value>
-          <value>خالص_x0020_پرداختی,System.String</value>
-          <value>سایر_x0020_کسور,System.String</value>
-          <value>شبکاری,System.String</value>
-          <value>کارکرد_x0020_اضافه_x0020_کاری,System.String</value>
-          <value>کارکرد_x0020_تعطیل_x0020_کاری,System.String</value>
-          <value>كاركرد_x0020_حق_x0020_غذا,System.String</value>
-          <value>کارکرد_x0020_موثر,System.String</value>
-          <value>کارکرد_x0020_شبکاری,System.String</value>
-          <value>ماليات,System.String</value>
-          <value>کارکرد_x0020_ماموریت,System.String</value>
-          <value>ماموریت,System.String</value>
-          <value>کارکرد_x0020_نوبت_x0020_کاری,System.String</value>
-          <value>نوبت_x0020_کاری,System.String</value>
-          <value>کسر_x0020_بیمه_x0020_تکمیلی,System.String</value>
-          <value>کارکرد_x0020_پاداش,System.String</value>
-          <value>پاداش,System.String</value>
-          <value>سنوات,System.String</value>
-          <value>عیدی,System.String</value>
-          <value>اضافه_x0020_کاری_x0020_ثابت,System.String</value>
-          <value>کسر_x0020_بیمه_x0020_تکمیلی_x0020_سرپرست,System.String</value>
-          <value>کسر_x0020_بیمه_x0020_تکمیلی_x0020_افراد_x0020_تحت_x0020_تکفل,System.String</value>
-          <value>کسر_x0020_بیمه_x0020_تکمیلی_x0020_افرادغیر_x0020_تحت_x0020_تکفل,System.String</value>
-          <value>هزینه_x0020_رفاهی,System.String</value>
-          <value>ایاب_x0020_و_x0020_ذهاب,System.String</value>
-          <value>کارکرد_x0020_معوقه,System.String</value>
-          <value>وام_x0020_موسسه,System.String</value>
-          <value>وام_x0020_سامان,System.String</value>
-          <value>معوقه_x0020_ایاب_x0020_و_x0020_ذهاب,System.String</value>
-          <value>کسر_x0020_بیمه_x0020_تکمیلی_x0020_ماه_x0020_معوقه,System.String</value>
-          <value>کمک_x0020_هزینه_x0020_رفاهی,System.String</value>
-          <value>کارایی,System.String</value>
-          <value>شغل,System.String</value>
-          <value>شماره_x0020_بیمه,System.String</value>
-          <value>مزد_x0020_ماهانه,System.String</value>
-          <value>مزد_x0020_روزانه,System.String</value>
-          <value>کدشغل,System.String</value>
-          <value>جنسیت,System.Int32</value>
-          <value>ملیت,System.String</value>
-          <value>ماخذ_x0020_بیمه,System.String</value>
-          <value>مزایای_x0020_مشمول,System.String</value>
-          <value>تاریخ_x0020_شروع_x0020_کار,System.DateTime</value>
-          <value>تاریخ_x0020_ترک_x0020_کار,System.DateTime</value>
-          <value>دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,System.String</value>
-          <value>حق_x0020_بیمه_x0020_سهم_x0020_کارفرما,System.String</value>
-          <value>حق_x0020_بیمه_x0020_بیکاری,System.String</value>
-          <value>ProjectRef,System.Nullable`1[System.Int64]</value>
-          <value>EmployeeStatus,System.Int32</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Key>f70ded15ec0e42918a4939a839309323</Key>
-        <Name>Kosha_Source01</Name>
-        <NameInSource>MS SQL</NameInSource>
-        <Parameters isList="true" count="3">
-          <value>Month,Month,8,0</value>
-          <value>Year,Year,8,0</value>
-          <value>ProjectRef,ProjectRef,8,0</value>
-        </Parameters>
-        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectRef
-and EmployeeStatus=0
-ORDER BY [نام خانوادگی] </SqlCommand>
-      </Kosha_Source01>
-      <WorkShop Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <WorkShop Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>WorkShop</Alias>
         <Columns isList="true" count="3">
           <value>WorkshopCode,System.String</value>
@@ -122,6 +28,102 @@ ORDER BY [نام خانوادگی] </SqlCommand>
         </Parameters>
         <SqlCommand>SELECT[WorkshopCode],[WorkshopName],[BranchName]   FROM [SM].[Basic].[TbProject] where id=@ProjectRef</SqlCommand>
       </WorkShop>
+      <Kosha_Source01 Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Kosha_Source01</Alias>
+        <Columns isList="true" count="78">
+          <value>ORIGINAL,تاریخ_x0020_تولد,تاریخ_x0020_تولد,تاریخ_x0020_تولد,System.String,_x0032_9feb1e3869149b88d0a34518eb72df0</value>
+          <value>ORIGINAL,نام_x0020_پدر,نام_x0020_پدر,نام_x0020_پدر,System.String,a139c7e6ce8844779e7f8ce84907df36</value>
+          <value>ORIGINAL,رند_x0020_حقوق,رند_x0020_حقوق,رند_x0020_حقوق,System.Int32,a69a67865eed4e129adf1bbf47ecd272</value>
+          <value>ORIGINAL,حق_x0020_شیر,حق_x0020_شیر,حق_x0020_شیر,System.Int32,_x0033_5ab513b638a40278e66ee1172a183ab</value>
+          <value>ORIGINAL,حق_x0020_خواربار,حق_x0020_خواربار,حق_x0020_خواربار,System.Int32,df9f130a7ae247b29681ef090efc8c24</value>
+          <value>ORIGINAL,مانده_x0020_مرخصی,مانده_x0020_مرخصی,مانده_x0020_مرخصی,System.Int32,c42f35b09fd942fe97edc9ac1ee7ac0d</value>
+          <value>ORIGINAL,جمع_x0020_اقساط_x0020_وام,جمع_x0020_اقساط_x0020_وام,جمع_x0020_اقساط_x0020_وام,System.Int32,_x0030_fcc548f6b5440deb6d7bd26dbde25e4</value>
+          <value>ORIGINAL,جمع_x0020_مزایا,جمع_x0020_مزایا,جمع_x0020_مزایا,System.String,efa088d269d94a6892983c2d7bde305e</value>
+          <value>ORIGINAL,کد_x0020_ملی_x0020_,کد_x0020_ملی_x0020_,کد_x0020_ملی_x0020_,System.String,_x0033_b4bd311b1684ac9ae26a455ab32cdfc</value>
+          <value>ORIGINAL,شماره_x0020_شناسنامه,شماره_x0020_شناسنامه,شماره_x0020_شناسنامه,System.String,_x0035_4f15531f6e44e5bbfc7e690cd64ac13</value>
+          <value>ORIGINAL,نام,نام,نام,System.String,_x0037_97accc3c2454451a80559afd8c97085</value>
+          <value>ORIGINAL,نام_x0020_خانوادگی,نام_x0020_خانوادگی,نام_x0020_خانوادگی,System.String,_x0039_5e65647da344a1bb3946e1783045e1f</value>
+          <value>ORIGINAL,کد_x0020_پرسنلی,کد_x0020_پرسنلی,کد_x0020_پرسنلی,System.String,_x0031_f38204ca2764039a19bd1287a7878f6</value>
+          <value>ORIGINAL,نام_x0020_شعبه,نام_x0020_شعبه,نام_x0020_شعبه,System.String,fee7d5ebe87b41ed9ac6293be0764add</value>
+          <value>ORIGINAL,سال_x0020_,سال_x0020_,سال_x0020_,System.String,_x0035_d9ed396d8cd478a9204c867ceeb8361</value>
+          <value>ORIGINAL,ماه,ماه,ماه,System.String,_x0037_f3db7292e6c454e8abee096e3d5dbd1</value>
+          <value>ORIGINAL,تعداد_x0020_اولاد,تعداد_x0020_اولاد,تعداد_x0020_اولاد,System.String,_x0035_29bd582656b4df3b7123fe059dbfc8c</value>
+          <value>ORIGINAL,شماره_x0020_حساب,شماره_x0020_حساب,شماره_x0020_حساب,System.String,_x0030_2ae3df39b1e402b87a1f63457fc3b24</value>
+          <value>ORIGINAL,بیمه_x0020_تامین_x0020_اجتماعی,بیمه_x0020_تامین_x0020_اجتماعی,بیمه_x0020_تامین_x0020_اجتماعی,System.String,dbd8facb619b4640bdb53d355d8cbd52</value>
+          <value>ORIGINAL,حق_x0020_بن,حق_x0020_بن,حق_x0020_بن,System.String,_x0030_abac8481838481e9f8abf6f049b8c72</value>
+          <value>ORIGINAL,جمع_x0020_كسور,جمع_x0020_كسور,جمع_x0020_كسور,System.String,c1ea9f908aa142f59603be179e478ddd</value>
+          <value>ORIGINAL,كل_x0020_حقوق_x0020_و_x0020_مزايا,كل_x0020_حقوق_x0020_و_x0020_مزايا,كل_x0020_حقوق_x0020_و_x0020_مزايا,System.String,_x0038_8e263d218d041a687dda020241b8515</value>
+          <value>ORIGINAL,اضافه_x0020_کاری,اضافه_x0020_کاری,اضافه_x0020_کاری,System.String,_x0032_6efa59535f74baeae0e85a7c58f6de6</value>
+          <value>ORIGINAL,بن_x0020_کارگری,بن_x0020_کارگری,بن_x0020_کارگری,System.String,a8bcc1ecc1ad45ffa02999cc9d982483</value>
+          <value>ORIGINAL,پایه_x0020_سنوات,پایه_x0020_سنوات,پایه_x0020_سنوات,System.String,bec1cd2787a04a8b98ec835605822c40</value>
+          <value>ORIGINAL,تعطیل_x0020_کاری,تعطیل_x0020_کاری,تعطیل_x0020_کاری,System.String,aa9e8c34c1a3442db5c9c2c5205760ef</value>
+          <value>ORIGINAL,حق_x0020_اولاد,حق_x0020_اولاد,حق_x0020_اولاد,System.String,_x0039_5312762dc26402a9b8af0f03b2512ff</value>
+          <value>ORIGINAL,_x0031_حق_x0020_ناهار,_x0031_حق_x0020_ناهار,_x0031_حق_x0020_ناهار,System.String,e309a113a8004d9485757dbf6b284e77</value>
+          <value>ORIGINAL,حق_x0020_مسکن,حق_x0020_مسکن,حق_x0020_مسکن,System.String,_x0031_1eb09bec8bf47edaa50eebb14550b3c</value>
+          <value>ORIGINAL,حقوق_x0020_پایه,حقوق_x0020_پایه,حقوق_x0020_پایه,System.String,_x0033_2d3f6812b2d48d28bf7a1d467685101</value>
+          <value>ORIGINAL,خالص_x0020_پرداختی,خالص_x0020_پرداختی,خالص_x0020_پرداختی,System.String,b34f352835cf48ef814592f51268efb9</value>
+          <value>ORIGINAL,سایر_x0020_کسور,سایر_x0020_کسور,سایر_x0020_کسور,System.String,e62adbf374a643e1a6c229ac9cd5153c</value>
+          <value>ORIGINAL,شبکاری,شبکاری,شبکاری,System.String,_x0031_758de7c27c049a2978b64f2e50e242f</value>
+          <value>ORIGINAL,کارکرد_x0020_اضافه_x0020_کاری,کارکرد_x0020_اضافه_x0020_کاری,کارکرد_x0020_اضافه_x0020_کاری,System.String,e31416c768914a498c2aab7de8655c1d</value>
+          <value>ORIGINAL,کارکرد_x0020_تعطیل_x0020_کاری,کارکرد_x0020_تعطیل_x0020_کاری,کارکرد_x0020_تعطیل_x0020_کاری,System.String,_x0037_fdf713e89b94177a8c4e2b2ec51905f</value>
+          <value>ORIGINAL,كاركرد_x0020_حق_x0020_غذا,كاركرد_x0020_حق_x0020_غذا,كاركرد_x0020_حق_x0020_غذا,System.String,_x0030_79da6542ec14c0c9d9d3c28b504a283</value>
+          <value>ORIGINAL,کارکرد_x0020_موثر,کارکرد_x0020_موثر,کارکرد_x0020_موثر,System.String,ee763d748d6f4e25b2885d9b67741c58</value>
+          <value>ORIGINAL,کارکرد_x0020_شبکاری,کارکرد_x0020_شبکاری,کارکرد_x0020_شبکاری,System.String,a956d1a042494dafb97577b871f88b57</value>
+          <value>ORIGINAL,ماليات,ماليات,ماليات,System.String,e033b43156bd4ec8991195aeeed1e27b</value>
+          <value>ORIGINAL,کارکرد_x0020_ماموریت,کارکرد_x0020_ماموریت,کارکرد_x0020_ماموریت,System.String,_x0030_443c4a679544f42bae0d1942e6372c2</value>
+          <value>ORIGINAL,ماموریت,ماموریت,ماموریت,System.String,c138a1dfd47d45a0a269ec276e4e35ed</value>
+          <value>ORIGINAL,کارکرد_x0020_نوبت_x0020_کاری,کارکرد_x0020_نوبت_x0020_کاری,کارکرد_x0020_نوبت_x0020_کاری,System.String,_x0038_ae79893b5414d728df63d825cb6706c</value>
+          <value>ORIGINAL,نوبت_x0020_کاری,نوبت_x0020_کاری,نوبت_x0020_کاری,System.String,_x0033_3d35fd9d2324138a3c01af198fb8082</value>
+          <value>ORIGINAL,کسر_x0020_بیمه_x0020_تکمیلی,کسر_x0020_بیمه_x0020_تکمیلی,کسر_x0020_بیمه_x0020_تکمیلی,System.String,_x0030_b463028a2364115aa12d69f50f2cad2</value>
+          <value>ORIGINAL,کارکرد_x0020_پاداش,کارکرد_x0020_پاداش,کارکرد_x0020_پاداش,System.String,_x0036_827187d7e0044f99047ea286a228772</value>
+          <value>ORIGINAL,پاداش,پاداش,پاداش,System.String,_x0034_fb9f0443b774090a141552c9f763645</value>
+          <value>ORIGINAL,سنوات,سنوات,سنوات,System.String,_x0034_421dc88dc9448318c55d1b9233566c9</value>
+          <value>ORIGINAL,عیدی,عیدی,عیدی,System.String,_x0032_0242a7241a249108cebf85d06cd2e7a</value>
+          <value>ORIGINAL,اضافه_x0020_کاری_x0020_ثابت,اضافه_x0020_کاری_x0020_ثابت,اضافه_x0020_کاری_x0020_ثابت,System.String,_x0033_0b84327922640a7bc2fcc4583984c2b</value>
+          <value>ORIGINAL,کسر_x0020_بیمه_x0020_تکمیلی_x0020_سرپرست,کسر_x0020_بیمه_x0020_تکمیلی_x0020_سرپرست,کسر_x0020_بیمه_x0020_تکمیلی_x0020_سرپرست,System.String,_x0035_24640a8a817441da3e7fb1e71c81e2d</value>
+          <value>ORIGINAL,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افراد_x0020_تحت_x0020_تکفل,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افراد_x0020_تحت_x0020_تکفل,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افراد_x0020_تحت_x0020_تکفل,System.String,_x0032_36e2fe6287849808306b2df89b1ec2a</value>
+          <value>ORIGINAL,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افرادغیر_x0020_تحت_x0020_تکفل,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افرادغیر_x0020_تحت_x0020_تکفل,کسر_x0020_بیمه_x0020_تکمیلی_x0020_افرادغیر_x0020_تحت_x0020_تکفل,System.String,a4589f208aca4a52a6651b343d74b3ac</value>
+          <value>ORIGINAL,هزینه_x0020_رفاهی,هزینه_x0020_رفاهی,هزینه_x0020_رفاهی,System.String,_x0036_a34d843077f4f01a90065cc3aa26d01</value>
+          <value>ORIGINAL,ایاب_x0020_و_x0020_ذهاب,ایاب_x0020_و_x0020_ذهاب,ایاب_x0020_و_x0020_ذهاب,System.String,e0642c8617f94f69a1b950ddadf14283</value>
+          <value>ORIGINAL,کارکرد_x0020_معوقه,کارکرد_x0020_معوقه,کارکرد_x0020_معوقه,System.String,_x0032_8c9e71cf6c14ef499c735615c3d25a8</value>
+          <value>ORIGINAL,وام_x0020_موسسه,وام_x0020_موسسه,وام_x0020_موسسه,System.String,ae1b7b3d39aa4fb3adcded9dd638b401</value>
+          <value>ORIGINAL,وام_x0020_سامان,وام_x0020_سامان,وام_x0020_سامان,System.String,fa70c1239924451fa2abbf35c80ff988</value>
+          <value>ORIGINAL,معوقه_x0020_ایاب_x0020_و_x0020_ذهاب,معوقه_x0020_ایاب_x0020_و_x0020_ذهاب,معوقه_x0020_ایاب_x0020_و_x0020_ذهاب,System.String,_x0039_8aca73953394a21b76f33897a4fb4cd</value>
+          <value>ORIGINAL,کسر_x0020_بیمه_x0020_تکمیلی_x0020_ماه_x0020_معوقه,کسر_x0020_بیمه_x0020_تکمیلی_x0020_ماه_x0020_معوقه,کسر_x0020_بیمه_x0020_تکمیلی_x0020_ماه_x0020_معوقه,System.String,_x0039_bcd64bd69024633ba71017315a7d89b</value>
+          <value>ORIGINAL,کمک_x0020_هزینه_x0020_رفاهی,کمک_x0020_هزینه_x0020_رفاهی,کمک_x0020_هزینه_x0020_رفاهی,System.String,_x0033_ccc7cacb32346098932b2ba9b3f9731</value>
+          <value>ORIGINAL,کارایی,کارایی,کارایی,System.String,_x0032_388e43629e34c688fc428b4db141b6c</value>
+          <value>ORIGINAL,شغل,شغل,شغل,System.String,b6faf9346ae14560986c678ac7182c4a</value>
+          <value>ORIGINAL,شماره_x0020_بیمه,شماره_x0020_بیمه,شماره_x0020_بیمه,System.String,_x0033_4a5f7ba57364e94aecf24c13ee80db2</value>
+          <value>ORIGINAL,مزد_x0020_ماهانه,مزد_x0020_ماهانه,مزد_x0020_ماهانه,System.String,cbc26e5583a14f3aa79119c33aabe9ad</value>
+          <value>ORIGINAL,مزد_x0020_روزانه,مزد_x0020_روزانه,مزد_x0020_روزانه,System.String,_x0039_66890a029e44e7d805855967d6f38bf</value>
+          <value>ORIGINAL,کدشغل,کدشغل,کدشغل,System.String,_x0039_e5a0d1bafda47c3a40eeb7bfd5a3428</value>
+          <value>ORIGINAL,جنسیت,جنسیت,جنسیت,System.Int32,_x0032_e70c06a629142d599b048e711e7911e</value>
+          <value>ORIGINAL,ملیت,ملیت,ملیت,System.String,_x0032_a18dfb8c8124a30b221b77fbf28f499</value>
+          <value>ORIGINAL,ماخذ_x0020_بیمه,ماخذ_x0020_بیمه,ماخذ_x0020_بیمه,System.String,_x0039_1ad0862d8694074a1556b7dcc6faa84</value>
+          <value>ORIGINAL,مزایای_x0020_مشمول,مزایای_x0020_مشمول,مزایای_x0020_مشمول,System.String,_x0035_4d24d984ed04a9489c03d9208d1b22c</value>
+          <value>ORIGINAL,تاریخ_x0020_شروع_x0020_کار,تاریخ_x0020_شروع_x0020_کار,تاریخ_x0020_شروع_x0020_کار,System.DateTime,_x0034_11d4c597cdd4496906c53c4ec15727f</value>
+          <value>ORIGINAL,تاریخ_x0020_ترک_x0020_کار,تاریخ_x0020_ترک_x0020_کار,تاریخ_x0020_ترک_x0020_کار,System.DateTime,_x0032_08917c4c1964f35ac4f6e7bc6eccef0</value>
+          <value>ORIGINAL,دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,دستمزد_x0020_و_x0020_مزایای_x0020_مشمول_x0020_ماهانه,System.String,_x0034_bdeec5c9e564134805949c343912527</value>
+          <value>ORIGINAL,حق_x0020_بیمه_x0020_سهم_x0020_کارفرما,حق_x0020_بیمه_x0020_سهم_x0020_کارفرما,حق_x0020_بیمه_x0020_سهم_x0020_کارفرما,System.String,a041f99a735c4d9fa6f96d9a3b4d9f7a</value>
+          <value>ORIGINAL,حق_x0020_بیمه_x0020_بیکاری,حق_x0020_بیمه_x0020_بیکاری,حق_x0020_بیمه_x0020_بیکاری,System.String,_x0035_d84beb676174e4cafa7eb1e3f36d793</value>
+          <value>ORIGINAL,ProjectRef,ProjectRef,ProjectRef,System.Nullable`1[System.Int64],f52015ed2db24488922f9df5a9498a18</value>
+          <value>ORIGINAL,EmployeeStatus,EmployeeStatus,EmployeeStatus,System.Int32,_x0032_cfdb2e1f226499caa4cdd066539ed30</value>
+          <value>ORIGINAL,مزد_x0020_روزانه_x0020_بیمه,مزد_x0020_روزانه_x0020_بیمه,مزد_x0020_روزانه_x0020_بیمه,System.String,b27b678998284566be5545f16bfc32f1</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>f70ded15ec0e42918a4939a839309323</Key>
+        <Name>Kosha_Source01</Name>
+        <NameInSource>MS SQL</NameInSource>
+        <Parameters isList="true" count="3">
+          <value>Month,Month,8,0</value>
+          <value>Year,Year,8,0</value>
+          <value>ProjectRef,ProjectRef,8,0</value>
+        </Parameters>
+        <SqlCommand>select * from Kosha_Source01 where ماه=@Month and سال=@Year and ProjectRef= @ProjectRef
+and EmployeeStatus=0
+ORDER BY [نام خانوادگی] </SqlCommand>
+      </Kosha_Source01>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
@@ -785,7 +787,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Name>Text43</Name>
               <Page isRef="5" />
               <Parent isRef="33" />
-              <Text>{Kosha_Source01.مزد_روزانه}</Text>
+              <Text>{Kosha_Source01.مزد_روزانه_بیمه}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="44" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1163,7 +1165,7 @@ ORDER BY [نام خانوادگی] </SqlCommand>
               <Name>Text39</Name>
               <Page isRef="5" />
               <Parent isRef="66" />
-              <Text>{Sum(Kosha_Source01.مزد_روزانه)}</Text>
+              <Text>{Sum(Kosha_Source01.مزد_روزانه_بیمه)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="69" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1920,10 +1922,10 @@ Sum(Kosha_Source01.حق_بیمه_بیکاری)}</Text>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/29/2022 10:39:30 PM</ReportChanged>
+  <ReportChanged>9/5/2022 10:27:23 PM</ReportChanged>
   <ReportCreated>12/6/2021 11:56:38 PM</ReportCreated>
   <ReportFile>F:\Kosha.Api\FishHoghoghi\Content\Reports\InsuranceReportAll-newversion.mrt</ReportFile>
-  <ReportGuid>b2c03951321145ac9d799c4830190d14</ReportGuid>
+  <ReportGuid>bcbf68b662f24b91b58e415830c846ed</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2021.3.2.0</ReportVersion>
