@@ -36,7 +36,7 @@ namespace FishHoghoghi.App_Start
             {
                 return _container.Resolve(serviceType);
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             }
