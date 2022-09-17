@@ -11,7 +11,7 @@ namespace FishHoghoghi.Structure.Business.Dal
         {
             var command = "";
             command += $@"                    
-                    SELECT	SUM(CONVERT(BIGINT,[ماليات]))
+                    SELECT	SUM(CONVERT(DECIMAL,[ماليات]))
                     FROM
                        [dbo].[Kosha_Source01]
                     WHERE  [ماه] <= {month} AND [سال]  =   {year}";
@@ -46,7 +46,7 @@ namespace FishHoghoghi.Structure.Business.Dal
         {
             var command = "";
             command += $@"                    
-                    SELECT	SUM(CONVERT(BIGINT,[ماليات]))
+                    SELECT	SUM(CONVERT(DECIMAL,[ماليات]))
                     FROM
                        [dbo].[Kosha_Source01]
                     WHERE  [ماه] = {month} AND [سال]  =   {year}";

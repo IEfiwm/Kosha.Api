@@ -72,7 +72,6 @@ namespace FishHoghoghi.Controllers
             }
         }
 
-
         [HttpGet]
         [Route("Project/GetStatusReport/{year}/{month}/{projectId}")]
         public async Task<HttpResponseMessage> GetStatusReport(string year, string month, long projectId)

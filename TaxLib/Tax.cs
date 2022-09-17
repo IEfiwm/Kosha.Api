@@ -111,7 +111,7 @@ namespace TaxLib
 
             foreach (var item in personnels)
             {
-                h = item.NationalCode + ","// کد ملی/ کد فراگیر
+                h += item.NationalCode + ","// کد ملی/ کد فراگیر
                 + paymentMethod + ","// نوع پرداخت
                 + 1 + ","// تعداد ماه های کارکرد واقعی از ابتدای سال جاری
                 + item.EndMonthWork + ","// آیا این ماه آخرین ماه فعالیت کاری حقوق بگیر می باشد؟
