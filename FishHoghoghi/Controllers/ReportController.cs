@@ -291,7 +291,7 @@ namespace FishHoghoghi.Controllers
                     EndWorkDate = endworkingdate == default(PersianDateTime) ? 0 : Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
                     EndMonthWork = endworkingdate == default(PersianDateTime) ? 2 : endworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
                     InsurenceType = Convert.ToInt32(item[8].ToString()),
-                    IncludedBenefits = Convert.ToInt32(item[9].ToString().Split('.')[0]),
+                    IncludedBenefits = Convert.ToInt64(item[9].ToString().Split('.')[0]),
                 });
 
             }
@@ -354,7 +354,7 @@ namespace FishHoghoghi.Controllers
                     EndWorkDate = endworkingdate == default(PersianDateTime) ? 0 : Convert.ToInt32(CommonHelper.ConvertToEnglishNumber(endworkingdate.Date.ToString("yyyy/MM/dd").Replace("/", ""))),
                     EndMonthWork = endworkingdate == default(PersianDateTime) ? 2 : endworkingdate.ToDateTime().Date.ToString("yyyy/MM") == DateTime.Now.Date.ToString("yyyy/MM") ? 1 : 2,
                     InsurenceType = Convert.ToInt32(item[8].ToString()),
-                    IncludedBenefits = Convert.ToInt32(item[9].ToString().Split('.')[0]),
+                    IncludedBenefits = Convert.ToInt64(item[9].ToString().Split('.')[0]),
                 });
 
             }
